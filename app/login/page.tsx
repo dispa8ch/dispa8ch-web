@@ -3,7 +3,7 @@ import LoginForm from "@/components/LoginForm";
 
 export default function Login() {
   return (
-    <main className='w-full h-full max-w-xl flex flex-col'>
+    <main className='w-screen h-screen bg-gradient-to-br from-[#D1193E1A] to-[#FDA8001A] font-Circular_Medium flex flex-col p-4'>
       <section className='w-full h-fit flex justify-center '>
         <Dispa8chLogo size={0.8} />
       </section>
