@@ -36,3 +36,4 @@ next-env.d.ts
 
 # shell files 
 *.sh
+*.ps1

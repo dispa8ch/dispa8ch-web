@@ -1,8 +1,9 @@
 import './globals.css';
 import type { Metadata } from 'next';
+
 export const metadata: Metadata = {
   title: 'Welcome to Dispa8ch',
-  description: 'This is ',
+  description: 'Dispa8ch.io is a SaaS platform that helps facilitates the process of logistics businesses by providing services like package tracking and route optimization.',
 };
 
 export default function RootLayout({
@@ -12,7 +13,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={'min-w-[100vw] min-h-[100vh] flex flex-col '}>
+      <head>
+        <link rel="shortcut icon" href="./favicon.png" type="image/png" />
+      </head>
+      <body className={'min-w-[100vw] min-h-[100vh] flex flex-col font-Circular_Medium '}>
         {children}
       </body>
     </html>

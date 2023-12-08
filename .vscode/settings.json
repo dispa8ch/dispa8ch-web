@@ -1,6 +1,7 @@
 {
-  "editor.fontFamily": "operator mono light",
-  "editor.fontSize": 16,
-  "editor.lineHeight": 1.9,
-  "editor.fontWeight": "normal"
+  "editor.fontFamily": "Consolas, 'Courier New', monospace",
+  "editor.fontWeight": "900",
+  "editor.fontSize": 17,
+  "tailwindCSS.emmetCompletions": true,
+  
 }
