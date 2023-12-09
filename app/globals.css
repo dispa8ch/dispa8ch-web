@@ -31,6 +31,7 @@
   :root {
     --shadow-black: 0 0 4px rgba(0,0,0,.2);
     --shadow-dispa8chred: 0 0 4px #D1193E;
+    --trans-duration: 700ms;
   }
   .shadow-base {
     box-shadow: var(--shadow-black);
@@ -40,5 +41,9 @@
   }
   .shadow-input {
     @apply shadow-base focus:shadow-dispa8chred
+  }
+
+  .fade {
+    transition: opacity var(--trans-duration) ease;
   }
 }
