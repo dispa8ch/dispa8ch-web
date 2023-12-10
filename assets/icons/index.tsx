@@ -16,6 +16,9 @@ function scaleSize(size: number = 1): [string, string] {
   }
 }
 
+/**
+ * This is the official Dispa8ch logo in svg format
+ */
 export const Dispa8chLogo = (props?: Dispa8chLogoProps) => {
   const size = scaleSize(props?.size || 1)
   return (

@@ -28,7 +28,7 @@ const SignUpForm = () => {
   };
 
   return (
-    <section className='w-full flex-grow flex bg-white max-w-xl flex-col my-4 shadow-base rounded-xl py-10 px-10 lg:px-16 '>
+    <section className='w-fit flex-grow max-w-xl max-h-[560px] bg-white flex flex-col shadow-base rounded-xl py-10 px-10 sm:max-h-none lg:px-16 '>
       <h1 className='font-Circular_Black text-[25px] '>Create your Account</h1>
       <form
         ref={formRef as any}

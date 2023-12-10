@@ -16,7 +16,7 @@ export default function RootLayout({
       <head>
         <link rel="shortcut icon" href="./favicon.png" type="image/png" />
       </head>
-      <body className={'min-w-[100vw] min-h-[100vh] flex flex-col font-Circular_Medium '}>
+      <body className={'w-fit h-fit '}>
         {children}
       </body>
     </html>
