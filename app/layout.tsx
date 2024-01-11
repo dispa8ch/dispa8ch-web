@@ -16,7 +16,7 @@ export default function RootLayout({
       <head>
         <link rel="shortcut icon" href="./favicon.png" type="image/png" />
       </head>
-      <body className={'w-fit h-fit '}>
+      <body className={'w-full min-h-screen '}>
         {children}
       </body>
     </html>

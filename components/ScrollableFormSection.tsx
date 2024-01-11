@@ -1,5 +1,5 @@
-import CreateButton from "./CreateButton";
 import { NamedInput, PasswordInput } from "./Input";
+import LoginButton from "./buttons/LoginButton";
 
 const ScrollableFormSection = () => {
   return (
@@ -15,7 +15,7 @@ const ScrollableFormSection = () => {
         <NamedInput name='City' />
         <NamedInput name='Contract Person Name' />
         <NamedInput name='Phone Number' />
-        <CreateButton />
+        <LoginButton text='Create your account' />
       </section>
     </>
   );

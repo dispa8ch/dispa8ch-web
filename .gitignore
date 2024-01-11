@@ -37,3 +37,6 @@ next-env.d.ts
 # shell files 
 *.sh
 *.ps1
+
+# figma
+assets/figma
