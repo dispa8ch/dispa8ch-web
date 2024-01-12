@@ -11,12 +11,12 @@ import { useRouter } from "next/navigation";
 export default function Login() {
   const router = useRouter();
   return (
-    <main className='w-screen min-h-screen px-4 bg-gradient-to-br from-[#D1193E1A] to-[#FDA8001A] font-Circular_Medium flex flex-col items-center justify-center gap-7 md:py-4'>
+    <main className='w-screen min-h-screen px-4 bg-gradient-to-br from-[#D1193E1A] to-[#FDA8001A] font-Inter_Medium flex flex-col items-center justify-center gap-7 md:py-4'>
       <section className='w-full h-fit flex justify-center '>
         <Dispa8chLogo size={1} />
       </section>
       <section className='w-full flex-grow max-w-xl max-h-[560px] bg-white flex flex-col shadow-base rounded-xl py-10 px-10 sm:max-h-none lg:px-16 '>
-        <h1 className='font-Circular_Black text-[25px] '>
+        <h1 className='font-Inter_Black text-[25px] '>
           Create your Account
         </h1>
         <form className='w-full mt-6 flex-grow flex flex-col gap-2'>
@@ -30,7 +30,7 @@ export default function Login() {
           </section>
         </form>
       </section>
-      <section className='h-fit w-full flex items-center justify-center gap-1 text-xl text-feintBlack font-Circular_Bold '>
+      <section className='h-fit w-full flex items-center justify-center gap-1 text-xl text-feintBlack font-Inter_Bold '>
         <p>Don't have an account?</p>
         <button
           className='text-dispa8chRed border-none focus:outline-none '

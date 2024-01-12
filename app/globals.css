@@ -3,28 +3,33 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: Circular_Black;
-  src: url(../assets/fonts/Circular/CircularStd-Black.otf);
+  font-family: Inter_Black;
+  src: url(../assets/fonts/Inter/static/Inter-Black.ttf);
 }
 
 @font-face {
-  font-family: Circular_Bold;
-  src: url(../assets/fonts/Circular/CircularStd-Bold.otf);
+  font-family: Inter_Bold;
+  src: url(../assets/fonts/Inter/static/Inter-Bold.ttf);
 }
 
 @font-face {
-  font-family: Circular_Book;
-  src: url(../assets/fonts/Circular/CircularStd-Book.otf);
+  font-family: Inter_ExtraBold;
+  src: url(../assets/fonts/Inter/static/Inter-ExtraBold.ttf);
 }
 
 @font-face {
-  font-family: Circular_Light;
-  src: url(../assets/fonts/Circular/CircularStd-Light.otf);
+  font-family: Inter;
+  src: url(../assets/fonts/Inter/static/Inter-Regular.ttf);
 }
 
 @font-face {
-  font-family: Circular_Medium;
-  src: url(../assets/fonts/Circular/CircularStd-Medium.otf);
+  font-family: Inter_Light;
+  src: url(../assets/fonts/Inter/static/Inter-Light.ttf);
+}
+
+@font-face {
+  font-family: Inter_Medium;
+  src: url(../assets/fonts/Inter/static/Inter-Medium.ttf);
 }
 
 @layer components {
@@ -45,5 +50,9 @@
 
   .fade {
     transition: opacity var(--trans-duration) ease;
+  }
+
+  .column {
+    @apply flex flex-col
   }
 }

@@ -10,11 +10,11 @@ type NamedInputProps = {
 export const NamedInput = (props?: NamedInputProps) => {
   const { name, type, className: cName } = props || {};
   return (
-    <div className='w-full h-fit relative font-Circular_Book text-[#ccc] '>
+    <div className='w-full h-fit relative font-Inter text-[#ccc] '>
       <input
         name={lowercase(name!)}
         type={type || "text"}
-        className={`w-full h-12 rounded-lg font-Circular_Bold shadow-input border border-[#ccc] pl-5 text-feintBlack focus:outline-none ${
+        className={`w-full h-12 rounded-lg font-Inter_Bold shadow-input border border-[#ccc] pl-5 text-feintBlack focus:outline-none ${
           cName || ""
         } `}
       />
@@ -35,11 +35,11 @@ export const PasswordInput = (props?: PasswordInputProps) => {
   }
 
   return (
-    <div className='w-full h-fit relative font-Circular_Book text-[#ccc] '>
+    <div className='w-full h-fit relative font-Inter text-[#ccc] '>
       <input
         name={lowercase(name!)}
         type={visible ? 'text' : 'password'}
-        className={`w-full h-12 rounded-lg font-Circular_Bold shadow-input border border-[#ccc] pl-5 text-feintBlack focus:outline-none ${
+        className={`w-full h-12 rounded-lg font-Inter_Bold shadow-input border border-[#ccc] pl-5 text-feintBlack focus:outline-none ${
           cName || ""
         } `}
       />
@@ -61,11 +61,11 @@ export const CountryCodeInput = (props?: PasswordInputProps) => {
   }
 
   return (
-    <div className='w-full h-fit relative font-Circular_Book text-[#ccc] '>
+    <div className='w-full h-fit relative font-Inter_Book text-[#ccc] '>
       <input
         name={lowercase(name!)}
         type={visible ? 'text' : 'password'}
-        className={`w-full h-12 rounded-lg font-Circular_Bold shadow-input border border-[#ccc] pl-5 text-feintBlack focus:outline-none ${
+        className={`w-full h-12 rounded-lg font-Inter_Bold shadow-input border border-[#ccc] pl-5 text-feintBlack focus:outline-none ${
           cName || ""
         } `}
       />
