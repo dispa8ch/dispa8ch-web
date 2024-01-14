@@ -1,6 +1,15 @@
-type OfferProps = {};
+type OfferProps = {
+  header: string;
+  onClick: (() => void);
+  imageUrl: string;
+  topText: string;
+  bottomText: string;
+};
 
-const Offer = (props?: OfferProps) => {
+/**
+ * @why the topText and bottomText props are used as separators. Check the paragraphs in the `What you can do` section in the landing page design.
+ */
+const Offer = (props?: Partial<OfferProps>) => {
   return (
     <section
       className='w-full h-fit flex justify-between gap-6

@@ -2,6 +2,7 @@ import { string } from "@/lib";
 
 type Dispa8chLogoProps<T = number> = {
   size?: T;
+  className?: string;
 };
 
 function scaleSize(size: number = 1): [string, string] {
@@ -28,6 +29,7 @@ export const Dispa8chLogo = (props?: Dispa8chLogoProps) => {
       viewBox='0 0 149 67'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
+      className={props?.className || ''}
     >
       <rect
         x='3.69531'
