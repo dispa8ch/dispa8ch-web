@@ -1,27 +1,15 @@
-import { string } from "@/lib";
+import { scaleSize } from "@/lib";
 
 type Dispa8chLogoProps<T = number> = {
   size?: T;
   className?: string;
 };
 
-function scaleSize(size: number = 1): [string, string] {
-  switch (size !== 1) {
-    case true: 
-      const nums = [149, 67];
-      return nums.map(num => (
-        string(num * size)
-      )) as [string, string];
-    default: 
-      return ['149', '67']
-  }
-}
-
 /**
  * This is the official Dispa8ch logo in svg format
  */
 export const Dispa8chLogo = (props?: Dispa8chLogoProps) => {
-  const size = scaleSize(props?.size || 1)
+  const size = scaleSize([149, 67], props?.size || 1)
   return (
     <svg
       width={size[0]}

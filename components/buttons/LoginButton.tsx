@@ -3,7 +3,7 @@ type LoginButtonProps = {
 }
 const LoginButton = (props?: LoginButtonProps) => {
   return (
-    <button className='w-full h-12 mt-5 bg-dispa8chRed rounded-lg text-white font-Inter_Bold text-lg'>
+    <button className='w-full h-12 mt-5 bg-dispa8chRed-600 rounded-lg text-white font-Inter_Bold text-lg'>
       {props?.text}
     </button>
   );

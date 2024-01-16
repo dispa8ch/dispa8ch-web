@@ -1,28 +1,28 @@
 {
-  "offers": [
+  "features": [
     {
       "header": "Automate your workflow",
       "topText": "Whether you're a logistics company seeking workflow automation or a business owner working a simple way to ship and monitor goods in real-time, we have the solution.",
       "bottomText": "Gain access to a network of African logistics companies, offering you seamless options to transport your goods from the convenience of your workspace or home.",
-      "imageUrl": "https://dispa8ch.io/assets/images/automate-workflow.png"
+      "imageUrl": "/images/automate-workflow.png"
     },
     {
       "header": "Delegate task and manage shipments easily",
       "topText": "As a logistics company, imagine effortlessly prefilling, managing, tracking and assigning shipments to your riders. With our product, you can seamlessly handle incoming, pending, and cancelled orders in real time.",
       "bottomText": "Stay informed, gain a comprehensive overview of your operations, and efficiently delegate tasks to your on-call staff. Elevate your logistics game with ease.",
-      "imageUrl": "https://dispa8ch.io/assets/images/delagate-tasks.png"
+      "imageUrl": "/images/delagate-tasks.png"
     },
     {
       "header": "Seamlessly communicate with staff",
       "topText": "We recognize the paramoung importance of effective communication within your team.",
       "bottomText": "Our specially designed chat room facilitates seamless interaction between staff members and customers promoting a smooth flow of business operations.",
-      "imageUrl": "https://dispa8ch.io/assets/images/seamless-communication.png"
+      "imageUrl": "/images/seamless-communication.png"
     },
     {
       "header": "Track your shipments in real time",
       "topText": "As a logistics company, you gain the power to effortlessly track orders in real time.",
       "bottomText": "Send tracking links to customers seamlessly and oversee your entire operation with ease. From order processing to packaging, assignment, delivery, and confirmation - all in one platform.",
-      "imageUrl": "https://dispa8ch.io/assets/images/track-shipments.png"
+      "imageUrl": "/images/track-shipments.png"
     }
   ]
 }

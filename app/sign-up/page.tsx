@@ -13,7 +13,7 @@ export default function SignUp() {
       <SignUpForm />
       <section className='h-fit w-full flex items-center justify-center gap-1 text-xl text-feintBlack font-Inter_Bold '>
         <p>Have an account?</p>
-        <button className='text-dispa8chRed border-none focus:outline-none ' onClick={() => router.push('/login')}>
+        <button className='text-dispa8chRed-600 border-none focus:outline-none ' onClick={() => router.push('/login')}>
           Sign in
         </button>
       </section>

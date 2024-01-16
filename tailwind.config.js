@@ -4,7 +4,6 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@tremor/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     transparent: "transparent",
@@ -19,68 +18,62 @@ module.exports = {
         Inter_ExtraBold: ["Inter_ExtraBold"],
       },
       colors: {
-        // light mode
-        tremor: {
-          brand: {
-            faint: "#eff6ff", // blue-50
-            muted: "#bfdbfe", // blue-200
-            subtle: "#60a5fa", // blue-400
-            DEFAULT: "#3b82f6", // blue-500
-            emphasis: "#1d4ed8", // blue-700
-            inverted: "#ffffff", // white
-          },
-          background: {
-            muted: "#f9fafb", // gray-50
-            subtle: "#f3f4f6", // gray-100
-            DEFAULT: "#ffffff", // white
-            emphasis: "#374151", // gray-700
-          },
-          border: {
-            DEFAULT: "#e5e7eb", // gray-200
-          },
-          ring: {
-            DEFAULT: "#e5e7eb", // gray-200
-          },
-          content: {
-            subtle: "#9ca3af", // gray-400
-            DEFAULT: "#6b7280", // gray-500
-            emphasis: "#374151", // gray-700
-            strong: "#111827", // gray-900
-            inverted: "#ffffff", // white
-          },
-        },
-        // dark mode
-        "dark-tremor": {
-          brand: {
-            faint: "#0B1229", // custom
-            muted: "#172554", // blue-950
-            subtle: "#1e40af", // blue-800
-            DEFAULT: "#3b82f6", // blue-500
-            emphasis: "#60a5fa", // blue-400
-            inverted: "#030712", // gray-950
-          },
-          background: {
-            muted: "#131A2B", // custom
-            subtle: "#1f2937", // gray-800
-            DEFAULT: "#111827", // gray-900
-            emphasis: "#d1d5db", // gray-300
-          },
-          border: {
-            DEFAULT: "#1f2937", // gray-800
-          },
-          ring: {
-            DEFAULT: "#1f2937", // gray-800
-          },
-          content: {
-            subtle: "#4b5563", // gray-600
-            DEFAULT: "#6b7280", // gray-500
-            emphasis: "#e5e7eb", // gray-200
-            strong: "#f9fafb", // gray-50
-            inverted: "#000000", // black
-          },
-        },
         feintBlack: "#212122",
-        dispa8chRed: "#D1193E",
+        dispa8chRed: {
+          50: "#FCE8EC",
+          100: "#F9CDD6",
+          200: "#F39BAC",
+          300: "#EE6D87",
+          400: "#E83B5E",
+          500: "#D1193E",
+          600: "#A91432",
+          700: "#800F26",
+          800: "#520A18",
+          900: "#29050C",
+          950: "#170307",
+        },
+        dispa8chGreen: {
+          50: "#1DD119",
+          100: "#189B62",
+          200: "#118653",
+          300: "#23E41F",
+          400: "#06A86E",
+          500: "#50B792",
+          600: "#23E41F",
+        },
+        dispa8chBlue: {
+          50: "#0093FD",
+          100: "#189FFF",
+          200: "#0093FD",
+          300: "#189FFF",
+          400: "#70C8F2",
+          500: "#189FFF",
+          600: "#18A0FB",
+          700: "#007FDC",
+        },
+        dispa8chYellow: {
+          50: "#FDA800",
+          100: "#FFB218",
+          200: "#FDA800",
+          300: "#FFB218",
+          400: "#FFD746",
+          500: "#FF984C",
+          600: "#FFBA31",
+          700: "#FDA800",
+        },
+        dispa8chGray: {
+          100: "#757575",
+          200: "#000000",
+          300: "#B3B3B3",
+          400: "#E2E2E2",
+          500: "#D1D1D1",
+          600: "#F6F6F6",
+        },
+      },
+      gradientColorStops: {
+        blue_pink: "from-[#2300FD] to-[#EE0CD7]",
+        darkblue_blue: 'from-[#0093FD] to-[#1900FD]',
+        dispa8ch_gradient: 'from-[#E92E29] to-[#FFB800]'
       },
       plugins: [require("@headlessui/tailwindcss")],
     },

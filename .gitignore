@@ -39,4 +39,4 @@ next-env.d.ts
 *.ps1
 
 # figma
-assets/figma
+figma

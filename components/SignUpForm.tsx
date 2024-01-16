@@ -36,7 +36,7 @@ const SignUpForm = () => {
       >
         <ScrollableFormSection />
       </form>
-      <section className='w-full h-fit mt-auto text-dispa8chRed font-Inter_Bold flex items-center justify-between'>
+      <section className='w-full h-fit mt-auto text-dispa8chRed-600 font-Inter_Bold flex items-center justify-between'>
         {/* Back */}
         <div
           className={`w-fit-h-fit flex fade ${

@@ -4,32 +4,32 @@
 
 @font-face {
   font-family: Inter_Black;
-  src: url(../assets/fonts/Inter/static/Inter-Black.ttf);
+  src: url(../public/fonts/Inter/static/Inter-Black.ttf);
 }
 
 @font-face {
   font-family: Inter_Bold;
-  src: url(../assets/fonts/Inter/static/Inter-Bold.ttf);
+  src: url(../public/fonts/Inter/static/Inter-Bold.ttf);
 }
 
 @font-face {
   font-family: Inter_ExtraBold;
-  src: url(../assets/fonts/Inter/static/Inter-ExtraBold.ttf);
+  src: url(../public/fonts/Inter/static/Inter-ExtraBold.ttf);
 }
 
 @font-face {
   font-family: Inter;
-  src: url(../assets/fonts/Inter/static/Inter-Regular.ttf);
+  src: url(../public/fonts/Inter/static/Inter-Regular.ttf);
 }
 
 @font-face {
   font-family: Inter_Light;
-  src: url(../assets/fonts/Inter/static/Inter-Light.ttf);
+  src: url(../public/fonts/Inter/static/Inter-Light.ttf);
 }
 
 @font-face {
   font-family: Inter_Medium;
-  src: url(../assets/fonts/Inter/static/Inter-Medium.ttf);
+  src: url(../public/fonts/Inter/static/Inter-Medium.ttf);
 }
 
 @layer components {
