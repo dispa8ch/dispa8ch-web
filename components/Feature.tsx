@@ -17,14 +17,14 @@ const Feature = (props?: OfferProps) => {
       className='w-full h-fit flex justify-between gap-6
     font-Inter_Medium even:flex-row-reverse '>
       <section className='w-fit flex-grow column gap-6'>
-        <h1 className='font-Inter_Bold text-xl bg-gradient-to-r from-dispa8chRed-600 to-amber-500 text-transparent bg-clip-text'>
+        <h1 className='font-Inter_Bold text-xl bg-gradient-to-r from-dispa8chRed-500 to-amber-500 text-transparent bg-clip-text'>
           {props?.header}
         </h1>
 
         <p>{props?.topText}</p>
         <p>{props?.bottomText}</p>
         <Link href={"/dashboard"}>
-          <button className='w-fit h-fit mt-auto bg-dispa8chRed-600 text-white font-Inter_Bold px-8 py-1 rounded-md '>
+          <button className='w-fit h-fit mt-auto bg-dispa8chRed-500 text-white font-Inter_Bold px-8 py-1 rounded-md '>
             Start free
           </button>
         </Link>

@@ -1,3 +1,4 @@
+'use client'
 import { lowercase } from "@/lib";
 import { EyeIcon } from "@heroicons/react/20/solid";
 import { EyeSlashIcon } from "@heroicons/react/24/solid";

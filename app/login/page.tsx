@@ -1,5 +1,5 @@
 "use client";
-import { Dispa8chLogo } from "@/assets/icons";
+import { Dispa8chLogo } from "@/public/icons";
 import { NamedInput, PasswordInput } from "@/components/Input";
 import LoginButton from "@/components/buttons/LoginButton";
 import Link from "next/link";
@@ -23,7 +23,7 @@ export default function Login() {
           <section className='min-w-full h-full flex flex-col py-4 px-[2px] gap-6'>
             <NamedInput name='Email address' />
             <PasswordInput name='Password' />
-            <Link className='text-dispa8chRed-600' href={"/forgot-password"}>
+            <Link className='text-dispa8chRed-500' href={"/forgot-password"}>
               <p>Forgot password?</p>
             </Link>
             <LoginButton text='Login your account' />
@@ -33,7 +33,7 @@ export default function Login() {
       <section className='h-fit w-full flex items-center justify-center gap-1 text-xl text-feintBlack font-Inter_Bold '>
         <p>Don't have an account?</p>
         <button
-          className='text-dispa8chRed-600 border-none focus:outline-none '
+          className='text-dispa8chRed-500 border-none focus:outline-none '
           onClick={() => router.push("/sign-up")}
         >
           Sign Up

@@ -29,12 +29,12 @@ const Header = () => {
       </section>
       <section className='w-fit h-fit gap-3 text-sm hidden lg:flex '>
         <Link href='/sign-up'>
-          <p className='bg-dispa8chRed-600 text-white px-8 py-2 rounded-lg'>
+          <p className='bg-dispa8chRed-500 text-white px-8 py-2 rounded-lg'>
             Signup
           </p>
         </Link>
         <Link href='/login'>
-          <p className='bg-white text-dispa8chRed-600 border border-dispa8chRed-600 px-8 py-2 rounded-lg'>
+          <p className='bg-white text-dispa8chRed-500 border border-dispa8chRed-500 px-8 py-2 rounded-lg'>
             Login
           </p>
         </Link>

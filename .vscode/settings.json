@@ -3,13 +3,12 @@
   "editor.fontWeight": "900",
   "editor.fontSize": 17,
   "tailwindCSS.emmetCompletions": true,
-"files.exclude": {
-  "**/.git": true,
-  "**/.svn": true,
-  "**/.hg": true,
-  "**/CVS": true,
-  "**/.DS_Store": true,
-  "**/Thumbs.db": true,
-  "**/.vscode/**": true
-}
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true
+  }
 }

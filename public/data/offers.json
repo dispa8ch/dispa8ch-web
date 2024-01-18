@@ -1,0 +1,28 @@
+{
+  "offers": [
+    {
+      "header": "Order And Process Automation",
+      "paragraph": "We streamline your order management process by categorizing orders for easy identification, processing, delegation for delivery, and reporting for insightful business analysis.",
+      "id": 0,
+      "imageUrl": "/images/automate-offer.png"
+    },
+    {
+      "header": "Real-time tracking and Analysis",
+      "paragraph": "We offer real-time tracking for shipments and orders, enabling you to send tracking codes to businesses using your services and facilitating efficient operational analysis.",
+      "id": 1,
+      "imageUrl": "/images/tracking-offer.png"
+    },
+    {
+      "header": "Safe, Secure and Accessible",
+      "paragraph": "Rest easy knowing your information is always secure with our services. We accessibility, making it simple for businesses to leverage our offerings.",
+      "id": 2,
+      "imageUrl": "/images/security-offer.png"
+    },
+    {
+      "header": "Linking Business to Consumer",
+      "paragraph": "We connect businesses and consumers seamlessly. Access a network of trusted riders from logistics companies across Africa for easy and reliable service.",
+      "id": 3,
+      "imageUrl": "/images/linking-offer.png"
+    }
+  ]
+}
