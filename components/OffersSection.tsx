@@ -39,7 +39,7 @@ const Offer = ({ header, id, imageUrl, paragraph }: Partial<OfferProps>) => {
  */
 const OffersSection = () => {
   return (
-    <section className='w-full h-fit py-6 column items-center gap-12'>
+    <section className='w-full h-fit py-6 column items-center gap-12 px-6 lg:px-16'>
       <h1 className='text-dispa8chRed-500 text-xl underline font-Inter_ExtraBold lg:text-2xl '>
         What Do We Offer?
       </h1>

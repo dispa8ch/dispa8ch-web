@@ -1,12 +1,16 @@
 {
 	"font-face": {
 		"prefix": "ff",
-		"body": "@font-face {\n\tfont-family: Circular_$2;\n\tsrc: url(../assets/fonts/Circular$1);\n}\n\n$0",
+		"body": "@font-face {\n\tfont-family: ${3:name}_$2;\n\tsrc: url(../assets/fonts/${3:name}$1);\n}\n\n$0",
 		"scope": "css"
 	},
 	"react-component": {
 		"prefix": "rfc",
 		"body": "type ${TM_FILENAME_BASE}Props = {$0};\n\nconst ${TM_FILENAME_BASE} = (props?: ${TM_FILENAME_BASE}Props) => {\n\treturn (\n\t\t$1\n\t)\n};\n\nexport default ${TM_FILENAME_BASE};",
 		"scope": "typescriptreact"
+	},
+	"barrel export": {
+		"prefix": "bare",
+		"body": "export { default as ${TM_SELECTED_TEXT} }  from './${TM_SELECTED_TEXT}';$0"
 	}
 }

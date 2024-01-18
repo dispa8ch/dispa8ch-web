@@ -1,4 +1,4 @@
-import { NamedInput, PasswordInput } from "./Input";
+import { NamedInput, PasswordInput } from "./inputs";
 import LoginButton from "./buttons/LoginButton";
 
 const ScrollableFormSection = () => {
