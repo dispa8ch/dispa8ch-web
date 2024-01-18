@@ -2,9 +2,6 @@ import Header from "@/components/Header";
 import FeaturesSection from "@/components/FeaturesSection";
 import OffersSection from "@/components/OffersSection";
 
-/**
- * Red background hero section;
- */
 export default function Home() {
   return (
     <>
