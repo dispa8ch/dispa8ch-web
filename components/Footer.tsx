@@ -46,7 +46,7 @@ const Links = () => {
 
 /**
  * @todo get the original links for the social media icons;
- * @todo change the x icon to a copyright icon
+ * @todo get a better fitting copyright icon.
  */
 const Footer = () => {
   const {
@@ -89,7 +89,7 @@ const Footer = () => {
           </div>
         </div>
         <div className='w-fit h-fit flex gap-1 items-center'>
-          <CopyRightIcon size={1} />
+          <CopyRightIcon size={.5} />
           <p className='font-Inter_Medium text-sm'>
             All rights reserved 2024 Dispa8ch
           </p>

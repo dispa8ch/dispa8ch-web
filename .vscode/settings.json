@@ -10,5 +10,6 @@
     "**/CVS": true,
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
-  }
+  },
+  "path-intellisense.ignoreTsConfigBaseUrl": false
 }
