@@ -1,8 +1,7 @@
 import { entries, lowercase } from "@/lib";
 import { Dispa8chLogo } from "@/public/icons";
 import Link from "next/link";
-import { SocialMedia } from "@/components/dispa8ch-icons";
-import { XCircleIcon } from "@heroicons/react/24/outline";
+import { CopyRightIcon, SocialMedia } from "@/components/dispa8ch-icons";
 
 const Links = () => {
   const linkSections = {
@@ -66,7 +65,7 @@ const Footer = () => {
   ] as const;
 
   return (
-    <footer className='w-full min-h-20 bg-dispa8chRed-50 py-10 px-6 flex flex-wrap gap-6 justify-between lg:py-20 lg:px-16 '>
+    <footer className='w-full min-h-20 bg-gradient-to-r from-[#E41F4733] to-[#FDA80033] py-10 px-6 flex flex-wrap gap-6 justify-between lg:py-20 lg:px-16 '>
       <section className='w-full h-fit space-y-6 font-Inter text-text_1 lg:w-1/2'>
         <Dispa8chLogo size={0.7} />
         <p>
@@ -90,11 +89,7 @@ const Footer = () => {
           </div>
         </div>
         <div className='w-fit h-fit flex gap-1 items-center'>
-          <XCircleIcon
-            color='black'
-            width={20}
-            height={20}
-          />
+          <CopyRightIcon size={1} />
           <p className='font-Inter_Medium text-sm'>
             All rights reserved 2024 Dispa8ch
           </p>
