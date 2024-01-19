@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import FeaturesSection from "@/components/FeaturesSection";
 import OffersSection from "@/components/OffersSection";
 import Waitlist from "@/components/Waitlist";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         <OffersSection />
         <Waitlist />
       </main>
+      <Footer />
     </>
   );
 }

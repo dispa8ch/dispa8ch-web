@@ -32,6 +32,34 @@
   src: url(../public/fonts/Inter/static/Inter-Medium.ttf);
 }
 
+@font-face {
+  font-family: Graphik;
+  src: url(../public/fonts/Graphik/GraphikRegular.otf);
+}
+
+@font-face {
+  font-family: Graphik_Medium;
+  src: url(../public/fonts/Graphik/GraphikMedium.otf);
+}
+
+
+
+@layer base {
+  html {
+    scrollbar-width: thin;
+  }
+
+  html::-webkit-scrollbar {
+    width: 10px;
+    background-color: #ccc;
+  }
+
+  html::-webkit-scrollbar-thumb {
+    background-color: #B3B3B3;
+    border-radius: 1000px;
+  }
+}
+
 @layer components {
   :root {
     --shadow-black: 0 0 4px rgba(0,0,0,.2);

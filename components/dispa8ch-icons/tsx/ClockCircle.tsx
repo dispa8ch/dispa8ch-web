@@ -17,8 +17,8 @@ const ClockCircle = (props?: ClockCircleProps) => {
         fill='url(#paint0_linear_410_137)'
       />
       <path
-        fill-rule='evenodd'
-        clip-rule='evenodd'
+        fillRule='evenodd'
+        clipRule='evenodd'
         d='M42.1498 24.582C43.5943 24.582 44.7654 25.7206 44.7654 27.125V39.634L52.718 47.366C53.7395 48.3591 53.7395 49.969 52.718 50.9621C51.6965 51.9552 50.0406 51.9552 49.0191 50.9621L40.3004 42.4855C39.8097 42.0088 39.5342 41.3619 39.5342 40.6875V27.125C39.5342 25.7206 40.7053 24.582 42.1498 24.582Z'
         fill='#FDA800'
       />
@@ -30,10 +30,10 @@ const ClockCircle = (props?: ClockCircleProps) => {
           x2='50.1336'
           y2='88.5024'
           gradientUnits='userSpaceOnUse'>
-          <stop stop-color='#D1193E' />
+          <stop stopColor='#D1193E' />
           <stop
             offset='1'
-            stop-color='#FDA800'
+            stopColor='#FDA800'
           />
         </linearGradient>
       </defs>

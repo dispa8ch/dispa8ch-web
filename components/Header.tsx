@@ -18,7 +18,7 @@ const Header = () => {
           height={24}
         />
       </button>
-      <section className='w-fit h-fit items-center gap-12 text-base hidden lg:flex '>
+      <section className='w-fit h-fit items-center gap-12 text-base font-Graphik hidden lg:flex '>
         {links.map((a, i) => (
           <Link
             key={i}

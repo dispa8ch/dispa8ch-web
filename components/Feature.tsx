@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Link from "next/link";
 
 type OfferProps = {
@@ -23,21 +23,19 @@ const Feature = (props?: OfferProps) => {
 
         <p>{props?.topText}</p>
         <p>{props?.bottomText}</p>
-        <Link href={"/dashboard"}>
-          <button className='w-fit h-fit mt-auto bg-dispa8chRed-500 text-white font-Inter_Bold px-8 py-1 rounded-md '>
-            Start free
-          </button>
-        </Link>
+        <button className='w-fit h-fit mt-auto bg-dispa8chRed-500 text-white font-Inter_Bold px-8 py-1 rounded-md '>
+          <Link href={"/dashboard"}>Start free</Link>
+        </button>
       </section>
       <section className='w-[800px] h-[280px]'>
         <div className='w-[90%] h-[90%] relative'>
           <div className='w-full h-full rounded-xl bg-dispa8chRed-100 shadow-sm shadow-dispa8chRed-300' />
-        <img
-          src={props?.imageUrl || ""}
-          alt='Image'
-          className="w-full h-full absolute bottom-2 left-2"
+          <img
+            src={props?.imageUrl || ""}
+            alt='Image'
+            className='w-full h-full absolute bottom-2 left-2'
           />
-          </div>
+        </div>
       </section>
     </section>
   );

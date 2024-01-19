@@ -27,10 +27,10 @@ const EyeTracking = (props?: EyeTrackingProps) => {
           x2='40.977'
           y2='73.861'
           gradientUnits='userSpaceOnUse'>
-          <stop stop-color='#D1193E' />
+          <stop stopColor='#D1193E' />
           <stop
             offset='1'
-            stop-color='#FDA800'
+            stopColor='#FDA800'
           />
         </linearGradient>
         <linearGradient
@@ -40,10 +40,10 @@ const EyeTracking = (props?: EyeTrackingProps) => {
           x2='42.2142'
           y2='47.6948'
           gradientUnits='userSpaceOnUse'>
-          <stop stop-color='#D1193E' />
+          <stop stopColor='#D1193E' />
           <stop
             offset='1'
-            stop-color='#FDA800'
+            stopColor='#FDA800'
           />
         </linearGradient>
       </defs>

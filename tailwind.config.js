@@ -16,9 +16,11 @@ module.exports = {
         Inter_Black: ["Inter_Black"],
         Inter_Bold: ["Inter_Bold"],
         Inter_ExtraBold: ["Inter_ExtraBold"],
+        Graphik: ["Graphik"],
+        Graphik_Medium: ["Graphik_Medium"],
       },
       colors: {
-        feintBlack: "#212122",
+        text_1: "#35000BC9",
         dispa8chRed: {
           50: "#FCE8EC",
           100: "#F9CDD6",
@@ -69,11 +71,21 @@ module.exports = {
           500: "#D1D1D1",
           600: "#F6F6F6",
         },
+        dispa8chBlack: {
+          50: "#000000",
+          100: "#0D0D0D",
+          200: "#272727",
+          300: "#1B1B1B",
+          400: "#333333",
+          500: "#262626",
+          600: "#000000",
+          700: "#292F33",
+        },
       },
       gradientColorStops: {
         blue_pink: "from-[#2300FD] to-[#EE0CD7]",
-        darkblue_blue: 'from-[#0093FD] to-[#1900FD]',
-        dispa8ch_gradient: 'from-[#E92E29] to-[#FFB800]'
+        darkblue_blue: "from-[#0093FD] to-[#1900FD]",
+        dispa8ch_gradient: "from-[#E92E29] to-[#FFB800]",
       },
       plugins: [require("@headlessui/tailwindcss")],
     },
