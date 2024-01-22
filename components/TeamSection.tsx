@@ -8,7 +8,7 @@ import data from "@/public/data/team.json";
  */
 const ContactUsButton = () => {
   return (
-    <div className='fit absolute -right-5 -bottom-12'>
+    <div className='fit absolute -right-5 -bottom-16'>
       <Link
         href={"/contact-us"}
         className='fit column items-center justify-center text-[12px] gap-2 font-Inter'>
@@ -29,7 +29,7 @@ type TeamMemberProps<T = string> = (typeof data.team_members)[number];
 const TeamMember = ({ src, fullName, title }: TeamMemberProps) => {
   return (
     <div
-      className='w-[225px] h-[350px] bg-transparent py-8 px-6 column justify-end gap-4 font-Inter text-white text-[12px]'
+      className='w-[225px] min-w-[225px] h-[350px] bg-transparent py-8 px-6 column justify-end gap-4 font-Inter text-white text-[12px]'
       style={{
         backgroundImage: `url(${src})`,
         backgroundPosition: "",
@@ -41,9 +41,6 @@ const TeamMember = ({ src, fullName, title }: TeamMemberProps) => {
   );
 };
 
-/**
- * @todo loop over the json team members here.
- */
 const TeamSection = () => {
   return (
     <section className='w-full h-fit py-6 column items-center gap-12 px-6 lg:px-16'>
@@ -51,14 +48,16 @@ const TeamSection = () => {
         Meet The Team
       </h1>
 
-      <section className='w-full min-h-[400px] bg-gradient-to-r from-dispa8chRed-100 to-dispa8chRed-50 p-6 flex gap-16 overflow-x-scroll no-scroll relative '>
-        {data.team_members.map((member, i) => (
-          <TeamMember
-            key={i}
-            {...member}
-          />
-        ))}
+      <section className='w-full min-h-[400px] bg-gradient-to-r from-dispa8chRed-100 to-dispa8chRed-50 relative '>
         <ContactUsButton />
+        <section className='w-full min-h-[400px] p-6 flex gap-16 overflow-x-scroll no-scroll '>
+          {data.team_members.map((member, i) => (
+            <TeamMember
+              key={i}
+              {...member}
+            />
+          ))}
+        </section>
       </section>
     </section>
   );
