@@ -1,0 +1,36 @@
+{
+  "faqs": [
+    {
+      "question": "What does Dispa8ch do?",
+      "answer": "Dispa8ch is a logistics SaaS company focused on creating digital solutions to problems faced within the industry. Amongst our offering are an easy-to-use delivery management software (Web App) that helps you to effectively manage your orders with the help of our useful automation and optimization tools."
+    },
+    {
+      "question": "How can I get orders on Dispa8ch?",
+      "answer": "Dispa8ch allows you to manually enter orders and fulfil them. We understand this option can be tedious, so very soon we'll be introducing integrations that allows you easily connect online stores or website to dispa8ch."
+    },
+    {
+      "question": "Can I get access to riders on Dispa8ch?",
+      "answer": "Currently no, but in coming months we'll be offering the ability for businesses locally and globally access to drivers made available by logistics companies or third-party delivery services."
+    },
+    {
+      "question": "Can Dispa8ch automate my deliveries?",
+      "answer": "Yes!, dispa8ch automates your deliveries by allowing you the overview of your operations through map views, its performance through the use of graphs and security of deliveries via tracking codes."
+    },
+    {
+      "question": "Does Dispa8ch have a driver app?",
+      "answer": "Currently no, but in the coming months we'll be launching our driver app to registered local businesses so to ensure proper monitoring and tracking of progress."
+    },
+    {
+      "question": "Can I use Dispa8ch for free?",
+      "answer": "Yes!!, you can use dispa8chs' software free. But if you want more flexibility and access to certain features, you should go through our pricing plan."
+    },
+    {
+      "question": "Is Dispa8ch available in my city?",
+      "answer": "Dispa8ch is currently available in Nigeria allowing local deliveries among its 36 states. Efforts on expansion are been made so as to serve a broader audience."
+    },
+    {
+      "question": "Can I register as a driver on Dispa8ch?",
+      "answer": "Currently you can signup on dispa8ch as a driver, but we allow local businesses to signup their driver via their registered account for accountability, monitoring and security."
+    }
+  ]
+}

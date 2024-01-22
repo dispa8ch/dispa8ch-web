@@ -22,5 +22,10 @@
 	"dispa8ch-icon": {
 		"prefix": "dicon",
 		"body": "export const ${3:name}Icon: Dispa8chIcon = (props) => {\n\tconst dims = scaleSize([$2], props?.size || 1);\n\treturn (<svg width={dims[0]} height={dims[1]} viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>$1</svg>);\n};$0"
+	}, 
+	"faq dispa8ch": {
+		"prefix": "faq",
+		"body": "{\n\t\"question\": \"${1:q}?\",\n\t\"answer\": \"\"\n},$0",
+		"scope": "json"
 	}
 }
