@@ -5,7 +5,7 @@ import Link from "next/link";
  */
 const HeroSection = () => {
   return (
-    <section className='w-full min-h-[80vh] px-8 py-6 flex justify-start items-center font-Inter relative z-10 underlay after:bg-hero lg:py-0'>
+    <section className='w-full min-h-[90vh] px-8 py-6 flex justify-start items-center font-Inter relative z-10 underlay after:bg-hero lg:py-0'>
       {/* image */}
       <div
         className='h-full w-full absolute left-0 top-0 z-0'

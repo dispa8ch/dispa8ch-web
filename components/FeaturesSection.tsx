@@ -1,9 +1,6 @@
 import Feature from "./Feature";
 import data from '@/public/data/features.json'
 
-/**
- * @todo make this component responsive
- */
 const FeaturesSection = () => {
   return (
     <section className="w-full h-fit py-6 column items-center gap-6 px-6 lg:px-16">
