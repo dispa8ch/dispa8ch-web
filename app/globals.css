@@ -87,6 +87,10 @@
     fill: #ffffff;
   }
 
+  .bg-hero {
+    background: linear-gradient(95.06deg, rgba(50, 5, 14, .9) 31.56%, rgb(50, 5, 14) 138.09%);
+  }
+
   .fit {
     @apply w-fit h-fit;
   }
@@ -106,6 +110,10 @@
 
   .overlay {
     @apply after:w-full after:h-full after:bg-[rgb(0,0,0,.2)] after:absolute after:top-0 after:left-0 after:z-10;
+  }
+
+  .underlay {
+    @apply after:h-full after:w-full after:absolute after:left-0 after:top-0 after:-z-10;
   }
 
   .no-scroll {
