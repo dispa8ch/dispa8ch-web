@@ -18,7 +18,7 @@ export default function RootLayout({
       <head>
         <link rel="shortcut icon" href={Favicon.src} type="image/png" />
       </head>
-      <body className={'w-full min-h-screen bg-gradient-to-r from-blue_pink '}>
+      <body className={'w-full min-h-screen bg-gradient-to-r from-blue_pink relative '}>
         {children}
       </body>
     </html>
