@@ -41,6 +41,9 @@ const TeamMember = ({ src, fullName, title }: TeamMemberProps) => {
   );
 };
 
+/**
+ * @todo add an overlay between the background and the text;
+ */
 const TeamSection = () => {
   return (
     <section className='w-full h-fit py-6 column items-center gap-12 px-6 lg:px-16'>
