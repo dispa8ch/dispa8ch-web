@@ -7,7 +7,7 @@ const Header = () => {
   const links = ["home", "about", "services", "pricing"] as const;
 
   return (
-    <header className='flex items-center bg-white px-6 py-3 font-Inter_Medium lg:px-8 '>
+    <header className='flex items-center bg-white px-6 py-3 font-Inter_Medium sticky top-0 z-30 shadow-md lg:px-8 '>
       <section className='w-fit h-fit'>
         <Dispa8chLogo size={0.7} />
       </section>

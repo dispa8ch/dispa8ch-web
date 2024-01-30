@@ -41,7 +41,7 @@ const OffersSection = () => {
       <h1 className='text-dispa8chRed-500 text-xl underline font-Inter_ExtraBold lg:text-2xl '>
         What Do We Offer?
       </h1>
-      <section className='w-full min-h-[400px] bg-gradient-to-r from-dispa8chRed-100 to-dispa8chRed-50 p-6 flex gap-8 overflow-scroll no-scroll '>
+      <section className='w-full min-h-[400px] bg-gradient-to-r from-dispa8chRed-100 to-dispa8chRed-50 p-6 flex gap-16 overflow-scroll no-scroll '>
         {data.offers.map((offer, i) => (
           <Offer {...offer} key={i} />
         ))}

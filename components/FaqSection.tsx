@@ -1,37 +1,55 @@
 "use client";
 import data from "@/public/data/faq.json";
-import { MinusIcon } from "@heroicons/react/24/outline";
+import { MinusIcon, PlusIcon } from "@heroicons/react/24/outline";
+import { useState } from "react";
 
 type FaqProps = (typeof data.faqs)[number];
 
 const Faq = ({ question, answer }: FaqProps) => {
+  const [display, setDisplay] = useState<"hidden" | "block">("hidden");
   return (
-    <div className='w-full h-fit space-y-4'>
-      <div className='w-full h-fit flex items-center justify-between font-Inter_Bold'>
+    <div className='w-full h-fit column gap-4 '>
+      <div className='w-full h-fit flex items-start justify-between font-Inter_Bold'>
         <h1>{question}</h1>
-        <button>
-          <MinusIcon
-            width={24}
-            height={24}
-            color='black'
-          />
+        <button
+          onClick={() => {
+            setDisplay((prev) => {
+              return prev === "block" ? "hidden" : "block";
+            });
+          }}>
+          {display === "block" ? (
+            <MinusIcon
+              width={24}
+              height={24}
+              color='black'
+            />
+          ) : (
+            <PlusIcon
+              width={24}
+              height={24}
+              color='black'
+            />
+          )}
         </button>
       </div>
-      <p className="w-[90%] text-text_1" >{answer || ""}</p>
+      <p className={`w-[90%]  ${display} text-text_1`}>{answer || ""}</p>
     </div>
   );
 };
 
 const FaqSection = () => {
   return (
-    <section className='w-full h-fit py-12 column items-center gap-12 px-6 lg:px-16'>
-      <h1 className='text-dispa8chRed-500 text-xl underline font-Inter_ExtraBold lg:text-2xl '>
+    <section className='w-full h-fit py-12 column items-center gap-8 px-6 lg:px-16 lg:gap-12'>
+      <h1 className='text-dispa8chRed-500 text-lg underline font-Inter_ExtraBold lg:text-2xl '>
         Frequently Asked Questions
       </h1>
 
-      <section className='w-full min-h-[360px] grid grid-cols-1 gap-2 font-Inter lg:grid-cols-2'>
+      <section className='w-full min-h-fit grid grid-cols-1 gap-y-6 gap-x-6 font-Inter sm:grid-cols-2 sm:gap-y-6 lg:gap-y-10'>
         {data.faqs.map((faq, i) => (
-          <Faq key={i} {...faq} />
+          <Faq
+            key={i}
+            {...faq}
+          />
         ))}
       </section>
     </section>

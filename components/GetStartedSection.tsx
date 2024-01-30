@@ -1,3 +1,4 @@
+'use client'
 import { scaleSize } from "@/lib";
 import Link from "next/link";
 
@@ -9,9 +10,11 @@ const GetStartedSection = () => {
     "/images/get-started-2.png",
   ] as const;
   const baseHeight = 617;
+
+  const sizes = dims.map((dim) => scaleSize([dim, baseHeight], 0.5));
   return (
-    <section className='w-full h-fit bg-gradient-to-r from-[#E41F4733] to-[#FDA80033] column justify-center items-center gap-4 py-8 px-6 lg:px-16'>
-      <section className='w-fit h-fit column justify-center items-center gap-3'>
+    <section className='w-full h-fit bg-gradient-to-r from-[#E41F4733] to-[#FDA80033] column justify-center items-center gap-6 py-8 px-6 lg:px-16'>
+      <section className='w-fit h-fit column justify-center items-center gap-6'>
         <h1 className='text-2xl text-dispa8chRed-500 font-Inter_Bold'>
           Let's get you started today!
         </h1>
@@ -22,20 +25,27 @@ const GetStartedSection = () => {
           <Link href={"/dashboard"}>Start Free</Link>
         </button>
       </section>
-      <section className='w-full min-h-[360px] flex justify-center items-center gap-4'>
-        {srcs.map((src, i) => {
-          const sizes = scaleSize([dims[i], baseHeight], 0.5);
-          return (
-            <div className='w-fit h-fit' key={i}>
-              <img
-                src={src}
-                width={sizes[0]}
-                height={sizes[1]}
-                alt='Get Started'
-              />
-            </div>
-          );
-        })}
+      <section className='w-full min-h-fit py-4 grid place-content-center  grid-cols-1 gap-4 sm:flex sm:items-center sm:justify-center '>
+        <div className='fit'>
+          <img
+            src={srcs[0]}
+            alt='Get Started'
+            width={sizes[0][0]}
+            height={sizes[0][1]}
+          />
+        </div>
+        <div className="fit flex gap-4 items-end">
+          {srcs.slice(1).map((src, i) => (
+            <div className='fit'>
+            <img
+              src={src}
+              alt='Get Started'
+              width={sizes[i + 1][0]}
+              height={sizes[i + 1][1]}
+            />
+          </div>
+          ))}
+        </div>
       </section>
     </section>
   );

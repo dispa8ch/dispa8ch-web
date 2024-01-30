@@ -91,15 +91,14 @@
     background: linear-gradient(95.06deg, rgba(50, 5, 14, .9) 31.56%, rgb(50, 5, 14) 138.09%);
   }
 
-  .fit {
-    @apply w-fit h-fit;
-  }
   .shadow-base {
     box-shadow: var(--shadow-black);
   }
+
   .shadow-dispa8chred {
     box-shadow: var(--shadow-dispa8chred);
   }
+
   .shadow-input {
     @apply shadow-base focus:shadow-dispa8chred;
   }
@@ -126,5 +125,13 @@
 
   .column {
     @apply flex flex-col;
+  }
+
+  .fit {
+    @apply w-fit h-fit
+  }
+
+  .full {
+    @apply w-full h-full
   }
 }
