@@ -63,6 +63,8 @@
     --shadow-black: 0 0 4px rgba(0, 0, 0, 0.2);
     --shadow-dispa8chred: 0 0 4px #d1193e;
     --trans-duration: 700ms;
+
+    scroll-behavior: smooth;
   }
 
   /* shape divider */
@@ -108,7 +110,7 @@
   }
 
   .overlay {
-    @apply after:w-full after:h-full after:bg-[rgb(0,0,0,.2)] after:absolute after:top-0 after:left-0 after:z-10;
+    @apply after:w-full after:h-full after:bg-[rgb(0,0,0,.1)] after:absolute after:top-0 after:left-0 after:z-10;
   }
 
   .underlay {

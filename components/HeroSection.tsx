@@ -13,8 +13,8 @@ const HeroSection = () => {
           backgroundImage: `url(${"/images/hero-background.png"})`,
         }}
       />
-      <section className='w-full h-fit column justify-center gap-8'>
-        <h1 className='font-Inter_Bold text-4xl text-dispa8chRed-500'>
+      <section className='w-full h-fit column justify-center gap-8 relative z-10 '>
+        <h1 className='font-Inter_Bold text-dispa8chRed-500 text-4xl lg:text-4xl'>
           Your one-stop platform that brings <br /> local businesses and direct
           delivery <br /> together
         </h1>
@@ -25,7 +25,7 @@ const HeroSection = () => {
           <Link href={"/dashboard"}>Start free</Link>
         </button>
       </section>
-      <section className='w-fit h-fit hidden lg:block'>
+      <section className='w-fit h-fit hidden lg:block relative z-10'>
         <img
           src='/images/hero-illustration.png'
           alt='Illustration image'

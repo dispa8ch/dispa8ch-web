@@ -1,3 +1,4 @@
+'use client'
 import { uppercase } from "@/lib";
 import data from "@/public/data/team.json";
 
@@ -5,11 +6,12 @@ type TeamMemberProps = (typeof data.team_members)[number];
 const TeamMember = ({ src, fullName, title }: TeamMemberProps) => {
   return (
     <div
-      className='w-[225px] min-w-[225px] h-[350px] bg-transparent py-8 px-6 relative overlay column justify-end gap-4 font-Inter text-white text-[12px]'
+      className='w-[225px] min-w-[225px] h-[350px]  py-8 px-6 relative column justify-end gap-4 font-Inter text-white text-[12px]  before:w-full before:h-full before:relative before:bottom-0  before:z-10 before:bg-gradient-to-t before:from-[rgb(0,0,0,.2)] to-tr '
       style={{
         backgroundImage: `url(${src})`,
-        backgroundPosition: "",
+        backgroundPosition: "30% center",
         backgroundSize: "cover",
+        backgroundRepeat: 'no-repeat'
       }}>
       <h1 className='font-Inter_Bold text-xl relative z-20'>{fullName}</h1>
       <p className='relative z-20'>{uppercase(title)}</p>
@@ -22,7 +24,7 @@ const TeamMember = ({ src, fullName, title }: TeamMemberProps) => {
  */
 const TeamSection = () => {
   return (
-    <section className='w-full h-fit py-6 column items-center gap-12 px-6 lg:px-16'>
+    <section id="about" className='w-full h-fit py-6 column items-center gap-12 lg:px-16'>
       <h1 className='text-dispa8chRed-500 text-xl underline font-Inter_ExtraBold lg:text-2xl '>
         Meet The Team
       </h1>

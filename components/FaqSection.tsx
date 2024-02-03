@@ -39,7 +39,7 @@ const Faq = ({ question, answer }: FaqProps) => {
 
 const FaqSection = () => {
   return (
-    <section className='w-full h-fit py-12 column items-center gap-8 px-6 lg:px-16 lg:gap-12'>
+    <section className='w-full h-fit column items-center gap-8 py-12 px-6 lg:px-16 lg:py-20 lg:gap-14'>
       <h1 className='text-dispa8chRed-500 text-lg underline font-Inter_ExtraBold lg:text-2xl '>
         Frequently Asked Questions
       </h1>
