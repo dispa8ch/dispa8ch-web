@@ -9,7 +9,7 @@ import TeamSection from "@/components/TeamSection";
 import FaqSection from "@/components/FaqSection";
 import HeroSection from "@/components/HeroSection";
 import ContactUsButton from "@/components/buttons/ContactUsButton";
-
+import OurBlogs from "@/components/OurBlogs";
 export default function Home() {
   return (
     <>
@@ -36,6 +36,8 @@ export default function Home() {
         <Waitlist />
       </main>
       <ContactUsButton />
+      <OurBlogs />
+
       <Footer />
     </>
   );
