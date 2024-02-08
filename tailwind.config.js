@@ -96,7 +96,20 @@ module.exports = {
 
       maxWidth :{
         120: "500px",
-        110: "450px"
+        110: "450px",
+        100: "400px"
+      },
+
+    padding : {
+      5.5: "4%"
+    },
+
+    margin : {
+      5.5: "4%"
+    },
+
+      maxHeight : {
+      56: "224px"
       },
 
       gradientColorStops: {
