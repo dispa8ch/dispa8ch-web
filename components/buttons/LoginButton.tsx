@@ -1,6 +1,6 @@
 type LoginButtonProps = {
   text: string;
-  handleSubmit: ()=> void;
+  handleSubmit?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 const LoginButton = (props: LoginButtonProps) => {
   return (

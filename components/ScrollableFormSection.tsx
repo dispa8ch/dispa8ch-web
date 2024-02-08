@@ -2,34 +2,43 @@
 import { NamedInput, PasswordInput } from "./inputs";
 import LoginButton from "./buttons/LoginButton";
 import { useState } from "react";
+import {createUserWithEmailAndPassword} from "firebase/auth";
+import { auth } from "@/app/firebase/config";
+
 
 const ScrollableFormSection = () => {
-  const [userDetail, setUserDetail] = useState({
-    email:'',
-    password: '',
-    country: '',
-    businessName: '',
-    city: '',
-    name: '',
-    phone: ''
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
 
-
-  })
+  
+  const handleSubmit =  (e: { preventDefault: () => void; })=> {
+    e.preventDefault()
+    console.log(email,password)
+    try {
+       createUserWithEmailAndPassword(auth,email,password)
+      .then((userCredential) => {
+        console.log(userCredential.user)
+      })
+      setEmail('')
+      setPassword("")
+    } catch (error) {
+      console.error(error)
+    }
+  }
   return (
     <>
       <section className='min-w-full h-full flex flex-col py-4 px-[2px] gap-6'>
-        <NamedInput name='Email address' value={userDetail.email} onChange={(e)=> setUserDetail({...userDetail, email: e.target.value})} />
-        <NamedInput name='Country' value={userDetail.country} onChange={(e)=> setUserDetail({...userDetail, country: e.target.value})}/>
-        <PasswordInput name='Password' value={userDetail.password} onChange={(e)=> setUserDetail({...userDetail, password: e.target.value})} />
-        <PasswordInput name='Confirm Password' value={userDetail.password} onChange={(e)=> setUserDetail({...userDetail, password: e.target.value})} />
+        <NamedInput name='Email address' type="email" value={email} onChange={(e)=> setEmail(e.target.value)} />
+        <NamedInput name='Country' />
+        <PasswordInput type="password" name='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
       </section>
       <section className='min-w-full h-full flex flex-col py-4 px-[2px] gap-6'>
-        <NamedInput name='Business name' value={userDetail.businessName} onChange={(e)=> setUserDetail({...userDetail, businessName: e.target.value})} />
-        <NamedInput name='City' value={userDetail.city} onChange={(e)=> setUserDetail({...userDetail, city: e.target.value})} />
-        <NamedInput name='Contract Person Name' value={userDetail.name} onChange={(e)=> setUserDetail({...userDetail, name: e.target.value})} />
-        <NamedInput name='Phone Number' value={userDetail.phone} onChange={(e)=> setUserDetail({...userDetail, phone: e.target.value})} />
+        <NamedInput name='Business name'  />
+        <NamedInput name='City' />
+        <NamedInput name='Contract Person Name'  />
+        <NamedInput name='Phone Number'  />
         <LoginButton text='Create your account' 
-        handleSubmit={()=>console.log('Hello Chief')}
+        handleSubmit={handleSubmit}
         />
       </section>
     </>
