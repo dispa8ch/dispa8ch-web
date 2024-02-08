@@ -1,7 +1,7 @@
 {
-  "editor.fontFamily": "Consolas, 'Courier New', monospace",
-  "editor.fontWeight": "900",
-  "editor.fontSize": 17,
+  "editor.fontFamily": "operator mono",
+  "editor.fontWeight": "normal",
+  "editor.fontSize": 15.8,
   "tailwindCSS.emmetCompletions": true,
   "files.exclude": {
     "**/.git": true,

@@ -1,15 +1,16 @@
 'use client'
-import { Dispa8chLogo } from "@/public/icons";
+import { Dispa8chLogo, Dispa8chLogoMobile } from "@/public/icons";
 import { Bars3Icon, UserCircleIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
 const Header = () => {
-  const links = ["home", "about", "services", "pricing"] as const;
+  const links = ["/home", "#about", "#services", "/pricing"] as const;
 
   return (
-    <header className='flex items-center bg-white px-6 py-3 font-Inter_Medium lg:px-8 '>
+    <header className='flex items-center bg-[rgb(255,255,255,.2)] backdrop-blur-2xl px-6 py-3 font-Inter_Medium sticky top-0 z-30 shadow-md lg:px-8 '>
       <section className='w-fit h-fit'>
-        <Dispa8chLogo size={0.7} />
+        <Dispa8chLogo size={0.7} className="hidden lg:block"  />
+        <Dispa8chLogoMobile size={0.75} className="block sm:hidden"  />
       </section>
       <button onClick={() => 'open menu'} className="ml-auto flex gap-3 lg:hidden" >
         <UserCircleIcon width={24} height={24} />
@@ -19,13 +20,14 @@ const Header = () => {
         />
       </button>
       <section className='fit mx-auto items-center gap-12 text-base font-Graphik hidden lg:flex '>
-        {links.map((a, i) => (
-          <Link
+        {links.map((a, i) => {
+        const LinkType = a.startsWith('#') ? "a" : Link;
+        return   <LinkType
             key={i}
-            href={`/${a === "home" ? "/" : a}`}>
-            {a.toUpperCase()}
-          </Link>
-        ))}
+            href={`${a === "/home" ? "/" : a}`}>
+            {a.slice(1).toUpperCase()}
+          </LinkType>
+        })}
       </section>
       <section className='w-fit h-fit gap-3 text-sm hidden lg:flex '>
         <Link href='/sign-up'>
