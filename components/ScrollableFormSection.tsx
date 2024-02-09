@@ -3,24 +3,58 @@ import { NamedInput, PasswordInput } from "./inputs";
 import LoginButton from "./buttons/LoginButton";
 import { useState } from "react";
 import {createUserWithEmailAndPassword} from "firebase/auth";
-import { auth } from "@/app/firebase/config";
+import { auth, database } from "@/app/firebase/config";
+import { addDoc, collection } from "firebase/firestore";
 
 
 const ScrollableFormSection = () => {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-
+  const [userDetail, setUserDetail] = useState({
+    email:'',
+    password: '',
+    country:'',
+    busineness_name: '',
+    city:'',
+    contact_name:'',
+    phone_number:''
+  })
   
-  const handleSubmit =  (e: { preventDefault: () => void; })=> {
+
+ 
+  const handleSubmit =   (e: { preventDefault: () => void; })=> {
     e.preventDefault()
-    console.log(email,password)
+    
     try {
-       createUserWithEmailAndPassword(auth,email,password)
-      .then((userCredential) => {
-        console.log(userCredential.user)
+        
+      const additionalDetail = {
+        country: userDetail.country,
+        business_name: userDetail.busineness_name,
+        city: userDetail.city,
+        contact_name: userDetail.contact_name,
+        phone_number: userDetail.phone_number
+        
+      }
+      const databaseRef = collection(database, 'userDetail');
+      createUserWithEmailAndPassword(auth,userDetail.email,userDetail.password)
+      .then(()=> {
+        addDoc(databaseRef, {
+          additionalDetail
+        })
       })
-      setEmail('')
-      setPassword("")
+      .then(()=> alert('Successfully submitted'))
+      .then(()=> {
+
+        setUserDetail({
+          email:'',
+          password:'',
+          country:'',
+          busineness_name:'',
+          city:'',
+          contact_name:'',
+          phone_number:''
+  
+        })
+      })
+      
     } catch (error) {
       console.error(error)
     }
@@ -28,15 +62,15 @@ const ScrollableFormSection = () => {
   return (
     <>
       <section className='min-w-full h-full flex flex-col py-4 px-[2px] gap-6'>
-        <NamedInput name='Email address' type="email" value={email} onChange={(e)=> setEmail(e.target.value)} />
-        <NamedInput name='Country' />
-        <PasswordInput type="password" name='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
+        <NamedInput name='Email address' type="email" value={userDetail.email} onChange={(e)=> setUserDetail({...userDetail, email:e.target.value})} />
+        <NamedInput name='Country' value={userDetail.country} onChange={(e)=> setUserDetail({...userDetail, country: e.target.value})} />
+        <PasswordInput type="password" name='Password' value={userDetail.password} onChange={(e) => setUserDetail({...userDetail, password:e.target.value})} />
       </section>
       <section className='min-w-full h-full flex flex-col py-4 px-[2px] gap-6'>
-        <NamedInput name='Business name'  />
-        <NamedInput name='City' />
-        <NamedInput name='Contract Person Name'  />
-        <NamedInput name='Phone Number'  />
+        <NamedInput name='Business name' value={userDetail.busineness_name} onChange={(e)=> setUserDetail({...userDetail, busineness_name: e.target.value})}  />
+        <NamedInput name='City' value={userDetail.city} onChange={(e)=> setUserDetail({...userDetail, city: e.target.value})} />
+        <NamedInput name='Contract Person Name' value={userDetail.contact_name} onChange={(e)=> setUserDetail({...userDetail, contact_name: e.target.value})} />
+        <NamedInput name='Phone Number' value={userDetail.phone_number} onChange={(e)=> setUserDetail({...userDetail, phone_number: e.target.value})} />
         <LoginButton text='Create your account' 
         handleSubmit={handleSubmit}
         />
