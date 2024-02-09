@@ -3,32 +3,37 @@
     {
       "fullName": "Samson Afolabi Gbemiga",
       "title": "FOUNDER, CEO",
-      "src": "/images/samson-afolabi.png"
+      "src": "/images/team/Samson.jpeg"
     },
     {
       "fullName": "Medewase Olawale Emmanuel",
       "title": "CO-FOUNDER, CMO",
-      "src": "/images/medewase-olawale.png"
+      "src": "/images/team/medah.jpg"
     },
     {
       "fullName": "Adindu Chizitere Amarachukwu",
       "title": "CO-FOUNDER, COO",
-      "src": "/images/adindu-chizitere.png"
+      "src": "/images/team/edward.jpg"
     },
     {
       "fullName": "Akpomughe Caleb Ogheneochuko",
       "title": "PRODUCT DESIGNER",
-      "src": "/images/akpomughe-caleb.png"
+      "src": "/images/team/caleb.jpg"
     },
     {
       "fullName": "Ikechukwu Charles",
       "title": "FRONTEND DEVELOPER",
-      "src": "/images/ikechukwu-charles.png"
+      "src": "/images/team/charles-1.jpg"
     },
     {
       "fullName": "Ugwu James Kelechi",
       "title": "BACKEND DEVELOPER",
-      "src": "/images/ugwu-james.png"
+      "src": "/images/team/James.jpg"
+    },
+    {
+      "fullName": "Levi King David",
+      "title": "FRONTEND DEVELOPER",
+      "src": "/images/team/levi.jpg"
     }
   ]
 }

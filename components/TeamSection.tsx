@@ -6,10 +6,10 @@ type TeamMemberProps = (typeof data.team_members)[number];
 const TeamMember = ({ src, fullName, title }: TeamMemberProps) => {
   return (
     <div
-      className='w-[225px] min-w-[225px] h-[350px]  py-8 px-6 relative column justify-end gap-4 font-Inter text-white text-[12px]  before:w-full before:h-full before:relative before:bottom-0  before:z-10 before:bg-gradient-to-t before:from-[rgb(0,0,0,.2)] to-tr '
+      className='w-[225px] min-w-[225px] h-[350px]  py-8 px-6 relative column justify-end gap-4 font-Inter text-white text-[12px] rounded-xl shadow-2xl underlay after:bg-black/20 after:rounded-[inherit]  '
       style={{
         backgroundImage: `url(${src})`,
-        backgroundPosition: "30% center",
+        backgroundPosition: "center",
         backgroundSize: "cover",
         backgroundRepeat: 'no-repeat'
       }}>

@@ -114,7 +114,7 @@
   }
 
   .underlay {
-    @apply after:h-full after:w-full after:absolute after:left-0 after:top-0 after:-z-10;
+    @apply after:h-full after:w-full after:absolute after:left-0 after:top-0 after:z-10;
   }
 
   .no-scroll {
@@ -139,5 +139,32 @@
 
   .full {
     @apply w-full h-full;
+  }
+
+  .dropdown-menu {
+    overflow: hidden;
+    padding: 0;
+    height: 0;
+    opacity: 0;
+    transition: height 0ms 400ms, opacity 400ms 0ms;
+  }
+
+  .dropdown-menu.shown {
+    height: fit-content;
+    opacity: 1;
+    transition: height 0ms 0ms, opacity 400ms 0ms;
+    @apply p-4;
+  }
+
+  .menu {
+    @apply hidden;
+    opacity: 0;
+    transition: opacity 400ms 20ms;
+  }
+
+  .menu.closed {
+    @apply block;
+    opacity: 1;
+    transition: opacity 400ms 20ms;
   }
 }
