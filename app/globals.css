@@ -133,7 +133,11 @@
     @apply w-fit h-fit
   }
 
+  .percent {
+   width : 90%;
+  }
+
   .full {
-    @apply w-full h-full
+    @apply w-full h-full;
   }
 }

@@ -33,7 +33,13 @@ module.exports = {
           800: "#520A18",
           900: "#29050C",
           950: "#170307",
+          10 : "#E41F47",
         },
+
+        dispa8chLightGray :{
+          100 : "#A4707B",
+        },
+
         dispa8chGreen: {
           50: "#1DD119",
           100: "#189B62",
@@ -82,6 +88,30 @@ module.exports = {
           700: "#292F33",
         },
       },
+
+      width:{
+        91 : "90%",
+        110: "500px"
+      },
+
+      maxWidth :{
+        120: "500px",
+        110: "450px",
+        100: "400px"
+      },
+
+    padding : {
+      5.5: "4%"
+    },
+
+    margin : {
+      5.5: "4%"
+    },
+
+      maxHeight : {
+      56: "224px"
+      },
+
       gradientColorStops: {
         blue_pink: "from-[#2300FD] to-[#EE0CD7]",
         darkblue_blue: "from-[#0093FD] to-[#1900FD]",
