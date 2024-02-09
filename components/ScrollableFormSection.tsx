@@ -65,6 +65,7 @@ const ScrollableFormSection = () => {
         <NamedInput name='Email address' type="email" value={userDetail.email} onChange={(e)=> setUserDetail({...userDetail, email:e.target.value})} />
         <NamedInput name='Country' value={userDetail.country} onChange={(e)=> setUserDetail({...userDetail, country: e.target.value})} />
         <PasswordInput type="password" name='Password' value={userDetail.password} onChange={(e) => setUserDetail({...userDetail, password:e.target.value})} />
+        <PasswordInput type="password" name='Confirm Password' value={userDetail.password} onChange={(e) => setUserDetail({...userDetail, password:e.target.value})} />
       </section>
       <section className='min-w-full h-full flex flex-col py-4 px-[2px] gap-6'>
         <NamedInput name='Business name' value={userDetail.busineness_name} onChange={(e)=> setUserDetail({...userDetail, busineness_name: e.target.value})}  />
