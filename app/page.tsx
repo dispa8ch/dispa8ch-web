@@ -1,19 +1,21 @@
-import Header from "@/components/Header";
+import DemoVideoSection from "@/components/DemoVideoSection";
+import FaqSection from "@/components/FaqSection";
 import FeaturesSection from "@/components/FeaturesSection";
-import OffersSection from "@/components/OffersSection";
-import Waitlist from "@/components/Waitlist";
 import Footer from "@/components/Footer";
 import GetStartedSection from "@/components/GetStartedSection";
-import DemoVideoSection from "@/components/DemoVideoSection";
-import TeamSection from "@/components/TeamSection";
-import FaqSection from "@/components/FaqSection";
+import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import MobileNav from "@/components/MobileNav";
+import OffersSection from "@/components/OffersSection";
+import TeamSection from "@/components/TeamSection";
+import Waitlist from "@/components/Waitlist";
 import ContactUsButton from "@/components/buttons/ContactUsButton";
 
 export default function Home() {
   return (
     <>
       <Header />
+      <MobileNav />
       <HeroSection />
       <main className='w-full min-h-fit bg-white'>
         {/* <div className='custom-shape-divider-top-1705896470'>

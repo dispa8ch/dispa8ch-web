@@ -8,7 +8,7 @@ type FaqProps = (typeof data.faqs)[number];
 const Faq = ({ question, answer }: FaqProps) => {
   const [display, setDisplay] = useState<"hidden" | "block">("hidden");
   return (
-    <div className='w-full h-fit column gap-4 '>
+    <div className='w-full h-fit column gap-4 transition-all duration-700 ease '>
       <div className='w-full h-fit flex items-start justify-between font-Inter_Bold'>
         <h1>{question}</h1>
         <button
@@ -32,7 +32,7 @@ const Faq = ({ question, answer }: FaqProps) => {
           )}
         </button>
       </div>
-      <p className={`w-[90%]  ${display} text-text_1`}>{answer || ""}</p>
+      <p className={`w-[90%] ${display} text-text_1`}>{answer || ""}</p>
     </div>
   );
 };
