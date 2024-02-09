@@ -6,7 +6,7 @@ import { useState } from "react";
 type PasswordInputProps = NamedInputProps;
 
 const PasswordInput = (props?: PasswordInputProps) => {
-  const { name, className: cName } = props || {};
+  const { name,value, className: cName } = props || {};
   const [visible, setVisible] = useState(false);
   function changeVisibility() {
     setVisible(!visible);
@@ -17,6 +17,8 @@ const PasswordInput = (props?: PasswordInputProps) => {
       <input
         name={lowercase(name!)}
         type={visible ? 'text' : 'password'}
+        value={value}
+        onChange={props?.onChange}
         className={`w-full h-12 rounded-lg font-Inter_Bold shadow-input border border-[#ccc] pl-5 text-feintBlack focus:outline-none ${
           cName || ""
         } `}

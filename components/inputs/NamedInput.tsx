@@ -8,6 +8,7 @@ const NamedInput = (props?: NamedInputProps) => {
       <input
         name={lowercase(name!)}
         type={type || "text"}
+        onChange={props?.onChange}
         className={`w-full h-12 rounded-lg font-Inter_Bold shadow-input border border-[#ccc] pl-5 text-feintBlack focus:outline-none ${
           cName || ""
         } `}

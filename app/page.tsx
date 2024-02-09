@@ -15,7 +15,7 @@ export default function Home() {
     <>
       <Header />
       <HeroSection />
-      <main className='w-full min-h-fit bg-white'>
+      <main>
         {/* <div className='custom-shape-divider-top-1705896470'>
           <svg
             data-name='Layer 1'
