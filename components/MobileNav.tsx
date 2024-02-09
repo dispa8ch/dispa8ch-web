@@ -50,7 +50,7 @@ const links: MenuLink[] = [
     to: "/pricing",
     icon: CreditCardIcon,
   },
-] as const;
+];
 
 export default function MobileNav({ menuState }: Props) {
   const [menu, setMenu] = menuState;
