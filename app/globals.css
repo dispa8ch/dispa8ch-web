@@ -45,6 +45,7 @@
 @layer base {
   html {
     scrollbar-width: thin;
+    scroll-behavior: smooth;
   }
 
   html::-webkit-scrollbar {
@@ -63,8 +64,8 @@
     --shadow-black: 0 0 4px rgba(0, 0, 0, 0.2);
     --shadow-dispa8chred: 0 0 4px #d1193e;
     --trans-duration: 700ms;
-
-    scroll-behavior: smooth;
+    --hero-section-duration: 600ms;
+    --hero-section-delay: 200ms;
   }
 
   /* shape divider */
@@ -166,5 +167,56 @@
     @apply block;
     opacity: 1;
     transition: opacity 400ms 20ms;
+  }
+
+  /* Animations */
+
+  /* Animations that play on load */
+  .slide-left {
+    animation: slide-left-opacity var(--hero-section-duration) var(--hero-section-delay) ease ;
+  }
+  
+  .slide-right {
+    animation: slide-right-opacity var(--hero-section-duration) ease;
+  }
+
+  .load-bg-image {
+    animation: load-bg var(--hero-section-duration) var(--hero-section-delay) ease;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes load-bg {
+    from {
+      background-image: url('');
+    }
+
+    to {
+      background-image: url("/images/hero-background.png");
+    }
+  }
+
+  @keyframes slide-left-opacity {
+    from {
+      opacity: .1;
+      transform: translateX(40%);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  
+  @keyframes slide-right-opacity {
+    from {
+      opacity: .1;
+      transform: translateX(-40%);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 }
