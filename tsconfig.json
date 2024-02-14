@@ -25,5 +25,5 @@
     "noUnusedLocals": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules", "node_modules/typescript", "d3-path"]
+  "exclude": ["node_modules", "node_modules/typescript",]
 }
