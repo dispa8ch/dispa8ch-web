@@ -10,6 +10,7 @@ import OurBlogs from "@/components/OurBlogs";
 import TeamSection from "@/components/TeamSection";
 import Waitlist from "@/components/Waitlist";
 import ContactUsButton from "@/components/buttons/ContactUsButton";
+
 export default function Home() {
   return (
     <>
@@ -37,7 +38,6 @@ export default function Home() {
       </main>
       <ContactUsButton />
       <OurBlogs />
-
       <Footer />
     </>
   );
