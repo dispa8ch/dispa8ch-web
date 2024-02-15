@@ -1,3 +1,5 @@
+
+
 import './globals.css';
 import type { Metadata } from 'next';
 import Favicon from '@/public/favicon.png'
@@ -19,6 +21,7 @@ export default function RootLayout({
         <link rel="shortcut icon" href={Favicon.src} type="image/png" />
       </head>
       <body className={'w-full min-h-screen bg-white relative '}>
+        
         {children}
       </body>
     </html>

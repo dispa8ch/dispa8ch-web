@@ -91,7 +91,14 @@ module.exports = {
 
       width:{
         91 : "90%",
-        110: "500px"
+        110: "500px",
+        200 : "986px",
+        105 : "443px",
+        68 : "258px"
+      },
+      height:{
+        35 : "141px",
+        15 : "59px",
       },
 
       maxWidth :{
@@ -105,7 +112,8 @@ module.exports = {
     },
 
     margin : {
-      5.5: "4%"
+      5.5: "4%",
+      22 : "86px"
     },
 
       maxHeight : {
