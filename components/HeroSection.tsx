@@ -8,7 +8,7 @@ const HeroSection = () => {
     <section className='w-full min-h-[90vh] px-8 py-6 flex justify-start items-center font-Inter relative z-10 underlay after:bg-hero after:-z-10 lg:py-0 lg:px-16'>
       {/* image */}
       <div
-        className='h-full w-full absolute left-0 top-0 z-0 lg:load-bg-image'
+        className='h-full w-full absolute left-0 top-0 z-0 bg-hero-image lg:load-hero-image'
       />
       <section className='w-full h-fit column justify-center gap-8 relative z-10 '>
         <h1 className='font-Inter_Bold text-dispa8chRed-500 text-4xl lg:text-4xl lg:slide-right delay-200'>

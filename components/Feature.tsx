@@ -28,12 +28,11 @@ const Feature = (props?: OfferProps) => {
         </button>
       </section>
       <section className='w-full h-[200px] lg:w-[800px] lg:h-[300px] '>
-        <div className='w-[90%] h-[90%] relative'>
-          <div className='w-full h-full rounded-xl bg-dispa8chRed-100 shadow-sm shadow-dispa8chRed-300' />
+        <div className='w-[90%] h-[90%] rounded-xl bg-dispa8chRed-100 relative'>
           <img
             src={props?.imageUrl || ""}
             alt='Image'
-            className='w-full h-full absolute bottom-2 left-2'
+          className='w-full h-full absolute bottom-0 left-0 shadow-pop-bl '
           />
         </div>
       </section>
