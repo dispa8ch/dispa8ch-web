@@ -1,5 +1,8 @@
 "use client";
-
+ import Image from "next/image";
+ import blueIntersect from '../Dashboard/Intersect.png'
+ import darkblueIntersect from '../Dashboard/Intersect.png'
+ import orangeIntersect from '../Dashboard/Intersect (1).png'
 
 function DashboardRevenue () {
     return(
@@ -13,12 +16,15 @@ function DashboardRevenue () {
         <div className="w-full  flex justify-between mb-8">
 
 
-            <div className="bg-green-300 flex justify-around items-center w-105 h-35 border rounded-md border-green-600">
-           <div className="w-44"><p className="text-white text-xl  font-semibold">Total number of Orders</p></div>
+            <div className='w-105 h-35 bg-image flex justify-around items-center  '   >    
+          
 
 
-           <div className="flex gap-8">
-          <div className="h-15 grid place-items-center"><p className="text-black font-bold text-xl">15,347</p></div>
+           <div className="w-44 "><p className="text-white text-xl  font-semibold">Total number of Orders</p></div>
+
+
+           <div className="flex gap-8 ">
+          <div className="h-15 grid place-items-center "><p className="text-black font-bold text-xl">15,347</p></div>
             <div><svg width="59" height="59" viewBox="0 0 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="59" height="59" rx="3" fill="#1DD119"/>
 <path d="M41.2989 29.7366L40.1903 17.6765C40.1404 17.1337 39.6851 16.7184 39.1401 16.7184H32.6998V14.2681C32.6998 10.4548 29.5974 7.35248 25.7842 7.35248C21.971 7.35248 18.8686 10.4548 18.8686 14.2681V16.7183H12.4282C11.8831 16.7183 11.4278 17.1336 11.3779 17.6765L9.08656 42.6057C8.99796 43.5703 9.29618 44.4584 9.94894 45.1739C10.6019 45.8895 11.4589 46.2678 12.4275 46.2678H29.3318C31.2752 49.4899 34.8093 51.6494 38.8387 51.6494C44.956 51.6494 49.9328 46.6725 49.9328 40.5553C49.9328 35.2833 46.2362 30.8588 41.2989 29.7366ZM20.978 14.2681C20.978 11.6179 23.134 9.46185 25.7842 9.46185C28.4344 9.46185 30.5905 11.6179 30.5905 14.2681V16.7183H20.978V14.2681ZM12.4275 44.1584C12.0525 44.1584 11.7601 44.0293 11.5073 43.7522C11.2546 43.4752 11.1529 43.1721 11.1871 42.7987L13.3904 18.8277H18.8686V20.7507C18.8686 21.3332 19.3408 21.8054 19.9233 21.8054C20.5057 21.8054 20.978 21.3332 20.978 20.7507V18.8277H30.5905V20.7507C30.5905 21.3332 31.0627 21.8054 31.6452 21.8054C32.2276 21.8054 32.6999 21.3332 32.6999 20.7507V18.8277H38.178L39.1559 29.4661C39.0505 29.4631 38.9448 29.4613 38.8388 29.4613C32.7215 29.4613 27.7447 34.4381 27.7447 40.5554C27.7447 41.8161 27.9565 43.0282 28.3458 44.1584H12.4275ZM38.8387 49.54C33.8845 49.54 29.854 45.5095 29.854 40.5553C29.854 35.6011 33.8845 31.5706 38.8387 31.5706C43.7928 31.5706 47.8234 35.6011 47.8234 40.5553C47.8234 45.5095 43.7928 49.54 38.8387 49.54ZM43.7951 37.2477C44.1979 37.6684 44.1834 38.336 43.7627 38.7389L38.3771 43.8953C38.1733 44.0903 37.9105 44.1881 37.6477 44.1881C37.392 44.1881 37.1362 44.0957 36.9343 43.9102L33.9308 41.1519C33.5018 40.7579 33.4733 40.0907 33.8673 39.6617C34.2613 39.2325 34.9285 39.2042 35.3575 39.5982L37.6327 41.6877L42.3039 37.2152C42.7246 36.8124 43.3922 36.827 43.7951 37.2477Z" fill="white"/>
@@ -27,14 +33,14 @@ function DashboardRevenue () {
 
 
 
-            </div>
+</div>
 
 
 
 
 
 
-            <div className="bg-orange-200 flex justify-around items-center w-105 h-35 border rounded-md border-orange-600">
+            <div className=" bg-image1 flex justify-around items-center w-105 h-35 ">
            <div className="w-44"><p className="text-white text-xl  font-semibold">Total number of Riders</p></div>
 
 
@@ -80,11 +86,36 @@ function DashboardRevenue () {
 
 
         <div className="w-full flex justify-between">
-            <div className="bg-green-200 w-68 h-28 border rounded-md border-green-600"></div>
-            <div className="bg-green-200 w-68 h-28 border rounded-md border-green-600"></div>
-            <div className="bg-green-200 w-68 h-28 border rounded-md border-green-600"></div>
-   
+            <div className="rounded-md w-68 h-28  relative bg-image2">
+               
+
+                <div  className="w-22  absolute bottom-0 right-0 h-16"><Image alt='' src={blueIntersect} /> </div>
+                <p className="ml-3 font-semibold text-lg text-white mt-3">Completed deliveries</p>
+             <p className="ml-3 font-bold text-xl mt-3 text-black">1000</p>
+            
+                 </div>
+
+            <div className="rounded-md w-68 h-28  relative bg-image3"><div  className="w-22  absolute bottom-0 right-0 h-16"><Image alt='' src={darkblueIntersect} /> </div>
+            <p className="ml-3 font-semibold text-lg text-white mt-3">Completed deliveries</p>
+             <p className="ml-3 font-bold text-xl mt-3 text-black">100</p>
+            
+             </div>  
+ 
+            <div className="rounded-md w-68 h-28 relative bg-image4"><div  className="w-22  absolute bottom-0 right-0 h-16"><Image alt='' src={orangeIntersect} /> </div>
+            <p className="ml-3 font-semibold text-lg text-white mt-3">Assigned riders</p>
+             <p className="ml-3 font-bold text-xl mt-3 text-black">576</p>
+             </div>
+
+ 
         </div>
+
+
+
+
+
+
+
+
 
         </div>
 

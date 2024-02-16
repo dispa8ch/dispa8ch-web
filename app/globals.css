@@ -89,6 +89,37 @@
     fill: #ffffff;
   }
 
+.bg-image{
+  background-image: url('./Dashboard/Rectangle\ 47.png');
+  background-size: cover;
+  background-position: center;
+
+}
+.bg-image1{
+  background-image: url('./Dashboard/Rectangle\ 48.png');
+  background-size: cover;
+  background-position: center;
+
+}
+.bg-image2{
+  background-image: url('./Dashboard/Rectangle\ 48\ \(1\).png');
+  background-size: cover;
+  background-position: center;
+
+}
+.bg-image3{
+  background-image: url('./Dashboard/Rectangle\ 48\ \(2\).png');
+  background-size: cover;
+  background-position: center;
+
+}
+.bg-image4{
+  background-image: url('./Dashboard/Rectangle\ 48\ \(3\).png');
+  background-size: cover;
+  background-position: center;
+
+}
+
   .bg-hero {
     background: linear-gradient(95.06deg, rgba(50, 5, 14, .9) 31.56%, rgb(50, 5, 14) 138.09%);
   }
