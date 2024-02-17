@@ -1,12 +1,12 @@
 "use client";
 import DashboardRevenue from "./DashboardRevenue";
-
+import Notifications from "./Notifications";
 
 
 export default function DashbordHome() {
     return (
 
-        <div>
+        <div className="w-full pt-36 bg-white flex justify-between">
          
       <div>
        <DashboardRevenue/> 
@@ -15,7 +15,7 @@ export default function DashbordHome() {
    
 
       <div>
-
+      <Notifications />
       </div>
 
 
