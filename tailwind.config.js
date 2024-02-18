@@ -98,10 +98,12 @@ module.exports = {
         22 : "87px",
         26 : "105px",
         101 : "422px",
+        125: "462px",
       },
       height:{
         35 : "141px",
         15 : "59px",
+        130: "934px"
 
       },
 
@@ -111,17 +113,22 @@ module.exports = {
         100: "400px"
       },
 
+
+      
+
     padding : {
       5.5: "4%"
     },
 
     margin : {
       5.5: "4%",
-      22 : "86px"
+      22 : "86px",
+      4.5: "18px"
     },
 
       maxHeight : {
-      56: "224px"
+      56: "224px",
+      22: "88px"
       },
 
       gradientColorStops: {
