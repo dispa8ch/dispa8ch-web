@@ -103,7 +103,8 @@ module.exports = {
       height:{
         35 : "141px",
         15 : "59px",
-        130: "934px"
+        130: "934px",
+        22 : "88px"
 
       },
 
@@ -123,7 +124,8 @@ module.exports = {
     margin : {
       5.5: "4%",
       22 : "86px",
-      4.5: "18px"
+      4.5: "18px",
+      1.7: "7px",
     },
 
       maxHeight : {
