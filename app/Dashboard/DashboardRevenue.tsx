@@ -6,11 +6,13 @@
 
 function DashboardRevenue () {
     return(
-       <div className="w-200  ml-36 bg-white ">
+       <div className="w-200   ml-36 bg-white ">
 
 
 
-        <div>
+        <section >
+
+
 
 
         <div className="w-full  flex justify-between mb-8">
@@ -113,7 +115,7 @@ function DashboardRevenue () {
 
 
 
-        </div>
+        </section>
 
 
 

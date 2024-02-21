@@ -24,7 +24,7 @@ const Feature = (props?: OfferProps) => {
         <p>{props?.topText}</p>
         <p>{props?.bottomText}</p>
         <button className='w-fit h-fit mt-auto bg-dispa8chRed-500 text-white font-Inter_Bold px-8 py-1 rounded-md '>
-          <Link href={"/dashboard"}>Start free</Link>
+          <Link href={"/Dashboard"}>Start free</Link>
         </button>
       </section>
       <section className='w-full h-[200px] lg:w-[800px] lg:h-[300px] '>

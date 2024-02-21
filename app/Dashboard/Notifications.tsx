@@ -138,6 +138,26 @@ function Notifications (){
 
 
 
+
+<section className="w-full">
+<div className="w-101 flex justify-between">
+  <div><h1>Recent Orders <span>126</span></h1></div>
+  <div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+
+</section>
+
+
+
+
+
+
+
 </div>
 
 
