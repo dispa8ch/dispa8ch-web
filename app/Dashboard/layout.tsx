@@ -31,8 +31,8 @@ export default function RootLayout({
 
  
   return (
-    <html lang='en' className='overflow-x-clip'>
-      <body className={'w-fit h-fit'}>
+    
+      
        <div>
 
 
@@ -43,9 +43,10 @@ export default function RootLayout({
         {children}
       </div>
 
+
+
        </div>
        
-      </body>
-    </html>
+      
   );
 }

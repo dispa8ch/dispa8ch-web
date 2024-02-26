@@ -134,7 +134,7 @@ function DashboardRevenue () {
 
 
 
-        <div className="w-200 bg-white mt-14">
+        <div className="w-200 bg-white mt-20">
             <div className="  flex justify-between">
                 <div><p className="text-xl font-bold text-black">Revenue Stream</p></div>
 

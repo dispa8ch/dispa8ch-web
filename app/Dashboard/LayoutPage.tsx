@@ -39,14 +39,72 @@ function LayoutPage() {
 
 const handleDivClick = (index : Number) => {
   
-    const div = document.getElementById(`div-$(index)`)
+    const div = document.getElementById(`div-${index}`)
+    
     
     if(div){
-      div.focus()
+     // div.focus()
+     div.classList.toggle('focus');
+      localStorage.setItem(`divFocus-${index}`, div.classList.contains('focus').toString());
     }
+  // 
 
 
 }
+
+
+
+
+
+
+
+/*document.addEventListener('DOMContentLoaded', () => {
+  const numberOfDivs = 5;
+
+  // Loop through the div elements and apply focus class if needed
+  for (let index = 1; index <= numberOfDivs; index++) {
+      const isFocused = localStorage.getItem(`divFocus-${index}`) === 'true';
+      const div = document.getElementById(`div-${index}`);
+
+      if (div) {
+          // Toggle the focus class based on the stored value
+          div.classList.toggle('focus', isFocused);
+
+          // If it's the first div and no focus state is stored, set focus
+          if (index === 1 && !isFocused) {
+              div.classList.add('focus');
+              localStorage.setItem(`divFocus-${index}`, 'true');
+          }
+      }
+  }
+});*/
+
+
+
+
+useEffect(() => {
+  const numberOfDivs = 5;
+
+  for (let index = 1; index <= numberOfDivs; index++) {
+    const isFocused = localStorage.getItem(`divFocus-${index}`) === 'true';
+    const div = document.getElementById(`div-${index}`);
+
+    if (div) {
+      // Toggle the focus class based on the stored value
+      div.classList.toggle('focus', isFocused);
+      console.log(div);
+
+      // Break out of the loop after handling the first div
+      break;
+    }
+  }
+}, []);
+
+
+
+
+
+
 
     return(
 
@@ -110,9 +168,12 @@ const handleDivClick = (index : Number) => {
 
 
 
-          <div className='w-24 h-screen  fixed mt-22 bg-white shadow-2xl'>
 
-        <Link href={'/Dashboard'} > <div id='div-1'  onClick={() => handleDivClick(1)} className= 'w-full grid place-items-center focus:bg-gray-200 py-3 mt-8 hover:bg-gray-200'  tabIndex={0}><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg }" >
+
+
+          <div  className='w-24  h-screen  fixed mt-22 bg-white shadow-2xl'>
+
+        <Link href={'/Dashboard'} > <div id='div-1'  onClick={() => handleDivClick(1)} className= 'w-full grid place-items-center focus:bg-gray-200 py-3 mt-8 hover:bg-gray-200'  tabIndex={0}><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg " >
 <path d="M0.000976562 9.99902H8.00098V-0.000976562H0.000976562V9.99902ZM0.000976562 17.999H8.00098V11.999H0.000976562V17.999ZM10.001 17.999H18.001V7.99902H10.001V17.999ZM10.001 -0.000976562V5.99902H18.001V-0.000976562H10.001Z" fill="#D1193E"/>
 </svg>
 </div></Link>

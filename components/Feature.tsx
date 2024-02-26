@@ -14,7 +14,7 @@ type OfferProps = {
 const Feature = (props?: OfferProps) => {
   return (
     <section
-      className='w-full h-fit flex justify-between gap-6
+      className='w-full h-fit  flex justify-between gap-6
     font-Inter_Medium flex-col-reverse items-center lg:flex-row lg:even:flex-row-reverse lg:items-start '>
       <section className='w-fit flex-grow column gap-6'>
         <h1 className='font-Inter_Bold text-xl bg-gradient-to-r from-dispa8chRed-500 to-amber-500 text-transparent bg-clip-text'>

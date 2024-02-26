@@ -119,6 +119,9 @@
   background-position: center;
 
 }
+.btn-order{
+  background-color: #d1193e;
+}
 
   .bg-hero {
     background: linear-gradient(95.06deg, rgba(50, 5, 14, .9) 31.56%, rgb(50, 5, 14) 138.09%);
