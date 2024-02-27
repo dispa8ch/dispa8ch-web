@@ -11,8 +11,7 @@ const HeroSection = () => {
         className='h-full w-full absolute left-0 top-0 '
         style={{
           backgroundImage: `url(${"/images/hero-background.png"})`,
-        }}
-      ></div>
+        }}></div>
 
       <section className='w-full h-fit column justify-center gap-8 relative  '>
         <h1 className='font-Inter_Bold text-dispa8chRed-500 text-4xl lg:text-4xl'>
@@ -25,8 +24,6 @@ const HeroSection = () => {
         <button className='fit bg-dispa8chRed-500 text-white font-Inter_Bold px-8 py-1 rounded-md lg:slide-right delay-[600ms] '>
           <Link href={"/dashboard"}>Start free</Link>
         </button>
-
- 
       </section>
       <section className='w-fit h-fit hidden relative z-10 lg:block lg:slide-left'>
         <img
