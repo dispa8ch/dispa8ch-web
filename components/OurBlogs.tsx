@@ -12,7 +12,7 @@ const Allcomponent = ({ header, paragraph, imageUrl2, imageUrl, id }: Blog) => {
       if (animatedDiv) {
         const rect = animatedDiv.getBoundingClientRect();
 
-        if (rect.top <= window.innerHeight * 0.6 && rect.bottom >= 0) {
+        if (rect.top <= window.innerHeight * 0.75 && rect.bottom >= 0) {
           animatedDiv.classList.add("active");
         } else {
           animatedDiv.classList.remove("active");
