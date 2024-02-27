@@ -8,7 +8,6 @@ import backgroundIcon from "../Dashboard/Ellipse 28.png";
 import gIcon from "../Dashboard/G.png";
 
 function LayoutPage() {
-  ``;
   /* const router = useRouter();
     const [searchParams] = useSearchParams()
     
@@ -168,7 +167,7 @@ function LayoutPage() {
         </div>
       </header>
 
-      <div className='w-24  h-screen  fixed mt-22 bg-white shadow-2xl'>
+      <div className='w-24 z-10 h-screen  fixed mt-22 bg-white shadow-2xl'>
         <Link href={"/Dashboard"}>
           {" "}
           <div
