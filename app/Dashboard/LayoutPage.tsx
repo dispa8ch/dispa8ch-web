@@ -1,11 +1,12 @@
 "use client";
 import gig from "../Dashboard/Rectangle 42.png";
 //import { useParams } from "next/navigation";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import Image from "next/image";
-import Link from "next/link";
-import { useEffect } from "react";
 import backgroundIcon from "../Dashboard/Ellipse 28.png";
 import gIcon from "../Dashboard/G.png";
+import { useState, useEffect } from "react";
+import Link from "next/link";
 
 function LayoutPage() {
   ``;
