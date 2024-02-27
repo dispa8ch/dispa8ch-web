@@ -23,12 +23,12 @@ const MobileNavButtons = ({ menuState }: Props) => {
   const [menu, setMenu] = menuState;
   return (
     <section className='fit ml-auto flex gap-3 lg:hidden'>
-      {buttons.map(({ icon: Button, onClick }, i) => (
+      {buttons.map(({ icon: Icon, onClick }, i) => (
         <button
           key={i}
           className={`${menu ? "menu" : "menu closed"}`}
           onClick={onClick}>
-          <Button
+          <Icon
             width={24}
             height={24}
           />
@@ -48,7 +48,7 @@ const Header = () => {
         <section className='w-fit h-fit'>
           <Dispa8chLogo
             size={0.7}
-            className='hidden lg:block'
+            className='hidden sm:block'
           />
           <Dispa8chLogoMobile
             size={0.75}
@@ -71,16 +71,12 @@ const Header = () => {
           })}
         </section>
         <section className='w-fit h-fit gap-3 text-sm hidden lg:flex '>
-          <Link href='/sign-up'>
-            <p className='bg-dispa8chRed-500 text-white px-8 py-2 rounded-lg'>
-              Signup
-            </p>
-          </Link>
-          <Link href='/login'>
-            <p className='bg-white text-dispa8chRed-500 border border-dispa8chRed-500 px-8 py-2 rounded-lg'>
-              Login
-            </p>
-          </Link>
+          <button className='bg-dispa8chRed-500 text-white px-8 py-2 rounded-lg'>
+            <Link href='/sign-up'>Signup</Link>
+          </button>
+          <button className='bg-white text-dispa8chRed-500 border border-dispa8chRed-500 px-8 py-2 rounded-lg'>
+            <Link href='/login'>Login</Link>
+          </button>
         </section>
       </header>
       <MobileNav menuState={menuState} />

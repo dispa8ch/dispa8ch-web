@@ -77,8 +77,11 @@ export default function MobileNav({ menuState }: Props) {
           </Link>
         </section>
 
-        {links.map((props) => (
-          <MobileLinks {...props} />
+        {links.map((props, i) => (
+          <MobileLinks
+            {...props}
+            key={i}
+          />
         ))}
       </section>
     </section>

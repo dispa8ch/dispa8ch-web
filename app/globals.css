@@ -2,49 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: Inter_Black;
-  src: url(../public/fonts/Inter/static/Inter-Black.ttf);
-}
-
-@font-face {
-  font-family: Inter_Bold;
-  src: url(../public/fonts/Inter/static/Inter-Bold.ttf);
-}
-
-@font-face {
-  font-family: Inter_ExtraBold;
-  src: url(../public/fonts/Inter/static/Inter-ExtraBold.ttf);
-}
-
-@font-face {
-  font-family: Inter;
-  src: url(../public/fonts/Inter/static/Inter-Regular.ttf);
-}
-
-@font-face {
-  font-family: Inter_Light;
-  src: url(../public/fonts/Inter/static/Inter-Light.ttf);
-}
-
-@font-face {
-  font-family: Inter_Medium;
-  src: url(../public/fonts/Inter/static/Inter-Medium.ttf);
-}
-
-@font-face {
-  font-family: Graphik;
-  src: url(../public/fonts/Graphik/GraphikRegular.otf);
-}
-
-@font-face {
-  font-family: Graphik_Medium;
-  src: url(../public/fonts/Graphik/GraphikMedium.otf);
-}
 
 @layer base {
+  /* Font faces */
+
+  @font-face {
+    font-family: Inter_Black;
+    src: url(../public/fonts/Inter/static/Inter-Black.ttf);
+  }
+  
+  @font-face {
+    font-family: Inter_Bold;
+    src: url(../public/fonts/Inter/static/Inter-Bold.ttf);
+  }
+  
+  @font-face {
+    font-family: Inter_ExtraBold;
+    src: url(../public/fonts/Inter/static/Inter-ExtraBold.ttf);
+  }
+  
+  @font-face {
+    font-family: Inter;
+    src: url(../public/fonts/Inter/static/Inter-Regular.ttf);
+  }
+  
+  @font-face {
+    font-family: Inter_Light;
+    src: url(../public/fonts/Inter/static/Inter-Light.ttf);
+  }
+  
+  @font-face {
+    font-family: Inter_Medium;
+    src: url(../public/fonts/Inter/static/Inter-Medium.ttf);
+  }
+  
+  @font-face {
+    font-family: Graphik;
+    src: url(../public/fonts/Graphik/GraphikRegular.otf);
+  }
+  
+  @font-face {
+    font-family: Graphik_Medium;
+    src: url(../public/fonts/Graphik/GraphikMedium.otf);
+  }
+  
+
   html {
     scrollbar-width: thin;
+    scroll-behavior: smooth;
   }
 
   html::-webkit-scrollbar {
@@ -63,8 +68,8 @@
     --shadow-black: 0 0 4px rgba(0, 0, 0, 0.2);
     --shadow-dispa8chred: 0 0 4px #d1193e;
     --trans-duration: 700ms;
-
-    scroll-behavior: smooth;
+    --base-animation-duration: 600ms;
+    --base-animation-delay: 200ms;
   }
 
   /* shape divider */
@@ -200,5 +205,74 @@
     @apply block;
     opacity: 1;
     transition: opacity 400ms 20ms;
+  }
+
+  /* Animations */
+
+  /* Animations that play on load */
+  .slide-left {
+    animation: slide-left-opacity var(--base-animation-duration) var(--base-animation-delay) ease ;
+  }
+  
+  .slide-right {
+    animation: slide-right-opacity var(--base-animation-duration) ease;
+  }
+
+  .bg-hero-image {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("/images/hero-background.png");
+  }
+
+  /* This should be applied like lg:load-hero-image to animate on large screen devices */
+  .load-hero-image {
+    animation: load-hero-bg-image var(--base-animation-duration) var(--base-animation-delay) ease;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes load-hero-bg-image {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-left-opacity {
+    from {
+      opacity: .1;
+      transform: translateX(40%);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  
+  @keyframes slide-right-opacity {
+    from {
+      opacity: .1;
+      transform: translateX(-40%);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Animations on scroll */
+
+  .shadow-pop-bl {
+    animation: shadow-pop-bl var(--base-animation-duration) cubic-bezier(0.470, 0.000, 0.745, 0.715) forwards;
+  }
+
+  @keyframes shadow-pop-bl {
+    to {
+      @apply translate-x-2 -translate-y-2;
+    }
   }
 }
