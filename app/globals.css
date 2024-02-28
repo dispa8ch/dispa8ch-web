@@ -267,7 +267,7 @@
   /* Animations on scroll */
 
   .shadow-pop-bl {
-    animation: shadow-pop-bl var(--base-animation-duration) cubic-bezier(0.470, 0.000, 0.745, 0.715) forwards;
+    animation: shadow-pop-bl var(--base-animation-duration) 100ms cubic-bezier(0.470, 0.000, 0.745, 0.715) forwards;
   }
 
   @keyframes shadow-pop-bl {

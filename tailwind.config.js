@@ -19,6 +19,10 @@ module.exports = {
         Graphik: ["Graphik"],
         Graphik_Medium: ["Graphik_Medium"],
       },
+      screens: {
+        "bsm": "480px",
+        "tblg": "800px"
+      },
       colors: {
         text_1: "#35000BC9",
         dispa8chRed: {
@@ -88,7 +92,6 @@ module.exports = {
           700: "#292F33",
         },
       },
-
       width:{
         91 : "90%",
         110: "500px",
@@ -108,32 +111,24 @@ module.exports = {
         22 : "88px"
 
       },
-
       maxWidth :{
         120: "500px",
         110: "450px",
         100: "400px"
       },
-
-
-      
-
     padding : {
       5.5: "4%"
     },
-
     margin : {
       5.5: "4%",
       22 : "86px",
       4.5: "18px",
       1.7: "7px",
     },
-
       maxHeight : {
       56: "224px",
       22: "88px"
       },
-
       gradientColorStops: {
         blue_pink: "from-[#2300FD] to-[#EE0CD7]",
         darkblue_blue: "from-[#0093FD] to-[#1900FD]",
