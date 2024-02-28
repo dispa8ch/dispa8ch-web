@@ -16,19 +16,12 @@ const Faq = ({ question, answer }: FaqProps) => {
             setDisplay((prev) => {
               return prev === "block" ? "hidden" : "block";
             });
-          }}>
+          }}
+        >
           {display === "block" ? (
-            <MinusIcon
-              width={24}
-              height={24}
-              color='black'
-            />
+            <MinusIcon width={24} height={24} color='black' />
           ) : (
-            <PlusIcon
-              width={24}
-              height={24}
-              color='black'
-            />
+            <PlusIcon width={24} height={24} color='black' />
           )}
         </button>
       </div>
@@ -39,17 +32,17 @@ const Faq = ({ question, answer }: FaqProps) => {
 
 const FaqSection = () => {
   return (
-    <section className='w-full h-fit column items-center gap-8 py-12 px-6 lg:px-16 lg:py-20 lg:gap-14'>
+    <section
+      id='FAQ'
+      className='w-full h-fit column items-center gap-8 py-12 px-6 lg:px-16 lg:py-20 lg:gap-14'
+    >
       <h1 className='text-dispa8chRed-500 text-lg underline font-Inter_ExtraBold lg:text-2xl '>
         Frequently Asked Questions
       </h1>
 
       <section className='w-full min-h-fit grid grid-cols-1 gap-y-6 gap-x-6 font-Inter sm:grid-cols-2 sm:gap-y-6 lg:gap-y-10'>
         {data.faqs.map((faq, i) => (
-          <Faq
-            key={i}
-            {...faq}
-          />
+          <Faq key={i} {...faq} />
         ))}
       </section>
     </section>
