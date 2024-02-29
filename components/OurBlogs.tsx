@@ -4,7 +4,13 @@ import Link from "next/link";
 
 type BlogPostProps = (typeof data.our_blogs)[number];
 
-const BlogPost = ({ header, paragraph, imageUrl2, imageUrl, id }: BlogPostProps) => {
+const BlogPost = ({
+  header,
+  paragraph,
+  imageUrl2,
+  imageUrl,
+  id,
+}: BlogPostProps) => {
   return (
     <div className='md:flex  md:items-center  mb-16 md:mb-36 md:gap-8 lg:gap-24 xl:gap-32  md:justify-start grid place-items-center sm:pl-0 '>
       <div className='lg:max-h-56 md:max-h-64 lg:max-w-110 xl:max-w-120 w-80 md:max-w-100 sm:w-91 '>
