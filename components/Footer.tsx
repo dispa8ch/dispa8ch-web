@@ -21,9 +21,7 @@ const Links = () => {
       <div className='w-fit h-fit text-base font-Inter column gap-6'>
         <h1 className='font-Inter_Bold'>{name}</h1>
         {links.map((link, i) => (
-          <Link
-            key={i}
-            href={lowercase(link)}>
+          <Link key={i} href={lowercase(link)}>
             <p>{link}</p>
           </Link>
         ))}
@@ -34,11 +32,7 @@ const Links = () => {
   return (
     <section className='w-full h-fit flex justify-between items-start flex-wrap gap-6 lg:w-2/5 lg:h-full'>
       {entries(linkSections).map(([name, links], i) => (
-        <LinkSection
-          name={name}
-          links={links}
-          key={i}
-        />
+        <LinkSection name={name} links={links} key={i} />
       ))}
     </section>
   );
@@ -67,7 +61,7 @@ const Footer = () => {
   return (
     <footer className='w-full min-h-20 bg-gradient-to-r from-[#E41F4733] to-[#FDA80033] py-10 px-6 flex flex-wrap gap-6 justify-between lg:py-20 lg:px-16 '>
       <section className='w-full h-fit space-y-6 font-Inter column text-text_1 lg:w-1/2'>
-        <Dispa8chLogo size={0.7}   />
+        <Dispa8chLogo size={0.7} />
         <p>
           Dispa8ch simplifies local delivery management for restaurants, ghost
           kitchens and small businesses. With smart automation and real-time
@@ -81,15 +75,12 @@ const Footer = () => {
           <h1 className='font-Inter_Bold'>Follow us on</h1>
           <div className='w-fit h-fit flex gap-3'>
             {socialMediaLinks.map((Icon, i) => (
-              <Icon
-                size={0.7}
-                key={i}
-              />
+              <Icon size={0.7} key={i} />
             ))}
           </div>
         </div>
         <div className='w-fit h-fit flex gap-1 items-center'>
-          <CopyRightIcon size={.5} />
+          <CopyRightIcon size={0.5} />
           <p className='font-Inter_Medium text-sm'>
             All rights reserved 2024 Dispa8ch
           </p>
