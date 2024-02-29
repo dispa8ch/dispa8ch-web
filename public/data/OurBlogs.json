@@ -1,19 +1,18 @@
 {
-    "OurBlog": [
-      {
-        "header": "New feature RELEASE!!!",
-        "paragraph": "Dispa8ch has finally launched new geo-tracking feature that allows businesses and logistics...",
-        "id": 0,
-        "imageUrl": "/images/Rectangle 240.png",
-        "imageUrl2" : "/images/Ellipse 81.png"
-      },
-      {
-        "header": "Tech industry: Innovative or tentative",
-        "paragraph": "Dispa8ch has finally launched new geo-tracking feature that  allows businesses and logistics...",
-        "id": 1,
-        "imageUrl": "/images/Rectangle 240 (1).png",
-        "imageUrl2" : "/images/Ellipse 81.png"
-      }
-    ]
-
+  "our_blogs": [
+    {
+      "header": "New feature RELEASE!!!",
+      "paragraph": "Dispa8ch has finally launched new geo-tracking feature that allows businesses and logistics...",
+      "id": 0,
+      "imageUrl": "/images/Rectangle 240.png",
+      "imageUrl2": "/images/Ellipse 81.png"
+    },
+    {
+      "header": "Tech industry: Innovative or tentative",
+      "paragraph": "Dispa8ch has finally launched new geo-tracking feature that  allows businesses and logistics...",
+      "id": 1,
+      "imageUrl": "/images/Rectangle 240 (1).png",
+      "imageUrl2": "/images/Ellipse 81.png"
     }
+  ]
+}
