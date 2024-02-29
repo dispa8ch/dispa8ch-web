@@ -6,7 +6,7 @@ type TeamMemberProps = (typeof data.team_members)[number];
 const TeamMember = ({ src, fullName, title }: TeamMemberProps) => {
   return (
     <div
-      className='w-[225px] min-w-[225px] h-[350px]  py-8 px-6 relative column justify-end gap-4 font-Inter text-white text-[12px] rounded-xl shadow-2xl underlay after:bg-black/20 after:rounded-[inherit]  '
+      className='w-[225px] min-w-[225px] h-[350px]  py-8 px-6 relative column justify-end gap-4 font-Inter text-white text-[12px] rounded-xl shadow-[4px_4px_2px_2px_rgb(0,0,0,.3)] underlay after:bg-black/20 after:rounded-[inherit]   '
       style={{
         backgroundImage: `url(${src})`,
         backgroundPosition: "center",
@@ -19,9 +19,6 @@ const TeamMember = ({ src, fullName, title }: TeamMemberProps) => {
   );
 };
 
-/**
- * @todo add a good enough overlay between the background and the text;
- */
 const TeamSection = () => {
   return (
     <section id="about" className='w-full h-fit py-6 column items-center gap-12 lg:px-16'>
