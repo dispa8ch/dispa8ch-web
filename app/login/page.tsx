@@ -1,7 +1,7 @@
 "use client";
 import { Dispa8chLogo } from "@/public/icons";
 import { NamedInput, PasswordInput } from "@/components/inputs";
-import LoginButton from "@/components/buttons/LoginButton";
+import { LoginButton } from "@/components/buttons";
 import Link from "next/link";
 
 /**

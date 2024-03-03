@@ -1,10 +1,9 @@
-"use client";
 import Image from "next/image";
-import orangeIntersect from "../Dashboard/Intersect (1).png";
+import orangeIntersect from "../Intersect (1).png";
 import {
   default as blueIntersect,
   default as darkblueIntersect,
-} from "../Dashboard/Intersect.png";
+} from "../Intersect.png";
 
 function DashboardRevenue() {
   return (

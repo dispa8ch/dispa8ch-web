@@ -1,6 +1,6 @@
 'use client'
 import { Dispa8chLogo } from "@/public/icons";
-import SignUpForm from "@/components/SignUpForm";
+import SignUpForm from "./_components/SignUpForm";
 import { useRouter } from "next/navigation";
 
 export default function SignUp() {

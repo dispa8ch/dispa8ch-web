@@ -1,5 +1,5 @@
 import data from "@/public/data/offers.json";
-import { ClockCircle, EyeTracking, LinkPeople, Route } from "./dispa8ch-icons";
+import { ClockCircle, EyeTracking, LinkPeople, Route } from "@/components/dispa8ch-icons";
 import Link from "next/link";
 
 type OfferProps = (typeof data.offers)[number];

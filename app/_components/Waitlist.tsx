@@ -1,6 +1,6 @@
 "use client";
 import { useRef } from "react";
-import WaitlistInput from "./inputs/WaitlistInput";
+import { WaitlistInput } from "@/components/inputs";
 
 const Waitlist = () => {
   const ref = useRef<HTMLElement>();

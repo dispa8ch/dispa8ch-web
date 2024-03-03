@@ -1,11 +1,10 @@
 "use client";
-import gig from "../Dashboard/Rectangle 42.png";
-//import { useParams } from "next/navigation";
+import gig from "../Rectangle 42.png";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
-import backgroundIcon from "../Dashboard/Ellipse 28.png";
-import gIcon from "../Dashboard/G.png";
+import backgroundIcon from "../Ellipse 28.png";
+import gIcon from "../G.png";
 
 function LayoutPage() {
   /* const router = useRouter();
@@ -34,11 +33,9 @@ function LayoutPage() {
         
 */
 
-  const handleDivClick = (index: Number) => {
+  const handleDivClick = (index: number) => {
     const div = document.getElementById(`div-${index}`);
-
     if (div) {
-      // div.focus()
       div.classList.toggle("focus");
       localStorage.setItem(
         `divFocus-${index}`,

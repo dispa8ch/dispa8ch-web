@@ -1,27 +1,15 @@
-"use client";
-import DashboardRevenue from "./DashboardRevenue";
-import Notifications from "./Notifications";
- 
+import DashboardRevenue from "./_components/DashboardRevenue";
+import LayoutPage from "./_components/LayoutPage";
+import Notifications from "./_components/Notifications";
 
-export default function DashbordHome() {
-    return (
-
-        <div className="w-full pt-36 bg-white gap-4 flex justify-between">
-         
-      <div>
-       <DashboardRevenue/> 
-      </div>
-
-   
-
-      <div>
-      <Notifications />
-      </div>
-
-
-
-
-        </div>
-    )
-
+export default function Dashboard() {
+  return (
+    <>
+      <LayoutPage />
+      <section className='w-full pt-36 bg-white gap-4 flex justify-between'>
+        <DashboardRevenue />
+        <Notifications />
+      </section>
+    </>
+  );
 }
