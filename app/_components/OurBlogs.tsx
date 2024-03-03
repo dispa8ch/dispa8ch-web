@@ -1,6 +1,7 @@
 "use client";
 import data from "@/public/data/blogs.json";
 import Link from "next/link";
+import { useEffect } from "react";
 
 type BlogPostProps = (typeof data.our_blogs)[number];
 
@@ -33,10 +34,7 @@ const BlogPost = ({
 
         <div className='flex mt-3 gap-2'>
           <div className='mt-2'>
-            <img
-              alt=''
-              src={imageUrl2}
-            />
+            <img alt='' src={imageUrl2} />
           </div>
           <p className='text-dispa8chLightGray-100  font-normal text-base'>
             2 mins read
@@ -48,17 +46,37 @@ const BlogPost = ({
 };
 
 const OurBlogs = () => {
+  useEffect(() => {
+    const animatedDiv = document.getElementById("animatedDiv");
+
+    const handleScroll = () => {
+      if (animatedDiv) {
+        const rect = animatedDiv.getBoundingClientRect();
+
+        if (rect.top <= window.innerHeight * 0.75 && rect.bottom >= 0) {
+          animatedDiv.classList.add("active");
+        } else {
+          animatedDiv.classList.remove("active");
+        }
+      }
+    };
+
+    // Attach scroll event listener when the component mounts
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <section className=' lg:w-91 w-full mb-32 md:ml-6   lg:ml-16'>
       <h1 className='text-dispa8chRed-500 text-center text-xl font-Inter_ExtraBold lg:text-2xl  mb-20'>
         OUR BLOGS
       </h1>
-      <section>
+      <section id='animatedDiv'>
         {data.our_blogs.map((attribute, i) => (
-          <BlogPost
-            key={i}
-            {...attribute}
-          />
+          <BlogPost key={i} {...attribute} />
         ))}
       </section>
 
