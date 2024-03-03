@@ -1,5 +1,5 @@
 "use client";
-import data from "@/public/data/ourblogs.json";
+import data from "@/public/data/blogs.json";
 import Link from "next/link";
 
 type BlogPostProps = (typeof data.our_blogs)[number];

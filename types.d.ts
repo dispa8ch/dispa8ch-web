@@ -23,6 +23,5 @@ declare global {
 
   declare namespace Helpers {
     type Keyof<T extends EmptyObject> = keyof T;
-
   }
 }
