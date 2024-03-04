@@ -60,6 +60,7 @@ const OurBlogs = () => {
         } else {
           console.log("Element is out of the viewport");
           // Add your logic here when the element is out of the viewport
+
           if (animatedDivRef.current) {
             animatedDivRef.current.classList.remove("active");
           }
@@ -70,7 +71,7 @@ const OurBlogs = () => {
     const options = {
       root: null, // Use the viewport as the root
       rootMargin: "0px", // No margin
-      threshold: 0.2, // Trigger when 75% of the element is in the viewport
+      threshold: 0.1, // Trigger when 75% of the element is in the viewport
     };
 
     const animatedDivObserver = new IntersectionObserver(
@@ -88,7 +89,7 @@ const OurBlogs = () => {
         animatedDivObserver.unobserve(animatedDivRef.current);
       }
     };
-  }, []);
+  }, [animatedDivRef]);
 
   /*useEffect(() => {
     const animatedDiv = document.getElementById("animatedDiv");
@@ -126,7 +127,7 @@ const OurBlogs = () => {
         ))}
       </section>
 
-      <button className='text-dispa8chRed-10 text-center underline text-lg font-medium mt-20'>
+      <button className='text-dispa8chRed-10 w-full grid place-items-center text-center underline text-lg font-medium mt-20'>
         <Link href={"/blogs"}>View more articles</Link>
       </button>
     </section>
