@@ -20,8 +20,8 @@ module.exports = {
         Graphik_Medium: ["Graphik_Medium"],
       },
       screens: {
-        "bsm": "480px",
-        "tblg": "800px"
+        bsm: "480px",
+        tblg: "800px",
       },
       colors: {
         text_1: "#35000BC9",
@@ -37,11 +37,11 @@ module.exports = {
           800: "#520A18",
           900: "#29050C",
           950: "#170307",
-          10 : "#E41F47",
+          10: "#E41F47",
         },
 
-        dispa8chLightGray :{
-          100 : "#A4707B",
+        dispa8chLightGray: {
+          100: "#A4707B",
         },
 
         dispa8chGreen: {
@@ -92,49 +92,71 @@ module.exports = {
           700: "#292F33",
         },
       },
-      width:{
-        91 : "90%",
+      width: {
+        91: "90%",
         110: "500px",
-        200 : "950px",
-        105 : "443px",
-        68 : "258px",
-        22 : "87px",
-        26 : "105px",
-        101 : "422px",
+        200: "950px",
+        105: "443px",
+        68: "258px",
+        22: "87px",
+        26: "105px",
+        101: "422px",
         125: "462px",
-        13 : "51px"
+        13: "51px",
       },
-      height:{
-        35 : "141px",
-        15 : "59px",
+      height: {
+        35: "141px",
+        15: "59px",
         130: "934px",
-        22 : "88px"
-
+        22: "88px",
       },
-      maxWidth :{
+      darkMode: ["class"],
+      prefix: "",
+      maxWidth: {
         120: "500px",
         110: "450px",
-        100: "400px"
+        100: "400px",
       },
-    padding : {
-      5.5: "4%"
-    },
-    margin : {
-      5.5: "4%",
-      22 : "86px",
-      4.5: "18px",
-      1.7: "7px",
-    },
-      maxHeight : {
-      56: "224px",
-      22: "88px"
+      container: {
+        center: true,
+        padding: "2rem",
+        screens: {
+          "2xl": "1400px",
+        },
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      padding: {
+        5.5: "4%",
+      },
+      margin: {
+        5.5: "4%",
+        22: "86px",
+        4.5: "18px",
+        1.7: "7px",
+      },
+      maxHeight: {
+        56: "224px",
+        22: "88px",
       },
       gradientColorStops: {
         blue_pink: "from-[#2300FD] to-[#EE0CD7]",
         darkblue_blue: "from-[#0093FD] to-[#1900FD]",
         dispa8ch_gradient: "from-[#E92E29] to-[#FFB800]",
       },
-      plugins: [require("@headlessui/tailwindcss")],
     },
   },
+  plugins: [require("tailwindcss-animate")]
 };

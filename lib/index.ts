@@ -1,4 +1,4 @@
-export function string(val:any) {
+export function string(val: any) {
   return String(val)
 }
 
@@ -10,8 +10,8 @@ export function uppercase<T extends string >(str:T): Uppercase<T> {
   return str.toUpperCase() as Uppercase<T>
 }
 
-export function entries<T extends EmptyObject>(object: T) {
-  return Object.entries(object) as [Helpers.Keyof<T>, T[Helpers.Keyof<T>]][];
+export function entries<T extends EmptyObject, K extends Helpers.Keyof<T>>(object: T) {
+  return Object.entries(object) as [K, T[K]][];
 }
 
 export function scaleSize<T extends string | number = string>(dims: [T, T], size: number = 1): [string, string] {
