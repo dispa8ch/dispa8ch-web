@@ -1,10 +1,10 @@
 "use client";
-import gig from "../Rectangle 42.png";
+import gig from "./Rectangle 42.png";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
-import backgroundIcon from "../Ellipse 28.png";
-import gIcon from "../G.png";
+import backgroundIcon from "./Ellipse 28.png";
+import gIcon from "./G.png";
 
 function LayoutPage() {
   /* const router = useRouter();
