@@ -1,7 +1,7 @@
 "use client";
 import data from "@/public/data/blogs.json";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 type BlogPostProps = (typeof data.our_blogs)[number];
 
@@ -46,10 +46,55 @@ const BlogPost = ({
 };
 
 const OurBlogs = () => {
+  const animatedDivRef = useRef<HTMLDivElement | null>(null);
+
   useEffect(() => {
+    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry: IntersectionObserverEntry) => {
+        if (entry.isIntersecting) {
+          console.log("Element is in the viewport");
+          if (animatedDivRef.current) {
+            animatedDivRef.current.classList.add("active");
+          }
+          // Add your logic here when the element is in the viewport
+        } else {
+          console.log("Element is out of the viewport");
+          // Add your logic here when the element is out of the viewport
+          if (animatedDivRef.current) {
+            animatedDivRef.current.classList.remove("active");
+          }
+        }
+      });
+    };
+
+    const options = {
+      root: null, // Use the viewport as the root
+      rootMargin: "0px", // No margin
+      threshold: 0.2, // Trigger when 75% of the element is in the viewport
+    };
+
+    const animatedDivObserver = new IntersectionObserver(
+      handleIntersection,
+      options
+    );
+
+    if (animatedDivRef.current) {
+      animatedDivObserver.observe(animatedDivRef.current);
+    }
+
+    // Clean up the observer when the component unmounts
+    return () => {
+      if (animatedDivRef.current) {
+        animatedDivObserver.unobserve(animatedDivRef.current);
+      }
+    };
+  }, []);
+
+  /*useEffect(() => {
     const animatedDiv = document.getElementById("animatedDiv");
 
     const handleScroll = () => {
+      console.log("yoo");
       if (animatedDiv) {
         const rect = animatedDiv.getBoundingClientRect();
 
@@ -69,12 +114,13 @@ const OurBlogs = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  */
   return (
     <section className=' lg:w-91 w-full mb-32 md:ml-6   lg:ml-16'>
       <h1 className='text-dispa8chRed-500 text-center text-xl font-Inter_ExtraBold lg:text-2xl  mb-20'>
         OUR BLOGS
       </h1>
-      <section id='animatedDiv'>
+      <section ref={animatedDivRef} id='animatedDiv'>
         {data.our_blogs.map((attribute, i) => (
           <BlogPost key={i} {...attribute} />
         ))}
