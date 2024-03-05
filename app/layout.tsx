@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import Favicon from "@/public/favicon.png";
-import twitterImage from "../public/images/WhatsApp Image 2024-03-03 at 12.46.22_565352ce.jpg";
+import TwitterImage from "@/public/images/twitter-image.jpg"
 
 // Twitter card validator tags
 //<meta name="twitter:site" content="@nytimesbits" />
@@ -18,6 +18,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const twitter_img = `https://dispa8ch.vercel.app${TwitterImage.src}`
   return (
     <html lang='en'>
       <head>
@@ -25,7 +26,7 @@ export default function RootLayout({
 
         <meta
           name='twitter:image'
-          content={"https://dispa8ch.vercel.app" + twitterImage}
+          content={twitter_img}
         />
         <meta
           name='twitter:description'
