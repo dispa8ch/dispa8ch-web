@@ -1,8 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import Favicon from "@/public/favicon.png";
-import twitterImage from "../public/images/WhatsApp Image 2024-03-03 at 12.46.22_565352ce.jpg";
-
+const twitterImage: string = require("../public/images/WhatsApp Image 2024-03-03 at 12.46.22_565352ce.jpg");
 // Twitter card validator tags
 //<meta name="twitter:site" content="@nytimesbits" />
 //<meta name="twitter:creator" content="@nickbilton" />
