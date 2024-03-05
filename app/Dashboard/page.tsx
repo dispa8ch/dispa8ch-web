@@ -1,5 +1,5 @@
 import DashboardRevenue from "./_components/DashboardRevenue";
-import LayoutPage from "./_components/LayoutPage";
+import LayoutPage from "./LayoutPage";
 import Notifications from "./_components/Notifications";
 
 export default function Dashboard() {
