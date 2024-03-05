@@ -1,42 +1,9 @@
 "use client";
 import { Dispa8chLogo, Dispa8chLogoMobile } from "@/public/icons";
-import { Bars3Icon, UserCircleIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 import MobileNav from "./MobileNav";
-
-type Props = {
-  menuState: [boolean, Dispatch<SetStateAction<boolean>>];
-};
-
-const MobileNavButtons = ({ menuState }: Props) => {
-  const buttons = [
-    {
-      icon: UserCircleIcon,
-      onClick: () => "",
-    },
-    {
-      icon: Bars3Icon,
-      onClick: () => setMenu(!menu),
-    },
-  ] as const;
-  const [menu, setMenu] = menuState;
-  return (
-    <section className='fit ml-auto flex gap-3 lg:hidden'>
-      {buttons.map(({ icon: Icon, onClick }, i) => (
-        <button
-          key={i}
-          className={`${menu ? "menu" : "menu closed"}`}
-          onClick={onClick}>
-          <Icon
-            width={24}
-            height={24}
-          />
-        </button>
-      ))}
-    </section>
-  );
-};
+import MobileNavButtons from "./MobileNavButtons";
 
 const links = ["/home", "#about", "#services", "/pricing"] as const;
 
@@ -44,7 +11,7 @@ const Header = () => {
   const menuState = useState(false);
   return (
     <>
-      <header className='flex items-center bg-[rgb(255,255,255,.2)] backdrop-blur-2xl px-6 py-3 font-Inter_Medium sticky top-0 z-30 shadow-md lg:px-8 '>
+      <header className='flex items-center bg-white/20 backdrop-blur-2xl px-6 py-3 font-Inter_Medium sticky top-0 z-30 shadow-md lg:px-8 '>
         <section className='w-fit h-fit'>
           <Dispa8chLogo
             size={0.7}
