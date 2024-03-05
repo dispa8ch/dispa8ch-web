@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import Favicon from "@/public/favicon.png";
-import TwitterImage from "@/public/images/twitter-image.jpg"
+import TwitterImage from "@/public/images/twitter-image.jpg";
 
 // Twitter card validator tags
 //<meta name="twitter:site" content="@nytimesbits" />
@@ -18,16 +18,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const twitter_img = `https://dispa8ch.vercel.app${TwitterImage.src}`
+  const twitter_img = `https://dispa8ch.vercel.app${TwitterImage.src}`;
   return (
     <html lang='en'>
       <head>
         <meta name='twitter:card' content='summary' />
 
-        <meta
-          name='twitter:image'
-          content={twitter_img}
-        />
+        <meta name='twitter:image' content={twitter_img} />
         <meta
           name='twitter:description'
           content=' "Dispa8ch.io is a SaaS platform that helps facilitates the process of logistics businesses by providing services like package tracking and route optimization'
