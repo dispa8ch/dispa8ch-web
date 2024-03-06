@@ -17,7 +17,7 @@ export default function WaitListPage() {
               Welcome to the Dispa8ch community @ <span></span>
             </p>
           </header>
-          <section className='mx-4'>
+          <section className=' md:mx-0 mx-4'>
             <div className='flex md:mb-1 mb-1.5 gap-2  md:gap-4'>
               <div className='mt-1'>
                 <svg
