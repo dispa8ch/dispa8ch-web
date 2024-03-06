@@ -1,5 +1,6 @@
 import Favicon from "@/public/favicon.png";
 import type { Metadata } from "next";
+import LayoutPage from "./LayoutPage";
 
 export const metadata: Metadata = {
   title: "Dashboard | Dispa8ch",
@@ -15,13 +16,12 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <head>
-        <link
-          rel='shortcut icon'
-          href={Favicon.src}
-          type='image/png'
-        />
+        <link rel='shortcut icon' href={Favicon.src} type='image/png' />
       </head>
-      <body className="w-full min-h-screen bg-white relative" >{children}</body>
+      <body className='w-full min-h-screen bg-white relative'>
+        <LayoutPage />
+        {children}
+      </body>
     </html>
   );
 }

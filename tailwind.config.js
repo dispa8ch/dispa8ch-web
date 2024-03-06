@@ -103,12 +103,15 @@ module.exports = {
         101: "422px",
         125: "462px",
         13: "51px",
+        
       },
       height: {
         35: "141px",
         15: "59px",
         130: "934px",
         22: "88px",
+        38: "736px",
+        180: "400px",
       },
       darkMode: ["class"],
       prefix: "",
