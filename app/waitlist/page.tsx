@@ -1,6 +1,6 @@
 "use client";
 
-export default function WaitListPage() {
+export default function waitlist() {
   const handleCopy = () => {
     navigator.clipboard.writeText("");
     // setButtonText((prev) => !prev);
