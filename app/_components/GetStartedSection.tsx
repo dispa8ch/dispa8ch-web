@@ -1,4 +1,5 @@
 "use client";
+import { StartFreeButton } from "@/components/buttons";
 import { scaleSize } from "@/lib";
 import Link from "next/link";
 
@@ -21,9 +22,7 @@ const GetStartedSection = () => {
         <p className='text-[#A4707B] text-sm font-Inter '>
           First play around with it, add your team, pay later.
         </p>
-        <button className='w-fit h-fit bg-dispa8chRed-500 text-white font-bold py-2 px-8 rounded'>
-          <Link href={"/dashboard"}>Start Free</Link>
-        </button>
+        <StartFreeButton />
       </section>
       <section className='w-full min-h-fit py-4 grid place-content-center  grid-cols-1 gap-4 sm:flex sm:items-center sm:justify-center '>
         <div className='fit'>

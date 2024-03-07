@@ -7,7 +7,7 @@ const Waitlist = () => {
   return (
     <section
       ref={ref as any}
-      className='w-full h-fit bg-white font-Inter column items-center gap-5 py-20 px-6 sm:py-36 sm:gap-8 '>
+      className='w-full h-fit bg-transparent font-Inter column items-center gap-5 py-20 px-6 sm:py-36 sm:gap-8 '>
       <h1 className='text-dispa8chRed-500 font-Inter_ExtraBold text-center text-2xl'>
         Join our waitlist today!
       </h1>

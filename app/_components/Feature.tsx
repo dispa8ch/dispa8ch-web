@@ -1,5 +1,5 @@
 "use client"
-import Link from "next/link";
+import { StartFreeButton } from "@/components/buttons";
 import { useEffect, useRef } from "react";
 
 type OfferProps = {
@@ -36,9 +36,7 @@ const Feature = (props?: OfferProps) => {
 
         <p>{props?.topText}</p>
         <p >{props?.bottomText}</p>
-        <button className='w-fit h-fit mt-auto bg-dispa8chRed-500 text-white font-Inter_Bold px-8 py-1 rounded-md '>
-          <Link href={"/Dashboard"}>Start free</Link>
-        </button>
+       <StartFreeButton />
       </section>
       <section className='w-full h-[200px] max-w-[500px] bsm:h-[300px]'>
         <div className='w-full h-full rounded-xl bg-dispa8chRed-100 relative '>

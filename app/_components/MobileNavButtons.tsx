@@ -1,4 +1,5 @@
-import { UserCircleIcon, Bars3Icon } from "@heroicons/react/24/solid";
+import { Bars3Icon, UserCircleIcon } from "@heroicons/react/24/solid";
+import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction } from "react";
 
 type MobileNavButtonsProps = {
@@ -6,10 +7,11 @@ type MobileNavButtonsProps = {
 };
 
 const MobileNavButtons = ({ menuState }: MobileNavButtonsProps) => {
+  const router = useRouter();
   const buttons = [
     {
       icon: UserCircleIcon,
-      onClick: () => "",
+      onClick: () => router.push("/account"),
     },
     {
       icon: Bars3Icon,

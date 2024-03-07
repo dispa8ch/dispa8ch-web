@@ -3,10 +3,6 @@ import type { Metadata } from "next";
 import Favicon from "@/public/favicon.png";
 import TwitterImage from "@/public/images/twitter-image.jpg"
 
-// Twitter card validator tags
-//<meta name="twitter:site" content="@nytimesbits" />
-//<meta name="twitter:creator" content="@nickbilton" />
-
 export const metadata: Metadata = {
   title: "Welcome to Dispa8ch",
   description:
@@ -36,7 +32,7 @@ export default function RootLayout({
 
         <link rel='shortcut icon' href={Favicon.src} type='image/png' />
       </head>
-      <body className={"w-full min-h-screen bg-white relative "}>
+      <body className={"w-full min-h-screen bg-white relative dark:bg-[#171717] "}>
         {children}
       </body>
     </html>

@@ -1,6 +1,11 @@
+import { StartFreeButton } from "@/components/buttons";
+import {
+  ClockCircle,
+  EyeTracking,
+  LinkPeople,
+  Route,
+} from "@/components/dispa8ch-icons";
 import data from "@/public/data/offers.json";
-import { ClockCircle, EyeTracking, LinkPeople, Route } from "@/components/dispa8ch-icons";
-import Link from "next/link";
 
 type OfferProps = (typeof data.offers)[number];
 
@@ -21,15 +26,16 @@ const Offer = ({ header, id, imageUrl, paragraph }: Partial<OfferProps>) => {
         backgroundSize: "auto",
         backgroundPosition: "center 85%",
       }}>
-        <div className="w-fit h-fit relative z-20">
-          <Icon size={0.5} />
-        </div>
+      <div className='w-fit h-fit relative z-20'>
+        <Icon size={0.5} />
+      </div>
       <div className='w-full min-h-1/2 mt-auto column gap-3 relative z-20 text-white text-[13px] font-Inter_Medium '>
         <h1 className='text-lg font-Inter_Bold'>{header}</h1>
         <p>{paragraph}</p>
-        <button className='bg-dispa8chRed-400 py-2 rounded-md font-Inter_Bold '>
-          <Link href='/dashboard'>Get Started</Link>
-        </button>
+        <StartFreeButton
+          text='Get Started'
+          className='w-full'
+        />
       </div>
     </div>
   );
@@ -43,7 +49,10 @@ const OffersSection = () => {
       </h1>
       <section className='w-full min-h-[400px] bg-gradient-to-r from-dispa8chRed-100 to-dispa8chRed-50 p-6 flex gap-16 overflow-scroll no-scroll '>
         {data.offers.map((offer, i) => (
-          <Offer {...offer} key={i} />
+          <Offer
+            {...offer}
+            key={i}
+          />
         ))}
       </section>
     </section>

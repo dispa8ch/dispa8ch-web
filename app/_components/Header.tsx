@@ -1,4 +1,5 @@
 "use client";
+import { BaseButton } from "@/components/buttons";
 import { Dispa8chLogo, Dispa8chLogoMobile } from "@/public/icons";
 import Link from "next/link";
 import { useState } from "react";
@@ -27,23 +28,24 @@ const Header = () => {
         {/* Visible only on desktops */}
         <section className='fit mx-auto items-center gap-12 text-base font-Graphik hidden lg:flex '>
           {links.map((a, i) => {
-            const LinkType = a.startsWith("#") ? "a" : Link;
+            const Comp = a.startsWith("#") ? "a" : Link;
             return (
-              <LinkType
+              <Comp
+                className='fit px-4 py-2 rounded-md transition-colors hover:bg-stone-800 hover:text-stone-50 '
                 key={i}
                 href={`${a === "/home" ? "/" : a}`}>
                 {a.slice(1).toUpperCase()}
-              </LinkType>
+              </Comp>
             );
           })}
         </section>
         <section className='w-fit h-fit gap-3 text-sm hidden lg:flex '>
-          <button className='bg-dispa8chRed-500 text-white px-8 py-2 rounded-lg'>
+          <BaseButton>
             <Link href='/sign-up'>Signup</Link>
-          </button>
-          <button className='bg-white text-dispa8chRed-500 border border-dispa8chRed-500 px-8 py-2 rounded-lg'>
+          </BaseButton>
+          <BaseButton className='bg-white text-dispa8chRed-600 hover:bg-white/25 dark:bg-white dark:text-dispa8chRed-600 dark:hover:bg-white/70 '>
             <Link href='/login'>Login</Link>
-          </button>
+          </BaseButton>
         </section>
       </header>
       <MobileNav menuState={menuState} />
