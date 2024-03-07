@@ -33,7 +33,7 @@ const Faq = ({ question, answer }: FaqProps) => {
 const FaqSection = () => {
   return (
     <section
-      id='FAQ'
+      id='faq'
       className='w-full h-fit column items-center gap-8 py-12 px-6 lg:px-16 lg:py-20 lg:gap-14'
     >
       <h1 className='text-dispa8chRed-500 text-lg underline font-Inter_ExtraBold lg:text-2xl '>
