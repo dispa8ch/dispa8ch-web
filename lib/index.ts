@@ -2,6 +2,14 @@ export function string(val: any) {
   return String(val)
 }
 
+/**
+ * @param bool any value 
+ * @param first gets returned if `bool` is truthy
+ * @param second gets returned if `bool` is falsy
+ */
+export function pickObj<T, U>(bool: any, first: T, second: U) {
+  return Boolean(bool) ? first : second;
+}
 export function lowercase<T extends string >(str:T): Lowercase<T> {
   return str.toLowerCase() as Lowercase<T>
 }
@@ -14,12 +22,20 @@ export function entries<T extends EmptyObject, K extends Helpers.Keyof<T>>(objec
   return Object.entries(object) as [K, T[K]][];
 }
 
-export function scaleSize<T extends string | number = string>(dims: [T, T], size: number = 1): [string, string] {
+/**
+ * @param dims 2-tuple of numbers or strings 
+ * @param size number to scale the dimensions to
+ * @example
+ * ```javascript
+ * const sizes = scaleSize([40, 40], 3);
+ * console.log(sizes); // ["120", "120"]
+ * ```
+ */
+export function scaleSize<T extends `${number}` | number = number>(dims: [T, T], size: number = 1): [string, string] {
   switch (size !== 1) {
     case true: 
-      const nums = dims;
-      return nums.map(num => (
-        string(Number(num) * size)
+      return dims.map(dim => (
+        string(Number(dim) * size)
       )) as [string, string];
     default: 
       return dims as [string, string];
