@@ -23,9 +23,6 @@ const Header = () => {
             className='block sm:hidden'
           />
         </section>
-        <MobileNavButtons menuState={menuState} />
-
-        {/* Visible only on desktops */}
         <section className='fit mx-auto items-center gap-12 text-base font-Graphik hidden lg:flex '>
           {links.map((a, i) => {
             const Comp = a.startsWith("#") ? "a" : Link;
@@ -39,7 +36,6 @@ const Header = () => {
             );
           })}
         </section>
-        
         <section className='w-fit h-fit gap-3 text-sm hidden lg:flex '>
           <BaseButton>
             <Link href='/sign-up'>Signup</Link>
@@ -48,6 +44,9 @@ const Header = () => {
             <Link href='/login'>Login</Link>
           </BaseButton>
         </section>
+
+        {/* Visible only on mobile */}
+        <MobileNavButtons menuState={menuState} />
       </header>
       <MobileNav menuState={menuState} />
     </>
