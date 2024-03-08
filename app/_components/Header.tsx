@@ -31,7 +31,7 @@ const Header = () => {
             const Comp = a.startsWith("#") ? "a" : Link;
             return (
               <Comp
-                className='fit px-4 py-2 rounded-md transition-colors hover:bg-stone-800 hover:text-stone-50 '
+                className='fit px-4 py-2 rounded-md transition-colors duration-500 hover:bg-stone-800 hover:text-stone-50 '
                 key={i}
                 href={`${a === "/home" ? "/" : a}`}>
                 {a.slice(1).toUpperCase()}
@@ -39,6 +39,7 @@ const Header = () => {
             );
           })}
         </section>
+        
         <section className='w-fit h-fit gap-3 text-sm hidden lg:flex '>
           <BaseButton>
             <Link href='/sign-up'>Signup</Link>
