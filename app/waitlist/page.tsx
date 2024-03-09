@@ -99,7 +99,7 @@ export default function waitlist() {
             </div>
           </section>
 
-          <footer className='mt-6'>
+          <footer className='mt-6 md:mx-0 mx-4'>
             <div>
               <p className='text-center mb-6 text-dispa8chRed-500 font-medium  text-sm md:text-lg'>
                 Let's get your friends, family and colleagues started on this
@@ -108,14 +108,17 @@ export default function waitlist() {
             </div>
 
             <form className='grid place-items-center'>
-              <div className='bg-gray-300 flex justify-between py-1.5 pr-3 rounded-md pl-3 w-80  md:w-110'>
+              <div className='bg-gray-300 md:max-w-120   focus:border-blue-300  max-w-72   relative py-1.5  pr-5 md:pr-3 rounded-md pl-3  w-72  overflow-hidden  md:w-110'>
                 {" "}
                 <div>
                   <p className='text-gray-500 md:text-base text-sm'>
                     www.dispa8ch.com/jamesking/invite-link
                   </p>
                 </div>
-                <div className='md:mt-2 mt-1' onClick={handleCopy}>
+                <div
+                  className=' top-1.5 mt-1.5  right-1 md:right-4 absolute '
+                  onClick={handleCopy}
+                >
                   <svg
                     width='17'
                     height='10'
@@ -134,7 +137,7 @@ export default function waitlist() {
                 </div>
               </div>
 
-              <div className='border-b mt-3 mb-8 border-gray-300 py-1.5 pl-3   w-80  md:w-110'>
+              <div className='border-b mt-3 mb-8  border-gray-300 py-1.5 pl-3  w-72   md:w-110'>
                 {" "}
                 <p className=' text-center text-base font-medium text-gray-300'>
                   OR
@@ -145,15 +148,15 @@ export default function waitlist() {
                 <input
                   placeholder='Enter email to send an invite to your friends'
                   type='email'
-                  className='bg-gray-300 flex justify-between py-1.5 pr-3 rounded-md pl-3  w-80  md:w-110'
+                  className='bg-gray-300 flex md:placeholder:text-base outline-none border-2 focus:border-blue-300  placeholder:text-sm w-72 overflow-hidden  max-w-72   py-1 pr-10 md:pr-3 rounded-md pl-1 md:pl-3 md:max-w-120  md:w-110 '
                 />
-                <p className='top-2 text-red-500 text-sm font-medium absolute right-4'>
+                <p className='top-2     text-red-500 text-sm font-medium absolute right-2 md:right-4'>
                   Send
                 </p>
               </div>
 
               <button
-                className='text-white mt-6 font-bold md:text-xl text-lg px-12 md:px-16 py-1.5 rounded-md  bg-dispa8chRed-500'
+                className='text-white mt-6 font-medium md:font-bold md:text-xl text-lg px-10 md:px-16 py-1.5 rounded-md  bg-dispa8chRed-500'
                 type='submit'
               >
                 Finish
