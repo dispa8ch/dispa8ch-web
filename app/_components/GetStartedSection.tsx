@@ -1,7 +1,6 @@
 "use client";
 import { StartFreeButton } from "@/components/buttons";
 import { scaleSize } from "@/lib";
-import Link from "next/link";
 
 const GetStartedSection = () => {
   const dims = [752, 353, 332] as const;
@@ -35,9 +34,7 @@ const GetStartedSection = () => {
         </div>
         <div className='fit flex gap-4 items-end'>
           {srcs.slice(1).map((src, i) => (
-            <div
-              className='fit'
-              key={i}>
+            <div className='fit' key={i}>
               <img
                 src={src}
                 alt='Get Started'
