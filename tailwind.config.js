@@ -120,6 +120,7 @@ module.exports = {
         120: "500px",
         110: "450px",
         100: "400px",
+        72: "288px"
       },
       container: {
         center: true,
