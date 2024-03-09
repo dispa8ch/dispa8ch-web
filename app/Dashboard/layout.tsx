@@ -1,6 +1,6 @@
 import Favicon from "@/public/favicon.png";
 import type { Metadata } from "next";
-import LayoutPage from "./LayoutPage";
+import LayoutPage from "./_components/LayoutPage";
 
 export const metadata: Metadata = {
   title: "Dashboard | Dispa8ch",
