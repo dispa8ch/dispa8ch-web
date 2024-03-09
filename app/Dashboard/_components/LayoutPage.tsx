@@ -1,10 +1,10 @@
 "use client";
-import gig from "./Rectangle 42.png";
+import gig from "../Rectangle 42.png";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
-import backgroundIcon from "./Ellipse 28.png";
-import gIcon from "./G.png";
+import backgroundIcon from "../Ellipse 28.png";
+import gIcon from "../G.png";
 
 function LayoutPage() {
   /* const router = useRouter();
@@ -165,7 +165,7 @@ function LayoutPage() {
       </header>
 
       <div className='w-24 z-10 h-screen  fixed mt-22 bg-white shadow-2xl'>
-        <Link href={"/Dashboard"}>
+        <Link href={"/dashboard"}>
           {" "}
           <div
             id='div-1'
@@ -188,7 +188,7 @@ function LayoutPage() {
           </div>
         </Link>
 
-        <Link href={"/Dashboard/Orders"}>
+        <Link href={"/dashboard/orders"}>
           {" "}
           <div
             id='div-2'
