@@ -12,7 +12,7 @@ const Header = () => {
   const menuState = useState(false);
   return (
     <>
-      <header className='flex items-center bg-white/20 backdrop-blur-2xl px-6 py-3 font-Inter_Medium sticky top-0 z-30 shadow-md lg:px-8 '>
+      <header className='flex items-center bg-white/20 backdrop-blur-2xl px-6 py-5 font-Inter_Medium sticky top-0 z-30 shadow-md lg:px-8 lg:py-3 '>
         <section className='w-fit h-fit'>
           <Dispa8chLogo
             size={0.7}

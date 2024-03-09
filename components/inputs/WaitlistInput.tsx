@@ -8,7 +8,7 @@ const WaitlistInput = (props?: WaitlistInputProps) => {
   return (
     <div className='w-full h-12 pl-4 pr-2 flex items-center justify-between border border-dispa8chRed-100 text-sm rounded-full'>
       <input
-        className='w-3/4 border-none font-Inter p-0 focus:outline-none placeholder:text-dispa8chGray-100 lg:w-fit lg:flex-grow'
+        className='w-3/4 border-none font-Inter bg-transparent p-0 focus:outline-none placeholder:text-dispa8chGray-100 lg:w-fit lg:flex-grow dark:caret-dispa8chRed-100 dark:text-slate-200 '
         placeholder='Enter your email address'
       />
       <Link href='/waitlist'>

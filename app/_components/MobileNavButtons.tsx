@@ -24,10 +24,11 @@ const MobileNavButtons = ({ menuState }: MobileNavButtonsProps) => {
       {buttons.map(({ icon: Icon, onClick }, i) => (
         <button
           key={i}
-          onClick={onClick}>
+          onClick={onClick} className="fit p-2 bg-black/20 backdrop-blur-3xl  rounded-full" >
           <Icon
-            width={24}
-            height={24}
+            width={26}
+            height={26}
+            className="fill-[#171717] "
           />
         </button>
       ))}

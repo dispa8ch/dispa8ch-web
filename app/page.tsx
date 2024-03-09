@@ -1,4 +1,4 @@
-import DemoVideoSection from "./_components/DemoVideoSection";
+import { ContactUsButton } from "@/components/buttons";
 import FaqSection from "./_components/FaqSection";
 import FeaturesSection from "./_components/FeaturesSection";
 import Footer from "./_components/Footer";
@@ -9,7 +9,6 @@ import OffersSection from "./_components/OffersSection";
 import OurBlogs from "./_components/OurBlogs";
 import TeamSection from "./_components/TeamSection";
 import Waitlist from "./_components/Waitlist";
-import { ContactUsButton } from "@/components/buttons";
 
 export default function Home() {
   return (
@@ -17,9 +16,8 @@ export default function Home() {
       <Header />
       <HeroSection />
       <main>
-       <FeaturesSection />
+        <FeaturesSection />
         <OffersSection />
-        <DemoVideoSection />
         <TeamSection />
         <FaqSection />
         <GetStartedSection />
@@ -30,4 +28,4 @@ export default function Home() {
       <Footer />
     </>
   );
-} 
+}
