@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function waitlist() {
   const [buttonText, setButtonText] = useState(false);
-  const [link, setLink] = useState("www.dispa8ch.com/jamesking/invite-link");
+  const [link] = useState("www.dispa8ch.com/jamesking/invite-link");
   const handleCopy = () => {
     navigator.clipboard.writeText(link);
     setButtonText((prev) => !prev);

@@ -2,87 +2,96 @@
 import gig from "../Rectangle 42.png";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
+
 import backgroundIcon from "../Ellipse 28.png";
 import gIcon from "../G.png";
 
 function LayoutPage() {
-  /* const router = useRouter();
-    const [searchParams] = useSearchParams()
-    
-   
-   
-    const selectedDivFromURL = parseInt(searchParams.get('selectedDiv') || '', 10);
-    const [selectedDiv, setSelectedDiv] = useState<number | null>(isNaN(selectedDivFromURL) ? null : selectedDivFromURL);
-  
-    // Update the state when the query parameter changes
-    useEffect(() => {
-      const selectedDivFromURL = parseInt(searchParams.get('selectedDiv') || '', 10);
-      if (!isNaN(selectedDivFromURL)) {
-        setSelectedDiv(selectedDivFromURL);
-      }
-    }, [searchParams.get('selectedDiv')]);
-  
-    // Handle div click and update the URL
-    const handleDivClick = (index: number) => {
-      setSelectedDiv(index);
-      // Update the URL with the selected div
-      router.push({ search: `?selectedDiv=${index}` });
-    };
-     
-        
-*/
+  window.onload = function () {
+    const pageColors: {
+      [key: string]: string;
+    } = {
+      "/dashboard": "#E0E0E0",
+      "/dashboard/orders": "#000",
 
-  const handleDivClick = (index: number) => {
-    const div = document.getElementById(`div-${index}`);
-    if (div) {
-      div.classList.toggle("focus");
-      localStorage.setItem(
-        `divFocus-${index}`,
-        div.classList.contains("focus").toString()
-      );
-    }
-    //
+      // Add more pages and colors as needed
+    };
+
+    let currentPage = window.location.pathname;
+    let previousDiv: HTMLElement | null = null;
+    console.log("Current Page:", currentPage);
+    const dynamicDivs = document.querySelectorAll(".dynamic-div");
+
+    dynamicDivs.forEach((div) => {
+      const route = div.getAttribute("data-route");
+      if (route && pageColors[route]) {
+        console.log("Applying color:", pageColors[route]);
+        (div as HTMLElement).style.backgroundColor = currentPage
+          ? pageColors[route]
+          : "";
+
+        div.addEventListener("click", () => {
+          if (previousDiv) {
+            previousDiv.style.backgroundColor = "#fff"; // Reset previous div color
+          }
+          (div as HTMLElement).style.backgroundColor = pageColors[route];
+          previousDiv = div as HTMLElement;
+          window.location.href = route;
+        });
+      }
+    });
+
+    window.addEventListener("popstate", () => {
+      currentPage = window.location.pathname;
+      dynamicDivs.forEach((div) => {
+        const route = div.getAttribute("data-route");
+        if (route && pageColors[route]) {
+          (div as HTMLElement).style.backgroundColor =
+            route === currentPage ? pageColors[route] : "";
+        }
+      });
+    });
   };
 
-  /*document.addEventListener('DOMContentLoaded', () => {
-  const numberOfDivs = 5;
+  /*window.onload = function () {
+    const pageColors: {
+      [key: string]: string;
+    } = {
+      "/dashboard": "#E0E0E0",
+      "/dashboard/orders": "#E0E0E0",
 
-  // Loop through the div elements and apply focus class if needed
-  for (let index = 1; index <= numberOfDivs; index++) {
-      const isFocused = localStorage.getItem(`divFocus-${index}`) === 'true';
-      const div = document.getElementById(`div-${index}`);
+      // Add more pages and colors as needed
+    };
+    
+    let previousDiv: HTMLElement | null = null;
 
-      if (div) {
-          // Toggle the focus class based on the stored value
-          div.classList.toggle('focus', isFocused);
+    const dynamicDivs = document.querySelectorAll(".dynamic-div");
 
-          // If it's the first div and no focus state is stored, set focus
-          if (index === 1 && !isFocused) {
-              div.classList.add('focus');
-              localStorage.setItem(`divFocus-${index}`, 'true');
+    dynamicDivs.forEach((div) => {
+      const route = div.getAttribute("data-route");
+      if (route && pageColors[route]) {
+        (div as HTMLElement).style.backgroundColor = "";
+        div.addEventListener("click", () => {
+          if (previousDiv) {
+            previousDiv.style.backgroundColor = "#fff"; // Reset previous div color
           }
+          (div as HTMLElement).style.backgroundColor = pageColors[route];
+          previousDiv = div as HTMLElement;
+          window.location.href = route;
+        });
       }
-  }
-});*/
+    });
 
-  useEffect(() => {
-    const numberOfDivs = 5;
-
-    for (let index = 1; index <= numberOfDivs; index++) {
-      const isFocused = localStorage.getItem(`divFocus-${index}`) === "true";
-      const div = document.getElementById(`div-${index}`);
-
-      if (div) {
-        // Toggle the focus class based on the stored value
-        div.classList.toggle("focus", isFocused);
-        console.log(div);
-
-        // Break out of the loop after handling the first div
-        break;
-      }
-    }
-  }, []);
+    // Listen for route changes
+    window.addEventListener("popstate", () => {
+      dynamicDivs.forEach((div) => {
+        const route = div.getAttribute("data-route");
+        if (route && pageColors[route]) {
+          (div as HTMLElement).style.backgroundColor = ""; // Reset color for all divs
+        }
+      });
+    });
+  };*/
 
   return (
     <div>
@@ -164,14 +173,13 @@ function LayoutPage() {
         </div>
       </header>
 
-      <div className='w-24 z-10 h-screen  fixed mt-22 bg-white shadow-2xl'>
+      <div className='w-24 z-10 h-screen fixed mt-22 bg-white shadow-2xl'>
         <Link href={"/dashboard"}>
           {" "}
           <div
+            data-route='/dashboard'
             id='div-1'
-            onClick={() => handleDivClick(1)}
-            className='w-full grid place-items-center focus:bg-gray-200 py-3 mt-8 hover:bg-gray-200'
-            tabIndex={0}
+            className='w-full grid place-items-center  dynamic-div    py-3 mt-8 hover:bg-gray-200'
           >
             <svg
               width='18'
@@ -191,10 +199,9 @@ function LayoutPage() {
         <Link href={"/dashboard/orders"}>
           {" "}
           <div
+            data-route='/dashboard/orders'
             id='div-2'
-            onClick={() => handleDivClick(2)}
-            tabIndex={0}
-            className='w-full focus:bg-gray-200 grid place-items-center py-3 mt-5 hover:bg-gray-200'
+            className='w-full dynamic-div   grid place-items-center py-3 mt-5 hover:bg-gray-200'
           >
             <svg
               width='24'
@@ -213,9 +220,7 @@ function LayoutPage() {
 
         <div
           id='div-3'
-          onClick={() => handleDivClick(3)}
-          tabIndex={0}
-          className='w-full focus:bg-gray-200 grid place-items-center py-3 mt-5 hover:bg-gray-200'
+          className='w-full dynamic-div focus:bg-gray-200 grid place-items-center py-3 mt-5 hover:bg-gray-200'
         >
           <svg
             width='24'
@@ -316,9 +321,8 @@ function LayoutPage() {
 
         <div
           id='div-4'
-          onClick={() => handleDivClick(4)}
           tabIndex={0}
-          className='w-full focus:bg-gray-200 grid place-items-center py-3 mt-5  hover:bg-gray-200'
+          className='w-full dynamic-div focus:bg-gray-200 grid place-items-center py-3 mt-5  hover:bg-gray-200'
         >
           {" "}
           <svg
@@ -339,9 +343,8 @@ function LayoutPage() {
 
         <div
           id='div-5'
-          onClick={() => handleDivClick(5)}
           tabIndex={0}
-          className='w-full focus:bg-gray-200 grid place-items-center py-3 mt-5 hover:bg-gray-200'
+          className='w-full dynamic-div focus:bg-gray-200 grid place-items-center py-3 mt-5 hover:bg-gray-200'
         >
           <svg
             width='24'

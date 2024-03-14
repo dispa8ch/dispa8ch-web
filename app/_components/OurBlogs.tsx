@@ -52,13 +52,11 @@ const OurBlogs = () => {
     const handleIntersection = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry: IntersectionObserverEntry) => {
         if (entry.isIntersecting) {
-          console.log("Element is in the viewport");
           if (animatedDivRef.current) {
             animatedDivRef.current.classList.add("active");
           }
           // Add your logic here when the element is in the viewport
         } else {
-          console.log("Element is out of the viewport");
           // Add your logic here when the element is out of the viewport
 
           if (animatedDivRef.current) {
@@ -71,7 +69,7 @@ const OurBlogs = () => {
     const options = {
       root: null, // Use the viewport as the root
       rootMargin: "0px", // No margin
-      threshold: 0.1, // Trigger when 75% of the element is in the viewport
+      // threshold: 0.1, // Trigger when 75% of the element is in the viewport
     };
 
     const animatedDivObserver = new IntersectionObserver(
