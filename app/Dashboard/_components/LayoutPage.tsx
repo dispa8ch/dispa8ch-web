@@ -2,96 +2,79 @@
 import gig from "../Rectangle 42.png";
 import Image from "next/image";
 import Link from "next/link";
-
+//import { useRouter } from "next/router";
 import backgroundIcon from "../Ellipse 28.png";
 import gIcon from "../G.png";
 
-function LayoutPage() {
-  window.onload = function () {
-    const pageColors: {
-      [key: string]: string;
-    } = {
-      "/dashboard": "#E0E0E0",
-      "/dashboard/orders": "#000",
-
-      // Add more pages and colors as needed
-    };
-
-    let currentPage = window.location.pathname;
-    let previousDiv: HTMLElement | null = null;
-    console.log("Current Page:", currentPage);
-    const dynamicDivs = document.querySelectorAll(".dynamic-div");
-
-    dynamicDivs.forEach((div) => {
-      const route = div.getAttribute("data-route");
-      if (route && pageColors[route]) {
-        console.log("Applying color:", pageColors[route]);
-        (div as HTMLElement).style.backgroundColor = currentPage
-          ? pageColors[route]
-          : "";
-
-        div.addEventListener("click", () => {
-          if (previousDiv) {
-            previousDiv.style.backgroundColor = "#fff"; // Reset previous div color
-          }
-          (div as HTMLElement).style.backgroundColor = pageColors[route];
-          previousDiv = div as HTMLElement;
-          window.location.href = route;
-        });
-      }
-    });
-
-    window.addEventListener("popstate", () => {
-      currentPage = window.location.pathname;
-      dynamicDivs.forEach((div) => {
-        const route = div.getAttribute("data-route");
-        if (route && pageColors[route]) {
-          (div as HTMLElement).style.backgroundColor =
-            route === currentPage ? pageColors[route] : "";
-        }
-      });
-    });
+/*function updateColors(currentPage: string) {
+  const pageColors: {
+    [key: string]: string;
+  } = {
+    "/dashboard": "#00FF00",
+    "/dashboard/orders": "#E0E0E0",
+    // Add more pages and colors as needed
   };
 
-  /*window.onload = function () {
+  const dynamicDivs = document.querySelectorAll(".dynamic-div");
+
+  dynamicDivs.forEach((div) => {
+    const route = div.getAttribute("data-route");
+    if (route && pageColors[route]) {
+      (div as HTMLElement).style.backgroundColor =
+        route === currentPage ? pageColors[route] : "";
+    }
+  });
+}*/
+
+function LayoutPage() {
+  /*const router = useRouter();
+  let currentPage = router.pathname.trim(); // Trim to remove leading/trailing spaces
+  console.log("Current Page:", currentPage);
+
+  // Initial color update
+  updateColors(currentPage);
+
+  router.events.on("routeChangeComplete", () => {
+    currentPage = router.pathname.trim(); // Update currentPage when route changes
+    updateColors(currentPage);
+
+    // Manually refresh the page to apply the color changes
+    router.push(currentPage);
+  });
+*/
+
+  function updateColors(currentPage: string) {
     const pageColors: {
       [key: string]: string;
     } = {
       "/dashboard": "#E0E0E0",
       "/dashboard/orders": "#E0E0E0",
-
       // Add more pages and colors as needed
     };
-    
-    let previousDiv: HTMLElement | null = null;
 
     const dynamicDivs = document.querySelectorAll(".dynamic-div");
 
     dynamicDivs.forEach((div) => {
       const route = div.getAttribute("data-route");
       if (route && pageColors[route]) {
-        (div as HTMLElement).style.backgroundColor = "";
-        div.addEventListener("click", () => {
-          if (previousDiv) {
-            previousDiv.style.backgroundColor = "#fff"; // Reset previous div color
-          }
-          (div as HTMLElement).style.backgroundColor = pageColors[route];
-          previousDiv = div as HTMLElement;
-          window.location.href = route;
-        });
+        (div as HTMLElement).style.backgroundColor =
+          route === currentPage ? pageColors[route] : "";
       }
     });
+  }
 
-    // Listen for route changes
+  window.onload = function () {
+    let currentPage = window.location.pathname.trim(); // Trim to remove leading/trailing spaces
+    console.log("Current Page:", currentPage);
+
+    // Initial color update
+    updateColors(currentPage);
+
     window.addEventListener("popstate", () => {
-      dynamicDivs.forEach((div) => {
-        const route = div.getAttribute("data-route");
-        if (route && pageColors[route]) {
-          (div as HTMLElement).style.backgroundColor = ""; // Reset color for all divs
-        }
-      });
+      currentPage = window.location.pathname.trim(); // Update currentPage when route changes
+      updateColors(currentPage);
     });
-  };*/
+  };
 
   return (
     <div>
