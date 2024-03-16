@@ -26,7 +26,7 @@ const TeamSection = () => {
         Meet The Team
       </h1>
 
-      <section className='w-full min-h-[400px] bg-gradient-to-r from-dispa8chRed-100 to-dispa8chRed-50 relative '>
+    <section className='w-full min-h-[400px] bg-gradient-to-r from-dispa8chRed-100 to-dispa8chRed-50 relative dark:from-[#E41F4733] dark:to-[#FDA80033] '>
         <section className='w-full min-h-[400px] p-6 flex gap-16 overflow-x-scroll no-scroll '>
           {data.team_members.map((member, i) => (
             <TeamMember

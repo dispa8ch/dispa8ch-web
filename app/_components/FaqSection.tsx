@@ -19,13 +19,13 @@ const Faq = ({ question, answer }: FaqProps) => {
           }}
         >
           {display === "block" ? (
-            <MinusIcon width={24} height={24} color='black' />
+            <MinusIcon className={'dark:stroke-white'} width={24} height={24} color='black' />
           ) : (
-            <PlusIcon width={24} height={24} color='black' />
+            <PlusIcon  className={'dark:stroke-white'} width={24} height={24} color='black' />
           )}
         </button>
       </div>
-      <p className={`w-[90%] ${display} text-text_1`}>{answer || ""}</p>
+      <p className={`w-[90%] ${display} text-text_1 dark:text-[#EB9CAC] `}>{answer || ""}</p>
     </div>
   );
 };
@@ -40,7 +40,7 @@ const FaqSection = () => {
         Frequently Asked Questions
       </h1>
 
-      <section className='w-full min-h-fit grid grid-cols-1 gap-y-6 gap-x-6 font-Inter sm:grid-cols-2 sm:gap-y-6 lg:gap-y-10'>
+      <section className='w-full min-h-fit grid grid-cols-1 gap-y-6 gap-x-6 font-Inter sm:grid-cols-2 sm:gap-y-6 lg:gap-y-10 text-[#171717] dark:text-solid_pink'>
         {data.faqs.map((faq, i) => (
           <Faq key={i} {...faq} />
         ))}

@@ -204,6 +204,23 @@
     transition: opacity 400ms 20ms;
   }
 
+    /* This is for any links around, used especially in the footer for the landing page */
+    .link-underline {
+      @apply after:block after:w-full after:h-0.5 after:bg-white/60
+    }
+  
+    
+    #animatedDiv {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+  
+    #animatedDiv.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
   /* Animations */
 
   /* Animations that play on load */
@@ -260,17 +277,6 @@
       opacity: 1;
       transform: translateX(0);
     }
-  }
-
-  #animatedDiv {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-  }
-
-  #animatedDiv.active {
-    opacity: 1;
-    transform: translateY(0);
   }
 
   /* Animations on scroll */
