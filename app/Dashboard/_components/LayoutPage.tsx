@@ -2,87 +2,79 @@
 import gig from "../Rectangle 42.png";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
+//import { useRouter } from "next/router";
 import backgroundIcon from "../Ellipse 28.png";
 import gIcon from "../G.png";
 
-function LayoutPage() {
-  /* const router = useRouter();
-    const [searchParams] = useSearchParams()
-    
-   
-   
-    const selectedDivFromURL = parseInt(searchParams.get('selectedDiv') || '', 10);
-    const [selectedDiv, setSelectedDiv] = useState<number | null>(isNaN(selectedDivFromURL) ? null : selectedDivFromURL);
-  
-    // Update the state when the query parameter changes
-    useEffect(() => {
-      const selectedDivFromURL = parseInt(searchParams.get('selectedDiv') || '', 10);
-      if (!isNaN(selectedDivFromURL)) {
-        setSelectedDiv(selectedDivFromURL);
-      }
-    }, [searchParams.get('selectedDiv')]);
-  
-    // Handle div click and update the URL
-    const handleDivClick = (index: number) => {
-      setSelectedDiv(index);
-      // Update the URL with the selected div
-      router.push({ search: `?selectedDiv=${index}` });
-    };
-     
-        
-*/
-
-  const handleDivClick = (index: number) => {
-    const div = document.getElementById(`div-${index}`);
-    if (div) {
-      div.classList.toggle("focus");
-      localStorage.setItem(
-        `divFocus-${index}`,
-        div.classList.contains("focus").toString()
-      );
-    }
-    //
+/*function updateColors(currentPage: string) {
+  const pageColors: {
+    [key: string]: string;
+  } = {
+    "/dashboard": "#00FF00",
+    "/dashboard/orders": "#E0E0E0",
+    // Add more pages and colors as needed
   };
 
-  /*document.addEventListener('DOMContentLoaded', () => {
-  const numberOfDivs = 5;
+  const dynamicDivs = document.querySelectorAll(".dynamic-div");
 
-  // Loop through the div elements and apply focus class if needed
-  for (let index = 1; index <= numberOfDivs; index++) {
-      const isFocused = localStorage.getItem(`divFocus-${index}`) === 'true';
-      const div = document.getElementById(`div-${index}`);
-
-      if (div) {
-          // Toggle the focus class based on the stored value
-          div.classList.toggle('focus', isFocused);
-
-          // If it's the first div and no focus state is stored, set focus
-          if (index === 1 && !isFocused) {
-              div.classList.add('focus');
-              localStorage.setItem(`divFocus-${index}`, 'true');
-          }
-      }
-  }
-});*/
-
-  useEffect(() => {
-    const numberOfDivs = 5;
-
-    for (let index = 1; index <= numberOfDivs; index++) {
-      const isFocused = localStorage.getItem(`divFocus-${index}`) === "true";
-      const div = document.getElementById(`div-${index}`);
-
-      if (div) {
-        // Toggle the focus class based on the stored value
-        div.classList.toggle("focus", isFocused);
-        console.log(div);
-
-        // Break out of the loop after handling the first div
-        break;
-      }
+  dynamicDivs.forEach((div) => {
+    const route = div.getAttribute("data-route");
+    if (route && pageColors[route]) {
+      (div as HTMLElement).style.backgroundColor =
+        route === currentPage ? pageColors[route] : "";
     }
-  }, []);
+  });
+}*/
+
+function LayoutPage() {
+  /*const router = useRouter();
+  let currentPage = router.pathname.trim(); // Trim to remove leading/trailing spaces
+  console.log("Current Page:", currentPage);
+
+  // Initial color update
+  updateColors(currentPage);
+
+  router.events.on("routeChangeComplete", () => {
+    currentPage = router.pathname.trim(); // Update currentPage when route changes
+    updateColors(currentPage);
+
+    // Manually refresh the page to apply the color changes
+    router.push(currentPage);
+  });
+*/
+
+  function updateColors(currentPage: string) {
+    const pageColors: {
+      [key: string]: string;
+    } = {
+      "/dashboard": "#E0E0E0",
+      "/dashboard/orders": "#E0E0E0",
+      // Add more pages and colors as needed
+    };
+
+    const dynamicDivs = document.querySelectorAll(".dynamic-div");
+
+    dynamicDivs.forEach((div) => {
+      const route = div.getAttribute("data-route");
+      if (route && pageColors[route]) {
+        (div as HTMLElement).style.backgroundColor =
+          route === currentPage ? pageColors[route] : "";
+      }
+    });
+  }
+
+  window.onload = function () {
+    let currentPage = window.location.pathname.trim(); // Trim to remove leading/trailing spaces
+    console.log("Current Page:", currentPage);
+
+    // Initial color update
+    updateColors(currentPage);
+
+    window.addEventListener("popstate", () => {
+      currentPage = window.location.pathname.trim(); // Update currentPage when route changes
+      updateColors(currentPage);
+    });
+  };
 
   return (
     <div>
@@ -164,14 +156,13 @@ function LayoutPage() {
         </div>
       </header>
 
-      <div className='w-24 z-10 h-screen  fixed mt-22 bg-white shadow-2xl'>
+      <div className='w-24 z-10 h-screen fixed mt-22 bg-white shadow-2xl'>
         <Link href={"/dashboard"}>
           {" "}
           <div
+            data-route='/dashboard'
             id='div-1'
-            onClick={() => handleDivClick(1)}
-            className='w-full grid place-items-center focus:bg-gray-200 py-3 mt-8 hover:bg-gray-200'
-            tabIndex={0}
+            className='w-full grid place-items-center  dynamic-div    py-3 mt-8 hover:bg-gray-200'
           >
             <svg
               width='18'
@@ -191,10 +182,9 @@ function LayoutPage() {
         <Link href={"/dashboard/orders"}>
           {" "}
           <div
+            data-route='/dashboard/orders'
             id='div-2'
-            onClick={() => handleDivClick(2)}
-            tabIndex={0}
-            className='w-full focus:bg-gray-200 grid place-items-center py-3 mt-5 hover:bg-gray-200'
+            className='w-full dynamic-div   grid place-items-center py-3 mt-5 hover:bg-gray-200'
           >
             <svg
               width='24'
@@ -213,9 +203,7 @@ function LayoutPage() {
 
         <div
           id='div-3'
-          onClick={() => handleDivClick(3)}
-          tabIndex={0}
-          className='w-full focus:bg-gray-200 grid place-items-center py-3 mt-5 hover:bg-gray-200'
+          className='w-full dynamic-div focus:bg-gray-200 grid place-items-center py-3 mt-5 hover:bg-gray-200'
         >
           <svg
             width='24'
@@ -316,9 +304,8 @@ function LayoutPage() {
 
         <div
           id='div-4'
-          onClick={() => handleDivClick(4)}
           tabIndex={0}
-          className='w-full focus:bg-gray-200 grid place-items-center py-3 mt-5  hover:bg-gray-200'
+          className='w-full dynamic-div focus:bg-gray-200 grid place-items-center py-3 mt-5  hover:bg-gray-200'
         >
           {" "}
           <svg
@@ -339,9 +326,8 @@ function LayoutPage() {
 
         <div
           id='div-5'
-          onClick={() => handleDivClick(5)}
           tabIndex={0}
-          className='w-full focus:bg-gray-200 grid place-items-center py-3 mt-5 hover:bg-gray-200'
+          className='w-full dynamic-div focus:bg-gray-200 grid place-items-center py-3 mt-5 hover:bg-gray-200'
         >
           <svg
             width='24'
