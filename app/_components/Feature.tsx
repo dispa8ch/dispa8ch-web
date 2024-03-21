@@ -29,7 +29,7 @@ const Feature = (props?: OfferProps) => {
       ref={ref as any}
       className='w-full h-fit flex justify-between gap-9
     font-Inter_Medium flex-col-reverse items-center tblg:flex-row tblg:even:flex-row-reverse tblg:items-start '>
-      <section className='text-section w-fit flex-grow column gap-6'>
+      <section className='w-fit flex-grow column gap-6 text-[#171717] dark:text-light_pink '>
         <h1 className='font-Inter_Bold text-xl bg-gradient-to-r from-dispa8chRed-500 to-amber-500 text-transparent bg-clip-text'>
           {props?.header}
         </h1>
@@ -39,7 +39,7 @@ const Feature = (props?: OfferProps) => {
        <StartFreeButton />
       </section>
       <section className='w-full h-[200px] max-w-[500px] bsm:h-[300px]'>
-        <div className='w-full h-full rounded-xl bg-dispa8chRed-100 relative '>
+        <div className='w-full h-full rounded-xl bg-dispa8chRed-100 relative dark:bg-[#E73659]/20 backdrop-blur-3xl '>
           <img
             src={props?.imageUrl || ""}
             alt='Illustration image'

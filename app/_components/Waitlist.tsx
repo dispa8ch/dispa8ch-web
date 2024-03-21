@@ -1,6 +1,6 @@
 "use client";
-import { useRef } from "react";
 import { WaitlistInput } from "@/components/inputs";
+import { useRef } from "react";
 
 const Waitlist = () => {
   const ref = useRef<HTMLElement>();
@@ -11,7 +11,7 @@ const Waitlist = () => {
       <h1 className='text-dispa8chRed-500 font-Inter_ExtraBold text-center text-2xl'>
         Join our waitlist today!
       </h1>
-      <p className='text-[14px] text-[#A4707B] text-center '>
+      <p className='text-[14px] text-light_pink text-center '>
         Be the first to test out new <br className='lg:hidden' /> launches and
         features.
       </p>

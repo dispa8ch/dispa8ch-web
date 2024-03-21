@@ -24,6 +24,8 @@ module.exports = {
         tblg: "800px",
       },
       colors: {
+        light_pink: "#A4707B",
+        solid_pink: "#FFCAD5",
         text_1: "#35000BC9",
         dispa8chRed: {
           50: "#FCE8EC",
@@ -39,11 +41,9 @@ module.exports = {
           950: "#170307",
           10: "#E41F47",
         },
-
         dispa8chLightGray: {
           100: "#A4707B",
         },
-
         dispa8chGreen: {
           50: "#1DD119",
           100: "#189B62",
@@ -115,7 +115,6 @@ module.exports = {
         180: "400px",
       },
       darkMode: ["class"],
-      prefix: "",
       maxWidth: {
         120: "500px",
         110: "450px",
@@ -128,20 +127,6 @@ module.exports = {
         screens: {
           "2xl": "1400px",
         },
-      },
-      keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
       },
       padding: {
         5.5: "4%",
@@ -156,12 +141,7 @@ module.exports = {
         56: "224px",
         22: "88px",
       },
-      gradientColorStops: {
-        blue_pink: "from-[#2300FD] to-[#EE0CD7]",
-        darkblue_blue: "from-[#0093FD] to-[#1900FD]",
-        dispa8ch_gradient: "from-[#E92E29] to-[#FFB800]",
-      },
     },
   },
-  plugins: [require("tailwindcss-animate")]
+  plugins: []
 };
