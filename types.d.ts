@@ -1,4 +1,4 @@
-export {};
+export { };
 
 declare global {
   type EmptyObject<T = any> = {
@@ -20,6 +20,15 @@ declare global {
      */
     sublinks?: Omit<MenuLink, "icon">[];
   };
+
+  type TComment<R = false> = {
+    profileImage: string;
+    userName: string;
+    message: string;
+    reply: R
+    replies?: TComment<true>
+  }
+  
 
   declare namespace Helpers {
     type Keyof<T extends EmptyObject> = keyof T;
