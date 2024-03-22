@@ -41,3 +41,13 @@ export function scaleSize<T extends `${number}` | number = number>(dims: [T, T],
       return dims as [string, string];
   }
 }
+
+export function debounce<T extends (VoidFunction | ((...args: any[]) => void))>(fn: T, delta = 500): T {
+  let timer: any;
+  return ((...args: any[]) => {
+    clearTimeout(timer)
+    timer = setTimeout(() => {
+      fn(...args)
+    }, delta);
+  }) as T
+}

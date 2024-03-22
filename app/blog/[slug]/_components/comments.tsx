@@ -12,7 +12,7 @@ const testComments: Array<TComment> = [
     profileImage: '/images/team/edward.jpg',
     userName: 'Chike Chikelu',
     replies: [
-      { 
+      {
         message: 'You have to sign up with the company your work for, see your dashboard and then use it',
         profileImage: '/images/team/medah.jpg',
         userName: 'Iyke Charles',
@@ -48,9 +48,9 @@ const Comments = ({ comments }: CommentsProps = {}) => {
             return <UserComment {...comment} key={i} />
           })}
         </section>
-        <section className="w-full pl-[66px] " >
-          <CommentInput />
-        </section>
+      </section>
+      <section className="w-full pl-[66px] " >
+        <CommentInput />
       </section>
     </section>
   )
