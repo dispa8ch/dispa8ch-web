@@ -96,8 +96,8 @@ const OurBlogs = ({showHeader}: {
       </h1>
       ) : ''}
       <section ref={animatedDivRef} id='animatedDiv'>
-        {data.our_blogs.map((attribute, i) => (
-          <BlogPost key={i} {...attribute} />
+        {data.our_blogs.map((blog, i) => (
+          <BlogPost key={i} {...blog} />
         ))}
       </section>
       <button className='text-dispa8chRed-10 w-full grid place-items-center text-center underline text-lg font-medium mt-20'>

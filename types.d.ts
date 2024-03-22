@@ -25,8 +25,7 @@ declare global {
     profileImage: string;
     userName: string;
     message: string;
-    reply: R
-    replies?: TComment<true>
+    replies?: Array<TComment<true>>
   }
   
 

@@ -12,7 +12,7 @@ type BlogProps = {};
  * @todo write the UI code for the Main Blog section;
  * should come as markdown
  */
-const Blog = (props?: BlogProps) => {
+const Blog = (props: BlogProps) => {
   return (
     <>
       <Header />

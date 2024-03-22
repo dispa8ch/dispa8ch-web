@@ -1,3 +1,4 @@
+import { Theme } from "@/components/dispa8ch-ui";
 import Favicon from "@/public/favicon.png";
 import type { Metadata } from "next";
 import "../../globals.css";
@@ -17,13 +18,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en'>
+    <Theme dataTheme="light" lang='en'>
       <head>
         <link rel='shortcut icon' href={Favicon.src} type='image/png' />
       </head>
       <body className={"w-full min-h-screen bg-white relative dark:bg-[#171717] "}>
         {children}
       </body>
-    </html>
+    </Theme>
   );
 }
