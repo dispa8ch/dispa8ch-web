@@ -11,6 +11,8 @@ type BlogProps = {};
 /**
  * @todo write the UI code for the Main Blog section;
  * should come as markdown
+ * @todo work on the dark mode for all the sections
+ * @todo work on connecting the components to each other
  */
 const Blog = (props: BlogProps) => {
   return (

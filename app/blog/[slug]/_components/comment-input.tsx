@@ -6,7 +6,6 @@ import { FormEventHandler, useState } from "react";
 type CommentInputProps = {};
 
 /**
- * @todo create a debounce function for the input onInput event
  * @todo connect this component to the Comments component
  */
 const CommentInput = (props?: CommentInputProps) => {
