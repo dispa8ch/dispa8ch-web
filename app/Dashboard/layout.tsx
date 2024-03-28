@@ -1,4 +1,3 @@
-import Favicon from "@/public/favicon.png";
 import type { Metadata } from "next";
 import LayoutPage from "./_components/LayoutPage";
 
@@ -14,14 +13,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en'>
-      <head>
-        <link rel='shortcut icon' href={Favicon.src} type='image/png' />
-      </head>
-      <body className='w-full min-h-screen bg-white relative'>
-        <LayoutPage />
-        {children}
-      </body>
-    </html>
+    <div className='w-full min-h-screen bg-white relative'>
+      <LayoutPage />
+      {children}
+    </div>
   );
 }

@@ -68,7 +68,7 @@ const OurBlogs = ({showHeader}: {
     const options = {
       root: null, // Use the viewport as the root
       rootMargin: "0px", // No margin
-      threshold: 0.1, // Trigger when 75% of the element is in the viewport
+      // threshold: 0.1, // Trigger when 75% of the element is in the viewport
     };
 
     const animatedDivObserver = new IntersectionObserver(

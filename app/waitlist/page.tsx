@@ -1,8 +1,13 @@
 "use client";
 
+import { useState } from "react";
+
 export default function waitlist() {
+  const [buttonText, setButtonText] = useState(false);
+  const [link] = useState("www.dispa8ch.com/jamesking/invite-link");
   const handleCopy = () => {
-    navigator.clipboard.writeText("");
+    navigator.clipboard.writeText(link);
+    setButtonText((prev) => !prev);
     // setButtonText((prev) => !prev);
   };
   return (
@@ -108,36 +113,42 @@ export default function waitlist() {
             </div>
 
             <form className='grid place-items-center'>
-              <div className='bg-gray-300 md:max-w-120   focus:border-blue-300  max-w-72   relative py-1.5  pr-5 md:pr-3 rounded-md pl-3  w-72  overflow-hidden  md:w-110'>
+              <div className='bg-gray-300 md:max-w-120   focus:border-blue-300  max-w-72   relative py-1.5   md:pr-3 rounded-md pl-3  w-72  overflow-hidden  md:w-110'>
                 {" "}
                 <div>
-                  <p className='text-gray-500 md:text-base text-sm'>
-                    www.dispa8ch.com/jamesking/invite-link
-                  </p>
+                  <p className='text-gray-500 md:text-base text-sm'>{link}</p>
                 </div>
-                <div
-                  className=' top-1.5 mt-1.5  right-1 md:right-4 absolute '
-                  onClick={handleCopy}
-                >
-                  <svg
-                    width='17'
-                    height='10'
-                    viewBox='0 0 17 10'
-                    fill='none'
-                    xmlns='http://www.w3.org/2000/svg'
+                {buttonText ? (
+                  <div
+                    className=' top-1.5 mt-1.5  right-1 md:right-4 absolute '
+                    onClick={handleCopy}
                   >
-                    <path
-                      d='M11.8683 1.09351H12.2425C14.3091 1.09351 15.9844 2.8424 15.9844 4.99976C15.9844 7.1571 14.3091 8.90601 12.2425 8.90601H10.7458C8.67924 8.90601 7.00394 7.1571 7.00394 4.99976M5.13302 8.90601H4.75883C2.69228 8.90601 1.01698 7.1571 1.01698 4.99976C1.01698 2.8424 2.69228 1.09351 4.75883 1.09351H6.25557C8.32212 1.09351 9.99742 2.8424 9.99742 4.99976'
-                      stroke='#35000B'
-                      stroke-width='1.7'
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
-                    />
-                  </svg>
-                </div>
+                    <svg
+                      width='17'
+                      height='10'
+                      viewBox='0 0 17 10'
+                      fill='none'
+                      xmlns='http://www.w3.org/2000/svg'
+                    >
+                      <path
+                        d='M11.8683 1.09351H12.2425C14.3091 1.09351 15.9844 2.8424 15.9844 4.99976C15.9844 7.1571 14.3091 8.90601 12.2425 8.90601H10.7458C8.67924 8.90601 7.00394 7.1571 7.00394 4.99976M5.13302 8.90601H4.75883C2.69228 8.90601 1.01698 7.1571 1.01698 4.99976C1.01698 2.8424 2.69228 1.09351 4.75883 1.09351H6.25557C8.32212 1.09351 9.99742 2.8424 9.99742 4.99976'
+                        stroke='#35000B'
+                        stroke-width='1.7'
+                        stroke-linecap='round'
+                        stroke-linejoin='round'
+                      />
+                    </svg>
+                  </div>
+                ) : (
+                  <div className='py-1.5 md:py-0 bg-gray-300 bottom-0.5  md:bottom-0  pr-1 md:pr-0 md:top-1 md:mt-1 pl-2 md:pl-0  right-1 md:right-4 absolute '>
+                    <p className='    text-red-500 text-sm font-medium '>
+                      Copied!
+                    </p>
+                  </div>
+                )}
               </div>
 
-              <div className='border-b mt-3 mb-8  border-gray-300 py-1.5 pl-3  w-72   md:w-110'>
+              <div className='border-b mt-3 mb-8    border-gray-300 py-1.5 pl-3  w-72   md:w-110'>
                 {" "}
                 <p className=' text-center text-base font-medium text-gray-300'>
                   OR
