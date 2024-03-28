@@ -1,8 +1,9 @@
 "use client";
 import { BaseButton } from "@/components/buttons";
 import { Dispa8chLogo, Dispa8chLogoMobile } from "@/public/icons";
+import { MoonStarIcon, SunIcon } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MobileNav from "./MobileNav";
 import MobileNavButtons from "./MobileNavButtons";
 
@@ -10,6 +11,10 @@ const links = ["/home", "#about", "#services", "/pricing"] as const;
 
 const Header = () => {
   const menuState = useState(false);
+  const [theme, setTheme] = useState('')
+  useEffect(() => {
+    
+  })
   return (
     <>
       <header className='flex items-center bg-white/20 backdrop-blur-2xl px-6 py-5 font-Inter_Medium sticky top-0 z-30 shadow-md lg:px-8 lg:py-3 '>
@@ -36,13 +41,17 @@ const Header = () => {
             );
           })}
         </section>
-        <section className='w-fit h-fit gap-3 text-sm hidden lg:flex '>
+        <section className='fit gap-3 text-sm hidden lg:flex '>
           <BaseButton>
             <Link href='/sign-up'>Signup</Link>
           </BaseButton>
           <BaseButton className='bg-white text-dispa8chRed-600 hover:bg-white/25 dark:bg-white dark:text-dispa8chRed-600 dark:hover:bg-white/70 '>
             <Link href='/login'>Login</Link>
           </BaseButton>
+        </section>
+        <section className="fit p-2 bg-white">
+          <MoonStarIcon size={26} className="fill-[#171717] " />
+          <SunIcon size={26} className="fill-[#171717] " />
         </section>
 
         {/* Visible only on mobile */}

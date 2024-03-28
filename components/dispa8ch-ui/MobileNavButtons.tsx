@@ -1,4 +1,4 @@
-import { Bars3Icon, UserCircleIcon } from "@heroicons/react/24/solid";
+import { MenuIcon, UserCircle2Icon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction } from "react";
 
@@ -10,11 +10,11 @@ const MobileNavButtons = ({ menuState }: MobileNavButtonsProps) => {
   const router = useRouter();
   const buttons = [
     {
-      icon: UserCircleIcon,
+      icon: UserCircle2Icon,
       onClick: () => router.push("/account"),
     },
     {
-      icon: Bars3Icon,
+      icon: MenuIcon,
       onClick: () => setMenu(!menu),
     },
   ] as const;
@@ -24,10 +24,9 @@ const MobileNavButtons = ({ menuState }: MobileNavButtonsProps) => {
       {buttons.map(({ icon: Icon, onClick }, i) => (
         <button
           key={i}
-          onClick={onClick} className="fit p-2 bg-black/20 backdrop-blur-3xl  rounded-full" >
+          onClick={onClick} className="fit p-2 bg-black/20 backdrop-blur-3xl rounded-full" >
           <Icon
-            width={26}
-            height={26}
+            size={26}
             className="fill-[#171717] "
           />
         </button>

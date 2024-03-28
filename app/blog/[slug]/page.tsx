@@ -6,7 +6,7 @@ import Comments from "./_components/comments";
 
 const testCrumbs = ["Blog", "Tech", "New-Feature-Release"]
 
-type BlogProps = {};
+type BlogProps = {} & NextPageProps;
 
 /**
  * @todo write the UI code for the Main Blog section;
@@ -14,7 +14,8 @@ type BlogProps = {};
  * @todo work on the dark mode for all the sections
  * @todo work on connecting the components to each other
  */
-const Blog = (props: BlogProps) => {
+const Blog = ({params}: BlogProps) => {
+  console.log(params);
   return (
     <>
       <Header />
