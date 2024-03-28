@@ -5,10 +5,10 @@ declare global {
     [index: string | number | symbol]: T;
   };
 
-  type NextPageProps = {
-    params?: any
-    searchParams?: any
-  }
+  type NextPageProps<P = {}> = {
+    params?: P;
+    searchParams?: any;
+  };
 
   type SVGIconProps = Omit<React.SVGProps<SVGSVGElement>, "ref"> & {
     title?: string | undefined;
@@ -29,12 +29,14 @@ declare global {
     profileImage: string;
     userName: string;
     message: string;
-    replies?: Array<TComment<true>>
-  }
-  
-  type FunctionWithArgs = ((...args: Array<any>) => void)
+    replies?: Array<TComment<true>>;
+  };
+
+  type FunctionWithArgs = (...args: Array<any>) => void;
 
   type NullOrUndefined = null | undefined;
+
+  type TTheme = "light" | "dark";
 
   declare namespace Helpers {
     type Keyof<T extends EmptyObject> = keyof T;

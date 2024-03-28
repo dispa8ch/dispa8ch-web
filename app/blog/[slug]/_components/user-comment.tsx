@@ -3,11 +3,11 @@ import Image from "next/image";
 
 const UserCommentReply = ({ userName, profileImage, message, replies }: TComment<true>) => {
   return (
-    <section className={`w-full min-h-[50px] pl-[66px] flex items-start gap-2`}>
+    <section className={`w-full min-h-[50px] pl-[56px] flex items-start gap-2`}>
       <div className="min-h-[inherit] w-0.5 bg-slate-500 rounded-full" />
       <div className="w-full flex items-start gap-4">
-        <div className="w-[50px] h-[50px] bg-gray-500 rounded-full">
-          <Image width={50} height={50} src={profileImage} alt={userName} className="w-full h-full rounded-[inherit] " objectFit="contain" />
+        <div className="w-[40px] h-[40px] bg-gray-500 rounded-full">
+          <Image width={40} height={40} src={profileImage} alt={userName} className="w-full h-full rounded-[inherit] object-cover " />
         </div>
         <article className="flex-grow column gap-2">
           <h3 className="text-base font-Inter_Medium text-dispa8chRed-800">{userName}</h3>
@@ -35,8 +35,8 @@ const UserComment = ({ userName, profileImage, message, replies }: TComment<fals
   return (
     <section className={`w-full min-h-[50px]`}>
       <div className="w-full flex items-start gap-4">
-        <div className="w-[50px] h-[50px] bg-gray-500 rounded-full">
-          <Image width={50} height={50} src={profileImage} alt={userName} className="w-full h-full rounded-[inherit] " objectFit="contain" />
+        <div className="w-[40px] h-[40px] bg-gray-500 rounded-full">
+          <Image width={40} height={40} src={profileImage} alt={userName} className="w-full h-full rounded-[inherit] object-cover " />
         </div>
         <article className="flex-grow column gap-2">
           <h3 className="text-base font-Inter_Medium text-dispa8chRed-800">{userName}</h3>

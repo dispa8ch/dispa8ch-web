@@ -79,12 +79,18 @@ export function debounce<T extends VoidFunction | FunctionWithArgs>(
   }) as T;
 }
 
-export function switchTheme() {
+/**
+ * Should be used in client components
+ */
+export function getTheme(): TTheme {
   const html = document.documentElement as HTMLHtmlElement;
-  const theme = html.getAttribute("data-theme");
-  if (isFalsy(theme)) html.setAttribute("data-theme", "light");
-  else {
-    if (theme === "light") html.setAttribute("data-theme", "dark");
-    else html.setAttribute("data-theme", "light");
-  }
+  const theme = (html.getAttribute("data-theme") || 'light') as TTheme
+  return theme;
+}
+
+export function switchTheme(): TTheme {
+  const html = document.querySelector('html')!
+  const theme = getTheme()
+  if (theme === "light") return html.setAttribute("data-theme", "dark"), 'dark';
+  else return html.setAttribute("data-theme", "light"), 'light';
 }
