@@ -45,7 +45,9 @@ const BlogPost = ({
   );
 };
 
-const OurBlogs = () => {
+const OurBlogs = ({showHeader}: {
+  showHeader?: boolean
+}) => {
   const animatedDivRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -55,10 +57,7 @@ const OurBlogs = () => {
           if (animatedDivRef.current) {
             animatedDivRef.current.classList.add("active");
           }
-          // Add your logic here when the element is in the viewport
         } else {
-          // Add your logic here when the element is out of the viewport
-
           if (animatedDivRef.current) {
             animatedDivRef.current.classList.remove("active");
           }
@@ -87,44 +86,20 @@ const OurBlogs = () => {
         animatedDivObserver.unobserve(animatedDivRef.current);
       }
     };
-  }, [animatedDivRef]);
+  });
 
-  /*useEffect(() => {
-    const animatedDiv = document.getElementById("animatedDiv");
-
-    const handleScroll = () => {
-      console.log("yoo");
-      if (animatedDiv) {
-        const rect = animatedDiv.getBoundingClientRect();
-
-        if (rect.top <= window.innerHeight * 0.75 && rect.bottom >= 0) {
-          animatedDiv.classList.add("active");
-        } else {
-          animatedDiv.classList.remove("active");
-        }
-      }
-    };
-
-    // Attach scroll event listener when the component mounts
-    window.addEventListener("scroll", handleScroll);
-
-    // Clean up the event listener when the component unmounts
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-  */
   return (
-    <section className=' lg:w-91 w-full mb-32 md:ml-6   lg:ml-16'>
-      <h1 className='text-dispa8chRed-500 text-center text-xl font-Inter_ExtraBold lg:text-2xl  mb-20'>
+    <section className='lg:w-91 w-full mb-32 md:ml-6   lg:ml-16'>
+      {showHeader ? (
+        <h1 className='text-dispa8chRed-500 text-center text-xl font-Inter_ExtraBold lg:text-2xl  mb-20'>
         OUR BLOGS
       </h1>
+      ) : ''}
       <section ref={animatedDivRef} id='animatedDiv'>
-        {data.our_blogs.map((attribute, i) => (
-          <BlogPost key={i} {...attribute} />
+        {data.our_blogs.map((blog, i) => (
+          <BlogPost key={i} {...blog} />
         ))}
       </section>
-
       <button className='text-dispa8chRed-10 w-full grid place-items-center text-center underline text-lg font-medium mt-20'>
         <Link href={"/blogs"}>View more articles</Link>
       </button>

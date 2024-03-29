@@ -1,3 +1,4 @@
+import { Theme } from "@/components/dispa8ch-ui";
 import Favicon from "@/public/favicon.png";
 import type { Metadata } from "next";
 
@@ -13,7 +14,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
+    <Theme
+      dataTheme="light"
       lang='en'
       className='overflow-x-clip'>
       <head>
@@ -23,7 +25,7 @@ export default function RootLayout({
           type='image/png'
         />
       </head>
-      <body className={"w-fit h-fit"}>{children}</body>
-    </html>
+      <body className={"w-fit h-fit dark:bg-[#171717] transition-colors duration-500"}>{children}</body>
+    </Theme>
   );
 }

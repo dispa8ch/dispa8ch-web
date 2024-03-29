@@ -5,6 +5,7 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: ['selector', '[data-theme="dark"]'],
   theme: {
     transparent: "transparent",
     current: "currentColor",
@@ -114,7 +115,6 @@ module.exports = {
         38: "736px",
         180: "400px",
       },
-      darkMode: ["class"],
       maxWidth: {
         120: "500px",
         110: "450px",

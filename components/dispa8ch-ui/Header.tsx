@@ -1,8 +1,10 @@
 "use client";
 import { BaseButton } from "@/components/buttons";
+import { getTheme, switchTheme } from "@/lib";
 import { Dispa8chLogo, Dispa8chLogoMobile } from "@/public/icons";
+import { MoonStarIcon, SunIcon } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MobileNav from "./MobileNav";
 import MobileNavButtons from "./MobileNavButtons";
 
@@ -10,6 +12,10 @@ const links = ["/home", "#about", "#services", "/pricing"] as const;
 
 const Header = () => {
   const menuState = useState(false);
+  const [theme, setTheme] = useState<TTheme>('light')
+  useEffect(() => {
+    setTheme(getTheme())
+  }, [])
   return (
     <>
       <header className='flex items-center bg-white/20 backdrop-blur-2xl px-6 py-5 font-Inter_Medium sticky top-0 z-30 shadow-md lg:px-8 lg:py-3 '>
@@ -36,13 +42,21 @@ const Header = () => {
             );
           })}
         </section>
-        <section className='w-fit h-fit gap-3 text-sm hidden lg:flex '>
+        <section className='fit gap-3 text-sm hidden lg:flex '>
           <BaseButton>
             <Link href='/sign-up'>Signup</Link>
           </BaseButton>
           <BaseButton className='bg-white text-dispa8chRed-600 hover:bg-white/25 dark:bg-white dark:text-dispa8chRed-600 dark:hover:bg-white/70 '>
             <Link href='/login'>Login</Link>
           </BaseButton>
+        </section>
+        <section className="fit ml-auto bg-transparent md:ml-3 " onClick={() => setTheme(switchTheme())} >
+          <button className="fit p-2 stroke-gray-900 rounded-full focus:bg-black/30 " >
+            {theme === 'light' ?
+              <MoonStarIcon size={26} className="stroke-inherit" /> :
+              <SunIcon size={26} className="stroke-inherit" />
+            }
+          </button>
         </section>
 
         {/* Visible only on mobile */}

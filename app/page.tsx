@@ -1,9 +1,9 @@
 import { ContactUsButton } from "@/components/buttons";
+import { Header } from '@/components/dispa8ch-ui';
 import FaqSection from "./_components/FaqSection";
 import FeaturesSection from "./_components/FeaturesSection";
 import Footer from "./_components/Footer";
 import GetStartedSection from "./_components/GetStartedSection";
-import Header from "./_components/Header";
 import HeroSection from "./_components/HeroSection";
 import OffersSection from "./_components/OffersSection";
 import OurBlogs from "./_components/OurBlogs";
@@ -24,7 +24,7 @@ export default function Home() {
         <Waitlist />
       </main>
       <ContactUsButton />
-      <OurBlogs />
+      <OurBlogs showHeader />
       <Footer />
     </>
   );

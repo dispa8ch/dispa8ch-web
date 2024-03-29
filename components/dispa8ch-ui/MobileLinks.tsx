@@ -1,5 +1,5 @@
 "use client";
-import { pickObj } from "@/lib";
+import { ternary } from "@/lib";
 import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction, useState } from "react";
 
@@ -47,7 +47,7 @@ const MobileLinks = ({
         }}>
         <p>{name}</p>
         {Icon ? (
-          <Icon {...pickObj(sublinks, sublinkIconProps, iconProps)} />
+          <Icon {...ternary(sublinks, sublinkIconProps, iconProps)} />
         ) : (
           ""
         )}
