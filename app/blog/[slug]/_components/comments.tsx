@@ -41,7 +41,7 @@ const testComments: Array<TComment> = [
 const Comments = ({ comments }: CommentsProps = {}) => {
   return (
     <section className="w-full h-fit column gap-12">
-      <h1 className="text-dispa8chRed-950 text-xl mr-auto lg:text-2xl font-Inter_ExtraBold ">Comments</h1>
+      <h1 className="text-dispa8chRed-600 text-xl mr-auto lg:text-2xl font-Inter_ExtraBold ">Comments</h1>
       <section className="w-full column gap-4 ">
         <section className="w-full column gap-4">
           {testComments.map((comment, i) => {

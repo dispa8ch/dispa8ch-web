@@ -13,7 +13,6 @@ type BlogProps = {} & NextPageProps<{
 /**
  * @todo write the UI code for the Main Blog section;
  * should come as markdown
- * @todo work on the dark mode for all the sections
  */
 const Blog = ({params}: BlogProps) => {
   return (

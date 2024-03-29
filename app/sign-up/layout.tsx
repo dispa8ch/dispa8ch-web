@@ -1,3 +1,4 @@
+import { Theme } from '@/components/dispa8ch-ui';
 import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Signup | Dispa8ch',
@@ -10,10 +11,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en' className='overflow-x-clip'>
-      <body className={'w-fit h-fit'}>
+    <Theme dataTheme='light' lang='en' className='overflow-x-clip'>
+      <body className={'w-fit h-fit transition-colors duration-500'}>
         {children}
       </body>
-    </html>
+    </Theme>
   );
 }

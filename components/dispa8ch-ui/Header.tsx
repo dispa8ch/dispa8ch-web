@@ -50,11 +50,13 @@ const Header = () => {
             <Link href='/login'>Login</Link>
           </BaseButton>
         </section>
-        <section className="fit p-2 ml-auto bg-transparent stroke-gray-900 cursor-pointer md:ml-3 " onClick={() => setTheme(switchTheme())} >
-          {theme === 'light' ?
-            <MoonStarIcon size={26} className="stroke-inherit" /> :
-            <SunIcon size={26} className="stroke-inherit" />
-          }
+        <section className="fit ml-auto bg-transparent md:ml-3 " onClick={() => setTheme(switchTheme())} >
+          <button className="fit p-2 stroke-gray-900 rounded-full focus:bg-black/30 " >
+            {theme === 'light' ?
+              <MoonStarIcon size={26} className="stroke-inherit" /> :
+              <SunIcon size={26} className="stroke-inherit" />
+            }
+          </button>
         </section>
 
         {/* Visible only on mobile */}

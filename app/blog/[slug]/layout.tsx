@@ -22,7 +22,7 @@ export default function RootLayout({
       <head>
         <link rel='shortcut icon' href={Favicon.src} type='image/png' />
       </head>
-      <body className={"w-full min-h-screen bg-white relative dark:bg-[#171717] "}>
+      <body className={"w-full min-h-screen bg-white relative dark:bg-[#171717] transition-colors duration-500 "}>
         {children}
       </body>
     </Theme>

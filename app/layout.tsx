@@ -1,3 +1,4 @@
+import { Theme } from "@/components/dispa8ch-ui";
 import Favicon from "@/public/favicon.png";
 import TwitterImage from "@/public/images/twitter-image.jpg";
 import type { Metadata } from "next";
@@ -16,7 +17,7 @@ export default function RootLayout({
 }) {
   const twitter_img = `https://dispa8ch.vercel.app${TwitterImage.src}`;
   return (
-    <html lang='en'>
+    <Theme dataTheme="light" lang='en'>
       <head>
         <meta name='twitter:card' content='summary' />
         <meta name='twitter:image' content={twitter_img} />
@@ -27,9 +28,9 @@ export default function RootLayout({
         <meta name='twitter:title' content='Dispa8ch.io' />
         <link rel='shortcut icon' href={Favicon.src} type='image/png' />
       </head>
-      <body className={"w-full min-h-screen bg-white relative dark:bg-[#171717] "}>
+      <body className={"w-full min-h-screen bg-white relative dark:bg-[#171717] transition-colors duration-500 "}>
         {children}
       </body>
-    </html>
+    </Theme>
   );
 }
