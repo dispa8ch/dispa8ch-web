@@ -45,9 +45,7 @@ const BlogPost = ({
   );
 };
 
-const OurBlogs = ({showHeader}: {
-  showHeader?: boolean
-}) => {
+const OurBlogs = ({ showHeader }: { showHeader?: boolean }) => {
   const animatedDivRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -92,9 +90,11 @@ const OurBlogs = ({showHeader}: {
     <section className='lg:w-91 w-full mb-32 md:ml-6   lg:ml-16'>
       {showHeader ? (
         <h1 className='text-dispa8chRed-500 text-center text-xl font-Inter_ExtraBold lg:text-2xl  mb-20'>
-        OUR BLOGS
-      </h1>
-      ) : ''}
+          OUR BLOGS
+        </h1>
+      ) : (
+        ""
+      )}
       <section ref={animatedDivRef} id='animatedDiv'>
         {data.our_blogs.map((blog, i) => (
           <BlogPost key={i} {...blog} />

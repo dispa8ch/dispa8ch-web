@@ -36,15 +36,12 @@ const Footer = () => {
       </section>
       <FooterLinks />
       {/* Social media section */}
-      <section className='w-full h-fit flex flex-wrap justify-between items-end gap-6 dark:text-white dark:fill-white'>
+      <section className='w-full h-fit flex flex-wrap justify-between items-end gap-6 dark:text-white dark:fill-white '>
         <section className='space-y-4  '>
           <h1 className='font-Inter_Bold'>Follow us on</h1>
           <div className='w-fit h-fit flex gap-3'>
             {socialMediaLinks.map((Icon, i) => (
-              <Icon
-                size={0.7}
-                key={i}
-              />
+              <Icon size={0.7} key={i} />
             ))}
           </div>
         </section>
