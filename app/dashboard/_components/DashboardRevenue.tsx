@@ -1,9 +1,4 @@
 import Image from "next/image";
-import orangeIntersect from "../Intersect (1).png";
-import {
-  default as blueIntersect,
-  default as darkblueIntersect,
-} from "../Intersect.png";
 
 function DashboardRevenue() {
   return (
@@ -124,7 +119,7 @@ function DashboardRevenue() {
         <div className='w-full flex justify-between'>
           <div className='rounded-md w-68 h-28  relative bg-image2'>
             <div className='w-22  absolute bottom-0 right-0 h-16'>
-              <Image alt='' src={blueIntersect} />{" "}
+              <Image alt='' src={'../../../public/images/delagate-tasks.png'} />{" "}
             </div>
             <p className='ml-3 font-semibold text-lg text-white mt-3'>
               Today's deliveries
@@ -134,7 +129,7 @@ function DashboardRevenue() {
 
           <div className='rounded-md w-68 h-28  relative bg-image3'>
             <div className='w-22  absolute bottom-0 right-0 h-16'>
-              <Image alt='' src={darkblueIntersect} />{" "}
+              <Image alt='' src={'../../../public/images/automate-workflow.png'} />{" "}
             </div>
             <p className='ml-3 font-semibold text-lg text-white mt-3'>
               Completed deliveries
@@ -144,7 +139,7 @@ function DashboardRevenue() {
 
           <div className='rounded-md w-68 h-28 relative bg-image4'>
             <div className='w-22  absolute bottom-0 right-0 h-16'>
-              <Image alt='' src={orangeIntersect} />{" "}
+              <Image alt='' src={'../../../public/images/automate-workflow.png'} />{" "}
             </div>
             <p className='ml-3 font-semibold text-lg text-white mt-3'>
               Assigned riders

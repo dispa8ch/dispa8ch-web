@@ -1,10 +1,7 @@
 "use client";
-import gig from "../Rectangle 42.png";
 import Image from "next/image";
 import Link from "next/link";
-//import { useRouter } from "next/router";
-import backgroundIcon from "../Ellipse 28.png";
-import gIcon from "../G.png";
+import { useEffect } from "react";
 
 /*function updateColors(currentPage: string) {
   const pageColors: {
@@ -63,25 +60,28 @@ function LayoutPage() {
     });
   }
 
-  window.onload = function () {
-    let currentPage = window.location.pathname.trim(); // Trim to remove leading/trailing spaces
-    console.log("Current Page:", currentPage);
-
-    // Initial color update
-    updateColors(currentPage);
-
-    window.addEventListener("popstate", () => {
-      currentPage = window.location.pathname.trim(); // Update currentPage when route changes
+  useEffect(() => {
+    window.onload = function () {
+      let currentPage = window.location.pathname.trim(); // Trim to remove leading/trailing spaces
+      console.log("Current Page:", currentPage);
+  
+      // Initial color update
       updateColors(currentPage);
-    });
-  };
+  
+      window.addEventListener("popstate", () => {
+        currentPage = window.location.pathname.trim(); // Update currentPage when route changes
+        updateColors(currentPage);
+      });
+    };
+  
+  }, [])
 
   return (
     <div>
       <header className='px-6 py-4 bg-white  w-full fixed top-0 z-30 border-b border-orange-400 flex justify-between '>
         <div className=' flex gap-4'>
           <div>
-            <Image alt='gig' src={gig} width={52} height={52} />
+            <Image alt='gig' src={'../../../public/images/G.png'} width={52} height={52} />
           </div>
 
           <div>
@@ -147,11 +147,13 @@ function LayoutPage() {
             <Image
               className='relative '
               alt='notification-bell'
-              src={backgroundIcon}
+              src={'../../../public/images/G.png'}
               height={54}
               width={54}
             />
-            <Image className='absolute ' alt='notification-bell' src={gIcon} />
+            <Image className='absolute ' alt='notification-bell'
+              src={'../../../public/images/G.png'}
+            />
           </div>
         </div>
       </header>
