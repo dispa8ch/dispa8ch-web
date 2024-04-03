@@ -39,8 +39,8 @@ const sidebarLinks: Array<{
 const Sidebar = () => {
   return (
     <section className="w-fit h-full bg-transparent pt-40 px-3 border-r border-r-gray-300 column gap-6 " >
-      {sidebarLinks.map(({ link, icon: Icon, name: _name }) => (
-        <Link className="fit p-2 rounded-sm transition-colors duration-300 focus:bg-gray-300 " href={link} >
+      {sidebarLinks.map(({ link, icon: Icon, name: _name }, i) => (
+        <Link className="fit p-2 rounded-sm transition-colors duration-300 focus:bg-gray-300 " href={link} key={i} >
           <Icon size={1.5} />
         </Link>
       ))}

@@ -40,8 +40,8 @@ const Header: React.FC<HeaderProps> = (props) => {
         <p className="text-gray-300 text-sm">Powered by Dispa8ch</p>
       </section>
       <section className="fit ml-auto flex items-center gap-2">
-        {menubuttons.map(({icon: Icon, name, link}) => (
-          <Link href={link} className="fit column items-center justify-center gap-1 text-gray-600 fill-[#171717] focus:text-dispa8chRed-500 focus:fill-dispa8chRed-500 ">
+        {menubuttons.map(({icon: Icon, name, link}, i) => (
+          <Link href={link} key={i} className="fit column items-center justify-center gap-1 text-gray-600 fill-[#171717] focus:text-dispa8chRed-500 focus:fill-dispa8chRed-500 ">
             <Icon size={1} className="stroke-inherit fill-inherit transition-all " />
             <p className="text-inherit transition-all " >{name}</p>
           </Link>

@@ -13,7 +13,7 @@ const BlogPost = ({
   id,
 }: BlogPostProps) => {
   return (
-    <div className='md:flex  md:items-center  mb-16 md:mb-36 md:gap-8 lg:gap-24 xl:gap-32  md:justify-start grid place-items-center sm:pl-0 '>
+    <div className='md:flex md:items-center  mb-16 md:mb-36 md:gap-8 lg:gap-24 xl:gap-32  md:justify-start grid place-items-center sm:pl-0 '>
       <div className='lg:max-h-56 md:max-h-64 lg:max-w-110 xl:max-w-120 w-80 md:max-w-100 sm:w-91 '>
         <img
           key={id}
@@ -97,7 +97,9 @@ const OurBlogs = ({showHeader}: {
       ) : ''}
       <section ref={animatedDivRef} id='animatedDiv'>
         {data.our_blogs.map((blog, i) => (
-          <BlogPost key={i} {...blog} />
+          <Link className="fit" href={`/blog/${blog.id}`}>
+            <BlogPost key={i} {...blog} />
+          </Link>
         ))}
       </section>
       <button className='text-dispa8chRed-10 w-full grid place-items-center text-center underline text-lg font-medium mt-20'>
