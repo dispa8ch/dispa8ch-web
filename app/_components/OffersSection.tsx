@@ -1,19 +1,19 @@
 import { StartFreeButton } from "@/components/buttons";
 import {
-  ClockCircle,
-  EyeTracking,
-  LinkPeople,
-  Route,
+  ClockCircleIcon,
+  EyeTrackingIcon,
+  LinkPeopleIcon,
+  RouteIcon,
 } from "@/components/dispa8ch-icons";
 import data from "@/public/data/offers.json";
 
 type OfferProps = (typeof data.offers)[number];
 
-const offerIcons: EmptyObject<typeof ClockCircle> = {
-  0: ClockCircle,
-  1: Route,
-  2: EyeTracking,
-  3: LinkPeople,
+const offerIcons: EmptyObject<typeof ClockCircleIcon> = {
+  0: ClockCircleIcon,
+  1: RouteIcon,
+  2: EyeTrackingIcon,
+  3: LinkPeopleIcon,
 };
 
 const Offer = ({ header, id, imageUrl, paragraph }: Partial<OfferProps>) => {

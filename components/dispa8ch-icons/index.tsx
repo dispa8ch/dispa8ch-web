@@ -1,6 +1,11 @@
-export { default as ClockCircle } from './tsx/ClockCircle'
-export { default as EyeTracking } from './tsx/EyeTracking'
-export { default as LinkPeople } from './tsx/LinkPeople'
-export { default as Route } from './tsx/Route'
-export { default as CopyRightIcon }  from './tsx/CopyRight';
-export * as SocialMedia from './tsx/SocialMedia'
+export { default as ClockCircleIcon } from './tsx/ClockCircle';
+export { default as CopyRightIcon } from './tsx/CopyRight';
+export { default as DashboardIcon } from './tsx/Dashboard';
+export { default as EyeTrackingIcon } from './tsx/EyeTracking';
+export { default as LinkPeopleIcon } from './tsx/LinkPeople';
+export { default as ReportIcon } from './tsx/Report';
+export { default as RiderIcon } from './tsx/Rider';
+export { default as RiderRouteIcon } from './tsx/RiderRoute';
+export { default as RouteIcon } from './tsx/Route';
+export { default as ShoppingBagIcon } from './tsx/ShoppingBag';
+export * as SocialMedia from './tsx/SocialMedia';
