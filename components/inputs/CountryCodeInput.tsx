@@ -3,6 +3,9 @@ import { lowercase } from "@/lib";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 
+/**
+ * @todo fetch country icons from a json api to render here
+ */
 const CountryCodeInput = (props?: NamedInputProps) => {
   const { name, className: cName } = props || {};
   const [visible, setVisible] = useState(false);

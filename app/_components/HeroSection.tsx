@@ -2,6 +2,7 @@ import { StartFreeButton } from "@/components/buttons";
 
 /**
  * @why the parent section's background will be the tiny illustrations image from Edward's design, then the :after pseudo element of the same section will have the background color of crimson;
+ * @todo the `save time on deliveries` should be animated with type effect as indicated in the design comments by Caleb
  */
 const HeroSection = () => {
   return (
