@@ -1,4 +1,5 @@
 import { BellIcon, ChatBubbleIcon, ComplaintsIcon, QuestionCircleIcon } from "@/components/dispa8ch-icons";
+import { Dispa8chLogoMobile } from "@/public/icons";
 import Link from "next/link";
 
 const menubuttons: Array<{
@@ -35,6 +36,9 @@ type HeaderProps = {
 const Header: React.FC<HeaderProps> = (props) => {
   return (
     <header className="w-full h-fit p-2 border-b border-b-gray-300 flex items-center gap-3 fixed z-10 " >
+      <Link href={'/'} className="fit block p-2 border border-dispa8chRed-300 rounded-sm">
+        <Dispa8chLogoMobile size={.7} />
+      </Link>
       <section className="fit column gap-1">
         <h2 className="text-[#171717] text-lg ">Dispa8ch Logistics</h2>
         <p className="text-gray-300 text-sm">Powered by Dispa8ch</p>

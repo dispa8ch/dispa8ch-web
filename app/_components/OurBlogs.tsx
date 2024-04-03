@@ -103,7 +103,7 @@ const OurBlogs = ({showHeader}: {
         ))}
       </section>
       <button className='text-dispa8chRed-10 w-full grid place-items-center text-center underline text-lg font-medium mt-20'>
-        <Link href={"/blogs"}>View more articles</Link>
+        <Link href={"/blog"}>View more articles</Link>
       </button>
     </section>
   );
