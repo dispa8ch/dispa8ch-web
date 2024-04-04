@@ -2,6 +2,7 @@ import { Theme } from "@/components/dispa8ch-ui";
 import Favicon from "@/public/favicon.png";
 import type { Metadata } from "next";
 import "../globals.css";
+import Header from "./_components/header";
 import Sidebar from "./_components/sidebar";
 
 export const metadata: Metadata = {
@@ -26,10 +27,10 @@ export default function DashboardLayout({
         <link rel='shortcut icon' href={Favicon.src} type='image/png' />
       </head>
       <body className={"w-full h-screen bg-white relative dark:bg-[#171717] transition-colors duration-500 "}>
-        {/* Header goes here */}
+        <Header emailAddress={"michthebrand@gmail.com"} />
         <Sidebar />
         {/* <main> tag wraps the `children` prop to have that consistent layout */}
-        {children}
+        {/* {children} */}
       </body>
     </Theme>
   );

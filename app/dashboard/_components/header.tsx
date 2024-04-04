@@ -1,57 +1,57 @@
-import { BellIcon, ChatBubbleIcon, ComplaintsIcon, QuestionCircleIcon } from "@/components/dispa8ch-icons";
 import { Dispa8chLogoMobile } from "@/public/icons";
+import { QuestionMarkCircleIcon } from "@heroicons/react/24/outline";
+import { BellDotIcon, MessageCircleMore, MessageSquareTextIcon } from "lucide-react";
 import Link from "next/link";
 
-const menubuttons: Array<{
-  name: string;
-  link: `/dashboard${string}`,
-  icon: Dispa8chIcon
-}> = [
+const menubuttons = [
   {
     name: 'Complaints',
     link: '/dashboard/complaints',
-    icon: ComplaintsIcon
+    icon: MessageSquareTextIcon
   },
   {
     name: 'Notifications',
     link: '/dashboard/notifications',
-    icon: BellIcon
+    icon: BellDotIcon
   },
   {
     name: 'Chatbox',
     link: '/dashboard/chat',
-    icon: ChatBubbleIcon
+    icon: MessageCircleMore
   },
   {
     name: 'Support',
     link: '/dashboard/support',
-    icon: QuestionCircleIcon
+    icon: QuestionMarkCircleIcon
   }
-]
+] as const
 
 type HeaderProps = {
   emailAddress: string
 }
 
+/**
+ * @todo make the account modal and add it into the <header> 
+ */
 const Header: React.FC<HeaderProps> = (props) => {
   return (
-    <header className="w-full h-fit p-2 border-b border-b-gray-300 flex items-center gap-3 fixed z-10 " >
-      <Link href={'/'} className="fit block p-2 border border-dispa8chRed-300 rounded-sm">
-        <Dispa8chLogoMobile size={.7} />
+    <header className="w-full h-fit py-3 px-2 font-Inter bg-white border-b border-b-gray-300 flex items-center gap-4 fixed top-0 z-10 " >
+      <Link href={'/'} className="fit block py-1 px-3 border-2 border-dispa8chRed-300 rounded-md">
+        <Dispa8chLogoMobile size={.68} />
       </Link>
       <section className="fit column gap-1">
-        <h2 className="text-[#171717] text-lg ">Dispa8ch Logistics</h2>
-        <p className="text-gray-300 text-sm">Powered by Dispa8ch</p>
+        <h2 className="text-[#171717] text-lg font-Inter_Bold  ">Dispa8ch Logistics</h2>
+        <p className="text-gray-400 text-xs">Powered by Dispa8ch</p>
       </section>
-      <section className="fit ml-auto flex items-center gap-2">
-        {menubuttons.map(({icon: Icon, name, link}, i) => (
-          <Link href={link} key={i} className="fit column items-center justify-center gap-1 text-gray-600 fill-[#171717] focus:text-dispa8chRed-500 focus:fill-dispa8chRed-500 ">
-            <Icon size={1} className="stroke-inherit fill-inherit transition-all " />
-            <p className="text-inherit transition-all " >{name}</p>
+      <section className="fit ml-auto text-sm flex items-center gap-4">
+        {menubuttons.map(({ icon: Icon, name, link }, i) => (
+          <Link href={link} key={i} className="fit column items-center justify-center gap-0.5 text-gray-600 fill-none stroke-[#171717] hover:text-dispa8chRed-500 hover:stroke-dispa8chRed-500 ">
+            <Icon size={1} width={24} height={24} strokeWidth={2.4} className="stroke-inherit fill-inherit transition-all duration-500 " />
+            <p className="text-inherit font-Inter_Medium transition-all duration-500 " >{name}</p>
           </Link>
         ))}
       </section>
-      <div className="fit p-3 bg-dispa8chRed-500 rounded-full">
+      <div className="w-12 h-12 grid place-content-center font-Graphik bg-dispa8chRed-500 rounded-full">
         <p className="text-white text-2xl">{props.emailAddress.at(0)?.toUpperCase()}</p>
       </div>
     </header>

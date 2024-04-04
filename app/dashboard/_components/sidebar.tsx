@@ -34,14 +34,15 @@ const sidebarLinks: Array<{
   ]
 
 /**
- * @todo add the expansion functionality for the sidebar where the _name prop will be used.
+ * @todo work on the animation for the sidebar expansion
  */
 const Sidebar = () => {
   return (
-    <section className="w-fit h-full bg-transparent pt-40 px-3 border-r border-r-gray-300 column gap-6 " >
-      {sidebarLinks.map(({ link, icon: Icon, name: _name }, i) => (
-        <Link className="fit p-2 rounded-sm transition-colors duration-300 focus:bg-gray-300 " href={link} key={i} >
-          <Icon size={1.5} />
+    <section className="w-fit h-screen fixed z-[5] bg-transparent font-Inter_Medium pt-20 px-3 border-r border-r-gray-300 column gap-6 transition-all duration-700 group " >
+      {sidebarLinks.map(({ link, icon: Icon, name }, i) => (
+        <Link className="w-full py-2 px-3 flex items-center gap-2 rounded-md transition-colors duration-300 hover:bg-gray-300 group-hover:pr-12 " href={link} key={i} >
+          <Icon size={1.07} />
+          <p className="text-lg hidden group-hover:block ">{name}</p>
         </Link>
       ))}
     </section>
