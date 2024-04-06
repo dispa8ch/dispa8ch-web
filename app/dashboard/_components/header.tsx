@@ -1,6 +1,7 @@
 import { QuestionMarkCircleIcon } from "@heroicons/react/24/outline";
 import { BellDotIcon, MessageCircleMore, MessageSquareTextIcon } from "lucide-react";
 import Link from "next/link";
+import AccountPopOver from "./account-popover";
 
 const menubuttons = [
   {
@@ -43,10 +44,10 @@ const Header: React.FC<HeaderProps> = (props) => {
             <p className="text-inherit font-Inter_Medium transition-all duration-500 " >{name}</p>
           </Link>
         ))}
+        <section className="w-fit h-fit font-Graphik relative" >
+          <AccountPopOver emailAddress="michthebrand@gmail.com" />
+        </section>
       </section>
-      <div className="w-12 h-12 grid place-content-center font-Graphik bg-dispa8chRed-500 rounded-full">
-        <p className="text-white text-2xl">{props.emailAddress.at(0)?.toUpperCase()}</p>
-      </div>
     </header>
   )
 };
