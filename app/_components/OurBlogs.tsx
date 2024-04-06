@@ -97,13 +97,13 @@ const OurBlogs = ({showHeader}: {
       ) : ''}
       <section ref={animatedDivRef} id='animatedDiv'>
         {data.our_blogs.map((blog, i) => (
-          <Link className="fit" href={`/blog/${blog.id}`}>
+          <Link className="fit" key={i} href={`/blog/${blog.id}`}>
             <BlogPost key={i} {...blog} />
           </Link>
         ))}
       </section>
       <button className='text-dispa8chRed-10 w-full grid place-items-center text-center underline text-lg font-medium mt-20'>
-        <Link href={"/blogs"}>View more articles</Link>
+        <Link href={"/blog"}>View more articles</Link>
       </button>
     </section>
   );
