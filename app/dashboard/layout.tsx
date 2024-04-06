@@ -1,5 +1,3 @@
-import { Theme } from "@/components/dispa8ch-ui";
-import Favicon from "@/public/favicon.png";
 import type { Metadata } from "next";
 import "../globals.css";
 import Header from "./_components/header";
@@ -12,9 +10,7 @@ export const metadata: Metadata = {
 };
 
 /**
- * The dashboard layout will have the sidebar and the header in it
- * The header icons located at the right hand side are: Complaints for the complaints page, Notifications for the notificatioins page, Chat for the chat interface, Support for the support modal and the Google Icon for the account quick settings
- * The sidebar will have five svg button links: Analytics, Orders, Drivers, Maps and Reports
+ * All child routes will go into <main>
  */
 export default function DashboardLayout({
   children,
@@ -22,16 +18,14 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <Theme dataTheme="light" lang='en'>
-      <head>
-        <link rel='shortcut icon' href={Favicon.src} type='image/png' />
-      </head>
-      <body className={"w-full h-screen bg-white relative dark:bg-[#171717] transition-colors duration-500 "}>
+    <section className="w-full h-screen flex overflow-clip " >
+      <Sidebar />
+      <section className="flex-1 column" >
         <Header emailAddress={"michthebrand@gmail.com"} />
-        <Sidebar />
-        {/* <main> tag wraps the `children` prop to have that consistent layout */}
-        {/* {children} */}
-      </body>
-    </Theme>
+        <main className="bg-transparent flex-1" >
+          {children}
+        </main>
+      </section>
+    </section>
   );
 }

@@ -1,6 +1,4 @@
-import Footer from "@/app/_components/Footer";
 import OurBlogs from "@/app/_components/OurBlogs";
-import { Header } from "@/components/dispa8ch-ui";
 import BreadCrumbs from "./_components/bread-crumbs";
 import Comments from "./_components/comments";
 
@@ -13,10 +11,9 @@ type BlogProps = {} & NextPageProps<{
  * should come as markdown
  * @todo create a parser to parse some json and create the breadcrumbs to be passed to the Breadcrumbs component
  */
-const Blog = ({params}: BlogProps) => {
+const Blog = ({ params }: BlogProps) => {
   return (
     <>
-      <Header />
       <main className="h-fit bg-transparent pt-12 px-4 space-y-6 lg:px-8" >
         <BreadCrumbs className="mr-auto" crumbs={[]} />
         <Comments comments={[]} />
@@ -27,7 +24,6 @@ const Blog = ({params}: BlogProps) => {
           </section>
         </section>
       </main>
-      <Footer />
     </>
   )
 };

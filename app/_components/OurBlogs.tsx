@@ -97,7 +97,7 @@ const OurBlogs = ({showHeader}: {
       ) : ''}
       <section ref={animatedDivRef} id='animatedDiv'>
         {data.our_blogs.map((blog, i) => (
-          <Link className="fit" href={`/blog/${blog.id}`}>
+          <Link className="fit" key={i} href={`/blog/${blog.id}`}>
             <BlogPost key={i} {...blog} />
           </Link>
         ))}
