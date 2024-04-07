@@ -94,3 +94,7 @@ export function switchTheme(): TTheme {
   if (theme === "light") return html.setAttribute("data-theme", "dark"), 'dark';
   else return html.setAttribute("data-theme", "light"), 'light';
 }
+
+export function capitalize(value: string) {
+  return `${value.at(0)?.toUpperCase()}${value.slice(1)}`
+}
