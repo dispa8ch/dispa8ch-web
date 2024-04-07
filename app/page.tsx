@@ -12,7 +12,7 @@ import Waitlist from "./_components/Waitlist";
 
 export default function Home() {
   return (
-    <>
+    <section className="relative w-screen min-h-screen">
       <Header />
       <HeroSection />
       <main>
@@ -26,6 +26,6 @@ export default function Home() {
       <ContactUsButton />
       <OurBlogs showHeader />
       <Footer />
-    </>
+    </section>
   );
 }

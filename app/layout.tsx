@@ -28,7 +28,7 @@ export default function RootLayout({
         <meta name='twitter:title' content='Dispa8ch.io' />
         <link rel='shortcut icon' href={Favicon.src} type='image/png' />
       </head>
-      <body className={"w-full min-h-screen bg-white relative dark:bg-[#171717] transition-colors duration-500 "}>
+      <body className={"bg-white dark:bg-[#171717] transition-colors duration-500 "}>
         {children}
       </body>
     </Theme>

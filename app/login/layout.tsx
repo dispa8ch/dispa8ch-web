@@ -1,5 +1,3 @@
-import { Theme } from "@/components/dispa8ch-ui";
-import Favicon from "@/public/favicon.png";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,24 +6,12 @@ export const metadata: Metadata = {
     "Dispa8ch.io is a SaaS platform that helps facilitates the process of logistics businesses by providing services like package tracking and route optimization.",
 };
 
-export default function RootLayout({
+export default function LoginLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <Theme
-      dataTheme="light"
-      lang='en'
-      className='overflow-x-clip'>
-      <head>
-        <link
-          rel='shortcut icon'
-          href={Favicon.src}
-          type='image/png'
-        />
-      </head>
-      <body className={"w-fit h-fit dark:bg-[#171717] transition-colors duration-500"}>{children}</body>
-    </Theme>
+    <section className={"w-fit h-fit"}>{children}</section>
   );
 }

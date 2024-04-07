@@ -1,25 +1,33 @@
 import { CopyRightIcon, SocialMedia } from "@/components/dispa8ch-icons";
 import { Dispa8chLogo } from "@/public/icons";
+import Link from "next/link";
 import FooterLinks from "./FooterLinks";
 
 /**
  * @todo get the original links for the social media icons;
- * @todo fix the Dispa8ch logo by exporting a .png image instead of an svg
  */
 const Footer = () => {
-  const {
-    FacebookIcon,
-    InstagramIcon,
-    LinkedInIcon,
-    TwitterIcon,
-    YoutubeIcon,
-  } = SocialMedia;
   const socialMediaLinks = [
-    TwitterIcon,
-    FacebookIcon,
-    YoutubeIcon,
-    InstagramIcon,
-    LinkedInIcon,
+    {
+      link: 'https://twitter.com/dispa8ch?s=21&t=w20twLbeVrjD-AIF1wONlg',
+      icon: SocialMedia.TwitterIcon
+    },
+    {
+      link: '',
+      icon: SocialMedia.FacebookIcon
+    },
+    {
+      link: '',
+      icon: SocialMedia.YoutubeIcon
+    },
+    {
+      link: 'https://www.instagram.com/dispa8ch/',
+      icon: SocialMedia.InstagramIcon
+    },
+    {
+      link: '',
+      icon: SocialMedia.LinkedInIcon
+    },
   ] as const;
 
   return (
@@ -40,8 +48,18 @@ const Footer = () => {
         <section className='space-y-4  '>
           <h1 className='font-Inter_Bold'>Follow us on</h1>
           <div className='w-fit h-fit flex gap-3'>
+<<<<<<< HEAD
             {socialMediaLinks.map((Icon, i) => (
               <Icon size={0.7} key={i} />
+=======
+            {socialMediaLinks.map(({ icon: Icon, link }, i) => (
+              <Link href={link} className="w-fit">
+                <Icon
+                  size={0.7}
+                  key={i}
+                />
+              </Link>
+>>>>>>> 5fb996677115870dee898cc3580cfa61e248310f
             ))}
           </div>
         </section>

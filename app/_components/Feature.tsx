@@ -11,6 +11,7 @@ type OfferProps = {
 
 /**
  * @why the topText and bottomText props are used as separators. Check the paragraphs in the `What you can do` section in the landing page design.
+ * @todo change the border and radius of the images
  */
 const Feature = (props?: OfferProps) => {
   const ref = useRef<HTMLElement>();
@@ -43,7 +44,7 @@ const Feature = (props?: OfferProps) => {
           <img
             src={props?.imageUrl || ""}
             alt='Illustration image'
-            className='w-full h-full absolute bottom-0 left-0 illustration-image '
+            className='w-full h-full absolute bottom-0 left-0 shadow-[-1px_10px_15px_-3px_rgb(0,0,0_/_0.1)] shadow-dispa8chRed-300 rounded-md  illustration-image '
           />
         </div>
       </section>

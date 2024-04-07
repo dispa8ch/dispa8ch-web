@@ -1,23 +1,24 @@
+import { Header } from "@/components/dispa8ch-ui";
 import type { Metadata } from "next";
-import "../../globals.css";
+import Footer from "../_components/Footer";
+import "../globals.css";
 
-/**
- * @todo This metadata should be dynamic and set when a user posts a new blog
- */
 export const metadata: Metadata = {
-  title: "Welcome to Dispa8ch",
+  title: "Blog | Dispa8ch",
   description:
     "Dispa8ch.io is a SaaS platform that helps facilitates the process of logistics businesses by providing services like package tracking and route optimization.",
 };
 
-export default function BlogSlugLayout({
+export default function BlogLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <section className={"w-full min-h-screen relative"}>
+    <section className={"w-full h-screen relative "}>
+      <Header />
       {children}
+      <Footer />
     </section>
   );
 }
