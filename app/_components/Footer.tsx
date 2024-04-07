@@ -9,24 +9,24 @@ import FooterLinks from "./FooterLinks";
 const Footer = () => {
   const socialMediaLinks = [
     {
-      link: 'https://twitter.com/dispa8ch?s=21&t=w20twLbeVrjD-AIF1wONlg',
-      icon: SocialMedia.TwitterIcon
+      link: "https://twitter.com/dispa8ch?s=21&t=w20twLbeVrjD-AIF1wONlg",
+      icon: SocialMedia.TwitterIcon,
     },
     {
-      link: '',
-      icon: SocialMedia.FacebookIcon
+      link: "",
+      icon: SocialMedia.FacebookIcon,
     },
     {
-      link: '',
-      icon: SocialMedia.YoutubeIcon
+      link: "",
+      icon: SocialMedia.YoutubeIcon,
     },
     {
-      link: 'https://www.instagram.com/dispa8ch/',
-      icon: SocialMedia.InstagramIcon
+      link: "https://www.instagram.com/dispa8ch/",
+      icon: SocialMedia.InstagramIcon,
     },
     {
-      link: '',
-      icon: SocialMedia.LinkedInIcon
+      link: "",
+      icon: SocialMedia.LinkedInIcon,
     },
   ] as const;
 
@@ -44,16 +44,13 @@ const Footer = () => {
       </section>
       <FooterLinks />
       {/* Social media section */}
-      <section className='w-full h-fit flex flex-wrap justify-between items-end gap-6 dark:text-white dark:fill-white'>
+      <section className='w-full h-fit flex flex-wrap justify-between items-end gap-6 dark:text-white dark:fill-white '>
         <section className='space-y-4  '>
           <h1 className='font-Inter_Bold'>Follow us on</h1>
           <div className='w-fit h-fit flex gap-3'>
             {socialMediaLinks.map(({ icon: Icon, link }, i) => (
-              <Link href={link} className="w-fit">
-                <Icon
-                  size={0.7}
-                  key={i}
-                />
+              <Link href={link} className='w-fit'>
+                <Icon size={0.7} key={i} />
               </Link>
             ))}
           </div>

@@ -11,13 +11,17 @@ const DemoVideoSection = () => {
         <h1 className='text-dispa8chRed-500 text-xl underline font-Inter_ExtraBold m-auto lg:text-2xl '>
           Watch Our Demo Videos
         </h1>
-        <Link href={"/docs/videos"} className="hidden lg:block" >
+        <Link href={"/docs/videos"} className='hidden lg:block'>
           <p>See all</p>
         </Link>
       </div>
 
       <div className='w-full h-[500px]'>
-        <img className="w-full h-full" src='/images/demo-video-player.png' />
+        <img
+          alt=''
+          className='w-full h-full'
+          src='/images/demo-video-player.png'
+        />
       </div>
     </section>
   );

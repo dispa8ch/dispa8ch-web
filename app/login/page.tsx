@@ -19,20 +19,19 @@ export default function Login() {
           <section className='min-w-full h-full flex flex-col py-4 px-[2px] gap-6'>
             <NamedInput name='Email address' />
             <PasswordInput name='Password' />
-            <Link
-              className='text-dispa8chRed-500'
-              href={"/forgot-password"}>
+            <Link className='text-dispa8chRed-500' href={"/forgot-password"}>
               <p>Forgot password?</p>
             </Link>
             <LoginButton text='Login your account' />
           </section>
+
+          <section className='h-fit w-full flex items-center justify-center gap-1 md:text-xl text-sm text-feintBlack font-Inter_Bold '>
+            <p>Don't have an account?</p>
+            <button className='text-dispa8chRed-500 border-none focus:outline-none '>
+              <Link href={"/sign-up"}>Sign Up</Link>
+            </button>
+          </section>
         </form>
-      </section>
-      <section className='h-fit w-full flex items-center justify-center gap-1 text-xl text-feintBlack font-Inter_Bold '>
-        <p>Don't have an account?</p>
-        <button className='text-dispa8chRed-500 border-none focus:outline-none '>
-          <Link href={"/sign-up"}>Sign Up</Link>
-        </button>
       </section>
     </main>
   );
