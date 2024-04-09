@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { uppercase } from "@/lib";
 import data from "@/public/data/team.json";
 
@@ -11,8 +11,9 @@ const TeamMember = ({ src, fullName, title }: TeamMemberProps) => {
         backgroundImage: `url(${src})`,
         backgroundPosition: "center",
         backgroundSize: "cover",
-        backgroundRepeat: 'no-repeat'
-      }}>
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <h1 className='font-Inter_Bold text-xl relative z-20'>{fullName}</h1>
       <p className='relative z-20'>{uppercase(title)}</p>
     </div>
@@ -21,18 +22,18 @@ const TeamMember = ({ src, fullName, title }: TeamMemberProps) => {
 
 const TeamSection = () => {
   return (
-    <section id="about" className='w-full h-fit py-6 column items-center gap-12 lg:px-16'>
+    <section
+      id='about'
+      className='w-full h-fit py-6 column items-center gap-12 lg:px-16'
+    >
       <h1 className='text-dispa8chRed-500 text-xl underline font-Inter_ExtraBold lg:text-2xl '>
         Meet The Team
       </h1>
 
-    <section className='w-full min-h-[400px] bg-gradient-to-r from-dispa8chRed-100 to-dispa8chRed-50 relative dark:from-[#E41F4733] dark:to-[#FDA80033] '>
+      <section className='w-full min-h-[400px] bg-gradient-to-r from-dispa8chRed-100 to-dispa8chRed-50 relative dark:from-[#E41F4733] dark:to-[#FDA80033] '>
         <section className='w-full min-h-[400px] p-6 flex gap-16 overflow-x-scroll no-scroll '>
           {data.team_members.map((member, i) => (
-            <TeamMember
-              key={i}
-              {...member}
-            />
+            <TeamMember key={i} {...member} />
           ))}
         </section>
       </section>

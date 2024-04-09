@@ -2,12 +2,12 @@ import Image from "next/image";
 
 function DashboardRevenue() {
   return (
-    <div className='w-200   ml-28 bg-white '>
+    <div className='w-180  ml-8 bg-white '>
       <section>
-        <div className='w-full  flex justify-between mb-8'>
-          <div className='w-105 h-35 bg-image flex justify-around items-center  '>
+        <div className='w-full   flex justify-between mb-8'>
+          <div className='w-96 rounded-md h-35 bg-image flex justify-around items-center  '>
             <div className='w-44 '>
-              <p className='text-white text-xl  font-semibold'>
+              <p className='text-white text-lg  font-semibold'>
                 Total number of Orders
               </p>
             </div>
@@ -34,9 +34,9 @@ function DashboardRevenue() {
             </div>
           </div>
 
-          <div className=' bg-image1 flex justify-around items-center w-105 h-35 '>
+          <div className=' bg-image1 rounded-md flex justify-around items-center w-96 h-35 '>
             <div className='w-44'>
-              <p className='text-white text-xl  font-semibold'>
+              <p className='text-white text-lg  font-semibold'>
                 Total number of Riders
               </p>
             </div>
@@ -117,31 +117,46 @@ function DashboardRevenue() {
         </div>
 
         <div className='w-full flex justify-between'>
-          <div className='rounded-md w-68 h-28  relative bg-image2'>
-            <div className='w-22  absolute bottom-0 right-0 h-16'>
-              <Image alt='' src={'../../../public/images/delagate-tasks.png'} />{" "}
+          <div className='rounded-md w-64 h-28  relative bg-image2'>
+            <div className=' absolute bottom-0 right-0 '>
+              <Image
+                alt=''
+                src={"/images/intersect (2).png"}
+                width={87}
+                height={64}
+              />{" "}
             </div>
-            <p className='ml-3 font-semibold text-lg text-white mt-3'>
+            <p className='ml-3 font-semibold text-base text-white mt-3'>
               Today's deliveries
             </p>
-            <p className='ml-3 font-bold text-xl mt-3 text-black'>1000</p>
+            <p className='ml-3 font-bold text-xl mt-3 text-black'>1,000</p>
           </div>
 
-          <div className='rounded-md w-68 h-28  relative bg-image3'>
-            <div className='w-22  absolute bottom-0 right-0 h-16'>
-              <Image alt='' src={'../../../public/images/automate-workflow.png'} />{" "}
+          <div className='rounded-md w-64 h-28  relative bg-image3'>
+            <div className=' absolute bottom-0 right-0 '>
+              <Image
+                alt=''
+                src={"/images/intersect (3).png"}
+                width={87}
+                height={64}
+              />{" "}
             </div>
-            <p className='ml-3 font-semibold text-lg text-white mt-3'>
+            <p className='ml-3  font-semibold text-base text-white mt-3'>
               Completed deliveries
             </p>
             <p className='ml-3 font-bold text-xl mt-3 text-black'>100</p>
           </div>
 
-          <div className='rounded-md w-68 h-28 relative bg-image4'>
-            <div className='w-22  absolute bottom-0 right-0 h-16'>
-              <Image alt='' src={'../../../public/images/automate-workflow.png'} />{" "}
+          <div className='rounded-md w-64 h-28 relative bg-image4'>
+            <div className='  absolute bottom-0 right-0 '>
+              <Image
+                alt=''
+                src={"/images/intersect (4).png"}
+                width={87}
+                height={64}
+              />{" "}
             </div>
-            <p className='ml-3 font-semibold text-lg text-white mt-3'>
+            <p className='ml-3 font-semibold text-base text-white mt-3'>
               Assigned riders
             </p>
             <p className='ml-3 font-bold text-xl mt-3 text-black'>576</p>
@@ -149,7 +164,7 @@ function DashboardRevenue() {
         </div>
       </section>
 
-      <div className='w-200 bg-white mt-20'>
+      <div className='w-180 bg-white mt-20'>
         <div className='  flex justify-between'>
           <div>
             <p className='text-xl font-bold text-black'>Revenue Stream</p>

@@ -1,3 +1,5 @@
+import RecentOrders from "./RecentOrders";
+
 export default function Notifications() {
   return (
     <div className='mr-3 w-125 mb-9 items-center h-130 border border-pink-300 rounded  pt-4'>
@@ -192,6 +194,7 @@ export default function Notifications() {
           </div>
         </section>
       </div>
+      <RecentOrders />
     </div>
   );
 }
