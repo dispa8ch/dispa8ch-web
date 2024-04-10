@@ -214,6 +214,40 @@
     background-image: url("/images/hero-background.png");
   }
 
+
+  .bg-image{
+    background-image: url("/images/Rectangle 47 (1).png");
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+  }
+
+  .bg-image1{
+    background-image: url("/images/Rectangle 48 (7).png");
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+  }
+
+  .bg-image2{
+    background-image: url("/images/Rectangle 48 (4).png");
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+  }
+  .bg-image3{
+    background-image: url("/images/Rectangle 48 (5).png");
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+  }
+  .bg-image4{
+    background-image: url("/images/Rectangle 48 (6).png");
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+  }
+
   /* This should be applied like lg:load-hero-image to animate on large screen devices */
   .load-hero-image {
     animation: load-hero-bg-image var(--base-animation-duration)
