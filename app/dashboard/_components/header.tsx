@@ -35,7 +35,7 @@ type HeaderProps = {
 
 const Header: React.FC<HeaderProps> = (props) => {
   return (
-    <header className='w-full h-fit p-3 font-Inter fixed z-10 bg-white border-b border-b-gray-300 flex items-center gap-4 '>
+    <header className='w-full h-fit p-3 font-Inter  z-10 bg-white border-b border-b-gray-300 flex items-center gap-4 '>
       <section className='fit column gap-1'>
         <h2 className='text-[#171717] text-lg font-Inter_Bold  '>
           Dispa8ch Logistics

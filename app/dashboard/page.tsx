@@ -4,7 +4,7 @@ const Dashboard = () => {
   return (
     <>
       <header></header>
-      <main className='flex mt-32 gap-12'>
+      <main className='flex mt-14 gap-12   '>
         <DashboardRevenue />
         <Notifications />
       </main>
