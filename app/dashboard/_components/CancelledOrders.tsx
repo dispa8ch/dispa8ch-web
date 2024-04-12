@@ -31,6 +31,9 @@ const CancelledOrder = ({
           {transaction}
         </p>
       </div>
+      <div className='px-4 border border-gray-500 rounded'>
+        <p className='text-base'>Reason</p>
+      </div>
     </div>
   );
 };
@@ -42,27 +45,16 @@ const CancelledOrders = () => {
         <div className='w-101 flex pb-4 justify-between items-center border-b border-gray-400'>
           <div>
             <h1 className='text-sm font-bold'>
-              Pending Deliveries <span className='text-red-500'>50</span>
+              Cancelled Deliveries <span className='text-red-500'>10</span>
             </h1>
           </div>
-          <div className='flex  gap-4 items-center px-1.5 py-0.5 border border-gray-500 rounded '>
-            <div>
-              <p className='text-sm'>Unassigned</p>
-            </div>
-            <div>
-              <svg
-                width='9'
-                height='8'
-                viewBox='0 0 4 3'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <path
-                  d='M1.62204 2.56356C1.82142 2.7938 2.17858 2.7938 2.37796 2.56356L3.88159 0.827327C4.16203 0.503505 3.932 0 3.50363 0H0.496374C0.0679984 0 -0.162028 0.503505 0.11841 0.827327L1.62204 2.56356Z'
-                  fill='#757575'
-                />
-              </svg>
-            </div>
+
+          <div>
+            <input
+              className='pl-4 rounded border text-base outline-none border-gray-500'
+              type='text'
+              placeholder='Search...'
+            />
           </div>
         </div>
       </section>

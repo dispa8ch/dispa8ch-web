@@ -2,8 +2,8 @@
 
 function OrdersLayoutPage() {
   return (
-    <div className='mt-8 w-full ml-8'>
-      <div className='flex justify-between mr-36'>
+    <div className='mt-8 w-91 ml-8'>
+      <div className='flex justify-between '>
         <div>
           <h1 className='text-2xl font-bold'>Orders</h1>
         </div>
@@ -83,7 +83,7 @@ function OrdersLayoutPage() {
           </div>
         </div>
       </div>
-      <section className='border-b pb-3 border-gray-300 mr-36  gap-14 mt-10 flex  '>
+      <section className='border-b pb-3 border-gray-300   gap-14 mt-10 flex  '>
         <div>
           <p className='text-red-500 font-medium text-base'>Current</p>
         </div>
