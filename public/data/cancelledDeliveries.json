@@ -1,14 +1,13 @@
 {
-    "pending_deliveries" : [
+    "cancelled_deliveries" : [
         {
           "code": "16777908",
           "name": "DanielChiamaka",
           "location": "Obinze",
            "expectedDestination" : "Umuchima",
-           "transaction" : "Pending",
-           "imageUrl" : "/images/Ellipse 29.png",
-           "role" : "Unassigned",
-           "amount" : "$33.3"
+           "transaction" : "Cancelled",
+           "imageUrl" : "/images/Ellipse 29 (1).png"
+           
         },
         
         {
@@ -16,10 +15,9 @@
           "name": "DanielChiamaka",
           "location": "Obinze",
            "expectedDestination" : "Umuchima",
-           "transaction" : "Pending",
-           "imageUrl" : "/images/Ellipse 29.png",
-           "role" : "Unassigned",
-           "amount" : "$33.3"
+           "transaction" : "Cancelled",
+           "imageUrl" : "/images/Ellipse 29 (1).png"
+           
         },
         
         {
@@ -27,10 +25,9 @@
           "name": "DanielChiamaka",
           "location": "Obinze",
            "expectedDestination" : "Umuchima",
-           "transaction" : "Pending",
-           "imageUrl" : "/images/Ellipse 29.png",
-           "role" : "Unassigned",
-           "amount" : "$33.3"
+           "transaction" : "Cancelled",
+           "imageUrl" : "/images/Ellipse 29 (1).png"
+           
         },
         
         {
@@ -38,10 +35,9 @@
           "name": "DanielChiamaka",
           "location": "Obinze",
            "expectedDestination" : "Umuchima",
-           "transaction" : "Pending",
-           "imageUrl" : "/images/Ellipse 29.png",
-           "role" : "Unassigned",
-           "amount" : "$33.3"
+           "transaction" : "Cancelled",
+           "imageUrl" : "/images/Ellipse 29 (1).png"
+           
         }
         
       ]
