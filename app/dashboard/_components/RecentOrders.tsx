@@ -55,7 +55,7 @@ const RecentOrders = () => {
         <div className='w-101 flex pb-4 justify-between items-center border-b border-gray-400'>
           <div>
             <h1 className='text-sm font-bold'>
-              Recent Orders <span className='text-red-400'>126</span>
+              Recent Orders <span className='text-red-500'>126</span>
             </h1>
           </div>
 
@@ -129,7 +129,9 @@ const RecentOrders = () => {
             <RecentOrder key={i} {...orders} />
           ))}
         </section>
-        <Link href={""}>View all</Link>
+        <Link className='hover:underline' href={""}>
+          View all
+        </Link>
       </section>
     </>
   );

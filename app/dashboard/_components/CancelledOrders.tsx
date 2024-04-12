@@ -1,19 +1,16 @@
 "use client";
-import data from "@/public/data/pendingDeliveries.json";
+import data from "@/public/data/cancelledDeliveries.json";
 import Link from "next/link";
+type CancelledOrdersProps = (typeof data.cancelled_deliveries)[number];
 
-type PendingOrdersProps = (typeof data.pending_deliveries)[number];
-
-const PendingOrder = ({
+const CancelledOrder = ({
   code,
   name,
   location,
   expectedDestination,
-  transaction,
   imageUrl,
-  role,
-  amount,
-}: PendingOrdersProps) => {
+  transaction,
+}: CancelledOrdersProps) => {
   return (
     <div className=' gap-10 w-101 flex pb-4 '>
       <div>
@@ -30,18 +27,15 @@ const PendingOrder = ({
       </div>
       <div className='flex  gap-1'>
         <img alt='ellipse' src={imageUrl} className=' w-2.5 mt-2 h-2.5' />
-        <p className='pendingEllipse  text-base font-semibold'>{transaction}</p>
+        <p className='cancelledEllipse  text-base font-semibold'>
+          {transaction}
+        </p>
       </div>
-
-      <div>
-        <p>{role}</p>
-      </div>
-      <div>{amount}</div>
     </div>
   );
 };
 
-const PendingOrders = () => {
+const CancelledOrders = () => {
   return (
     <>
       <section className='w-full grid  place-items-center mt-8'>
@@ -75,8 +69,8 @@ const PendingOrders = () => {
 
       <section className=' w-full mt-6 overflow-hidden grid  place-items-center'>
         <section className=' overflow-x-scroll mb-4 pb-4'>
-          {data.pending_deliveries.map((orders, i) => (
-            <PendingOrder key={i} {...orders} />
+          {data.cancelled_deliveries.map((orders, i) => (
+            <CancelledOrder key={i} {...orders} />
           ))}
         </section>
         <Link className='hover:underline' href={""}>
@@ -87,4 +81,4 @@ const PendingOrders = () => {
   );
 };
 
-export default PendingOrders;
+export default CancelledOrders;

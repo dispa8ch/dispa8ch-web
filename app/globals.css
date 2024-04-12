@@ -214,7 +214,15 @@
     background-image: url("/images/hero-background.png");
   }
 
+.pendingEllipse{
+  color: #FDA800;
 
+}
+.cancelledEllipse{
+  color: #F4190F;
+
+
+}
   .bg-image{
     background-image: url("/images/Rectangle 47 (1).png");
   background-size: cover; 
