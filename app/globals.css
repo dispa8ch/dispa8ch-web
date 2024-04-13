@@ -225,6 +225,16 @@
 
 }
 
+.order-checkbox{
+  width: 25.39px;
+  height: 22.72px;
+  
+  border-radius: 6.68px 0px 0px 0px;
+  border: 1.34px 0px 0px 0px;
+  opacity: 0px;
+   
+}
+
 .notification-border{
   border: 1px solid;
 

@@ -2,7 +2,7 @@
 
 function OrdersLayoutPage() {
   return (
-    <div className='mt-8 w-91 ml-8'>
+    <div className='mt-8 w-92 '>
       <div className='flex justify-between '>
         <div>
           <h1 className='text-2xl font-bold'>Orders</h1>
