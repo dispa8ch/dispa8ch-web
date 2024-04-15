@@ -242,14 +242,14 @@ export default function Orderspage() {
             </button>{" "}
           </section>
         </div>
-        <div className='flex  place-items-center'>
+        <div className='flex w-16 place-items-center'>
           {" "}
-          <section className='w-14'>
+          <section className=''>
             <p className='text-sm font-semibold'>Pick-up</p>
             <p className='text-sm font-semibold'>Ready</p>
           </section>
         </div>
-        <div className='flex gap-2 place-items-center'>
+        <div className='flex gap-2 w-22  place-items-center'>
           {" "}
           <section className=''>
             <p className='text-sm font-semibold'>Driver</p>
