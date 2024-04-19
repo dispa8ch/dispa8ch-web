@@ -242,6 +242,15 @@ gap: 0px;
 border-radius: 5px ;
  
 }
+.pending{
+  background: #D1193E54;
+  width: 100px;
+  height: 100px;
+  
+  
+
+
+}
 
 .moved-toggle{
   width: 19px;

@@ -1,6 +1,47 @@
 "use client";
-
+import { useState } from "react";
+import Link from "next/link";
 function OrdersLayoutPage() {
+  const [activeTextId, setActiveTextId] = useState<number | null>(null);
+
+  interface TextItem {
+    id: number;
+    name: string;
+    link: string;
+  }
+
+  const texts: TextItem[] = [
+    {
+      name: "Current",
+      link: "/dashboard/orders",
+      id: 1,
+    },
+    {
+      name: "Pending",
+      link: "/dashboard/orders/pending",
+      id: 2,
+    },
+    {
+      name: "Completed",
+      link: "/dashboard/orders/completed",
+      id: 3,
+    },
+    {
+      name: "Cancelled",
+      link: "/dashboard/orders/cancelled",
+      id: 4,
+    },
+    {
+      name: "History",
+      link: "/dashboard/orders",
+      id: 5,
+    },
+  ] as const;
+
+  const handleTextClick = (id: number) => {
+    setActiveTextId(id); // Set the clicked text as active
+  };
+
   return (
     <div className='mt-8 w-92 '>
       <div className='flex justify-between '>
@@ -83,22 +124,31 @@ function OrdersLayoutPage() {
           </div>
         </div>
       </div>
-      <section className='border-b pb-3 border-gray-300   gap-14 mt-10 flex  '>
-        <div>
-          <p className='text-red-500 font-medium text-base'>Current</p>
-        </div>
-        <div>
-          <p className=' font-medium  text-black text-base'>Pending</p>
-        </div>
-        <div>
-          <p className=' font-medium  text-black text-base'>Completed</p>
-        </div>
-        <div>
-          <p className=' font-medium  text-black text-base'>Cancelled</p>
-        </div>
-        <div>
-          <p className=' font-medium  text-black text-base'>History</p>
-        </div>
+
+      <section className='border-b  border-gray-300   gap-14 mt-10 flex  '>
+        {texts.map((text) => (
+          <Link
+            className={`cursor-pointer ${
+              activeTextId === text.id
+                ? "text-red-500 font-medium  text-base"
+                : "text-black font-medium  text-base"
+            }`}
+            href={text.link}
+          >
+            <div
+              key={text.id}
+              onClick={() => handleTextClick(text.id)}
+              className={`cursor-pointer ${
+                activeTextId === text.id
+                  ? "text-red-500 border-b pb-3 w-22 border-red-500"
+                  : "pb-3  w-22 "
+              }`}
+            >
+              {" "}
+              {text.name}
+            </div>
+          </Link>
+        ))}
       </section>
     </div>
   );
