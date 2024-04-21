@@ -15,7 +15,7 @@ const CurrentOrder = ({
   status,
 }: CurrentOrdersProps) => {
   return (
-    <div className=' gap-10 w-92 flex   border-b place-items-center  h-16 border-gray-300 '>
+    <div className=' gap-10 w-92 flex   border-b place-items-center   h-16 border-gray-300 '>
       <div className='place-items-center'>
         {" "}
         <input
@@ -26,7 +26,7 @@ const CurrentOrder = ({
         />
       </div>
 
-      <div className='place-items-center w-16'>
+      <div className='place-items-center   w-16'>
         <p className='text-sm font-semibold'>{Order_id}</p>
       </div>
 

@@ -16,7 +16,7 @@ const CancelOrder = ({
   deliveryTime,
 }: CancelledOrdersProps) => {
   return (
-    <div className=' gap-10 w-101 flex pb-4 '>
+    <div className=' gap-10 w-101 flex  h-22  place-items-center'>
       <div className='place-items-center'>
         <p className='text-sm font-semibold'>{date}</p>
       </div>
@@ -29,7 +29,7 @@ const CancelOrder = ({
         <p className='text-sm font-semibold'>{name}</p>
       </div>
 
-      <div className='  mr-5  place-items-center bg-slate-400'>
+      <div className='  mr-5  place-items-center  '>
         <p className='text-sm font-semibold'>{location}</p>
       </div>
 
@@ -49,8 +49,14 @@ const CancelOrder = ({
         <p className='text-sm font-semibold'>{pickUpTime}</p>
       </div>
 
-      <div className='    place-items-center'>
+      <div className='   mr-16  place-items-center'>
         <p className='text-sm font-semibold'>{deliveryTime}</p>
+      </div>
+
+      <div className='   grid   place-items-center'>
+        <div className='report-user rounded-full grid place-items-center'>
+          <p className='text-lg font-normal text-white'> D</p>
+        </div>
       </div>
     </div>
   );
