@@ -123,8 +123,8 @@ const RecentOrders = () => {
         </div>
       </section>
 
-      <section className=' w-full mt-6 overflow-hidden grid  place-items-center'>
-        <section className=' overflow-x-scroll mb-4 pb-4'>
+      <section className=' w-full mt-6  overflow-hidden grid  place-items-center'>
+        <section className=' overflow-x-scroll " mb-4 pb-4'>
           {data.recent_orders.map((orders, i) => (
             <RecentOrder key={i} {...orders} />
           ))}

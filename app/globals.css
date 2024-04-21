@@ -224,6 +224,31 @@
 
 
 }
+.all-color{
+  color: #757575;
+
+}
+.date-div{
+ width: 214px;
+ border: 1px solid #757575;
+opacity: 0px;
+ 
+}
+.history-search{
+width: 36px;
+height: 38px;
+gap: 0px;
+border-radius: 5px ;
+opacity: 0px;
+background: #D1193E;
+
+
+}
+
+.history-input{
+  width: 214px;
+  border: 1px solid #757575;
+}
 
 .order-checkbox{
   width: 25.39px;
@@ -241,6 +266,44 @@ background: #757575;
 gap: 0px;
 border-radius: 5px ;
  
+}
+.pending{
+  background: #D1193E54;
+  width: 100px;
+  height: 100px;
+
+
+}
+/* For WebKit (Chrome, Safari, etc.) */
+::-webkit-scrollbar {
+  height: 3px;
+  width:50px ;/* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Track color */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; /* Thumb color */
+  border-radius: 5px; /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Thumb color on hover */
+}
+
+ 
+/* For WebKit (Chrome, Safari, etc.) */
+ 
+
+
+.report-user{
+width: 37px;
+height: 37px;
+background: #757575;
+ 
+
 }
 
 .moved-toggle{

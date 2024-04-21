@@ -3,7 +3,7 @@
 export default function Orderspage() {
   return (
     <>
-      <section className='border-b pb-3 h-32 border-gray-300 w-92 flex gap-8 place-items-center'>
+      <section className='border-b pb-3 h-32 border-gray-300 w-92 flex gap-10 place-items-center'>
         <div className='place-items-center'>
           {" "}
           <input

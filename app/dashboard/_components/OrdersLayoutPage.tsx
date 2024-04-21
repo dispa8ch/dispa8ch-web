@@ -1,6 +1,61 @@
 "use client";
-
+import { useState, useEffect } from "react";
+import Link from "next/link";
 function OrdersLayoutPage() {
+  const [activeTextId, setActiveTextId] = useState<number | null>(
+    localStorage.getItem("activeTextId")
+      ? parseInt(localStorage.getItem("activeTextId")!)
+      : null
+  );
+  const [firstDiv, setFirstDiv] = useState(true);
+  interface TextItem {
+    id: number;
+    name: string;
+    link: string;
+  }
+
+  const texts: TextItem[] = [
+    {
+      name: "Current",
+      link: "/dashboard/orders",
+      id: 1,
+    },
+    {
+      name: "Pending",
+      link: "/dashboard/orders/pending",
+      id: 2,
+    },
+    {
+      name: "Completed",
+      link: "/dashboard/orders/completed",
+      id: 3,
+    },
+    {
+      name: "Cancelled",
+      link: "/dashboard/orders/cancelled",
+      id: 4,
+    },
+    {
+      name: "History",
+      link: "/dashboard/history",
+      id: 5,
+    },
+  ] as const;
+
+  const handleTextClick = (id: number) => {
+    setActiveTextId(id); // Set the clicked text as active
+    localStorage.setItem("activeTextId", id.toString());
+    setFirstDiv(false);
+  };
+
+  useEffect(() => {
+    // Retrieve activeTextId from localStorage on component mount
+    const storedActiveTextId = localStorage.getItem("activeTextId");
+    if (storedActiveTextId) {
+      setActiveTextId(parseInt(storedActiveTextId));
+    }
+  }, []);
+
   return (
     <div className='mt-8 w-92 '>
       <div className='flex justify-between '>
@@ -11,11 +66,11 @@ function OrdersLayoutPage() {
         <div className='flex gap-3'>
           <div className='relative'>
             <input
-              className='border placeholder:text-gray-300 pl-8 rounded-md outline-none py-0.5 border-gray-400'
+              className='border placeholder:text-gray-300 pl-8 rounded-md outline-none py-1 border-gray-400'
               placeholder='Search'
               type='text'
             />{" "}
-            <div className='absolute top-2  ml-2.5'>
+            <div className='absolute top-2.5  ml-2.5'>
               <svg
                 width='14'
                 height='14'
@@ -33,7 +88,7 @@ function OrdersLayoutPage() {
 
           <div className='relative'>
             <button
-              className='border rounded-md text-base text-gray-300 pl-10 pr-8 py-0.5 border-gray-400'
+              className='border rounded-md text-base text-gray-300 pl-10 pr-8 py-1 border-gray-400'
               type='submit'
             >
               Excel Export
@@ -61,12 +116,12 @@ function OrdersLayoutPage() {
 
           <div className='relative '>
             <button
-              className='btn-order rounded-md text-base text-white pl-10 pr-8 py-0.5'
+              className='btn-order rounded-md text-base text-white pl-10 pr-8 py-1'
               type='submit'
             >
               New Order
             </button>
-            <div className='absolute top-1.5 ml-4'>
+            <div className='absolute top-2 ml-4'>
               <svg
                 width='17'
                 height='17'
@@ -83,22 +138,35 @@ function OrdersLayoutPage() {
           </div>
         </div>
       </div>
-      <section className='border-b pb-3 border-gray-300   gap-14 mt-10 flex  '>
-        <div>
-          <p className='text-red-500 font-medium text-base'>Current</p>
-        </div>
-        <div>
-          <p className=' font-medium  text-black text-base'>Pending</p>
-        </div>
-        <div>
-          <p className=' font-medium  text-black text-base'>Completed</p>
-        </div>
-        <div>
-          <p className=' font-medium  text-black text-base'>Cancelled</p>
-        </div>
-        <div>
-          <p className=' font-medium  text-black text-base'>History</p>
-        </div>
+
+      <section className='border-b  border-gray-300   gap-14 mt-10 flex  '>
+        {texts.map((text, index) => (
+          <Link
+            className={`cursor-pointer ${
+              activeTextId === text.id
+                ? "text-red-500 font-medium  text-base"
+                : index === 0 && firstDiv && activeTextId === null
+                ? "text-red-500 font-medium text-base"
+                : "text-black font-medium  text-base"
+            }`}
+            href={text.link}
+          >
+            <div
+              key={text.id}
+              onClick={() => handleTextClick(text.id)}
+              className={`cursor-pointer ${
+                activeTextId === text.id
+                  ? "text-red-500 border-b pb-3 w-22 border-red-500"
+                  : index === 0 && firstDiv && activeTextId === null
+                  ? "text-red-500 border-b pb-3 w-22 border-red-500"
+                  : "pb-3  w-22 "
+              }`}
+            >
+              {" "}
+              {text.name}
+            </div>
+          </Link>
+        ))}
       </section>
     </div>
   );
