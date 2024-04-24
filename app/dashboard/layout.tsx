@@ -18,7 +18,7 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section className='w-full h-screen flex  '>
+    <section className='w-full h-screen flex overflow-clip '>
       <Sidebar />
       <section className='flex-1 column'>
         <Header emailAddress={"michthebrand@gmail.com"} />
