@@ -86,7 +86,7 @@ function OrdersLayoutPage() {
             </div>
           </div>
 
-          <div className='relative'>
+          <div className='relative '>
             <button
               className='border rounded-md text-base text-gray-300 pl-10 pr-8 py-1 border-gray-400'
               type='submit'
@@ -96,6 +96,7 @@ function OrdersLayoutPage() {
 
             <div className='absolute top-1.5  ml-4'>
               <svg
+                className='hover:cursor-pointer'
                 width='19'
                 height='19'
                 viewBox='0 0 17 17'
@@ -123,6 +124,7 @@ function OrdersLayoutPage() {
             </button>
             <div className='absolute top-2 ml-4'>
               <svg
+                className='hover:cursor-pointer'
                 width='17'
                 height='17'
                 viewBox='0 0 17 17'
