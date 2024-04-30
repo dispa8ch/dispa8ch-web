@@ -81,8 +81,8 @@ const AccountPopOver: React.FC<{ emailAddress: string }> = ({ emailAddress }) =>
             </PopoverTrigger>
             <PopoverContent className="w-40 px-0 rounded-xl relative right-4 z-[70] ">
               <WithPadding className="w-full text-sm column gap-2 fill-gray-600 stroke-gray-600">
-                {themes.map(({ icon: Icon, theme, name }) => (
-                  <button onClick={() => setTheme(theme)} className="w-full flex items-center gap-2" >
+                {themes.map(({ icon: Icon, theme, name }, i) => (
+                  <button key={i} onClick={() => setTheme(theme)} className="w-full flex items-center gap-2" >
                     <Icon className="fill-inherit stroke-inherit" size={17} />
                     <p>{name}</p>
                   </button>

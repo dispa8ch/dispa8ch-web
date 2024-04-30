@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 
 /**
  * All child routes will go into <main>
+ * @todo get the signed in user and change the emailAddress
  */
 export default function DashboardLayout({
   children,
