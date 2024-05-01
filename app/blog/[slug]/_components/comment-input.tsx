@@ -3,12 +3,10 @@ import { BaseButton } from "@/components/buttons";
 import { debounce } from "@/lib";
 import { FormEventHandler, useState } from "react";
 
-type CommentInputProps = {};
-
 /**
  * @todo connect this component to the Comments component
  */
-const CommentInput = (props?: CommentInputProps) => {
+const CommentInput = () => {
   const [valueLength, setValueLength] = useState<number>(0)
   return (
     <form action={'/blog'} className="w-full flex gap-6 justify-between items-center ">

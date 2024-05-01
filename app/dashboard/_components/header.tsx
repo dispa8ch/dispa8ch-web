@@ -27,10 +27,10 @@ const menubuttons = [
 ] as const
 
 type HeaderProps = {
-  emailAddress: string
+  emailAddress: string;
 }
 
-const Header: React.FC<HeaderProps> = (props) => {
+const Header: React.FC<HeaderProps> = ({emailAddress}) => {
   return (
     <header className="w-full h-fit p-3 font-Inter bg-white border-b border-b-gray-300 flex items-center gap-4 " >
       <section className="fit column gap-1">
@@ -45,7 +45,7 @@ const Header: React.FC<HeaderProps> = (props) => {
           </Link>
         ))}
         <section className="w-fit h-fit font-Graphik relative" >
-          <AccountPopOver emailAddress="michthebrand@gmail.com" />
+          <AccountPopOver emailAddress={emailAddress} />
         </section>
       </section>
     </header>

@@ -6,8 +6,8 @@ const Complaints: React.FC = () => {
     <>
       <Header />
       <section className="w-full mt-4 space-y-4">
-        {complaints.map(complaint => (
-          <Complaint {...complaint} />
+        {complaints.map((complaint,i) => (
+          <Complaint {...complaint} key={i} />
         ))}
       </section>
     </>

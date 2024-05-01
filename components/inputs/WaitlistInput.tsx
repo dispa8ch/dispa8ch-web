@@ -1,9 +1,7 @@
 "use client";
 import Link from "next/link";
 
-type WaitlistInputProps = {};
-
-const WaitlistInput = (props?: WaitlistInputProps) => {
+const WaitlistInput = () => {
   const handleWaitList = () => {};
   return (
     <div className='w-full h-12 pl-4 pr-2 flex items-center justify-between border border-dispa8chRed-100 text-sm rounded-full'>

@@ -12,7 +12,7 @@ type Props ={
  */
 const ComplaintsLayout: FC<Props> = ({children}) => {
   return (
-    <section className="bg-transparent h-full p-2 " >
+    <section className="bg-transparent h-full p-3 " >
       {children}
     </section>
   )
