@@ -1,7 +1,6 @@
 "use client";
 import { uppercase } from "@/lib";
 import data from "@/public/data/team.json";
-import Link from "next/link";
 
 type TeamMemberProps = (typeof data.team_members)[number];
 const TeamMember = ({ src, fullName, title }: TeamMemberProps) => {
@@ -27,13 +26,10 @@ const TeamSection = () => {
       id='about'
       className='w-full h-fit py-6 column items-center gap-12 lg:px-16'
     >
-      <Link href={"/dashboard"}>
-        {" "}
-        <h1 className='text-dispa8chRed-500 text-xl underline font-Inter_ExtraBold lg:text-2xl '>
-          Meet The Team
-        </h1>
-      </Link>
-
+      {" "}
+      <h1 className='text-dispa8chRed-500 text-xl underline font-Inter_ExtraBold lg:text-2xl '>
+        Meet The Team
+      </h1>
       <section className='w-full min-h-[400px] bg-gradient-to-r from-dispa8chRed-100 to-dispa8chRed-50 relative dark:from-[#E41F4733] dark:to-[#FDA80033] '>
         <section className='w-full min-h-[400px] p-6 flex gap-16 overflow-x-scroll no-scroll '>
           {data.team_members.map((member, i) => (
