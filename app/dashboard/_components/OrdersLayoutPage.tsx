@@ -1,12 +1,42 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+
+/*const useLocalStorageState = (key: string, defaultValue: any) => {
+  const [state, setState] = useState(() => {
+    try {
+      const storedValue =
+        typeof window !== "undefined" ? localStorage.getItem(key) : null;
+      return storedValue ? JSON.parse(storedValue) : defaultValue;
+    } catch (error) {
+      console.error("Error loading state from localStorage:", error);
+      return defaultValue;
+    }
+  });
+
+  useEffect(() => {
+    try {
+      if (typeof window !== "undefined") {
+        localStorage.setItem(key, JSON.stringify(state));
+      }
+    } catch (error) {
+      console.error("Error saving state to localStorage:", error);
+    }
+  }, [key, state]);
+
+  return [state, setState];
+};*/
 function OrdersLayoutPage() {
   const [activeTextId, setActiveTextId] = useState<number | null>(
     localStorage.getItem("activeTextId")
       ? parseInt(localStorage.getItem("activeTextId")!)
       : null
   );
+  /*const [activeTextId, setActiveTextId] = useLocalStorageState(
+    "activeTextId",
+    null
+  );*/
+
   const [firstDiv, setFirstDiv] = useState(true);
   interface TextItem {
     id: number;
@@ -47,6 +77,11 @@ function OrdersLayoutPage() {
     localStorage.setItem("activeTextId", id.toString());
     setFirstDiv(false);
   };
+
+  /*const handleTextClick = (id: number) => {
+    setActiveTextId(id);
+    setFirstDiv(false);
+  };*/
 
   useEffect(() => {
     // Retrieve activeTextId from localStorage on component mount
