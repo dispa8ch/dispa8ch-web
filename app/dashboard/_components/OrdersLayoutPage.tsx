@@ -27,17 +27,18 @@ import Link from "next/link";
   return [state, setState];
 };*/
 function OrdersLayoutPage() {
-  const [activeTextId, setActiveTextId] = useState<number | null>(
+  /* const [activeTextId, setActiveTextId] = useState<number | null>(
     localStorage.getItem("activeTextId")
       ? parseInt(localStorage.getItem("activeTextId")!)
       : null
-  );
-
-  /*
-  const [activeTextId, setActiveTextId] = useLocalStorageState(
-    "activeTextId",
-    null
   );*/
+  const [activeTextId, setActiveTextId] = useState<number | null>(() => {
+    if (typeof window !== "undefined") {
+      const storedActiveTextId = localStorage.getItem("activeTextId");
+      return storedActiveTextId ? parseInt(storedActiveTextId) : null;
+    }
+    return null;
+  });
 
   const [firstDiv, setFirstDiv] = useState(true);
   interface TextItem {
@@ -74,26 +75,27 @@ function OrdersLayoutPage() {
     },
   ] as const;
 
-  const handleTextClick = (id: number) => {
+  /* const handleTextClick = (id: number) => {
     setActiveTextId(id); // Set the clicked text as active
     localStorage.setItem("activeTextId", id.toString());
     setFirstDiv(false);
-  };
-
-  /*const handleTextClick = (id: number) => {
-    setActiveTextId(id);
-    setFirstDiv(false);
   };*/
 
-  useEffect(() => {
+  const handleTextClick = (id: number) => {
+    setActiveTextId(id); // Set the clicked text as active
+    if (typeof window !== "undefined") {
+      localStorage.setItem("activeTextId", id.toString());
+    }
+    setFirstDiv(false);
+  };
+
+  /*useEffect(() => {
     // Retrieve activeTextId from localStorage on component mount
     const storedActiveTextId = localStorage.getItem("activeTextId");
     if (storedActiveTextId) {
       setActiveTextId(parseInt(storedActiveTextId));
     }
-  }, []);
-
-  /**/
+  }, []);*/
 
   return (
     <div className='mt-8 w-92 '>

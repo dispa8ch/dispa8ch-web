@@ -2,11 +2,20 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 function HistoryLayoutPage() {
-  const [activeTextId, setActiveTextId] = useState<number | null>(
+  /* const [activeTextId, setActiveTextId] = useState<number | null>(
     localStorage.getItem("activeTextId")
       ? parseInt(localStorage.getItem("activeTextId")!)
       : null
-  );
+  );*/
+
+  const [activeTextId, setActiveTextId] = useState<number | null>(() => {
+    if (typeof window !== "undefined") {
+      const storedActiveTextId = localStorage.getItem("activeTextId");
+      return storedActiveTextId ? parseInt(storedActiveTextId) : null;
+    }
+    return null;
+  });
+
   const [firstDiv, setFirstDiv] = useState(true);
   interface TextItem {
     id: number;
@@ -42,17 +51,34 @@ function HistoryLayoutPage() {
     },
   ] as const;
 
-  const handleTextClick = (id: number) => {
+  /* const handleTextClick = (id: number) => {
     setActiveTextId(id); // Set the clicked text as active
     localStorage.setItem("activeTextId", id.toString());
     setFirstDiv(false);
+  };*/
+
+  const handleTextClick = (id: number) => {
+    setActiveTextId(id); // Set the clicked text as active
+    if (typeof window !== "undefined") {
+      localStorage.setItem("activeTextId", id.toString());
+    }
+    setFirstDiv(false);
   };
 
-  useEffect(() => {
+  /*useEffect(() => {
     // Retrieve activeTextId from localStorage on component mount
     const storedActiveTextId = localStorage.getItem("activeTextId");
     if (storedActiveTextId) {
       setActiveTextId(parseInt(storedActiveTextId));
+    }
+  }, []);*/
+  useEffect(() => {
+    // Retrieve activeTextId from localStorage on component mount
+    if (typeof window !== "undefined") {
+      const storedActiveTextId = localStorage.getItem("activeTextId");
+      if (storedActiveTextId) {
+        setActiveTextId(parseInt(storedActiveTextId));
+      }
     }
   }, []);
 
