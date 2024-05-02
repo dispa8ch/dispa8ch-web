@@ -1,6 +1,6 @@
 "use client";
-//import { useState, useEffect } from "react";
-//import Link from "next/link";
+import { useState, useEffect } from "react";
+import Link from "next/link";
 
 /*const useLocalStorageState = (key: string, defaultValue: any) => {
   const [state, setState] = useState(() => {
@@ -27,17 +27,19 @@
   return [state, setState];
 };*/
 function OrdersLayoutPage() {
-  /* const [activeTextId, setActiveTextId] = useState<number | null>(
+  const [activeTextId, setActiveTextId] = useState<number | null>(
     localStorage.getItem("activeTextId")
       ? parseInt(localStorage.getItem("activeTextId")!)
       : null
   );
-  /*const [activeTextId, setActiveTextId] = useLocalStorageState(
+
+  /*
+  const [activeTextId, setActiveTextId] = useLocalStorageState(
     "activeTextId",
     null
   );*/
 
-  /*const [firstDiv, setFirstDiv] = useState(true);
+  const [firstDiv, setFirstDiv] = useState(true);
   interface TextItem {
     id: number;
     name: string;
@@ -82,44 +84,16 @@ function OrdersLayoutPage() {
     setActiveTextId(id);
     setFirstDiv(false);
   };*/
-  /*
+
   useEffect(() => {
     // Retrieve activeTextId from localStorage on component mount
     const storedActiveTextId = localStorage.getItem("activeTextId");
     if (storedActiveTextId) {
       setActiveTextId(parseInt(storedActiveTextId));
     }
-  }, []);*/
+  }, []);
 
-  /*<section className='border-b  border-gray-300   gap-14 mt-10 flex  '>
-        {texts.map((text, index) => (
-          <Link
-            className={`cursor-pointer ${
-              activeTextId === text.id
-                ? "text-red-500 font-medium  text-base"
-                : index === 0 && firstDiv && activeTextId === null
-                ? "text-red-500 font-medium text-base"
-                : "text-black font-medium  text-base"
-            }`}
-            href={text.link}
-          >
-            <div
-              key={text.id}
-              onClick={() => handleTextClick(text.id)}
-              className={`cursor-pointer ${
-                activeTextId === text.id
-                  ? "text-red-500 border-b pb-3 w-22 border-red-500"
-                  : index === 0 && firstDiv && activeTextId === null
-                  ? "text-red-500 border-b pb-3 w-22 border-red-500"
-                  : "pb-3  w-22 "
-              }`}
-            >
-              {" "}
-              {text.name}
-            </div>
-          </Link>
-        ))}
-      </section>*/
+  /**/
 
   return (
     <div className='mt-8 w-92 '>
@@ -205,6 +179,35 @@ function OrdersLayoutPage() {
           </div>
         </div>
       </div>
+      <section className='border-b  border-gray-300   gap-14 mt-10 flex  '>
+        {texts.map((text, index) => (
+          <Link
+            className={`cursor-pointer ${
+              activeTextId === text.id
+                ? "text-red-500 font-medium  text-base"
+                : index === 0 && firstDiv && activeTextId === null
+                ? "text-red-500 font-medium text-base"
+                : "text-black font-medium  text-base"
+            }`}
+            href={text.link}
+          >
+            <div
+              key={text.id}
+              onClick={() => handleTextClick(text.id)}
+              className={`cursor-pointer ${
+                activeTextId === text.id
+                  ? "text-red-500 border-b pb-3 w-22 border-red-500"
+                  : index === 0 && firstDiv && activeTextId === null
+                  ? "text-red-500 border-b pb-3 w-22 border-red-500"
+                  : "pb-3  w-22 "
+              }`}
+            >
+              {" "}
+              {text.name}
+            </div>
+          </Link>
+        ))}
+      </section>
     </div>
   );
 }
