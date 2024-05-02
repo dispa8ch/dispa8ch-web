@@ -2,19 +2,19 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 function HistoryLayoutPage() {
-  /* const [activeTextId, setActiveTextId] = useState<number | null>(
+  const [activeTextId, setActiveTextId] = useState<number | null>(
     localStorage.getItem("activeTextId")
       ? parseInt(localStorage.getItem("activeTextId")!)
       : null
-  );*/
+  );
 
-  const [activeTextId, setActiveTextId] = useState<number | null>(() => {
+  /*const [activeTextId, setActiveTextId] = useState<number | null>(() => {
     if (typeof window !== "undefined") {
       const storedActiveTextId = localStorage.getItem("activeTextId");
       return storedActiveTextId ? parseInt(storedActiveTextId) : null;
     }
     return null;
-  });
+  });*/
 
   const [firstDiv, setFirstDiv] = useState(true);
   interface TextItem {
