@@ -97,6 +97,16 @@ function OrdersLayoutPage() {
     }
   }, []);*/
 
+  useEffect(() => {
+    // Retrieve activeTextId from localStorage on component mount
+    if (typeof window !== "undefined") {
+      const storedActiveTextId = localStorage.getItem("activeTextId");
+      if (storedActiveTextId) {
+        setActiveTextId(parseInt(storedActiveTextId));
+      }
+    }
+  }, []);
+
   return (
     <div className='mt-8 w-92 '>
       <div className='flex justify-between '>
