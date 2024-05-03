@@ -5,6 +5,7 @@ import {
   MessageSquareTextIcon,
 } from "lucide-react";
 import Link from "next/link";
+import AccountPopOver from "./account-popover";
 
 const menubuttons = [
   {
@@ -31,9 +32,9 @@ const menubuttons = [
 
 type HeaderProps = {
   emailAddress: string;
-};
+}
 
-const Header: React.FC<HeaderProps> = (props) => {
+const Header: React.FC<HeaderProps> = ({emailAddress}) => {
   return (
     <header className='w-full h-fit p-3 font-Inter  z-10 bg-white border-b border-b-gray-300 flex items-center gap-4 '>
       <section className='fit column gap-1'>
@@ -61,12 +62,10 @@ const Header: React.FC<HeaderProps> = (props) => {
             </p>
           </Link>
         ))}
+        <section className="w-fit h-fit font-Graphik relative" >
+          <AccountPopOver emailAddress={emailAddress} />
+        </section>
       </section>
-      <div className='w-12 h-12 grid place-content-center font-Graphik bg-dispa8chRed-500 rounded-full'>
-        <p className='text-white text-2xl'>
-          {props.emailAddress.at(0)?.toUpperCase()}
-        </p>
-      </div>
     </header>
   );
 };

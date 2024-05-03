@@ -29,6 +29,6 @@ export const Dispa8chLogo: TDispa8chLogo = ({ size, className } = defaultProps) 
 export const Dispa8chLogoMobile: TDispa8chLogo = ({ size, className } = defaultProps) => {
   const dims = scaleSize([27, 52], size).map(dim => Number(dim));
   return (
-    <Image width={dims[0]} height={dims[1]} src="/icons/mobile-logo.png" alt="Dispa8ch Logo" className={className} />
+    <Image width={dims[0]} height={dims[1]} priority src="/icons/mobile-logo.png" alt="Dispa8ch Logo" className={className} />
   );
 };
