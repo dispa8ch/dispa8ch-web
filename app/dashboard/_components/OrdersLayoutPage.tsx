@@ -1,27 +1,17 @@
 "use client";
-import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+
+interface TextItem {
+  id: number;
+  name: string;
+  link: string;
+}
 
 function OrdersLayoutPage() {
-  const [activeTextId, setActiveTextId] = useState<number | null>(
-    localStorage.getItem("activeTextId")
-      ? parseInt(localStorage.getItem("activeTextId")!)
-      : null
-  );
-  /*const [activeTextId, setActiveTextId] = useState<number | null>(() => {
-    if (typeof window !== "undefined") {
-      const storedActiveTextId = localStorage.getItem("activeTextId");
-      return storedActiveTextId ? parseInt(storedActiveTextId) : null;
-    }
-    return null;
-  });*/
+  const [activeTextId, setActiveTextId] = useState<number | null>(null);
 
   const [firstDiv, setFirstDiv] = useState(true);
-  interface TextItem {
-    id: number;
-    name: string;
-    link: string;
-  }
 
   const texts: TextItem[] = [
     {
@@ -51,36 +41,17 @@ function OrdersLayoutPage() {
     },
   ] as const;
 
-  /* const handleTextClick = (id: number) => {
+  const handleTextClick = (id: number) => {
     setActiveTextId(id); // Set the clicked text as active
     localStorage.setItem("activeTextId", id.toString());
     setFirstDiv(false);
-  };*/
-
-  const handleTextClick = (id: number) => {
-    setActiveTextId(id); // Set the clicked text as active
-    if (typeof window !== "undefined") {
-      localStorage.setItem("activeTextId", id.toString());
-    }
-    setFirstDiv(false);
   };
-
-  /*useEffect(() => {
-    // Retrieve activeTextId from localStorage on component mount
-    const storedActiveTextId = localStorage.getItem("activeTextId");
-    if (storedActiveTextId) {
-      setActiveTextId(parseInt(storedActiveTextId));
-    }
-  }, []);*/
 
   useEffect(() => {
     // Retrieve activeTextId from localStorage on component mount
-    if (typeof window !== "undefined") {
-      const storedActiveTextId = localStorage.getItem("activeTextId");
-      if (storedActiveTextId) {
-        setActiveTextId(parseInt(storedActiveTextId));
-      }
-    }
+    const activeTextId = localStorage.getItem("activeTextId");
+    const parsedTextId = activeTextId && parseInt(activeTextId)
+    parsedTextId && setActiveTextId(parsedTextId)
   }, []);
 
   return (
@@ -170,25 +141,23 @@ function OrdersLayoutPage() {
       <section className='border-b  border-gray-300   gap-14 mt-10 flex  '>
         {texts.map((text, index) => (
           <Link
-            className={`cursor-pointer ${
-              activeTextId === text.id
+            className={`cursor-pointer ${activeTextId === text.id
                 ? "text-red-500 font-medium  text-base"
                 : index === 0 && firstDiv && activeTextId === null
-                ? "text-red-500 font-medium text-base"
-                : "text-black font-medium  text-base"
-            }`}
+                  ? "text-red-500 font-medium text-base"
+                  : "text-black font-medium  text-base"
+              }`}
+            key={text.id}
             href={text.link}
           >
             <div
-              key={text.id}
               onClick={() => handleTextClick(text.id)}
-              className={`cursor-pointer ${
-                activeTextId === text.id
+              className={`cursor-pointer ${activeTextId === text.id
                   ? "text-red-500 border-b pb-3 w-22 border-red-500"
                   : index === 0 && firstDiv && activeTextId === null
-                  ? "text-red-500 border-b pb-3 w-22 border-red-500"
-                  : "pb-3  w-22 "
-              }`}
+                    ? "text-red-500 border-b pb-3 w-22 border-red-500"
+                    : "pb-3  w-22 "
+                }`}
             >
               {" "}
               {text.name}

@@ -1,28 +1,19 @@
 "use client";
-import { useState, useEffect } from "react";
 import Link from "next/link";
-function HistoryLayoutPage() {
-  const [activeTextId, setActiveTextId] = useState<number | null>(
-    localStorage.getItem("activeTextId")
-      ? parseInt(localStorage.getItem("activeTextId")!)
-      : null
-  );
+import { useEffect, useState } from "react";
 
-  /*const [activeTextId, setActiveTextId] = useState<number | null>(() => {
-    if (typeof window !== "undefined") {
-      const storedActiveTextId = localStorage.getItem("activeTextId");
-      return storedActiveTextId ? parseInt(storedActiveTextId) : null;
-    }
-    return null;
-  });*/
+interface TextItem {
+  id: number;
+  name: string;
+  link: string;
+}
+
+
+function HistoryLayoutPage() {
+  const [activeTextId, setActiveTextId] = useState<number | null>(null);
 
   const [firstDiv, setFirstDiv] = useState(true);
-  interface TextItem {
-    id: number;
-    name: string;
-    link: string;
-  }
-
+  
   const texts: TextItem[] = [
     {
       name: "Current",
@@ -51,35 +42,17 @@ function HistoryLayoutPage() {
     },
   ] as const;
 
-  /* const handleTextClick = (id: number) => {
+  const handleTextClick = (id: number) => {
     setActiveTextId(id); // Set the clicked text as active
     localStorage.setItem("activeTextId", id.toString());
     setFirstDiv(false);
-  };*/
-
-  const handleTextClick = (id: number) => {
-    setActiveTextId(id); // Set the clicked text as active
-    if (typeof window !== "undefined") {
-      localStorage.setItem("activeTextId", id.toString());
-    }
-    setFirstDiv(false);
   };
 
-  /*useEffect(() => {
-    // Retrieve activeTextId from localStorage on component mount
-    const storedActiveTextId = localStorage.getItem("activeTextId");
-    if (storedActiveTextId) {
-      setActiveTextId(parseInt(storedActiveTextId));
-    }
-  }, []);*/
   useEffect(() => {
     // Retrieve activeTextId from localStorage on component mount
-    if (typeof window !== "undefined") {
-      const storedActiveTextId = localStorage.getItem("activeTextId");
-      if (storedActiveTextId) {
-        setActiveTextId(parseInt(storedActiveTextId));
-      }
-    }
+    const activeTextId = localStorage.getItem("activeTextId")
+    const parsedTextId = activeTextId && parseInt(activeTextId)
+    parsedTextId && setActiveTextId(parsedTextId);
   }, []);
 
   return (
@@ -169,9 +142,9 @@ function HistoryLayoutPage() {
                 : "text-black font-medium  text-base"
             }`}
             href={text.link}
+            key={text.id}
           >
             <div
-              key={text.id}
               onClick={() => handleTextClick(text.id)}
               className={`cursor-pointer ${
                 activeTextId === text.id
