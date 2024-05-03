@@ -1,6 +1,6 @@
-import RecentOrders from "./RecentOrders";
-import PendingOrders from "./PendingOrders";
 import CancelledOrders from "./CancelledOrders";
+import PendingOrders from "./PendingOrders";
+import RecentOrders from "./RecentOrders";
 
 export default function Notifications() {
   return (
@@ -73,7 +73,7 @@ export default function Notifications() {
                       cy='9'
                       r='8.5'
                       fill='#D1193E'
-                      fill-opacity='0.43'
+                      fillOpacity='0.43'
                       stroke='#D1193E'
                     />
                   </svg>

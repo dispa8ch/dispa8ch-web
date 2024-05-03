@@ -49,8 +49,8 @@ const Footer = () => {
           <h1 className='font-Inter_Bold'>Follow us on</h1>
           <div className='w-fit h-fit flex gap-3'>
             {socialMediaLinks.map(({ icon: Icon, link }, i) => (
-              <Link href={link} className='w-fit'>
-                <Icon size={0.7} key={i} />
+              <Link href={link} className='w-fit' key={i} >
+                <Icon size={0.7} />
               </Link>
             ))}
           </div>

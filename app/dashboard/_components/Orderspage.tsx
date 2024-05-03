@@ -29,12 +29,12 @@ export default function Orderspage() {
                 <path
                   d='M3.07936 0.499451L5.39434 4.50912H0.764379L3.07936 0.499451Z'
                   fill='#757575'
-                  fill-opacity='0.54'
+                  fillOpacity='0.54'
                 />
                 <path
                   d='M3.07936 11.1919L5.39434 7.18223H0.764379L3.07936 11.1919Z'
                   fill='#757575'
-                  fill-opacity='0.54'
+                  fillOpacity='0.54'
                 />
               </svg>
             </button>
@@ -57,12 +57,12 @@ export default function Orderspage() {
                 <path
                   d='M3.07936 0.499451L5.39434 4.50912H0.764379L3.07936 0.499451Z'
                   fill='#757575'
-                  fill-opacity='0.54'
+                  fillOpacity='0.54'
                 />
                 <path
                   d='M3.07936 11.1919L5.39434 7.18223H0.764379L3.07936 11.1919Z'
                   fill='#757575'
-                  fill-opacity='0.54'
+                  fillOpacity='0.54'
                 />
               </svg>
             </button>
@@ -85,12 +85,12 @@ export default function Orderspage() {
                 <path
                   d='M3.07936 0.499451L5.39434 4.50912H0.764379L3.07936 0.499451Z'
                   fill='#757575'
-                  fill-opacity='0.54'
+                  fillOpacity='0.54'
                 />
                 <path
                   d='M3.07936 11.1919L5.39434 7.18223H0.764379L3.07936 11.1919Z'
                   fill='#757575'
-                  fill-opacity='0.54'
+                  fillOpacity='0.54'
                 />
               </svg>
             </button>{" "}
@@ -113,12 +113,12 @@ export default function Orderspage() {
                 <path
                   d='M3.07936 0.499451L5.39434 4.50912H0.764379L3.07936 0.499451Z'
                   fill='#757575'
-                  fill-opacity='0.54'
+                  fillOpacity='0.54'
                 />
                 <path
                   d='M3.07936 11.1919L5.39434 7.18223H0.764379L3.07936 11.1919Z'
                   fill='#757575'
-                  fill-opacity='0.54'
+                  fillOpacity='0.54'
                 />
               </svg>
             </button>{" "}
@@ -140,12 +140,12 @@ export default function Orderspage() {
                 <path
                   d='M3.07936 0.499451L5.39434 4.50912H0.764379L3.07936 0.499451Z'
                   fill='#757575'
-                  fill-opacity='0.54'
+                  fillOpacity='0.54'
                 />
                 <path
                   d='M3.07936 11.1919L5.39434 7.18223H0.764379L3.07936 11.1919Z'
                   fill='#757575'
-                  fill-opacity='0.54'
+                  fillOpacity='0.54'
                 />
               </svg>
             </button>{" "}
@@ -169,12 +169,12 @@ export default function Orderspage() {
                 <path
                   d='M3.07936 0.499451L5.39434 4.50912H0.764379L3.07936 0.499451Z'
                   fill='#757575'
-                  fill-opacity='0.54'
+                  fillOpacity='0.54'
                 />
                 <path
                   d='M3.07936 11.1919L5.39434 7.18223H0.764379L3.07936 11.1919Z'
                   fill='#757575'
-                  fill-opacity='0.54'
+                  fillOpacity='0.54'
                 />
               </svg>
             </button>{" "}
@@ -200,12 +200,12 @@ export default function Orderspage() {
                 <path
                   d='M3.07936 0.499451L5.39434 4.50912H0.764379L3.07936 0.499451Z'
                   fill='#757575'
-                  fill-opacity='0.54'
+                  fillOpacity='0.54'
                 />
                 <path
                   d='M3.07936 11.1919L5.39434 7.18223H0.764379L3.07936 11.1919Z'
                   fill='#757575'
-                  fill-opacity='0.54'
+                  fillOpacity='0.54'
                 />
               </svg>
             </button>{" "}
@@ -231,12 +231,12 @@ export default function Orderspage() {
                 <path
                   d='M3.07936 0.499451L5.39434 4.50912H0.764379L3.07936 0.499451Z'
                   fill='#757575'
-                  fill-opacity='0.54'
+                  fillOpacity='0.54'
                 />
                 <path
                   d='M3.07936 11.1919L5.39434 7.18223H0.764379L3.07936 11.1919Z'
                   fill='#757575'
-                  fill-opacity='0.54'
+                  fillOpacity='0.54'
                 />
               </svg>
             </button>{" "}
@@ -266,12 +266,12 @@ export default function Orderspage() {
                 <path
                   d='M3.07936 0.499451L5.39434 4.50912H0.764379L3.07936 0.499451Z'
                   fill='#757575'
-                  fill-opacity='0.54'
+                  fillOpacity='0.54'
                 />
                 <path
                   d='M3.07936 11.1919L5.39434 7.18223H0.764379L3.07936 11.1919Z'
                   fill='#757575'
-                  fill-opacity='0.54'
+                  fillOpacity='0.54'
                 />
               </svg>
             </button>{" "}
@@ -293,12 +293,12 @@ export default function Orderspage() {
                 <path
                   d='M3.07936 0.499451L5.39434 4.50912H0.764379L3.07936 0.499451Z'
                   fill='#757575'
-                  fill-opacity='0.54'
+                  fillOpacity='0.54'
                 />
                 <path
                   d='M3.07936 11.1919L5.39434 7.18223H0.764379L3.07936 11.1919Z'
                   fill='#757575'
-                  fill-opacity='0.54'
+                  fillOpacity='0.54'
                 />
               </svg>
             </button>{" "}
