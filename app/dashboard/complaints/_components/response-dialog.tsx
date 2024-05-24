@@ -1,7 +1,5 @@
-import { Copy } from "lucide-react"
 
 import { BaseButton } from "@/components/buttons"
-import { Button } from "@/components/ui/button"
 import {
   Dialog,
   DialogClose,
@@ -11,13 +9,14 @@ import {
   DialogTitle,
   DialogTrigger
 } from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 
 type Props = {
-  trigger: JSX.Element;
+  trigger: React.JSX.Element;
 }
 
+/**
+ * @todo form submission for when the send button is clicked
+ */
 const ResponseDialog: React.FC<Props> = ({trigger}) => {
   return (
     <Dialog>
@@ -28,21 +27,17 @@ const ResponseDialog: React.FC<Props> = ({trigger}) => {
         <DialogHeader>
           <DialogTitle>Complaint Response</DialogTitle>
         </DialogHeader>
-        <section className="flex items-center space-x-2">
-          <div className="grid flex-1 gap-2">
-            <Label htmlFor="link" className="sr-only">
-              Link
-            </Label>
-            <Input
-              id="link"
-              defaultValue="https://ui.shadcn.com/docs/installation"
-              readOnly
-            />
-          </div>
-          <Button type="submit" size="sm" className="px-3">
+        <section className="flex items-center gap-2 font-Inter_Medium text-sm">
+          <button className="w-1/2 h-fit py-2.5 pl-3.5 text-start bg-white border-2 border-gray-200 rounded-lg text-gray-300 " tabIndex={1}>
+            From: <span className="text-gray-500">GIG Logistics</span>
+          </button>
+          <button className="w-1/2 h-fit py-2.5 pl-3.5 text-start bg-white border-2 border-gray-200 rounded-lg text-gray-300 " tabIndex={1}>
+            From: <span className="text-gray-500">GIG Logistics</span>
+          </button>
+          {/* <Button type="submit" size="sm" className="px-3">
             <span className="sr-only">Copy</span>
             <Copy className="h-4 w-4" />
-          </Button>
+          </Button> */}
         </section>
         <DialogFooter className="sm:justify-end ">
           <DialogClose asChild>
