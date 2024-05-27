@@ -6,6 +6,10 @@ import ResponseDialog from "./response-dialog";
 
 type ComplaintProps = (typeof complaints)[number];
 
+/**
+ * @todo get the receiver and sender props 
+ * @todo ask Ubah about how the form should be sent 
+ */
 const Complaint: React.FC<ComplaintProps> = ({
   emailAddress: _emailAddress,
   date,
@@ -48,6 +52,8 @@ const Complaint: React.FC<ComplaintProps> = ({
         trigger={
           <BaseButton className='font-Inter_Medium ml-auto'>Respond</BaseButton>
         }
+        sender="Gig logisticcs"
+        receiver="Charles Ikechukwu"
       />
     </div>
   );
