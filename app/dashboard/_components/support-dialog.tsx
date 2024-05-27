@@ -13,15 +13,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { useRef } from "react";
 
 type Props = {
+  sender: string
   trigger: React.JSX.Element;
-  sender: string;
-  receiver: string;
 }
 
 /**
- * @todo form submission for when the send button is clicked
+ * @todo function that gets the current logistics company name 
  */
-const ResponseDialog: React.FC<Props> = ({ trigger, receiver, sender }) => {
+const SupportDialog: React.FC<Props> = ({ trigger, sender }) => {
   const responseRef = useRef<HTMLFormElement>(null);
   return (
     <Dialog>
@@ -38,7 +37,7 @@ const ResponseDialog: React.FC<Props> = ({ trigger, receiver, sender }) => {
               From: <span className="text-gray-500">{sender}</span>
             </button>
             <button disabled className="w-1/2 h-fit py-2.5 pl-3.5 text-start bg-white border border-gray-200 rounded-lg text-gray-400 " tabIndex={1}>
-              From: <span className="text-gray-500">{receiver}</span>
+              From: <span className="text-gray-500">Dispa8ch Inc.</span>
             </button>
           </section>
           <Textarea name="response" rows={10} placeholder="Enter your response" className="placeholder:text-gray-300 " ></Textarea>
@@ -56,4 +55,4 @@ const ResponseDialog: React.FC<Props> = ({ trigger, receiver, sender }) => {
   )
 }
 
-export default ResponseDialog
+export default SupportDialog
