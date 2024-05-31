@@ -1,3 +1,4 @@
+import { cn } from "@/lib/shadcn.utils";
 
 type ThemeProps = {
   'dataTheme': 'light' | 'dark'
@@ -18,11 +19,11 @@ type ThemeProps = {
  * ```
  * @returns `<html>` element
  */
-const Theme = ({ dataTheme, children, ...rest }: ThemeProps = {
+const Theme = ({ dataTheme, children, className = '', ...rest }: ThemeProps = {
   dataTheme: "light"
 }) => {
   return (
-    <html {...rest} data-theme={dataTheme}>
+    <html {...rest} className={cn(' ', className)} data-theme={dataTheme}>
       {children}
     </html>
   )
