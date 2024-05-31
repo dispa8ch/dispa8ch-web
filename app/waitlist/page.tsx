@@ -1,5 +1,6 @@
 "use client";
 import { BaseButton } from "@/components/buttons";
+import { createHash } from "crypto";
 import { Check, Circle, CopyIcon } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
@@ -12,13 +13,16 @@ const waitlistOffers = [
 ];
 
 /**
- * @todo the current user that just joined the waitlist. His/her email should be hashed. The email and id should be sent to the backend.
+ * @implementation the current user that just joined the waitlist. His/her email should be hashed. The email and id should be sent to the backend.
  * @todo the id should be the user's invite link.
+ * @todo write a decoder that takes in the hash and gets the emailAddress from it
  */
 export default function Waitlist() {
   const emailAddress = useSearchParams().get('emailAddress')
   const [isCopied, setIsCopied] = useState(false);
-  const [link] = useState("https://dispa8ch.vercel.app/waitlist?invite-link=12333");
+  const hash = createHash('sha256');
+  const emailHash = hash.update('michthebrand@gmail.com');
+  const [link] = useState(`https://dispa8ch.vercel.app/waitlist?invite-link=${emailHash.digest('base64')}`);
   const copyLink = () => {
     navigator.clipboard.writeText(link);
     setIsCopied(true);
@@ -61,7 +65,7 @@ export default function Waitlist() {
                 {isCopied ? (
                   <Check size={20} className="stroke-green-400" />
                 ) : (
-                  <button onClick={copyLink} className="opacity-0 transition-[opacity] duration-200 group-hover:opacity-100 " >
+                  <button onClick={copyLink} className="opacity-0 transition-[opacity] duration-200 group-hover:opacity-100 focus:opacity-100 " >
                     <CopyIcon size={20} className="stroke-slate-500" />
                   </button>
                 )}
