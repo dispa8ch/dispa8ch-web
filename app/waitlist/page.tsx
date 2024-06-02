@@ -19,9 +19,9 @@ const waitlistOffers = [
 export default function Waitlist() {
   const encryptedEmailAddress = useSearchParams().get('emailAddress') as Base64
   const [isCopied, setIsCopied] = useState(false);
-  const [link] = useState(`https://dispa8ch.vercel.app/waitlist?invite-link=${encryptedEmailAddress}`);
+  const inviteLink = `https://dispa8ch.vercel.app/waitlist?invite-link=${encryptedEmailAddress}`;
   const copyLink = () => {
-    navigator.clipboard.writeText(link);
+    navigator.clipboard.writeText(inviteLink);
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 2000);
   }
@@ -58,7 +58,7 @@ export default function Waitlist() {
 
             <section className='flex flex-col items-center justify-center gap-6 '>
               <div className="w-full h-10 bg-gray-300 rounded-lg flex justify-between items-center px-3 group cursor-pointer ">
-                <input type="text" readOnly disabled value={link} className="w-[80%] bg-inherit text-slate-500 cursor-pointer " />
+                <input type="text" readOnly disabled value={inviteLink} className="w-[95%] bg-inherit text-slate-500 cursor-pointer " />
                 {isCopied ? (
                   <Check size={20} className="stroke-green-400" />
                 ) : (
