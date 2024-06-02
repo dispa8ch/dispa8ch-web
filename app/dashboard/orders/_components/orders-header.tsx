@@ -1,51 +1,18 @@
 'use client'
 import { BaseButton } from "@/components/buttons";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { FileUp, PlusCircle, SearchIcon } from "lucide-react";
-import Link from "next/link";
-import { useEffect, useState } from "react";
 
-const links = [
-  {
-    name: "Current",
-    link: "/dashboard/orders",
-  },
-  {
-    name: "Pending",
-    link: "/dashboard/orders/pending",
-  },
-  {
-    name: "Completed",
-    link: "/dashboard/orders/completed",
-  },
-  {
-    name: "Cancelled",
-    link: "/dashboard/orders/cancelled",
-  },
-  {
-    name: "History",
-    link: "/dashboard/history",
-  },
+const orderPageTabs = [
+  "Current",
+  "Pending",
+  "Completed",
+  "Cancelled",
+  "History",
 ] as const;
 
 
 const Header: React.FC = () => {
-  const [activeTextId, setActiveTextId] = useState<number | null>(null);
-
-  const [firstDiv, setFirstDiv] = useState(true);
-
-  const handleTextClick = (id: number) => {
-    setActiveTextId(id);
-    localStorage.setItem("activeTextId", id.toString());
-    setFirstDiv(false);
-  };
-
-  useEffect(() => {
-    // Retrieve activeTextId from localStorage on component mount
-    const activeTextId = localStorage.getItem("activeTextId");
-    const parsedTextId = activeTextId && parseInt(activeTextId)
-    parsedTextId && setActiveTextId(parsedTextId)
-  }, []);
-
   return (
     <section className='flex flex-col mt-2  gap-6 '>
       <section className='flex justify-between '>
@@ -74,34 +41,20 @@ const Header: React.FC = () => {
         </section>
       </section>
       {/* Orders page nav links */}
-      <section className='flex gap-10 border-b border-gray-300 '>
-        {links.map(({name, link}, index) => (
-          <Link
-            className={`cursor-pointer ${activeTextId === index
-              ? "text-red-500 font-medium  text-base"
-              : index === 0 && firstDiv && activeTextId === null
-                ? "text-red-500 font-medium text-base"
-                : "text-black font-medium  text-base"
-              }`}
-            key={index}
-            href={link}
-          >
-            <div
-              onClick={() => handleTextClick(index)}
-              className={`cursor-pointer ${activeTextId === index
-                ? "text-red-500 border-b pb-3 w-22 border-red-500"
-                : index === 0 && firstDiv && activeTextId === null
-                  ? "text-red-500 border-b pb-3 w-22 border-red-500"
-                  : "pb-3  w-22 "
-                }`}
-            >
-              {name}
-            </div>
-          </Link>
-        ))}
-      </section>
+      <Tabs defaultValue="current" className="w-full ">
+        <TabsList className="w-full justify-start rounded-lg " >
+          {/* data-[state=active] is the attribute selector that changes the background color or of the tab trigger */}
+          {orderPageTabs.map((tab, index) => (
+            <TabsTrigger key={index} className="px-12 data-[state=active]:rounded-md  " value={tab.toLowerCase()} >{tab}</TabsTrigger>
+          ))}
+        </TabsList>
+        <TabsContent value="current">This is the dispa8ch orders page</TabsContent>
+        <TabsContent value="pending">Change your password here.</TabsContent>
+      </Tabs>
     </section>
   )
 }
 
+
+'data-state=active;aria-selected=true'
 export default Header
