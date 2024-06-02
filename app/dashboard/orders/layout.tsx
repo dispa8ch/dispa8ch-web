@@ -1,9 +1,8 @@
-import OrdersLayoutPage from "../_components/OrdersLayoutPage";
-
+import Header from "./_components/orders-header";
 export default function OrdersLayout({ children }: { children: React.ReactNode }) {
   return (
-    <section className='w-full min-h-screen bg-white relative ml-6'>
-      <OrdersLayoutPage />
+    <section className='w-full min-h-screen bg-white relative px-6 pt-6'>
+      <Header />
       {/* {children} */}
     </section>
   );
