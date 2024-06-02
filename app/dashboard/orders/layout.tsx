@@ -1,10 +1,10 @@
 import OrdersLayoutPage from "../_components/OrdersLayoutPage";
 
-export default function orders({ children }: { children: React.ReactNode }) {
+export default function OrdersLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className='w-full min-h-screen bg-white relative ml-6'>
+    <section className='w-full min-h-screen bg-white relative ml-6'>
       <OrdersLayoutPage />
-      {children}
-    </div>
+      {/* {children} */}
+    </section>
   );
 }
