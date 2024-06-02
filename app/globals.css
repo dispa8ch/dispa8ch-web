@@ -68,6 +68,11 @@
     --trans-duration: 700ms;
     --base-animation-duration: 600ms;
     --base-animation-delay: 200ms;
+    scrollbar-width: none;
+  }
+
+  :root::-webkit-scrollbar {
+    width: 0px;
   }
 
   /* shape divider */

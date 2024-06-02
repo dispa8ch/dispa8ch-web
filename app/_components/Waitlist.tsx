@@ -1,9 +1,12 @@
 "use client";
 import { WaitlistInput } from "@/components/inputs";
+import { stringToBase64 } from "@/lib";
+import { useRouter } from "next/navigation";
 import { useRef } from "react";
 
 const Waitlist = () => {
   const ref = useRef<HTMLElement>();
+  const router = useRouter()
   return (
     <section
       ref={ref as any}
@@ -16,9 +19,13 @@ const Waitlist = () => {
         features.
       </p>
       <form
-        action='/waitlist'
+        action={formData => {
+          const emailAddress = formData.get('emailAddress')?.toString();
+          if (!emailAddress) return;
+          router.push(`/waitlist?emailAddress=${stringToBase64(emailAddress)}`)
+        }}
         className='w-full max-w-[360px] h-fit lg:max-w-[560px]'>
-        <WaitlistInput />
+        <WaitlistInput name="emailAddress" />
       </form>
     </section>
   );

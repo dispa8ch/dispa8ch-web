@@ -29,6 +29,10 @@ export function entries<T extends EmptyObject, K extends Helpers.Keyof<T>>(
   return Object.entries(object) as [K, T[K]][];
 }
 
+export function capitalize<S extends string>(string: S): Capitalize<S> {
+  return `${string[0].toUpperCase()}`.concat(string.slice(1)) as Capitalize<S>;
+}
+
 export function isFalsy(value: any): value is NullOrUndefined {
   return value === null || value === undefined;
 }
@@ -95,6 +99,24 @@ export function switchTheme(): TTheme {
   else return html.setAttribute("data-theme", "light"), 'light';
 }
 
-export function capitalize(value: string) {
-  return `${value.at(0)?.toUpperCase()}${value.slice(1)}`
+/**
+ * This function should be used with the bytesToBase64 function to encode email addresses
+ * @example 
+ * ```javascript
+ * const encodedEmail = encodeString('michthebrand@gmail.com');
+ * ```
+ */
+export function encodeString(str: string) {
+  return new TextEncoder().encode(str)
+}
+
+export function stringToBase64(str: string): Base64 {
+  const binString = String.fromCodePoint(...encodeString(str));
+  return btoa(binString) as Base64;
+}
+
+export function base64ToString(string: Base64) {
+  'use client';
+  const binString = atob(string);
+  return new TextDecoder().decode(Uint8Array.from(binString, c => c.codePointAt(0)!))
 }

@@ -1,110 +1,54 @@
 "use client";
-
+import { BaseButton } from "@/components/buttons";
+import { base64ToString } from "@/lib";
+import { Check, Circle, CopyIcon } from "lucide-react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
-export default function waitlist() {
-  const [buttonText, setButtonText] = useState(false);
-  const [link] = useState("www.dispa8ch.com/jamesking/invite-link");
-  const handleCopy = () => {
-    navigator.clipboard.writeText(link);
-    setButtonText((prev) => !prev);
-    // setButtonText((prev) => !prev);
-  };
+const waitlistOffers = [
+  `You'll be the first to be notified of our new updates and
+  features`,
+  `You’ll have easy access and one on one discussions with the founders and team`,
+  `You'll have access to a large community of business owners like you from all over the globe`
+];
+
+/**
+ * @implementation the current user that just joined the waitlist. His/her email should be hashed. The email and id should be sent to the backend.
+ * @todo the id should be the user's invite link.
+ */
+export default function Waitlist() {
+  const encryptedEmailAddress = useSearchParams().get('emailAddress') as Base64
+  const [isCopied, setIsCopied] = useState(false);
+  const inviteLink = `https://dispa8ch.vercel.app/waitlist?invite-link=${encryptedEmailAddress}`;
+  const copyLink = () => {
+    navigator.clipboard.writeText(inviteLink);
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 2000);
+  }
+  const router = useRouter()
+
   return (
     <>
-      <section className='w-full  grid place-items-center bg-gray-300 h-screen '>
-        <div className=' flex flex-col rounded-md justify-center md:items-center py-8 md:py-14 bg-white md:w-120 w-91 lg:w-200'>
-          <header>
+      <section className='w-full grid place-items-center bg-gray-300 min-h-screen py-6 '>
+        <section className=' flex flex-col rounded-[50px] justify-center md:items-center py-16 md:py-14 bg-white md:w-120 w-[90%] lg:w-200'>
+          <section>
             <h1 className='mb-1 md:mb-3 text-dispa8chRed-500 text-center font-bold md:font-Inter_ExtraBold text-lg md:text-3xl'>
               Thank you for joining our waitlist
             </h1>
             <p className='text-[#A4707B] md:mb-5 mb-3  md:font-Inter_Medium font-normal text-base md:text-lg text-center'>
-              Welcome to the Dispa8ch community @ <span></span>
+              Welcome to the Dispa8ch community <span className="text-dispa8chRed-400" >{base64ToString(encryptedEmailAddress)}</span>
             </p>
-          </header>
-          <section className=' md:mx-0 mx-4'>
-            <div className='flex md:mb-1 mb-1.5 gap-2  md:gap-4'>
-              <div className='mt-1'>
-                <svg
-                  width='16'
-                  height='16'
-                  viewBox='0 0 16 16'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
-                  <circle cx='8' cy='8' r='8' fill='#A4707B' />
-                </svg>
-              </div>
-              <div>
-                <p className='text-start md:text-center font-normal text-[#A4707B] text-sm md:text-base'>
-                  You'll be the first to be notified of our new updates and
-                  features
-                </p>
-              </div>
-            </div>
-
-            <div className='flex md:mb-1 mb-1.5  gap-2  md:gap-4'>
-              <div className='mt-1'>
-                <svg
-                  width='16'
-                  height='16'
-                  viewBox='0 0 16 16'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
-                  <circle cx='8' cy='8' r='8' fill='#A4707B' />
-                </svg>
-              </div>
-              <div>
-                <p className=' text-start md:text-center font-normal text-[#A4707B]  text-sm md:text-base'>
-                  You'll have easy access and one on one discussions with the
-                  founders and team
-                </p>
-              </div>
-            </div>
-
-            <div className='flex md:mb-1 mb-1.5  gap-2  md:gap-4'>
-              <div className='mt-1'>
-                <svg
-                  width='16'
-                  height='16'
-                  viewBox='0 0 16 16'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
-                  <circle cx='8' cy='8' r='8' fill='#A4707B' />
-                </svg>
-              </div>
-              <div>
-                <p className='text-start md:text-center  font-normal text-[#A4707B] text-sm md:text-base'>
-                  You'll have access to a large community of business owners
-                  like you from all over the globe
-                </p>
-              </div>
-            </div>
-
-            <div className='flex gap-2  md:gap-4'>
-              <div className='mt-1'>
-                <svg
-                  width='16'
-                  height='16'
-                  viewBox='0 0 16 16'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
-                  <circle cx='8' cy='8' r='8' fill='#A4707B' />
-                </svg>
-              </div>
-              <div>
-                <p className=' text-start md:text-center font-normal text-[#A4707B]  text-sm md:text-base'>
-                  Let's join hands and work together to make your business a
-                  thriving success
-                </p>
-              </div>
-            </div>
           </section>
+          <section className='space-y-3 '>
+            {waitlistOffers.map((offer, i) => (
+              <div className='flex items-center gap-2 md:gap-4' key={i}>
+                <Circle size={22} className="fill-dispa8chRed-200 stroke-dispa8chRed-200 " />
+                <p className=' text-start md:text-center font-normal text-[#A4707B]  text-sm md:text-base'>{offer}</p>
+              </div>
+            ))}
 
-          <footer className='mt-6 md:mx-0 mx-4'>
+          </section>
+          <section className='mt-6 md:mx-0 mx-4'>
             <div>
               <p className='text-center mb-6 text-dispa8chRed-500 font-medium  text-sm md:text-lg'>
                 Let's get your friends, family and colleagues started on this
@@ -112,69 +56,36 @@ export default function waitlist() {
               </p>
             </div>
 
-            <form className='grid place-items-center'>
-              <div className='bg-gray-300 md:max-w-120   focus:border-blue-300  max-w-72   relative py-1.5   md:pr-3 rounded-md pl-3  w-72  overflow-hidden  md:w-110'>
-                {" "}
-                <div>
-                  <p className='text-gray-500 md:text-base text-sm'>{link}</p>
-                </div>
-                {buttonText ? (
-                  <div
-                    className=' top-1.5 mt-1.5  right-1 md:right-4 absolute '
-                    onClick={handleCopy}
-                  >
-                    <svg
-                      width='17'
-                      height='10'
-                      viewBox='0 0 17 10'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
-                      <path
-                        d='M11.8683 1.09351H12.2425C14.3091 1.09351 15.9844 2.8424 15.9844 4.99976C15.9844 7.1571 14.3091 8.90601 12.2425 8.90601H10.7458C8.67924 8.90601 7.00394 7.1571 7.00394 4.99976M5.13302 8.90601H4.75883C2.69228 8.90601 1.01698 7.1571 1.01698 4.99976C1.01698 2.8424 2.69228 1.09351 4.75883 1.09351H6.25557C8.32212 1.09351 9.99742 2.8424 9.99742 4.99976'
-                        stroke='#35000B'
-                        stroke-width='1.7'
-                        stroke-linecap='round'
-                        stroke-linejoin='round'
-                      />
-                    </svg>
-                  </div>
+            <section className='flex flex-col items-center justify-center gap-6 '>
+              <div className="w-full h-10 bg-gray-300 rounded-lg flex justify-between items-center px-3 group cursor-pointer ">
+                <input type="text" readOnly disabled value={inviteLink} className="w-[95%] bg-inherit text-slate-500 cursor-pointer " />
+                {isCopied ? (
+                  <Check size={20} className="stroke-green-400" />
                 ) : (
-                  <div className='py-1.5 md:py-0 bg-gray-300 bottom-0.5  md:bottom-0  pr-1 md:pr-0 md:top-1 md:mt-1 pl-2 md:pl-0  right-1 md:right-4 absolute '>
-                    <p className='    text-red-500 text-sm font-medium '>
-                      Copied!
-                    </p>
-                  </div>
+                  <button onClick={copyLink} className="opacity-0 transition-[opacity] duration-200 group-hover:opacity-100 focus:opacity-100 " >
+                    <CopyIcon size={20} className="stroke-slate-500" />
+                  </button>
                 )}
               </div>
-
-              <div className='border-b mt-3 mb-8    border-gray-300 py-1.5 pl-3  w-72   md:w-110'>
-                {" "}
-                <p className=' text-center text-base font-medium text-gray-300'>
-                  OR
-                </p>
+              
+              <div className="w-full h-fit flex flex-col items-center gap-3">
+                <p className="text-slate-400 text-lg ">OR</p>
+                <hr className="border border-slate-300 w-[70%] " />
               </div>
 
-              <div className='relative'>
+              <form className="w-full h-10 bg-gray-300 rounded-lg flex justify-between items-center pl-3 ">
                 <input
-                  placeholder='Enter email to send an invite to your friends'
+                  placeholder='Enter an email to send an invite to your friends'
                   type='email'
-                  className='bg-gray-300 flex md:placeholder:text-base outline-none border-2 focus:border-blue-300  placeholder:text-sm w-72 overflow-hidden  max-w-72   py-1 pr-10 md:pr-3 rounded-md pl-1 md:pl-3 md:max-w-120  md:w-110 '
+                  className="w-[70%] bg-inherit cursor-pointer focus:outline-none text-[#171717] " 
                 />
-                <p className='top-2     text-red-500 text-sm font-medium absolute right-2 md:right-4'>
-                  Send
-                </p>
-              </div>
+                <BaseButton className='text-sm font-medium rounded-l-none rounded-r-lg '>Send</BaseButton>
+              </form>
 
-              <button
-                className='text-white mt-6 font-medium md:font-bold md:text-xl text-lg px-10 md:px-16 py-1.5 rounded-md  bg-dispa8chRed-500'
-                type='submit'
-              >
-                Finish
-              </button>
-            </form>
-          </footer>
-        </div>
+              <BaseButton onClick={() => router.push('/')} >Done</BaseButton>
+            </section>
+          </section>
+        </section>
       </section>
     </>
   );
