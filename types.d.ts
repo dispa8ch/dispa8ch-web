@@ -10,6 +10,13 @@ declare global {
     searchParams?: any;
   };
 
+  type Base64 = `${string}=`
+
+  type WaitlistPayload = {
+    email: string;
+    id: string;
+  }
+
   type SVGIconProps = Omit<React.SVGProps<SVGSVGElement>, "ref"> & {
     title?: string | undefined;
     titleId?: string | undefined;
