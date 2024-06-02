@@ -11,7 +11,7 @@ type BlogProps = {} & NextPageProps<{
  * should come as markdown
  * @todo create a parser to parse some json and create the breadcrumbs to be passed to the Breadcrumbs component
  */
-const Blog = ({ params }: BlogProps) => {
+const Blog: React.FC<BlogProps> = () => {
   return (
     <>
       <main className="h-fit bg-transparent pt-12 px-4 space-y-6 lg:px-8" >

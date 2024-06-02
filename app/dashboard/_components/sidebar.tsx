@@ -42,7 +42,7 @@ const sidebarLinks: Array<{
 
 const Sidebar = () => {
   return (
-    <aside className='w-fit relative  h-screen z-[5] bg-transparent column gap-8 py-3 items-center font-Inter_Medium px-3 border-r border-r-gray-300 transition-[width] duration-700 group '>
+    <aside className="w-[50px] box-content h-screen relative z-[5] bg-transparent column gap-8 py-3 items-center font-Inter_Medium px-3 border-r border-r-gray-300 transition-[width] duration-700 group hover:w-[170px] " >
       <section>
         <Link
           href={"/"}
@@ -59,7 +59,7 @@ const Sidebar = () => {
             key={i}
           >
             <Icon size={1.07} />
-            <p className='text-lg hidden group-hover:block '>{name}</p>
+            <p className={`text-lg hidden group-hover:block `}>{name}</p>
           </Link>
         ))}
       </section>

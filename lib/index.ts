@@ -29,6 +29,10 @@ export function entries<T extends EmptyObject, K extends Helpers.Keyof<T>>(
   return Object.entries(object) as [K, T[K]][];
 }
 
+export function capitalize<S extends string>(string: S): Capitalize<S> {
+  return `${string[0].toUpperCase()}`.concat(string.slice(1)) as Capitalize<S>;
+}
+
 export function isFalsy(value: any): value is NullOrUndefined {
   return value === null || value === undefined;
 }
