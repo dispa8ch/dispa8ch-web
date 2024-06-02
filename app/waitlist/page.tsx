@@ -1,6 +1,6 @@
 "use client";
 import { BaseButton } from "@/components/buttons";
-import { createHash } from "crypto";
+import { base64ToString } from "@/lib";
 import { Check, Circle, CopyIcon } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
@@ -15,19 +15,16 @@ const waitlistOffers = [
 /**
  * @implementation the current user that just joined the waitlist. His/her email should be hashed. The email and id should be sent to the backend.
  * @todo the id should be the user's invite link.
- * @todo write a decoder that takes in the hash and gets the emailAddress from it
  */
 export default function Waitlist() {
-  const emailAddress = useSearchParams().get('emailAddress')
+  const encryptedEmailAddress = useSearchParams().get('emailAddress') as Base64
   const [isCopied, setIsCopied] = useState(false);
-  const hash = createHash('sha256');
-  const emailHash = hash.update('michthebrand@gmail.com');
-  const [link] = useState(`https://dispa8ch.vercel.app/waitlist?invite-link=${emailHash.digest('base64')}`);
+  const [link] = useState(`https://dispa8ch.vercel.app/waitlist?invite-link=${encryptedEmailAddress}`);
   const copyLink = () => {
     navigator.clipboard.writeText(link);
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 2000);
-  };
+  }
   const router = useRouter()
 
   return (
@@ -39,7 +36,7 @@ export default function Waitlist() {
               Thank you for joining our waitlist
             </h1>
             <p className='text-[#A4707B] md:mb-5 mb-3  md:font-Inter_Medium font-normal text-base md:text-lg text-center'>
-              Welcome to the Dispa8ch community <span className="text-dispa8chRed-400" >{emailAddress}</span>
+              Welcome to the Dispa8ch community <span className="text-dispa8chRed-400" >{base64ToString(encryptedEmailAddress)}</span>
             </p>
           </section>
           <section className='space-y-3 '>

@@ -1,6 +1,6 @@
 "use client";
 import { WaitlistInput } from "@/components/inputs";
-import { createHash } from "crypto";
+import { stringToBase64 } from "@/lib";
 import { useRouter } from "next/navigation";
 import { useRef } from "react";
 
@@ -22,8 +22,7 @@ const Waitlist = () => {
         action={formData => {
           const emailAddress = formData.get('emailAddress')?.toString();
           if (!emailAddress) return;
-          const emailHash = createHash('sha256').update(emailAddress)
-          router.push(`/waitlist?emailAddress=${emailHash.digest('base64')}`)
+          router.push(`/waitlist?emailAddress=${stringToBase64(emailAddress)}`)
         }}
         className='w-full max-w-[360px] h-fit lg:max-w-[560px]'>
         <WaitlistInput name="emailAddress" />

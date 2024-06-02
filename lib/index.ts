@@ -94,3 +94,25 @@ export function switchTheme(): TTheme {
   if (theme === "light") return html.setAttribute("data-theme", "dark"), 'dark';
   else return html.setAttribute("data-theme", "light"), 'light';
 }
+
+/**
+ * This function should be used with the bytesToBase64 function to encode email addresses
+ * @example 
+ * ```javascript
+ * const encodedEmail = encodeString('michthebrand@gmail.com');
+ * ```
+ */
+export function encodeString(str: string) {
+  return new TextEncoder().encode(str)
+}
+
+export function stringToBase64(str: string): Base64 {
+  const binString = String.fromCodePoint(...encodeString(str));
+  return btoa(binString) as Base64;
+}
+
+export function base64ToString(string: Base64) {
+  'use client';
+  const binString = atob(string);
+  return new TextDecoder().decode(Uint8Array.from(binString, c => c.codePointAt(0)!))
+}
