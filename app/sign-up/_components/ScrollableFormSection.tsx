@@ -1,10 +1,7 @@
 "use client";
-import { auth, database } from "@/app/firebase/config";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { addDoc, collection } from "firebase/firestore";
-import { useState } from "react";
 import { LoginButton } from "@/components/buttons";
 import { NamedInput, PasswordInput } from "@/components/inputs";
+import { useState } from "react";
 
 const ScrollableFormSection = () => {
   const [userDetail, setUserDetail] = useState({
@@ -19,41 +16,7 @@ const ScrollableFormSection = () => {
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-
-    try {
-      const additionalDetail = {
-        country: userDetail.country,
-        business_name: userDetail.busineness_name,
-        city: userDetail.city,
-        contact_name: userDetail.contact_name,
-        phone_number: userDetail.phone_number,
-      };
-      const databaseRef = collection(database, "userDetail");
-      createUserWithEmailAndPassword(
-        auth,
-        userDetail.email,
-        userDetail.password
-      )
-        .then(() => {
-          addDoc(databaseRef, {
-            additionalDetail,
-          });
-        })
-        .then(() => alert("Successfully submitted"))
-        .then(() => {
-          setUserDetail({
-            email: "",
-            password: "",
-            country: "",
-            busineness_name: "",
-            city: "",
-            contact_name: "",
-            phone_number: "",
-          });
-        });
-    } catch (error) {
-      console.error(error);
-    }
+    // handle submit for the signup form
   };
   return (
     <>

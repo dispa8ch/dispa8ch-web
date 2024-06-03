@@ -149,6 +149,10 @@
     @apply w-fit h-fit;
   }
 
+  .grid-cols-13-gapped {
+    grid-template-columns: 1fr 1fr 1.5fr repeat(9, 1fr) 1.5fr;
+  }
+
   .percent {
     width: 90%;
   }
@@ -219,16 +223,7 @@
     background-image: url("/images/hero-background.png");
   }
 
- 
-.pendingEllipse{
-  color: #FDA800;
 
-}
-.cancelledEllipse{
-  color: #F4190F;
-
-
-}
 .all-color{
   color: #757575;
 
