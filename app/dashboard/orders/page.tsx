@@ -3,6 +3,7 @@ import { BaseButton } from "@/components/buttons";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { FileUp, PlusCircle, SearchIcon } from "lucide-react";
 import CurrentTab from "./_components/current-tab";
+import Pending from "../_components/Pending";
 
 const ordersPageTabs = [
   "Current",
@@ -52,6 +53,12 @@ const OrdersPage: React.FC = () => {
         <section className="w-full flex-grow overflow-scroll no-scroll mt-4 mb-6">
           <TabsContent value="current" >
             <CurrentTab />
+          </TabsContent>
+          <TabsContent value="pending" >
+            <Pending />
+          </TabsContent>
+          <TabsContent value="completed" >
+            {/* <Pending /> */}
           </TabsContent>
         </section>
       </Tabs>
