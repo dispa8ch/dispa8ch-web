@@ -15,7 +15,7 @@ const CurrentOrder = ({
   status,
 }: CurrentOrdersProps) => {
   return (
-    <div className=' gap-10 w-92 flex   border-b place-items-center   h-16 border-gray-300 '>
+    <div className='w-full grid grid-cols-13-gapped place-content-center gap-1 py-4 border-b border-gray-300'>
       <div className='place-items-center'>
         {" "}
         <input
