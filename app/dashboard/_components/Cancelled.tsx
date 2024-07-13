@@ -3,29 +3,29 @@
 const Cancelled = () => {
   return (
     <>
-      <section className="border-b pb-3 h-32 border-gray-300 w-92 flex gap-12 place-items-center">
-        <div className="place-items-center">
+      <section className="w-full grid grid-cols-13-gapped place-content-center gap-1 py-4 border-b border-gray-300">
+      <div className="place-items-center">
           <p className="text-sm font-semibold">Date</p>{" "}
         </div>
 
-        <div className="place-items-center w-16  ">
+        <div className="place-items-center   ">
           <p className="text-sm font-semibold">Order ID</p>{" "}
         </div>
 
-        <div className="flex w-16   place-items-center">
+        <div className="flex    place-items-center">
           {" "}
           <p className="text-sm font-semibold">C. Name</p>{" "}
         </div>
 
-        <div className="  w-16 place-items-center">
+        <div className="   place-items-center">
           <p className="text-sm font-semibold">Pick-Up</p>{" "}
         </div>
 
-        <div className="  w-16 place-items-center">
+        <div className="   place-items-center">
           <p className="text-sm font-semibold">Amount</p>{" "}
         </div>
 
-        <div className="  w-16 place-items-center">
+        <div className="   place-items-center">
           <p className="text-sm font-semibold">Distance</p>{" "}
         </div>
 
@@ -52,29 +52,29 @@ const Cancelled = () => {
         </div>
       </section>
 
-      <section className="border-b pb-3 py-4 border-gray-300 w-92 flex gap-12 place-items-center">
+      <section className="w-full grid grid-cols-13-gapped place-content-center gap-1 py-4 border-b border-gray-300">
         <div className="place-items-center">
           <p className="text-sm font-semibold">17/06/23</p>{" "}
         </div>
 
-        <div className="place-items-center w-16  ">
+        <div className="place-items-center   ">
           <p className="text-sm font-semibold">1677437</p>{" "}
         </div>
 
-        <div className="flex w-16   place-items-center">
+        <div className="flex    place-items-center">
           {" "}
           <p className="text-sm font-semibold">Okeke Emmanuel</p>{" "}
         </div>
 
-        <div className="  w-16 place-items-center">
+        <div className="   place-items-center">
           <p className="text-sm font-semibold">Douglas</p>{" "}
         </div>
 
-        <div className="  w-16 place-items-center">
+        <div className="   place-items-center">
           <p className="text-sm font-semibold">$250.34</p>{" "}
         </div>
 
-        <div className="  w-16 place-items-center">
+        <div className="   place-items-center">
           <p className="text-sm font-semibold">20.43miles</p>{" "}
         </div>
 
