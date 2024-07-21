@@ -18,7 +18,7 @@ const ordersPageTabs = [
 const OrdersPage: React.FC = () => {
   return (
     <section className="flex flex-col mt-2 mx-5 gap-6 ">
-      <section className="flex justify-between ">
+      <section className="flex justify-between">
         <h1 className="text-3xl font-semibold">Orders</h1>
         <section className="flex gap-3">
           <div className="relative">
