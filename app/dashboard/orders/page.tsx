@@ -5,9 +5,6 @@ import { FileUp, PlusCircle, SearchIcon } from "lucide-react";
 import CurrentTab from "../_components/current-tab";
 import Pending from "../_components/Pending";
 import Completed from "../_components/Completed";
-import CancelledOrders from "../_components/CancelledOrders";
-import History from "../_components/History";
-import Current from "../_components/Current";
 import Cancelled from "../_components/Cancelled";
 
 const ordersPageTabs = [
@@ -20,8 +17,8 @@ const ordersPageTabs = [
 
 const OrdersPage: React.FC = () => {
   return (
-    <section className="min-h-[inherit] flex flex-col mt-2 gap-6 ">
-      <section className="flex justify-between ">
+    <section className="flex flex-col mt-2 mx-5 gap-6 ">
+      <section className="flex justify-between">
         <h1 className="text-3xl font-semibold">Orders</h1>
         <section className="flex gap-3">
           <div className="relative">
