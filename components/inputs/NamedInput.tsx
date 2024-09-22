@@ -1,10 +1,10 @@
-'use client'
+"use client";
 import { lowercase } from "@/lib";
 
 const NamedInput = (props?: NamedInputProps) => {
-  const { name, type, className: cName } = props || {};
+  const { name, type, className: cName, validationError } = props || {};
   return (
-    <div className='w-full h-fit relative font-Inter text-[#ccc] '>
+    <div className="w-full h-fit relative font-Inter text-[#ccc] ">
       <input
         name={lowercase(name!)}
         type={type || "text"}
@@ -13,9 +13,10 @@ const NamedInput = (props?: NamedInputProps) => {
           cName || ""
         } `}
       />
-      <p className='w-fit h-fit bg-white py-1 px-2 text-sm absolute top-[-30%] left-5 '>
+      <p className="w-fit h-fit bg-white py-1 px-2 text-sm absolute top-[-30%] left-5 ">
         {name}
       </p>
+      {validationError && <p className="text-red-500 text-[10px]">{validationError}</p>}
     </div>
   );
 };
