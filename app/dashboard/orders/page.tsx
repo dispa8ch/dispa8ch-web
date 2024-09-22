@@ -6,6 +6,7 @@ import CurrentTab from "../_components/current-tab";
 import Pending from "../_components/Pending";
 import Completed from "../_components/Completed";
 import Cancelled from "../_components/Cancelled";
+import History from "../_components/History";
 
 const ordersPageTabs = [
   "Current",
@@ -79,7 +80,9 @@ const OrdersPage: React.FC = () => {
           <TabsContent value="cancelled">
             <Cancelled />
           </TabsContent>
-          <TabsContent value="history"></TabsContent>
+          <TabsContent value="history">
+            <History />
+          </TabsContent>
         </section>
       </Tabs>
     </section>
