@@ -33,35 +33,35 @@ const ScrollableFormSection = () => {
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
-    const result = signupSchema.safeParse(userDetail);
-    if (!result.success) {
-      const newErrors = {
-        email: "",
-        password: "",
-        confirmPassword: "",
-        country: "",
-        companyName: "",
-        city: "",
-        contactPerson: "",
-        phone: "",
-      };
+    // const result = signupSchema.safeParse(userDetail);
+    // if (!result.success) {
+    //   const newErrors = {
+    //     email: "",
+    //     password: "",
+    //     confirmPassword: "",
+    //     country: "",
+    //     companyName: "",
+    //     city: "",
+    //     contactPerson: "",
+    //     phone: "",
+    //   };
 
-      result.error.errors.forEach((err) => {
-        if (err.path.includes("email")) newErrors.email = err.message;
-        if (err.path.includes("password")) newErrors.password = err.message;
-        if (err.path.includes("confirmPassword"))
-          newErrors.confirmPassword = err.message;
-        if (err.path.includes("country")) newErrors.country = err.message;
-        if (err.path.includes("companyName")) newErrors.companyName = err.message;
-        if (err.path.includes("city")) newErrors.city = err.message;
-        if (err.path.includes("contactPerson"))
-          newErrors.contactPerson = err.message;
-        if (err.path.includes("phone")) newErrors.phone = err.message;
-      });
+    //   result.error.errors.forEach((err) => {
+    //     if (err.path.includes("email")) newErrors.email = err.message;
+    //     if (err.path.includes("password")) newErrors.password = err.message;
+    //     if (err.path.includes("confirmPassword"))
+    //       newErrors.confirmPassword = err.message;
+    //     if (err.path.includes("country")) newErrors.country = err.message;
+    //     if (err.path.includes("companyName")) newErrors.companyName = err.message;
+    //     if (err.path.includes("city")) newErrors.city = err.message;
+    //     if (err.path.includes("contactPerson"))
+    //       newErrors.contactPerson = err.message;
+    //     if (err.path.includes("phone")) newErrors.phone = err.message;
+    //   });
 
-      setErrors(newErrors);
-      return;
-    }
+    //   setErrors(newErrors);
+    //   return;
+    // }
 
     // Clear errors on successful validation
     setErrors({
@@ -91,7 +91,7 @@ const ScrollableFormSection = () => {
       );
       if (response.ok) {
         // Sign in and redirect to dashboard
-        router.push('/login')
+        router.push('/dashboard')
         
       }
       console.log("response", response);
