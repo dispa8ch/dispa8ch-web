@@ -14,12 +14,13 @@ const Account = () => {
     <div className="font- flex flex-col gap-10 px-20">
       <div className="">
         <h6 className="text-xl font-bold mb--5">Profile</h6>
-        <div className="mx-5">
+        <div className="mx-5 cursor-pointer">
           <div className="py-3 border-b flex justify-between">
-            <div className="flex gap-10 justify-between w-1/2">
+            <div className="flex gap-10 justify-between lg:w-1/2 md:w-2/3">
               <h5 className="">Account Owner Name</h5>
               <input
-                className=" outline-1 "
+                disabled={true}
+                className=" outline-none"
                 type="text"
                 name="name"
                 id=""
@@ -30,10 +31,11 @@ const Account = () => {
             <p className="text-dispa8chRed-10">Edit</p>
           </div>
           <div className="py-3 border-b flex justify-between">
-            <div className="flex gap-10 justify-between w-1/2">
+            <div className="flex gap-10 justify-between lg:w-1/2 md:w-2/3">
               <h5 className="">Phone Number</h5>
               <input
-                className=" outline-1 "
+                disabled={true}
+                className="  outline-none "
                 type="text"
                 name="phone"
                 id=""
@@ -44,10 +46,11 @@ const Account = () => {
             <p className="text-dispa8chRed-10">Edit</p>
           </div>
           <div className="py-3 border-b flex justify-between">
-            <div className="flex gap-10 justify-between w-1/2">
+            <div className="flex gap-10 justify-between lg:w-1/2 md:w-2/3">
               <h5 className="">Email</h5>
               <input
-                className=" outline-1 "
+                disabled={true}
+                className="  outline-none "
                 type="text"
                 name="email"
                 id=""
@@ -58,10 +61,11 @@ const Account = () => {
             <p className="text-dispa8chRed-10">Edit</p>
           </div>
           <div className="py-3 border-b flex justify-between">
-            <div className="flex gap-10 justify-between w-1/2">
+            <div className="flex gap-10 justify-between lg:w-1/2 md:w-2/3">
               <h5 className="">Password</h5>
               <input
-                className=" outline-1 "
+                disabled={true}
+                className="  outline-none "
                 type="password"
                 name="email"
                 id=""
@@ -76,12 +80,13 @@ const Account = () => {
 
       <div className="">
         <h6 className="text-xl font-bold my-5">Billing Contact Details</h6>
-        <div className="mx-5">
+        <div className="mx-5 cursor-pointer">
           <div className="py-3 border-b flex justify-between">
-            <div className="flex gap-10 justify-between w-1/2">
+            <div className="flex gap-10 justify-between lg:w-1/2 md:w-2/3">
               <h5 className="">Company Name</h5>
               <input
-                className=" outline-1 "
+                disabled={true}
+                className="  outline-none "
                 type="text"
                 name=""
                 id=""
@@ -92,10 +97,11 @@ const Account = () => {
             <p className="text-dispa8chRed-10">Edit</p>
           </div>
           <div className="py-3 border-b flex justify-between">
-            <div className="flex gap-10 justify-between w-1/2">
+            <div className="flex gap-10 justify-between lg:w-1/2 md:w-2/3">
               <h5 className="">Email</h5>
               <input
-                className=" outline-1 "
+                disabled={true}
+                className="  outline-none "
                 type="text"
                 name="email"
                 id=""
@@ -106,10 +112,11 @@ const Account = () => {
             <p className="text-dispa8chRed-10">Edit</p>
           </div>
           <div className="py-3 border-b flex justify-between">
-            <div className="flex gap-10 justify-between w-1/2">
+            <div className="flex gap-10 justify-between lg:w-1/2 md:w-2/3">
               <h5 className="">Billing Address</h5>
               <input
-                className=" outline-1 "
+                disabled={true}
+                className="  outline-none "
                 type="text"
                 name="email"
                 id=""
