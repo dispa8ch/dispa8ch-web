@@ -20,16 +20,16 @@ const DriverModal = () => {
   return (
     <Dialog>
       <DialogTrigger>Add New Driver</DialogTrigger>
-      <DialogContent className="w-[7000px] border-blue-950 border-4">
+      <DialogContent className="">
         <DialogHeader>
           <DialogTitle className="text-3xl font-semibold">
             Add a new driver
           </DialogTitle>
         </DialogHeader>
-        <div className="flex flex-col border w-fit gap-7">
+        <div className="flex flex-col  w-fit gap-7">
           <div className="flex gap-4">
             <div className="">
-              <Label htmlFor="name" className="text-righ t">
+              <Label htmlFor="name" className="text-rig">
                 Name
               </Label>
               <Input

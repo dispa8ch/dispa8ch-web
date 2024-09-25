@@ -46,9 +46,9 @@ const AccountPopOver: React.FC<{ emailAddress: string }> = ({ emailAddress }) =>
       </PopoverTrigger>
       <PopoverContent className="font-Inter w-64 px-0 column pb-8 rounded-2xl gap-4 relative z-[60] right-2" >
         <WithPadding className="w-full flex gap-4 items-end">
-          <button className="w-12 h-12 text-white text-2xl bg-dispa8chRed-500 rounded-full">
+          <Link href='/dashboard/accounts' className="flex items-center justify-center w-12 h-12 text-white text-2xl bg-dispa8chRed-500 rounded-full">
             {emailAddress.at(0)?.toUpperCase()}
-          </button>
+          </Link>
           <div className="w-fit h-fit column gap-1">
             <h1 className="text-black/80 font-Inter_Medium text-base" >Garner Stella</h1>
             <p className="text-gray-600 font-Inter_Medium text-xs" >{emailAddress}</p>
