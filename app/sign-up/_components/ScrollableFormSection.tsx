@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 
 const ScrollableFormSection = () => {
   const router = useRouter()
+  const [loading, setLoading] = useState(false)
   const [userDetail, setUserDetail] = useState({
     email: "",
     password: "",
@@ -33,35 +34,35 @@ const ScrollableFormSection = () => {
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
-    // const result = signupSchema.safeParse(userDetail);
-    // if (!result.success) {
-    //   const newErrors = {
-    //     email: "",
-    //     password: "",
-    //     confirmPassword: "",
-    //     country: "",
-    //     companyName: "",
-    //     city: "",
-    //     contactPerson: "",
-    //     phone: "",
-    //   };
+    const result = signupSchema.safeParse(userDetail);
+    if (!result.success) {
+      const newErrors = {
+        email: "",
+        password: "",
+        confirmPassword: "",
+        country: "",
+        companyName: "",
+        city: "",
+        contactPerson: "",
+        phone: "",
+      };
 
-    //   result.error.errors.forEach((err) => {
-    //     if (err.path.includes("email")) newErrors.email = err.message;
-    //     if (err.path.includes("password")) newErrors.password = err.message;
-    //     if (err.path.includes("confirmPassword"))
-    //       newErrors.confirmPassword = err.message;
-    //     if (err.path.includes("country")) newErrors.country = err.message;
-    //     if (err.path.includes("companyName")) newErrors.companyName = err.message;
-    //     if (err.path.includes("city")) newErrors.city = err.message;
-    //     if (err.path.includes("contactPerson"))
-    //       newErrors.contactPerson = err.message;
-    //     if (err.path.includes("phone")) newErrors.phone = err.message;
-    //   });
+      result.error.errors.forEach((err) => {
+        if (err.path.includes("email")) newErrors.email = err.message;
+        if (err.path.includes("password")) newErrors.password = err.message;
+        if (err.path.includes("confirmPassword"))
+          newErrors.confirmPassword = err.message;
+        if (err.path.includes("country")) newErrors.country = err.message;
+        if (err.path.includes("companyName")) newErrors.companyName = err.message;
+        if (err.path.includes("city")) newErrors.city = err.message;
+        if (err.path.includes("contactPerson"))
+          newErrors.contactPerson = err.message;
+        if (err.path.includes("phone")) newErrors.phone = err.message;
+      });
 
-    //   setErrors(newErrors);
-    //   return;
-    // }
+      setErrors(newErrors);
+      return;
+    }
 
     // Clear errors on successful validation
     setErrors({
@@ -78,6 +79,7 @@ const ScrollableFormSection = () => {
     // Handle API request here
     try {
       console.log("submitting with values:", userDetail);
+      setLoading(true)
       const response = await fetch(
         "https://dispa8ch-backend.onrender.com/api/auth/register",
         {
@@ -97,6 +99,8 @@ const ScrollableFormSection = () => {
       console.log("response", response);
     } catch (error) {
       console.error("error", error);
+    }finally{
+      setLoading(false)
     }
   };
 
@@ -175,7 +179,7 @@ const ScrollableFormSection = () => {
           }
           validationError={errors.phone}
         />
-        <LoginButton text="Create your account" handleSubmit={handleSubmit} />
+        <LoginButton text={!loading ? "Create your account" : "Creating account..."} handleSubmit={handleSubmit} diasbled={true} />
       </section>
     </>
   );
