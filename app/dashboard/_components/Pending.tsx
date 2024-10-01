@@ -13,7 +13,7 @@ import PendingContent from "./PendingContent";
 const Pending = () => {
   return (
     <>
-      <Table className="">
+      <Table className=" overflow-x-auto">
         <TableHeader>
           <TableRow>
             <TableCell className="">

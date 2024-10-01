@@ -7,8 +7,8 @@ import { z } from "zod";
 import { useRouter } from "next/navigation";
 
 const ScrollableFormSection = () => {
-  const router = useRouter()
-  const [loading, setLoading] = useState(false)
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
   const [userDetail, setUserDetail] = useState({
     email: "",
     password: "",
@@ -33,7 +33,7 @@ const ScrollableFormSection = () => {
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-
+    console.log("Handle Submit was clicked");
     const result = signupSchema.safeParse(userDetail);
     if (!result.success) {
       const newErrors = {
@@ -53,7 +53,8 @@ const ScrollableFormSection = () => {
         if (err.path.includes("confirmPassword"))
           newErrors.confirmPassword = err.message;
         if (err.path.includes("country")) newErrors.country = err.message;
-        if (err.path.includes("companyName")) newErrors.companyName = err.message;
+        if (err.path.includes("companyName"))
+          newErrors.companyName = err.message;
         if (err.path.includes("city")) newErrors.city = err.message;
         if (err.path.includes("contactPerson"))
           newErrors.contactPerson = err.message;
@@ -79,7 +80,7 @@ const ScrollableFormSection = () => {
     // Handle API request here
     try {
       console.log("submitting with values:", userDetail);
-      setLoading(true)
+      setLoading(true);
       const response = await fetch(
         "https://dispa8ch-backend.onrender.com/api/auth/register",
         {
@@ -93,14 +94,13 @@ const ScrollableFormSection = () => {
       );
       if (response.ok) {
         // Sign in and redirect to dashboard
-        router.push('/dashboard')
-        
+        router.push("/dashboard");
       }
       console.log("response", response);
     } catch (error) {
       console.error("error", error);
-    }finally{
-      setLoading(false)
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -179,7 +179,11 @@ const ScrollableFormSection = () => {
           }
           validationError={errors.phone}
         />
-        <LoginButton text={!loading ? "Create your account" : "Creating account..."} handleSubmit={handleSubmit} diasbled={true} />
+        <LoginButton
+          text={!loading ? "Create your account" : "Creating account..."}
+          handleSubmit={handleSubmit}
+          disabled={loading}
+        />
       </section>
     </>
   );
