@@ -3,7 +3,7 @@ import { LoginButton } from "@/components/buttons";
 import { NamedInput, PasswordInput } from "@/components/inputs";
 import { useState } from "react";
 import { signupSchema } from "@/lib/validations/user";
-import { z } from "zod";
+// import { z } from "zod";
 import { useRouter } from "next/navigation";
 
 const ScrollableFormSection = () => {

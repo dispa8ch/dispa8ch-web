@@ -1,81 +1,81 @@
-import { CheckedInput } from "@/components/inputs";
-import { Switch } from "@/components/ui/switch";
-import { PlusCircle } from "lucide-react";
+// import { CheckedInput } from "@/components/inputs";
+// import { Switch } from "@/components/ui/switch";
+// import { PlusCircle } from "lucide-react";
 import Current from "./Current";
 
 const CurrentTab = () => {
-  const currentTabHeaders = [
-    "Order Id",
-    "C Name",
-    "Pick-up",
-    "Amount",
-    "Distance",
-    "Order Placed",
-    "Req. Pick-up Time",
-    "Req.Delivery Time",
-    "Pick-up Ready",
-    "Driver",
-    "Status",
-    "Tracking",
-  ];
+  // const currentTabHeaders = [
+  //   "Order Id",
+  //   "C Name",
+  //   "Pick-up",
+  //   "Amount",
+  //   "Distance",
+  //   "Order Placed",
+  //   "Req. Pick-up Time",
+  //   "Req.Delivery Time",
+  //   "Pick-up Ready",
+  //   "Driver",
+  //   "Status",
+  //   "Tracking",
+  // ];
 
-  const currentTabContent = [
-    {
-      orderId: "001",
-      cName: "John Doe",
-      pickUp: "Location A",
-      amount: 253.5,
-      distance: 50.2,
-      orderPlaced: "6:47pm",
-      reqPickUpTime: "6:02pm",
-      reqDeliveryTime: "7:02pm",
-      status: "Unassigned",
-    },
-    {
-      orderId: "002",
-      cName: "Jane Smith",
-      pickUp: "Location B",
-      amount: 150.75,
-      distance: 35.4,
-      orderPlaced: "4:30pm",
-      reqPickUpTime: "5:00pm",
-      reqDeliveryTime: "6:00pm",
-      status: "Assigned",
-    },
-    {
-      orderId: "003",
-      cName: "Michael Johnson",
-      pickUp: "Location C",
-      amount: 98.0,
-      distance: 20.1,
-      orderPlaced: "2:15pm",
-      reqPickUpTime: "2:45pm",
-      reqDeliveryTime: "3:15pm",
-      status: "Assigned",
-    },
-    {
-      orderId: "004",
-      cName: "Emily Davis",
-      pickUp: "Location D",
-      amount: 180.25,
-      distance: 40.7,
-      orderPlaced: "12:00pm",
-      reqPickUpTime: "12:30pm",
-      reqDeliveryTime: "1:00pm",
-      status: "Unassigned",
-    },
-    {
-      orderId: "005",
-      cName: "Chris Brown",
-      pickUp: "Location E",
-      amount: 220.0,
-      distance: 45.3,
-      orderPlaced: "9:00am",
-      reqPickUpTime: "9:30am",
-      reqDeliveryTime: "10:00am",
-      status: "Unassigned",
-    },
-  ];
+  // const currentTabContent = [
+  //   {
+  //     orderId: "001",
+  //     cName: "John Doe",
+  //     pickUp: "Location A",
+  //     amount: 253.5,
+  //     distance: 50.2,
+  //     orderPlaced: "6:47pm",
+  //     reqPickUpTime: "6:02pm",
+  //     reqDeliveryTime: "7:02pm",
+  //     status: "Unassigned",
+  //   },
+  //   {
+  //     orderId: "002",
+  //     cName: "Jane Smith",
+  //     pickUp: "Location B",
+  //     amount: 150.75,
+  //     distance: 35.4,
+  //     orderPlaced: "4:30pm",
+  //     reqPickUpTime: "5:00pm",
+  //     reqDeliveryTime: "6:00pm",
+  //     status: "Assigned",
+  //   },
+  //   {
+  //     orderId: "003",
+  //     cName: "Michael Johnson",
+  //     pickUp: "Location C",
+  //     amount: 98.0,
+  //     distance: 20.1,
+  //     orderPlaced: "2:15pm",
+  //     reqPickUpTime: "2:45pm",
+  //     reqDeliveryTime: "3:15pm",
+  //     status: "Assigned",
+  //   },
+  //   {
+  //     orderId: "004",
+  //     cName: "Emily Davis",
+  //     pickUp: "Location D",
+  //     amount: 180.25,
+  //     distance: 40.7,
+  //     orderPlaced: "12:00pm",
+  //     reqPickUpTime: "12:30pm",
+  //     reqDeliveryTime: "1:00pm",
+  //     status: "Unassigned",
+  //   },
+  //   {
+  //     orderId: "005",
+  //     cName: "Chris Brown",
+  //     pickUp: "Location E",
+  //     amount: 220.0,
+  //     distance: 45.3,
+  //     orderPlaced: "9:00am",
+  //     reqPickUpTime: "9:30am",
+  //     reqDeliveryTime: "10:00am",
+  //     status: "Unassigned",
+  //   },
+  // ];
 
   return (
     <section className="w-full overflow-x-auto ">
