@@ -78,7 +78,7 @@ const CurrentTab = () => {
   ];
 
   return (
-    <section className="w-full ">
+    <section className="w-full overflow-x-auto ">
       {/* First row */}
       {/* <div className="w-full grid grid-cols-13-gapped place-content-center gap-1 py-4 border-b border-gray-300">
         <CheckedInput onCheck={(checked) => console.log(checked)} />
