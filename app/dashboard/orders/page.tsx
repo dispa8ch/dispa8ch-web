@@ -23,6 +23,25 @@ const OrdersPage: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    const companyId = "67004241edc409aa4dec0992";
+    console.log('we are at orders page')
+
+    const fetchAllOrders = async () => {
+      const orders = await fetch(
+        `https://dispa8ch-backend.onrender.com/api/order/${companyId}/all`
+      );
+  
+      console.log('Order Request =' , orders)
+      const response = await orders.json()
+      console.log('Order Response =' ,response)
+
+    }
+    fetchAllOrders()
+
+
+  }, []);
+
 
 
   return (

@@ -24,7 +24,9 @@ const page = () => {
 
   useEffect(() => {
     const getAllRiders = async () => {
-      const riders = await fetch("https://dispa8ch-backend.onrender.com/api/rider/all")
+        const companyId = "67004241edc409aa4dec0992";
+
+      const riders = await fetch(`https://dispa8ch-backend-1.onrender.com/api/rider/${companyId}/all`)
       console.log("Riders =" , riders)
       const riderReturned = await riders.json()
       console.log("riderReturned =" , riderReturned)

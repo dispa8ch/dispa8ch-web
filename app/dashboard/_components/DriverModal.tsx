@@ -52,7 +52,9 @@ const DriverModal = () => {
     console.log("Form submitted: ", data);
     try {
       setLoading(true);
-      const response = await fetch("https://dispa8ch-backend.onrender.com/api/rider", {
+      const companyId = "67004241edc409aa4dec0992";
+
+      const response = await fetch(`https://dispa8ch-backend-1.onrender.com/api/${companyId}/rider`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

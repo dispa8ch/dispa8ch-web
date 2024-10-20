@@ -7,11 +7,13 @@ import { useState } from "react";
 // import { z } from "zod";
 import { loginSchema } from "@/lib/validations/user";
 import { useRouter } from "next/navigation";
+import { useCompany } from "@/components/CompanyContext";
 
 /**
  * @todo change the forgot password route in the forgot password link
  */
 export default function Login() {
+  const { updateCompanyData } = useCompany();
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
@@ -66,7 +68,7 @@ export default function Login() {
       setLoading(true);
 
       const response = await fetch(
-        "https://dispa8ch-backend.onrender.com/api/auth/login",
+        "https://dispa8ch-backend-1.onrender.com/api/auth/login",
         {
           method: "POST",
           headers: {
@@ -78,11 +80,13 @@ export default function Login() {
       );
 
       const returnedData = await response.json();
+      console.log('retured responsev=' , returnedData)
 
 
       if (response.ok) {
         // Sign in and redirect to dashboard
         console.log('Company Data:', returnedData);
+        updateCompanyData(returnedData.data)
         localStorage.setItem("companyData", JSON.stringify(returnedData.data));
         router.push("/dashboard");
         console.log('You suppose dey dashboard by now')

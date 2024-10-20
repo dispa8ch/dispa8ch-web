@@ -1,18 +1,26 @@
 "use client";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function DashboardRevenue() {
-  const companyId = "67004241edc409aa4dec0992";
+  // const companyId = "67004241edc409aa4dec0992";
+  const [overViewData, setOverViewData] = useState({})
+  const companyData = JSON.parse(localStorage.getItem("companyData"));
+  const companyId = companyData.id; // Use this for future requests
+
+  if (companyData) {
+    console.log("Company Data from Locals =", companyData);
+  }
 
   useEffect(() => {
     const request = async () => {
       try {
         const request = await fetch(
-          `https://dispa8ch-backend.onrender.com/api/company/${companyId}/overview`
+          `https://dispa8ch-backend-1.onrender.com/api/company/${companyId}/overview`
         );
 
         const data = await request.json();
+        setOverViewData(data.data)
 
         console.log("data returned", data);
       } catch (error) {
@@ -21,13 +29,9 @@ function DashboardRevenue() {
     };
     request();
 
-    const companyData = JSON.parse(localStorage.getItem("companyData"));
-
-    if (companyData) {
-      console.log("Company Data from Locals =", companyData);
-      const companyId = companyData.id; // Use this for future requests
-    }
   }, []);
+
+  console.log("over data",overViewData)
 
   return (
     <div className="w-180  ml-8 bg-white ">
@@ -42,7 +46,7 @@ function DashboardRevenue() {
 
             <div className="flex gap-8 ">
               <div className="h-15 grid place-items-center ">
-                <p className="text-black font-bold text-xl">15,347</p>
+                <p className="text-black font-bold text-xl">{overViewData.totalOrders}</p>
               </div>
               <div>
                 <svg
@@ -71,7 +75,7 @@ function DashboardRevenue() {
 
             <div className="flex gap-8">
               <div className="h-15 grid place-items-center">
-                <p className="text-black font-bold text-xl">100</p>
+                <p className="text-black font-bold text-xl">{overViewData.totalRiders}</p>
               </div>
               <div>
                 <svg
@@ -157,7 +161,7 @@ function DashboardRevenue() {
             <p className="ml-3 font-semibold text-base text-white mt-3">
               Today's deliveries
             </p>
-            <p className="ml-3 font-bold text-xl mt-3 text-black">1,000</p>
+            <p className="ml-3 font-bold text-xl mt-3 text-black">{overViewData.todaysDeliveries}</p>
           </div>
 
           <div className="rounded-md w-64 h-28  relative bg-image3">
@@ -172,7 +176,7 @@ function DashboardRevenue() {
             <p className="ml-3  font-semibold text-base text-white mt-3">
               Completed deliveries
             </p>
-            <p className="ml-3 font-bold text-xl mt-3 text-black">100</p>
+            <p className="ml-3 font-bold text-xl mt-3 text-black">{overViewData.completedDeliveries}</p>
           </div>
 
           <div className="rounded-md w-64 h-28 relative bg-image4">
@@ -187,7 +191,7 @@ function DashboardRevenue() {
             <p className="ml-3 font-semibold text-base text-white mt-3">
               Assigned riders
             </p>
-            <p className="ml-3 font-bold text-xl mt-3 text-black">576</p>
+            <p className="ml-3 font-bold text-xl mt-3 text-black">{overViewData.assignedRiders}</p>
           </div>
         </div>
       </section>
