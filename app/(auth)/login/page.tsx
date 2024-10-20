@@ -12,6 +12,8 @@ import { useRouter } from "next/navigation";
  * @todo change the forgot password route in the forgot password link
  */
 export default function Login() {
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const [userDetail, setUserDetail] = useState({
     email: "",
@@ -61,6 +63,7 @@ export default function Login() {
 
     try {
       console.log("login Values", userDetail);
+      setLoading(true);
 
       const response = await fetch(
         "https://dispa8ch-backend.onrender.com/api/auth/login",
@@ -74,19 +77,20 @@ export default function Login() {
         }
       );
 
-
-      console.log("response", response);
-
-      const router = useRouter()
+      const returnedData = await response.json();
 
 
       if (response.ok) {
         // Sign in and redirect to dashboard
-        router.push('/dashboard')
-        
+        console.log('Company Data:', returnedData);
+        localStorage.setItem("companyData", JSON.stringify(returnedData.data));
+        router.push("/dashboard");
+        console.log('You suppose dey dashboard by now')
       }
     } catch (error) {
       console.log("error", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -115,15 +119,15 @@ export default function Login() {
                 setUserDetail({ ...userDetail, password: e.target.value })
               }
               validationError={errors.password}
-
             />
-     
+
             <Link className="text-dispa8chRed-500" href={"/forgot-password"}>
               <p>Forgot password?</p>
             </Link>
             <LoginButton
-              text="Login your account"
+              text={!loading ? "Login your account" : "Login in..."}
               handleSubmit={handleSubmit}
+              disabled={loading}
             />
           </section>
 
