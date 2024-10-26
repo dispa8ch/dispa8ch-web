@@ -1,10 +1,11 @@
 "use client";
 import { LoginButton } from "@/components/buttons";
-import { NamedInput, PasswordInput } from "@/components/inputs";
+import { CountryCodeInput, NamedInput, PasswordInput } from "@/components/inputs";
 import { useState } from "react";
 import { signupSchema } from "@/lib/validations/user";
 // import { z } from "zod";
 import { useRouter } from "next/navigation";
+import CountrySelect from "./CountrySelect";
 
 const ScrollableFormSection = () => {
   const router = useRouter();
@@ -116,14 +117,15 @@ const ScrollableFormSection = () => {
           }
           validationError={errors.email}
         />
-        <NamedInput
+        {/* <NamedInput
           name="Country"
           value={userDetail.country}
           onChange={(e) =>
             setUserDetail({ ...userDetail, country: e.target.value })
           }
           validationError={errors.country}
-        />
+        /> */}
+        <CountrySelect/>
         <PasswordInput
           type="password"
           name="Password"
