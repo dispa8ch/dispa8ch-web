@@ -13,7 +13,7 @@ interface Country {
   cca2: string;
 }
 
-const CountrySelect = () => {
+const CountrySelect = ({setUserDetail , userDetail} : any) => {
   const [searchTerm, setSearchTerm] = useState<string>(''); // To store user input
   const [countries, setCountries] = useState<Country[]>([]); // To store all fetched countries
   const [filteredCountries, setFilteredCountries] = useState<Country[]>([]); // To store filtered results
@@ -51,9 +51,10 @@ const CountrySelect = () => {
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
-
+  
   // Handle country selection
   const handleCountrySelect = (countryName: string) => {
+    setUserDetail({ ...userDetail, country: countryName })
     setSearchTerm(countryName); // Set the input to the selected country
     setShowDropdown(false); // Close the dropdown after selection
   };
@@ -69,7 +70,7 @@ const CountrySelect = () => {
         className={`w-full h-12 rounded-lg font-Inter_Bold shadow-input border border-[#ccc] pl-5 text-feintBlack focus:outline-none`}
       />
       <p className="w-fit h-fit bg-white text-black font-semibold py-1 px-2 text-sm absolute top-[-30%] left-5">
-        Name
+        Country
       </p>
 
       {/* Dropdown with filtered country results */}

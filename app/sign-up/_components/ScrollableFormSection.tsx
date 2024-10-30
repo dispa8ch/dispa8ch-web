@@ -35,6 +35,8 @@ const ScrollableFormSection = () => {
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     console.log("Handle Submit was clicked");
+    console.log("submitting with values:", userDetail);
+
     const result = signupSchema.safeParse(userDetail);
     if (!result.success) {
       const newErrors = {
@@ -62,6 +64,8 @@ const ScrollableFormSection = () => {
         if (err.path.includes("phone")) newErrors.phone = err.message;
       });
 
+      console.log('There was an error during validations' , result)
+
       setErrors(newErrors);
       return;
     }
@@ -80,7 +84,6 @@ const ScrollableFormSection = () => {
 
     // Handle API request here
     try {
-      console.log("submitting with values:", userDetail);
       setLoading(true);
       const response = await fetch(
         "https://dispa8ch-backend.onrender.com/api/auth/register",
@@ -93,11 +96,13 @@ const ScrollableFormSection = () => {
           mode: "cors",
         }
       );
-      if (response.ok) {
+      console.log("response", response);
+      const responded = await response.json()
+      console.log('responded =' , responded)
+      if (responded.success) {
         // Sign in and redirect to dashboard
         router.push("/dashboard");
-      }
-      console.log("response", response);
+      } console.log("Response message ==>" , responded.message)
     } catch (error) {
       console.error("error", error);
     } finally {
@@ -117,15 +122,7 @@ const ScrollableFormSection = () => {
           }
           validationError={errors.email}
         />
-        {/* <NamedInput
-          name="Country"
-          value={userDetail.country}
-          onChange={(e) =>
-            setUserDetail({ ...userDetail, country: e.target.value })
-          }
-          validationError={errors.country}
-        /> */}
-        <CountrySelect/>
+        <CountrySelect setUserDetail={setUserDetail} userDetail={userDetail}/>
         <PasswordInput
           type="password"
           name="Password"

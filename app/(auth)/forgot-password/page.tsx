@@ -1,14 +1,50 @@
 "use client";
 import { Dispa8chLogo } from "@/public/icons";
+import { log } from "console";
 import Link from "next/link";
-
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 /**
  * @todo change the forgot password route in the forgot password link
  */
-export default function Login() {
-  const handleSubmit = async () => {};
-  const disabled = false;
+export default function ForgotPassword() {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false)
+  const router = useRouter()
+
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    console.log('Check email was fired', email);
+    setLoading(true)
+    
+    try {
+
+      const response = await fetch(
+        "https://dispa8ch-backend.onrender.com/api/auth/email/check",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email: email }),
+          mode: "cors",
+        }
+      );
+
+      const res = await response.json()
+      console.log('res =' , res)
+      if (res.success) {
+      localStorage.setItem('emailOTP' , email)
+      router.push('/otp-verification')
+      }
+
+    } catch (error) {
+      console.log('Error searching email form endpoint' , error)
+    } finally {
+      setLoading(false)
+    }
+  };
 
   return (
     <main className="w-screen min-h-screen px-4 bg-gradient-to-br from-[#D1193E1A] to-[#FDA8001A] font-Inter_Medium flex flex-col items-center justify-center gap-7 md:py-4">
@@ -27,8 +63,8 @@ export default function Login() {
           name="country"
           placeholder="Email address"
           type="text"
-          // value={searchTerm} // Bind input value to searchTerm
-          // onChange={'handleInputChange'} // Update search term on input change
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
           className={`w-full h-12 rounded-lg font-Inter_Bold shadow-input border border-[#ccc] pl-5 text-feintBlack focus:outline-none`}
         />
         <Link
@@ -42,18 +78,18 @@ export default function Login() {
             className={`px-6 py-1 mt-5  rounded-lg bg-slate-200 font-Inter_Bold text-lg 
               text-dispa8chRed-500
             `}
-           href="/sign-in"
+            href="/sign-in"
           >
             Back to Sign in
           </Link>
           <button
             className={`px-6 py-1 mt-5  rounded-lg text-white font-Inter_Bold text-lg ${
-              disabled ? "bg-red-300 cursor-wait" : "bg-dispa8chRed-500"
+              loading ? "bg-red-300 cursor-wait" : "bg-dispa8chRed-500"
             }`}
             onClick={handleSubmit}
-            disabled={disabled}
+            disabled={loading}
           >
-            Proceed
+            {loading ? 'Verifying...' : 'Proceed'}
           </button>
         </div>
       </section>

@@ -22,6 +22,7 @@ export default function Login() {
     password: "",
   });
 
+  const [errorMessage, seterrorMessage] = useState("")
   const [errors, setErrors] = useState({
     email: "",
     password: "",
@@ -68,7 +69,7 @@ export default function Login() {
       setLoading(true);
 
       const response = await fetch(
-        "https://dispa8ch-backend-1.onrender.com/api/auth/login",
+        "https://dispa8ch-backend.onrender.com/api/auth/login",
         {
           method: "POST",
           headers: {
@@ -80,17 +81,19 @@ export default function Login() {
       );
 
       const returnedData = await response.json();
-      console.log('retured responsev=' , returnedData)
+      console.log('retured response=' , returnedData)
 
 
-      if (response.ok) {
+      if (returnedData.success) {
         // Sign in and redirect to dashboard
         console.log('Company Data:', returnedData);
         updateCompanyData(returnedData.data)
         localStorage.setItem("companyData", JSON.stringify(returnedData.data));
         router.push("/dashboard");
         console.log('You suppose dey dashboard by now')
-      }
+      } 
+      seterrorMessage(returnedData.error)
+
     } catch (error) {
       console.log("error", error);
     } finally {
@@ -124,6 +127,9 @@ export default function Login() {
               }
               validationError={errors.password}
             />
+            {
+              errorMessage && <p className="text-dispa8chRed-700">{errorMessage}</p>
+            }
 
             <Link className="text-dispa8chRed-500" href={"/forgot-password"}>
               <p>Forgot password?</p>
