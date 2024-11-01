@@ -10,11 +10,11 @@ const NamedInput = (props?: NamedInputProps) => {
         placeholder={placeholder}
         type={type || "text"}
         onChange={props?.onChange}
-        className={`w-full h-12 rounded-lg font-Inter_Bold shadow-input border border-[#ccc] pl-5 text-feintBlack focus:outline-none ${
+        className={`w-full p-2 text-sm rounded-lg font-Inter_Bold shadow-input border border-[#ccc] pl-5 text-feintBlack focus:outline-none ${
           cName || ""
         } `}
       />
-      <p className="w-fit h-fit bg-white text-black font-semibold py-1 px-2 text-sm absolute top-[-30%] left-5 ">
+      <p className="w-fit h-fit bg-white text-black font-semibold py-1 px-2 text-[10px] absolute top-[-30%] left-5 ">
         {name}
       </p>
       {validationError && <p className="text-red-500 text-[10px]">{validationError}</p>}
