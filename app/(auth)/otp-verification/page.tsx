@@ -70,7 +70,6 @@ export default function OtpVerification() {
     }
   };
 
-  const disabled = false;
 
   return (
     <main className="w-screen min-h-screen px-4 bg-gradient-to-br from-[#D1193E1A] to-[#FDA8001A] font-Inter_Medium flex flex-col items-center justify-center gap-7 md:py-4">

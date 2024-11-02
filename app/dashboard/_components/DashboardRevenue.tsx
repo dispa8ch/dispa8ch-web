@@ -16,7 +16,7 @@ function DashboardRevenue() {
     const request = async () => {
       try {
         const request = await fetch(
-          `https://dispa8ch-backend-1.onrender.com/api/company/${companyId}/overview`
+          `https://dispa8ch-backend.onrender.com/api/company/${companyId}/overview`
         );
 
         const data = await request.json();
