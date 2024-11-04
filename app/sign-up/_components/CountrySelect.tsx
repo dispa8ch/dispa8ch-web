@@ -1,6 +1,5 @@
 'use client';
 
-import { SortAscIcon } from 'lucide-react';
 import React, { useState, useEffect, ChangeEvent } from 'react';
 
 interface Country {

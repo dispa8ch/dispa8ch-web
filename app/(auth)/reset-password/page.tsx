@@ -12,7 +12,7 @@ export default function ResetTrue() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   // const email = localStorage.getItem("emailOTP");
-  const { email, clearEmail } = useResetPassword();
+  const { email } = useResetPassword();
   const [errorMessage, seterrorMessage] = useState("");
   const router = useRouter()
   const [loading, setLoading] = useState(false);
