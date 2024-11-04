@@ -1,4 +1,5 @@
 "use client";
+import { useResetPassword } from "@/components/ResetPasswordProvider";
 import { Dispa8chLogo } from "@/public/icons";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -10,7 +11,8 @@ export default function ResetTrue() {
   // const disabled = false;
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const email = localStorage.getItem("emailOTP");
+  // const email = localStorage.getItem("emailOTP");
+  const { email, clearEmail } = useResetPassword();
   const [errorMessage, seterrorMessage] = useState("");
   const router = useRouter()
   const [loading, setLoading] = useState(false);

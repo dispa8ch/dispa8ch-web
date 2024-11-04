@@ -1,3 +1,4 @@
+import { ResetPasswordProvider } from "@/components/ResetPasswordProvider";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -12,6 +13,8 @@ export default function ResetPasswordLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section className={"w-fit h-fit"}>{children}</section>
+    <section className={"w-fit h-fit"}>
+      <ResetPasswordProvider>{children}</ResetPasswordProvider>
+    </section>
   );
 }

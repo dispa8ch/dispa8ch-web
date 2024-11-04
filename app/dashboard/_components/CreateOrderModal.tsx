@@ -279,7 +279,7 @@ const CreateOrderModal = ({ open, setOpen }: any) => {
                   placeholder="Payment type"
                   value={orderDetails.paymentType}
                   onChange={handleChange}
-                  error={errors.paymentType} // Display validation error
+                  validationError={errors.paymentType} // Display validation error
                 />
               </div>
             </div>

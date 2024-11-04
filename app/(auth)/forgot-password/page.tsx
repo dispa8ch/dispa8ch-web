@@ -1,4 +1,5 @@
 "use client";
+import { useResetPassword } from "@/components/ResetPasswordProvider";
 import { Dispa8chLogo } from "@/public/icons";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -11,6 +12,7 @@ export default function ForgotPassword() {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false)
   const router = useRouter()
+  const { setResetEmail } = useResetPassword();
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -34,7 +36,9 @@ export default function ForgotPassword() {
       const res = await response.json()
       console.log('res =' , res)
       if (res.success) {
-      localStorage.setItem('emailOTP' , email)
+      // localStorage.setItem('emailOTP' , email)
+      setResetEmail(email)
+
       router.push('/otp-verification')
       }
 
