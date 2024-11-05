@@ -1,4 +1,5 @@
 "use client";
+import { useResetPassword } from "@/components/ResetPasswordProvider";
 import { Dispa8chLogo } from "@/public/icons";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -10,7 +11,9 @@ import { useState } from "react";
 export default function OtpVerification() {
   const router = useRouter();
   // const { email } = router.query;
-  const email = localStorage.getItem("emailOTP");
+  // const email = localStorage.getItem("emailOTP");
+  const { email } = useResetPassword();
+
   const [otp, setOtp] = useState(Array(6).fill(""));
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -70,7 +73,6 @@ export default function OtpVerification() {
     }
   };
 
-  const disabled = false;
 
   return (
     <main className="w-screen min-h-screen px-4 bg-gradient-to-br from-[#D1193E1A] to-[#FDA8001A] font-Inter_Medium flex flex-col items-center justify-center gap-7 md:py-4">
@@ -82,6 +84,9 @@ export default function OtpVerification() {
           <h1 className="font-Inter_Black text-[25px]">Reset your password</h1>
           <p className="text-slate-400 text-sm">
             Enter the reset code sent to ****@gmail.com
+          </p>
+          <p className="text-slate-400 text-sm">
+            Do not refresh this page !
           </p>
         </div>
         <div className="flex flex-col items-center mb-6">

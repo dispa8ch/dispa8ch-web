@@ -1,6 +1,6 @@
 "use client";
+import { useResetPassword } from "@/components/ResetPasswordProvider";
 import { Dispa8chLogo } from "@/public/icons";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -8,10 +8,11 @@ import { useState } from "react";
  * @todo change the forgot password route in the forgot password link
  */
 export default function ResetTrue() {
-  const disabled = false;
+  // const disabled = false;
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const email = localStorage.getItem("emailOTP");
+  // const email = localStorage.getItem("emailOTP");
+  const { email } = useResetPassword();
   const [errorMessage, seterrorMessage] = useState("");
   const router = useRouter()
   const [loading, setLoading] = useState(false);

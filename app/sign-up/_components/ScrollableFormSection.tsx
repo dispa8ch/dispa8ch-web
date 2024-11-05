@@ -1,6 +1,6 @@
 "use client";
 import { LoginButton } from "@/components/buttons";
-import { CountryCodeInput, NamedInput, PasswordInput } from "@/components/inputs";
+import { NamedInput, PasswordInput } from "@/components/inputs";
 import { useState } from "react";
 import { signupSchema } from "@/lib/validations/user";
 // import { z } from "zod";

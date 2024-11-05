@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { LocateFixedIcon } from "lucide-react";
 import Modal from "./Modal"; // Adjust the path as necessary
 import NamedInput from "./Inputs"; // Assuming this is your custom input component
-import { z } from "zod";
 import { orderSchema } from "@/lib/validations/order";
 
 const CreateOrderModal = ({ open, setOpen }: any) => {
@@ -280,7 +279,7 @@ const CreateOrderModal = ({ open, setOpen }: any) => {
                   placeholder="Payment type"
                   value={orderDetails.paymentType}
                   onChange={handleChange}
-                  error={errors.paymentType} // Display validation error
+                  validationError={errors.paymentType} // Display validation error
                 />
               </div>
             </div>

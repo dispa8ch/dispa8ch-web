@@ -21,7 +21,7 @@ const ordersPageTabs = [
 
 const OrdersPage: React.FC = () => {
   const [open, setOpen] = useState(false);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const companyId = "67004241edc409aa4dec0992";
