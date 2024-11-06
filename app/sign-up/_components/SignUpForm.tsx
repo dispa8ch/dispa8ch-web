@@ -11,6 +11,7 @@ import ScrollableFormSection from "./ScrollableFormSection";
  */
 const SignUpForm = () => {
   const formRef = useRef<HTMLFormElement>();
+  
   let left = 0;
   const [display, setDisplay] = useState(true);
   const scrollForm = (pos: "left" | "right") => {

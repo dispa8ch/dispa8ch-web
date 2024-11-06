@@ -1,3 +1,10 @@
+"use client";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -6,7 +13,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
@@ -15,116 +21,214 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { useState } from "react";
+import { FormSchema } from "@/lib/validations/rider";
+
+
 
 const DriverModal = () => {
+  const [loading, setLoading] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  // Using react-hook-form with Zod validation
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+    defaultValues: {
+      fullName: "",
+      phone: "",
+      email: "",
+      meansOfID: "",
+      dateOfBirth: "",
+      gender: "Male",
+      residentialAddress: "",
+      vehicle: "",
+      note: "",
+    },
+  });
+
+  // Form submission handler
+  const onSubmit = async (data: z.infer<typeof FormSchema>) => {
+    console.log("Form submitted: ", data);
+    try {
+      setLoading(true);
+      const companyId = "67004241edc409aa4dec0992";
+
+      const response = await fetch(`https://dispa8ch-backend-1.onrender.com/api/${companyId}/rider`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+        mode: "cors",
+      });
+      console.log("Success:", await response.json());
+      if (response.ok) {
+        form.reset(); // Reset the form to default values
+        setOpen(false); // Close the modal
+      }
+    } catch (error) {
+      console.error("error", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger>Add New Driver</DialogTrigger>
-      <DialogContent className="">
+      <DialogContent className="overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-3xl font-semibold">
-            Add a new driver
-          </DialogTitle>
+          <DialogTitle className="text-3xl font-semibold">Add a new driver</DialogTitle>
         </DialogHeader>
-        <div className="flex flex-col  w-fit gap-7">
-          <div className="flex gap-4">
-            <div className="">
-              <Label htmlFor="name" className="text-rig">
-                Name
-              </Label>
-              <Input
-                id="name"
-                placeholder="Enter rider name"
-                className="col-span-3 focus:outline-1 outline-none"
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col w-fit gap-3">
+            <div className="flex gap-4">
+              <FormField
+                control={form.control}
+                name="fullName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Full Name</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter rider's full name" {...field} />
+                    </FormControl>
+                    <FormMessage className="text-[10px]" />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="phone"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Phone Number</FormLabel>
+                    <FormControl>
+                      <Input placeholder="000 000 0000" {...field} />
+                    </FormControl>
+                    <FormMessage className="text-[10px]" />
+                  </FormItem>
+                )}
               />
             </div>
-            <div className="">
-              <Label htmlFor="phone" className="text-righ t">
-                Phone Number
-              </Label>
-              <Input
-                id="phone"
-                placeholder="000 000 0000"
-                className="col-span-3"
-              />
-            </div>
-          </div>
-          <div className="">
-            <Label htmlFor="email" className="text-righ t">
-              Email
-            </Label>
-            <Input
-              id="email"
-              placeholder="Enter email address"
-              className="col-span-3"
+
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Enter email address" {...field} />
+                  </FormControl>
+                  <FormMessage className="text-[10px]" />
+                </FormItem>
+              )}
             />
-          </div>
-          <div className="flex gap-4 ">
-            <div className="">
-              <Label htmlFor="meansofid" className="text-righ t">
-                Means of Id
-              </Label>
-              <Input id="meansofid" placeholder="NIN" className="col-span-3" />
-            </div>
-            <div className="">
-              <Label htmlFor="DOB" className="text-righ t">
-                Date Of Birth
-              </Label>
-              <Input
-                type="date"
-                id="DOB"
-                placeholder="street @ US"
-                className="col-span-3"
+
+            <div className="flex gap-4">
+              <FormField
+                control={form.control}
+                name="meansOfID"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Means of Id</FormLabel>
+                    <FormControl>
+                      <Input placeholder="NIN" {...field} />
+                    </FormControl>
+                    <FormMessage className="text-[10px]" />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="dateOfBirth"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Date of Birth</FormLabel>
+                    <FormControl>
+                      <Input type="date" {...field} />
+                    </FormControl>
+                    <FormMessage className="text-[10px]" />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="gender"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Sex</FormLabel>
+                    <FormControl>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <SelectTrigger className="w-[100px]">
+                          <SelectValue placeholder="Select" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="Male">Male</SelectItem>
+                          <SelectItem value="Female">Female</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </FormControl>
+                    <FormMessage className="text-[10px]" />
+                  </FormItem>
+                )}
               />
             </div>
-            <div className="">
-              <Label htmlFor="sex" className="text-righ t">
-                Sex
-              </Label>
-              <Select>
-                <SelectTrigger className="w-[100px]">
-                  <SelectValue placeholder="Male" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="light">Male</SelectItem>
-                  <SelectItem value="dark">Female</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-          <div className="flex gap-4 ">
-            <div className="">
-              <Label htmlFor="address" className="text-righ t">
-                Residential Address
-              </Label>
-              <Input
-                id="address"
-                placeholder="Enter riders residential address"
-                className="col-span-3 "
+
+            <div className="flex gap-4">
+              <FormField
+                control={form.control}
+                name="residentialAddress"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Residential Address</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter rider's address" {...field} />
+                    </FormControl>
+                    <FormMessage className="text-[10px]" />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="vehicle"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Vehicle</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Motorbike" {...field} />
+                    </FormControl>
+                    <FormMessage className="text-[10px]" />
+                  </FormItem>
+                )}
               />
             </div>
-            <div className="">
-              <Label htmlFor="vehicle" className="text-righ t">
-                Vehicle
-              </Label>
-              <Input
-                id="vehicle"
-                placeholder="Motorbike"
-                className="col-span-3"
-              />
+
+            <FormField
+              control={form.control}
+              name="note"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Note</FormLabel>
+                  <FormControl>
+                    <Textarea placeholder="Additional notes" {...field} />
+                  </FormControl>
+                  <FormMessage className="text-[10px]" />
+                </FormItem>
+              )}
+            />
+
+            <div className="flex justify-end gap-2">
+              <Button type="button" variant="secondary" onClick={() => setOpen(false)}>
+                Cancel
+              </Button>
+              <Button type="submit" className="bg-[#A91432] text-white">
+                {loading ? "Saving..." : "Save"}
+              </Button>
             </div>
-          </div>
-          <div className="">
-            <Label htmlFor="note" className="text-righ t">
-              Note
-            </Label>
-            <Textarea id="note" placeholder="" className="col-span-3" />
-          </div>
-        </div>
-        <div className="flex justify-end gap-2">
-          <div className=" bg-gray-400 text-slate-800 px-2 py-1">Cancel</div>
-          <div className="bg-[#A91432] text-white px-2 py-1">Save</div>
-        </div>
+          </form>
+        </Form>
       </DialogContent>
     </Dialog>
   );

@@ -31,6 +31,8 @@ type HeaderProps = {
 }
 
 const Header: React.FC<HeaderProps> = ({ emailAddress }) => {
+  // const companyData = JSON.parse(localStorage.getItem("companyData"));
+
   return (
     <header className='w-full h-fit p-3 font-Inter  z-10 bg-white border-b border-b-gray-300 flex items-center gap-4 '>
       <section className='fit column gap-1'>

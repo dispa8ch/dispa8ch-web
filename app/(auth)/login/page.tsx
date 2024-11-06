@@ -7,17 +7,22 @@ import { useState } from "react";
 // import { z } from "zod";
 import { loginSchema } from "@/lib/validations/user";
 import { useRouter } from "next/navigation";
+import { useCompany } from "@/components/CompanyContext";
 
 /**
  * @todo change the forgot password route in the forgot password link
  */
 export default function Login() {
+  const { updateCompanyData } = useCompany();
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const [userDetail, setUserDetail] = useState({
     email: "",
     password: "",
   });
 
+  const [errorMessage, seterrorMessage] = useState("")
   const [errors, setErrors] = useState({
     email: "",
     password: "",
@@ -61,6 +66,7 @@ export default function Login() {
 
     try {
       console.log("login Values", userDetail);
+      setLoading(true);
 
       const response = await fetch(
         "https://dispa8ch-backend.onrender.com/api/auth/login",
@@ -74,19 +80,24 @@ export default function Login() {
         }
       );
 
-
-      console.log("response", response);
-
-      const router = useRouter()
+      const returnedData = await response.json();
+      console.log('retured response=' , returnedData)
 
 
-      if (response.ok) {
+      if (returnedData.success) {
         // Sign in and redirect to dashboard
-        router.push('/dashboard')
-        
-      }
+        console.log('Company Data:', returnedData);
+        updateCompanyData(returnedData.data)
+        localStorage.setItem("companyData", JSON.stringify(returnedData.data));
+        router.push("/dashboard");
+        console.log('You suppose dey dashboard by now')
+      } 
+      seterrorMessage(returnedData.error)
+
     } catch (error) {
       console.log("error", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -115,15 +126,18 @@ export default function Login() {
                 setUserDetail({ ...userDetail, password: e.target.value })
               }
               validationError={errors.password}
-
             />
-     
+            {
+              errorMessage && <p className="text-dispa8chRed-700">{errorMessage}</p>
+            }
+
             <Link className="text-dispa8chRed-500" href={"/forgot-password"}>
               <p>Forgot password?</p>
             </Link>
             <LoginButton
-              text="Login your account"
+              text={!loading ? "Login your account" : "Login in..."}
               handleSubmit={handleSubmit}
+              disabled={loading}
             />
           </section>
 

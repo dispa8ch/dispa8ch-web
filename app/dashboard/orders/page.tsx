@@ -7,6 +7,9 @@ import Pending from "../_components/Pending";
 import Completed from "../_components/Completed";
 import Cancelled from "../_components/Cancelled";
 import History from "../_components/History";
+import { useEffect, useState } from "react";
+import CreateOrderModal from "../_components/CreateOrderModal";
+
 
 const ordersPageTabs = [
   "Current",
@@ -17,6 +20,30 @@ const ordersPageTabs = [
 ] as const;
 
 const OrdersPage: React.FC = () => {
+  const [open, setOpen] = useState(false);
+  // const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const companyId = "67004241edc409aa4dec0992";
+    console.log('we are at orders page')
+
+    const fetchAllOrders = async () => {
+      const orders = await fetch(
+        `https://dispa8ch-backend.onrender.com/api/order/${companyId}/all`
+      );
+  
+      console.log('Order Request =' , orders)
+      const response = await orders.json()
+      console.log('Order Response =' ,response)
+
+    }
+    fetchAllOrders()
+
+
+  }, []);
+
+
+
   return (
     <section className="flex flex-col mt-2 mx-5 gap-6 ">
       <section className="flex justify-between">
@@ -42,12 +69,15 @@ const OrdersPage: React.FC = () => {
           </button>
 
           <BaseButton
-            onClick={() => ""}
+            onClick={() => setOpen(true)}
             className="w-fit h-fit flex mt-0 items-center gap-2 px-2 py-1 rounded-md text-base  "
           >
             <PlusCircle size={20} className="stroke-white " />
             <span>New Order</span>
           </BaseButton>
+          <CreateOrderModal open={open} setOpen={setOpen} />
+
+
         </section>
       </section>
       {/* Orders page tabs */}

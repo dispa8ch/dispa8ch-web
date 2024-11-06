@@ -18,8 +18,21 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import DriverModal from "../_components/DriverModal";
+import { useEffect } from "react";
 
 const page = () => {
+
+  useEffect(() => {
+    const getAllRiders = async () => {
+        const companyId = "67004241edc409aa4dec0992";
+
+      const riders = await fetch(`https://dispa8ch-backend-1.onrender.com/api/rider/${companyId}/all`)
+      console.log("Riders =" , riders)
+      const riderReturned = await riders.json()
+      console.log("riderReturned =" , riderReturned)
+    }
+    getAllRiders()
+  },[])
   return (
     <section className="">
       <div className="flex justify-between ">
