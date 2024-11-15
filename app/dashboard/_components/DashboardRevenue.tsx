@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import DashboardChart from "./DashboardChart";
 
 // Define the type structure for overViewData based on the API response
 type OverviewData = {
@@ -18,7 +19,8 @@ function DashboardRevenue() {
   useEffect(() => {
     // Access localStorage and set companyId only on the client side
     const companyData = JSON.parse(localStorage.getItem("companyData") || "{}");
-    setCompanyId(companyData?.id);
+    setCompanyId(companyData?._id);
+    console.log(companyId);
   }, []);
 
   useEffect(() => {
@@ -30,6 +32,7 @@ function DashboardRevenue() {
           );
           const data = await response.json();
           setOverViewData(data.data);
+          console.log("data", data.data);
         } catch (error) {
           console.error("Error fetching overview data:", error);
         }
@@ -75,7 +78,12 @@ function DashboardRevenue() {
         <div className="w-full flex justify-between">
           <div className="rounded-md w-64 h-28 relative bg-image2">
             <div className="absolute bottom-0 right-0">
-              <Image alt="" src="/images/intersect (2).png" width={87} height={64} />
+              <Image
+                alt=""
+                src="/images/intersect (2).png"
+                width={87}
+                height={64}
+              />
             </div>
             <p className="ml-3 font-semibold text-base text-white mt-3">
               Today's deliveries
@@ -86,7 +94,12 @@ function DashboardRevenue() {
           </div>
           <div className="rounded-md w-64 h-28 relative bg-image3">
             <div className="absolute bottom-0 right-0">
-              <Image alt="" src="/images/intersect (3).png" width={87} height={64} />
+              <Image
+                alt=""
+                src="/images/intersect (3).png"
+                width={87}
+                height={64}
+              />
             </div>
             <p className="ml-3 font-semibold text-base text-white mt-3">
               Completed deliveries
@@ -97,7 +110,12 @@ function DashboardRevenue() {
           </div>
           <div className="rounded-md w-64 h-28 relative bg-image4">
             <div className="absolute bottom-0 right-0">
-              <Image alt="" src="/images/intersect (4).png" width={87} height={64} />
+              <Image
+                alt=""
+                src="/images/intersect (4).png"
+                width={87}
+                height={64}
+              />
             </div>
             <p className="ml-3 font-semibold text-base text-white mt-3">
               Assigned riders
@@ -108,6 +126,8 @@ function DashboardRevenue() {
           </div>
         </div>
       </section>
+
+      <DashboardChart />
     </div>
   );
 }
