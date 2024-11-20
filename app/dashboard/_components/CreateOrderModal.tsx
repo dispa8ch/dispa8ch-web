@@ -3,6 +3,7 @@ import { LocateFixedIcon } from "lucide-react";
 import Modal from "./Modal"; // Adjust the path as necessary
 import NamedInput from "./Inputs"; // Assuming this is your custom input component
 import { orderSchema } from "@/lib/validations/order";
+import { useRouter } from "next/navigation";
 
 const CreateOrderModal = ({ open, setOpen }: any) => {
   const [loading, setLoading] = useState(false);
@@ -64,8 +65,39 @@ const CreateOrderModal = ({ open, setOpen }: any) => {
     }));
   };
 
-  const handleSubmit = () => {
+  const router = useRouter();
+
+  const handleSubmit = async () => {
     console.log("Submit Order", orderDetails);
+    try {
+      setLoading(true);
+
+      const response = await fetch(
+        `https://dispa8ch-backend.onrender.com/api/order`,
+
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(orderDetails),
+          mode: "cors",
+          // credentials: "include",
+        }
+      );
+      console.log("response", response);
+      const responded = await response.json();
+      console.log("responded =", responded);
+      if (responded.success) {
+        // Sign in and redirect to dashboard
+        router.push("/dashboard");
+      }
+      console.log("Response message ==>", responded.message);
+    } catch (error) {
+      console.error("error", error);
+    } finally {
+      setLoading(false);
+    }
     if (validate()) {
       setLoading(true);
       // Add your form submission logic here (API call)

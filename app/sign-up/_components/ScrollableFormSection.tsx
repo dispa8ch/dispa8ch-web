@@ -64,7 +64,7 @@ const ScrollableFormSection = () => {
         if (err.path.includes("phone")) newErrors.phone = err.message;
       });
 
-      console.log('There was an error during validations' , result)
+      console.log("There was an error during validations", result);
 
       setErrors(newErrors);
       return;
@@ -97,12 +97,13 @@ const ScrollableFormSection = () => {
         }
       );
       console.log("response", response);
-      const responded = await response.json()
-      console.log('responded =' , responded)
+      const responded = await response.json();
+      console.log("responded =", responded);
       if (responded.success) {
         // Sign in and redirect to dashboard
         router.push("/dashboard");
-      } console.log("Response message ==>" , responded.message)
+      }
+      console.log("Response message ==>", responded.message);
     } catch (error) {
       console.error("error", error);
     } finally {
@@ -122,7 +123,7 @@ const ScrollableFormSection = () => {
           }
           validationError={errors.email}
         />
-        <CountrySelect setUserDetail={setUserDetail} userDetail={userDetail}/>
+        <CountrySelect setUserDetail={setUserDetail} userDetail={userDetail} />
         <PasswordInput
           type="password"
           name="Password"
