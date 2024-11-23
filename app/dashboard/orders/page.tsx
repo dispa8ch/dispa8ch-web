@@ -33,14 +33,19 @@ const OrdersPage: React.FC = () => {
 
   useEffect(() => {
     const fetchAllOrders = async () => {
-      if (companyId) {
-        const orders = await fetch(
-          `https://dispa8ch-backend.onrender.com/api/order/${companyId}/all`
-        );
+      try {
+        if (companyId) {
+          console.log("company id =", companyId);
+          const orders = await fetch(
+            `https://dispa8ch-backend.onrender.com/api/order/66f0001f1edac281cfe839fe/all`
+          );
 
-        console.log("Order Request =", orders);
-        const response = await orders.json();
-        console.log("Order Response =", response);
+          console.log("Order Request =", orders);
+          const response = await orders.json();
+          console.log("Order Response =", response);
+        }
+      } catch (error) {
+        console.log("error fetching all riders", error);
       }
     };
     fetchAllOrders();
