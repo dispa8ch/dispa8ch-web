@@ -18,21 +18,33 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import DriverModal from "../_components/DriverModal";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const page = () => {
+  const [companyId, setCompanyId] = useState<string | null>(null);
 
   useEffect(() => {
-    const getAllRiders = async () => {
-        const companyId = "67004241edc409aa4dec0992";
+    // Access localStorage and set companyId only on the client side
+    const companyData = JSON.parse(localStorage.getItem("companyData") || "{}");
+    setCompanyId(companyData?._id);
+    console.log(companyId);
+  }, [companyId]);
 
-      const riders = await fetch(`https://dispa8ch-backend-1.onrender.com/api/rider/${companyId}/all`)
-      console.log("Riders =" , riders)
-      const riderReturned = await riders.json()
-      console.log("riderReturned =" , riderReturned)
+  useEffect(() => {
+    if (companyId) {
+      console.log("company id =", companyId);
+
+      const getAllRiders = async () => {
+        const riders = await fetch(
+          `https://dispa8ch-backend.onrender.com/api/rider/${companyId}/all`
+        );
+        console.log("Riders =", riders);
+        const riderReturned = await riders.json();
+        console.log("riderReturned =", riderReturned);
+      };
+      getAllRiders();
     }
-    getAllRiders()
-  },[])
+  }, [companyId]);
   return (
     <section className="">
       <div className="flex justify-between ">
@@ -134,7 +146,7 @@ const page = () => {
           </Table>
         </TabsContent>
       </Tabs>
-      <DriverModal />
+      <DriverModal companyId={companyId} />
     </section>
   );
 };

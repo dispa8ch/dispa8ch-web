@@ -37,7 +37,7 @@ const OrdersPage: React.FC = () => {
         if (companyId) {
           console.log("company id =", companyId);
           const orders = await fetch(
-            `https://dispa8ch-backend.onrender.com/api/order/66f0001f1edac281cfe839fe/all`
+            `https://dispa8ch-backend.onrender.com/api/order/${companyId}/all`
           );
 
           console.log("Order Request =", orders);
@@ -82,7 +82,11 @@ const OrdersPage: React.FC = () => {
             <PlusCircle size={20} className="stroke-white " />
             <span>New Order</span>
           </BaseButton>
-          <CreateOrderModal open={open} setOpen={setOpen} />
+          <CreateOrderModal
+            open={open}
+            setOpen={setOpen}
+            companyId={companyId}
+          />
         </section>
       </section>
       {/* Orders page tabs */}
