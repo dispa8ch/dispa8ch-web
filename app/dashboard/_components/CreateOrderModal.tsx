@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { LocateFixedIcon } from "lucide-react";
 import Modal from "./Modal"; // Adjust the path as necessary
 import NamedInput from "./Inputs"; // Assuming this is your custom input component
 import { z } from "zod";
 import { orderSchema } from "@/lib/validations/order";
 
-const CreateOrderModal = ({ open, setOpen, companyId }: any) => {
+const CreateOrderModal = ({ open, setOpen }: any) => {
   const [loading, setLoading] = useState(false);
 
+  const [companyId, setCompanyId] = useState<string | null>(null);
   const [orderDetails, setOrderDetails] = useState({
     orderNumber: "",
     username: "",
@@ -26,10 +27,20 @@ const CreateOrderModal = ({ open, setOpen, companyId }: any) => {
     taxRate: 0,
     deliveryFees: 0,
     discount: 0,
-    deliveryInstruction: "g",
+    deliveryInstruction: "",
     paymentType: "",
     companyId: companyId,
   });
+
+  useEffect(() => {
+    const companyData = JSON.parse(localStorage.getItem("companyData") || "{}");
+    const id = companyData?._id || null;
+    setCompanyId(id);
+    setOrderDetails((prev) => ({
+      ...prev,
+      companyId: id,
+    }));
+  }, []);
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
@@ -86,7 +97,8 @@ const CreateOrderModal = ({ open, setOpen, companyId }: any) => {
         // router.push("/dashboard");
         setOpen(false);
       } else {
-        alert(data.message || "Something went wrong. Please try again.");
+        // alert(data.message || "Something went wrong. Please try again.");
+        console.log("error creeating order");
       }
     } catch (error) {
       console.error("Error submitting order:", error);

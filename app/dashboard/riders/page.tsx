@@ -28,7 +28,7 @@ const page = () => {
     const companyData = JSON.parse(localStorage.getItem("companyData") || "{}");
     setCompanyId(companyData?._id);
     console.log(companyId);
-  }, [companyId]);
+  }, []);
 
   useEffect(() => {
     if (companyId) {

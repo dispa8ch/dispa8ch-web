@@ -20,6 +20,7 @@ const ordersPageTabs = [
 
 const OrdersPage: React.FC = () => {
   const [open, setOpen] = useState(false);
+  const [orders, setOrders] = useState([]);
   // const [loading, setLoading] = useState(false);
 
   const [companyId, setCompanyId] = useState<string | null>(null);
@@ -28,8 +29,8 @@ const OrdersPage: React.FC = () => {
     // Access localStorage and set companyId only on the client side
     const companyData = JSON.parse(localStorage.getItem("companyData") || "{}");
     setCompanyId(companyData?._id);
-    console.log(companyId);
-  }, []);
+    console.log("c =", companyId);
+  }, [companyId]);
 
   useEffect(() => {
     const fetchAllOrders = async () => {
@@ -43,6 +44,9 @@ const OrdersPage: React.FC = () => {
           console.log("Order Request =", orders);
           const response = await orders.json();
           console.log("Order Response =", response);
+          if (response.success) {
+            setOrders(response.data);
+          }
         }
       } catch (error) {
         console.log("error fetching all riders", error);
@@ -91,7 +95,7 @@ const OrdersPage: React.FC = () => {
       </section>
       {/* Orders page tabs */}
       <Tabs
-        defaultValue="current"
+        defaultValue="Current"
         className="w-full h-fit min-h-[inherit] flex-grow flex flex-col "
       >
         <TabsList className="w-full justify-start rounded-lg ">
@@ -100,26 +104,26 @@ const OrdersPage: React.FC = () => {
             <TabsTrigger
               key={index}
               className="px-12 data-[state=active]:rounded-md  "
-              value={tab.toLowerCase()}
+              value={tab}
             >
               {tab}
             </TabsTrigger>
           ))}
         </TabsList>
         <section className="w-full flex-grow overflow-scroll no-scroll mt-4 mb-6">
-          <TabsContent value="current">
+          <TabsContent value="Current">
             <CurrentTab />
           </TabsContent>
-          <TabsContent value="pending">
-            <Pending />
+          <TabsContent value="Pending">
+            <Pending data={orders} />
           </TabsContent>
-          <TabsContent value="completed">
+          <TabsContent value="Completed">
             <Completed />
           </TabsContent>
-          <TabsContent value="cancelled">
+          <TabsContent value="Cancelled">
             <Cancelled />
           </TabsContent>
-          <TabsContent value="history">
+          <TabsContent value="History">
             <History />
           </TabsContent>
         </section>
