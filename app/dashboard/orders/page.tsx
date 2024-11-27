@@ -1,4 +1,5 @@
 "use client";
+
 import { BaseButton } from "@/components/buttons";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { FileUp, PlusCircle, SearchIcon } from "lucide-react";
@@ -9,6 +10,7 @@ import Cancelled from "../_components/Cancelled";
 import History from "../_components/History";
 import { useEffect, useState } from "react";
 import CreateOrderModal from "../_components/CreateOrderModal";
+import { useCompany } from "@/components/providers/CompanyDataProvider";
 
 const ordersPageTabs = [
   "Current",
@@ -21,39 +23,75 @@ const ordersPageTabs = [
 const OrdersPage: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [orders, setOrders] = useState([]);
-  // const [loading, setLoading] = useState(false);
+  const [ordersLoading, setOrdersLoading] = useState(false);
+  const [ordersError, setOrdersError] = useState<string | null>(null);
 
-  const [companyId, setCompanyId] = useState<string | null>(null);
+  const {
+    companyData,
+    isLoading: companyLoading,
+    error: companyError,
+  } = useCompany();
 
-  useEffect(() => {
-    // Access localStorage and set companyId only on the client side
-    const companyData = JSON.parse(localStorage.getItem("companyData") || "{}");
-    setCompanyId(companyData?._id);
-    console.log("c =", companyId);
-  }, [companyId]);
+  const companyId = companyData?._id;
 
   useEffect(() => {
     const fetchAllOrders = async () => {
       try {
+        setOrdersLoading(true);
+        setOrdersError(null);
+
         if (companyId) {
-          console.log("company id =", companyId);
-          const orders = await fetch(
+          const response = await fetch(
             `https://dispa8ch-backend.onrender.com/api/order/${companyId}/all`
           );
 
-          console.log("Order Request =", orders);
-          const response = await orders.json();
-          console.log("Order Response =", response);
-          if (response.success) {
-            setOrders(response.data);
+          const result = await response.json();
+
+          if (response.ok && result.success) {
+            setOrders(result.data);
+          } else {
+            setOrdersError(result.message || "Failed to fetch orders.");
           }
         }
       } catch (error) {
-        console.log("error fetching all riders", error);
+        setOrdersError("An error occurred while fetching orders.");
+      } finally {
+        setOrdersLoading(false);
       }
     };
-    fetchAllOrders();
+
+    if (companyId) {
+      fetchAllOrders();
+    }
   }, [companyId]);
+
+  if (companyLoading || ordersLoading) {
+    return (
+      <section className="flex justify-center items-center h-screen">
+        <p className="text-lg font-semibold">Loading...</p>
+      </section>
+    );
+  }
+
+  if (companyError || ordersError) {
+    return (
+      <section className="flex justify-center items-center h-screen">
+        <p className="text-lg font-semibold text-red-500">
+          {companyError || ordersError}
+        </p>
+      </section>
+    );
+  }
+
+  if (!companyId) {
+    return (
+      <section className="flex justify-center items-center h-screen">
+        <p className="text-lg font-semibold text-gray-500">
+          No company data available.
+        </p>
+      </section>
+    );
+  }
 
   return (
     <section className="flex flex-col mt-2 mx-5 gap-6 ">
@@ -99,7 +137,6 @@ const OrdersPage: React.FC = () => {
         className="w-full h-fit min-h-[inherit] flex-grow flex flex-col "
       >
         <TabsList className="w-full justify-start rounded-lg ">
-          {/* data-[state=active] is the attribute selector that changes the background color or of the tab trigger */}
           {ordersPageTabs.map((tab, index) => (
             <TabsTrigger
               key={index}
@@ -112,7 +149,7 @@ const OrdersPage: React.FC = () => {
         </TabsList>
         <section className="w-full flex-grow overflow-scroll no-scroll mt-4 mb-6">
           <TabsContent value="Current">
-            <CurrentTab />
+            <CurrentTab data={orders} />
           </TabsContent>
           <TabsContent value="Pending">
             <Pending data={orders} />

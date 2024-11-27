@@ -31,10 +31,15 @@ import {
 } from "@/components/ui/form";
 import { useEffect, useState } from "react";
 import { FormSchema } from "@/lib/validations/rider";
+import { useCompany } from "@/components/providers/CompanyDataProvider";
 
-const DriverModal = ({ companyId }: any) => {
+const DriverModal = () => {
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const { companyData } = useCompany();
+
+  const companyId = companyData?._id;
 
   // Using react-hook-form with Zod validation
   const form = useForm<z.infer<typeof FormSchema>>({

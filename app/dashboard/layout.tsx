@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "../globals.css";
 import Header from "./_components/header";
 import Sidebar from "./_components/sidebar";
+import { CompanyProvider } from "@/components/providers/CompanyDataProvider";
 
 export const metadata: Metadata = {
   title: "Dashboard | Dispa8ch",
@@ -19,12 +20,16 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section className='w-full h-screen flex '>
-      <Sidebar />
-      <section className='flex-1 column'>
-        <Header emailAddress={"michthebrand@gmail.com"} />
-        <main className='bg-transparent flex-1  w-full h-full bg-white relative px-6 pt-6'>{children}</main>
-      </section>
+    <section className="w-full h-screen flex ">
+      <CompanyProvider>
+        <Sidebar />
+        <section className="flex-1 column">
+          <Header emailAddress={"michthebrand@gmail.com"} />
+          <main className="bg-transparent flex-1  w-full h-full bg-white relative px-6 pt-6">
+            {children}
+          </main>
+        </section>
+      </CompanyProvider>
     </section>
   );
 }

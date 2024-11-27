@@ -12,20 +12,14 @@ type OverviewData = {
   assignedRiders?: number;
 };
 
-function DashboardRevenue() {
+function DashboardRevenue({ companyData }: any) {
   const [overViewData, setOverViewData] = useState<OverviewData>({});
-  const [companyId, setCompanyId] = useState<string | null>(null);
-
-  useEffect(() => {
-    // Access localStorage and set companyId only on the client side
-    const companyData = JSON.parse(localStorage.getItem("companyData") || "{}");
-    setCompanyId(companyData?._id);
-    console.log(companyId);
-  }, []);
+  const companyId = companyData._id;
 
   useEffect(() => {
     const fetchData = async () => {
       if (companyId) {
+        console.log("companyId @ dahboard", companyId);
         try {
           const response = await fetch(
             `https://dispa8ch-backend.onrender.com/api/company/${companyId}/overview`
@@ -40,7 +34,7 @@ function DashboardRevenue() {
     };
 
     fetchData();
-  }, [companyId]);
+  }, []);
 
   return (
     <div className="w-180 ml-8 bg-white">

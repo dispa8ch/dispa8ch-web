@@ -5,10 +5,9 @@ import NamedInput from "./Inputs"; // Assuming this is your custom input compone
 import { z } from "zod";
 import { orderSchema } from "@/lib/validations/order";
 
-const CreateOrderModal = ({ open, setOpen }: any) => {
+const CreateOrderModal = ({ open, setOpen, companyId }: any) => {
   const [loading, setLoading] = useState(false);
 
-  const [companyId, setCompanyId] = useState<string | null>(null);
   const [orderDetails, setOrderDetails] = useState({
     orderNumber: "",
     username: "",
@@ -31,16 +30,6 @@ const CreateOrderModal = ({ open, setOpen }: any) => {
     paymentType: "",
     companyId: companyId,
   });
-
-  useEffect(() => {
-    const companyData = JSON.parse(localStorage.getItem("companyData") || "{}");
-    const id = companyData?._id || null;
-    setCompanyId(id);
-    setOrderDetails((prev) => ({
-      ...prev,
-      companyId: id,
-    }));
-  }, []);
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 

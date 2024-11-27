@@ -279,7 +279,9 @@ const Pending = ({ data }: any) => {
         </TableHeader>
         <TableBody>
           {data.length > 0 ? (
-            data.map((order: any) => <PendingContent data={order} />)
+            data.map((order: any) => (
+              <PendingContent key={order._id} data={order} />
+            ))
           ) : (
             <div className="">
               <p className="">No Pending Orders</p>
