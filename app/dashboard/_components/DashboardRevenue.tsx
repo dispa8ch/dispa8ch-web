@@ -4,38 +4,8 @@ import { useEffect, useState } from "react";
 import DashboardChart from "./DashboardChart";
 
 // Define the type structure for overViewData based on the API response
-type OverviewData = {
-  totalOrders?: number;
-  totalRiders?: number;
-  todaysDeliveries?: number;
-  completedDeliveries?: number;
-  assignedRiders?: number;
-};
 
-function DashboardRevenue({ companyData }: any) {
-  const [overViewData, setOverViewData] = useState<OverviewData>({});
-  const companyId = companyData._id;
-
-  useEffect(() => {
-    const fetchData = async () => {
-      if (companyId) {
-        console.log("companyId @ dahboard", companyId);
-        try {
-          const response = await fetch(
-            `https://dispa8ch-backend.onrender.com/api/company/${companyId}/overview`
-          );
-          const data = await response.json();
-          setOverViewData(data.data);
-          console.log("data", data.data);
-        } catch (error) {
-          console.error("Error fetching overview data:", error);
-        }
-      }
-    };
-
-    fetchData();
-  }, []);
-
+function DashboardRevenue({ overViewData }: any) {
   return (
     <div className="w-180 ml-8 bg-white">
       <section>
@@ -49,7 +19,7 @@ function DashboardRevenue({ companyData }: any) {
             <div className="flex gap-8">
               <div className="h-15 grid place-items-center">
                 <p className="text-black font-bold text-xl">
-                  {overViewData.totalOrders ?? 0}
+                  {overViewData.totalOrders}
                 </p>
               </div>
             </div>
