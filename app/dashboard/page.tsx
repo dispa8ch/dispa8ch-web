@@ -57,7 +57,11 @@ const Dashboard = () => {
   }
 
   if (error) {
-    return <p className="text-red-500">Error: {error}</p>;
+    return (
+      <section className="flex justify-center items-center h-screen">
+        <p className="text-red-500">Error: {error}</p>
+      </section>
+    );
   }
 
   if (!companyData) {

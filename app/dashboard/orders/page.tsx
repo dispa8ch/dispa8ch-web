@@ -11,6 +11,7 @@ import History from "../_components/History";
 import { useEffect, useState } from "react";
 import CreateOrderModal from "../_components/CreateOrderModal";
 import { useCompany } from "@/components/providers/CompanyDataProvider";
+import AssignOrder from "./_component/AssignOrder";
 
 const ordersPageTabs = [
   "Current",
@@ -22,6 +23,7 @@ const ordersPageTabs = [
 
 const OrdersPage: React.FC = () => {
   const [open, setOpen] = useState(false);
+  const [openAssignOrder, setOpenAssignOrder] = useState(false);
   const [orders, setOrders] = useState([]);
   const [ordersLoading, setOrdersLoading] = useState(false);
   const [ordersError, setOrdersError] = useState<string | null>(null);
@@ -129,6 +131,7 @@ const OrdersPage: React.FC = () => {
             setOpen={setOpen}
             companyId={companyId}
           />
+          <AssignOrder open={openAssignOrder} />
         </section>
       </section>
       {/* Orders page tabs */}

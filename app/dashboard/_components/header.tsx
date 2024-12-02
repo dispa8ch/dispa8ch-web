@@ -42,8 +42,8 @@ type HeaderProps = {
 const Header: React.FC<HeaderProps> = () => {
   const { companyData, isLoading, error } = useCompany();
 
-  if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (isLoading) return <p></p>;
+  if (error) return <p></p>;
 
   if (!companyData) {
     // Display a loading state or return null until companyData is available
