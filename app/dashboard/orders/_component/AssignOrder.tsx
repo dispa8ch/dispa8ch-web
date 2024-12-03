@@ -2,6 +2,16 @@ import React, { useEffect, useState } from "react";
 import Modal from "../../_components/Modal";
 import { NamedInput } from "@/components/inputs";
 import { useCompany } from "@/components/providers/CompanyDataProvider";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { BikeIcon, CarIcon } from "lucide-react";
+import ConfirmAssignOrder from "./ConfirmAssignOrder";
 
 interface Rider {
   companyId: string;
@@ -19,8 +29,7 @@ interface Rider {
   _id: string;
 }
 
-const AssignOrder = () => {
-  const [open, setOpen] = useState(false);
+const AssignOrder = ({ open, setOpen, assignOrderId }: any) => {
   const [riders, setRiders] = useState<Rider[]>([]); // Explicitly type the state as an array of Rider
   const [ridersLoading, setRidersLoading] = useState<boolean>(false); // Type as boolean
   const [ridersError, setRidersError] = useState<string | null>(null); // Error state
@@ -63,6 +72,16 @@ const AssignOrder = () => {
     }
   }, [companyId]);
 
+  function getInitials(name: string): string {
+    const names = name.split(" ");
+    const firstInitial = names[0][0].toUpperCase();
+    const lastInitial = names[1] ? names[1][0].toUpperCase() : "";
+    return firstInitial + lastInitial;
+  }
+
+  const [confirmModal, setConfirmModal] = useState(false);
+  const [choosenRider, setChoosenRider] = useState("");
+
   return (
     <Modal
       open={open}
@@ -70,16 +89,49 @@ const AssignOrder = () => {
       width="800px"
       height="600px"
     >
-      <h2 className="font-bold text-3xl mb-4">Assign Order</h2>
+      <ConfirmAssignOrder
+        open={confirmModal}
+        setOpen={setConfirmModal}
+        orderId={assignOrderId}
+        riderId={choosenRider}
+      />
+      <h2 className="font-bold text-3xl mb-4">Assign Order{assignOrderId}</h2>
       <div className="">
-        <div className="flex justify-between mb-2">
+        <div className="flex justify-between mb-2 text-2xl">
           <p className="">Drivers</p>
           <p className="">No of Assigned Orders</p>
         </div>
 
-        {riders.map((rider) => (
-          <div className="">{rider.fullName}</div>
-        ))}
+        <Table className="w-full ">
+          {riders.map((rider) => (
+            <TableBody
+              key={rider._id}
+              className=" w-full"
+              onClick={() => {
+                setConfirmModal(true);
+                setChoosenRider(rider._id);
+              }}
+            >
+              <TableRow className="flex justify-between  items-center">
+                <TableCell className="font-medium flex items-center gap-2 ">
+                  <div className="rounded-full w-10 h-10 bg-slate-700 text-white flex items-center justify-center">
+                    {getInitials(rider.fullName)}
+                  </div>{" "}
+                  <p>{rider.fullName}</p>
+                </TableCell>
+
+                <TableCell>
+                  {rider.vehicle === "Bike" ? <BikeIcon /> : null}
+                  {rider.vehicle === "Car" ? <CarIcon /> : null}
+                </TableCell>
+                <TableCell>
+                  <p>0</p>
+                </TableCell>
+              </TableRow>
+            </TableBody>
+            //{" "}
+          ))}
+        </Table>
       </div>
     </Modal>
   );

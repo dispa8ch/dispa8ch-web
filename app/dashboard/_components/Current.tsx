@@ -1,10 +1,14 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { TableCell, TableRow } from "@/components/ui/table";
 import { Switch } from "@/components/ui/switch";
+import AssignOrder from "../orders/_component/AssignOrder";
 
 const CurrentOrder = ({ data }: any) => {
+  const [openAssignOrder, setOpenAssignOrder] = useState(false);
+  const [assignOrderId, setassignOrderId] = useState("");
+
   const { deliveryTo, orderDetails, orderNumber, orderStatus, pickupForm } =
     data;
   function formatTime(dateString: any) {
@@ -58,7 +62,13 @@ const CurrentOrder = ({ data }: any) => {
         <Switch />
       </TableCell>
       <TableCell>
-        <button className="flex items-center gap-2 px-2 py-1 border rounded border-gray-400">
+        <button
+          className="flex items-center gap-2 px-2 py-1 border rounded border-gray-400"
+          onClick={() => {
+            setOpenAssignOrder(true);
+            setassignOrderId(orderNumber);
+          }}
+        >
           <svg
             width="20"
             height="20"
@@ -77,6 +87,11 @@ const CurrentOrder = ({ data }: any) => {
       <TableCell>
         <p className="text-sm font-semibold">{orderStatus}</p>
       </TableCell>
+      <AssignOrder
+        open={openAssignOrder}
+        setOpen={setOpenAssignOrder}
+        assignOrderId={assignOrderId}
+      />
     </TableRow>
   );
 };

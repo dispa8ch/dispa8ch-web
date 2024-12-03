@@ -33,9 +33,9 @@ import { useEffect, useState } from "react";
 import { FormSchema } from "@/lib/validations/rider";
 import { useCompany } from "@/components/providers/CompanyDataProvider";
 
-const DriverModal = () => {
+const DriverModal = ({ open, setOpen }: any) => {
   const [loading, setLoading] = useState(false);
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
 
   const { companyData } = useCompany();
 
@@ -93,7 +93,7 @@ const DriverModal = () => {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger>Add New Driver</DialogTrigger>
+      {/* <DialogTrigger>Add New Driver</DialogTrigger> */}
       <DialogContent className="overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-3xl font-semibold">

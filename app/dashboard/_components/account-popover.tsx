@@ -52,20 +52,26 @@ const AccountPopOver: React.FC<{
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [isOpen, setIsOpen] = useState(false);
   const isLight = theme === "light";
+  function getInitials(name: string): string {
+    const names = name.split(" ");
+    const firstInitial = names[0][0].toUpperCase();
+    const lastInitial = names[1] ? names[1][0].toUpperCase() : "";
+    return firstInitial + lastInitial;
+  }
   return (
     <Popover>
       <PopoverTrigger asChild>
         <button className="w-12 h-12 text-white text-2xl bg-dispa8chRed-500 rounded-full">
-          {emailAddress.at(0)?.toUpperCase()}
+          {companyData.contactPerson.at(0)?.toUpperCase()}
         </button>
       </PopoverTrigger>
-      <PopoverContent className="font-Inter w-64 px-0 column pb-8 rounded-2xl gap-4 relative z-[60] right-2">
+      <PopoverContent className="font-Inter w-auto px-0 column pb-8 rounded-2xl gap-4 relative z-[60] right-2">
         <WithPadding className="w-full flex gap-4 items-end">
           <Link
             href="/dashboard/accounts"
             className="flex items-center justify-center w-12 h-12 text-white text-2xl bg-dispa8chRed-500 rounded-full"
           >
-            {emailAddress.at(0)?.toUpperCase()}
+            {getInitials(companyData.contactPerson)}
           </Link>
           <div className="w-fit h-fit column gap-1">
             <h1 className="text-black/80 font-Inter_Medium text-base">

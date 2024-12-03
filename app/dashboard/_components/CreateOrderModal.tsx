@@ -4,9 +4,11 @@ import Modal from "./Modal"; // Adjust the path as necessary
 import NamedInput from "./Inputs"; // Assuming this is your custom input component
 import { z } from "zod";
 import { orderSchema } from "@/lib/validations/order";
+import { useRouter } from "next/navigation";
 
 const CreateOrderModal = ({ open, setOpen, companyId }: any) => {
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const [orderDetails, setOrderDetails] = useState({
     orderNumber: "",
@@ -83,7 +85,7 @@ const CreateOrderModal = ({ open, setOpen, companyId }: any) => {
 
       const data = await response.json();
       if (data.success) {
-        // router.push("/dashboard");
+        router.push("/dashboard");
         setOpen(false);
       } else {
         // alert(data.message || "Something went wrong. Please try again.");
@@ -310,7 +312,7 @@ const CreateOrderModal = ({ open, setOpen, companyId }: any) => {
         </div>
         <div className="flex justify-end mt-4">
           <button
-            className="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition"
+            className="px-6 py-3  bg-dispa8chRed-10 hover:bg-dispa8chRed-10 text-white rounded-lg transition"
             onClick={handleSubmit}
             disabled={loading}
           >

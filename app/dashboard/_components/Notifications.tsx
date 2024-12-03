@@ -17,7 +17,7 @@ export default function Notifications({ overViewData }: any) {
     }
   }, [overViewData]);
   return (
-    <div className="mr-3 w-125 mb-9 items-center  pb-20 border  notification-border rounded  pt-4">
+    <div className="mr-3 w-125 mb-9 items-center  pb-20 border px-5  notification-border rounded  pt-4">
       <h1 className="text-lg font-semibold ml-4.5 text-black ">
         Notifications
       </h1>
@@ -136,7 +136,7 @@ export default function Notifications({ overViewData }: any) {
                   </div>
                 </div>
 
-                <div>
+                <div className=" text-right">
                   <p>{latestOrder?.deliveryTo.deliveryTime}</p>
                   <p className="text-sm font-normal">
                     {latestOrder?.deliveryTo.deliveryDate}

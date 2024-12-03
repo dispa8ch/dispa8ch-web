@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect, ChangeEvent } from 'react';
+import React, { useState, useEffect, ChangeEvent } from "react";
 
 interface Country {
   name: {
@@ -12,8 +12,8 @@ interface Country {
   cca2: string;
 }
 
-const CountrySelect = ({setUserDetail , userDetail} : any) => {
-  const [searchTerm, setSearchTerm] = useState<string>(''); // To store user input
+const CountrySelect = ({ setUserDetail, userDetail }: any) => {
+  const [searchTerm, setSearchTerm] = useState<string>(""); // To store user input
   const [countries, setCountries] = useState<Country[]>([]); // To store all fetched countries
   const [filteredCountries, setFilteredCountries] = useState<Country[]>([]); // To store filtered results
   const [showDropdown, setShowDropdown] = useState<boolean>(false); // Toggle for dropdown visibility
@@ -22,11 +22,15 @@ const CountrySelect = ({setUserDetail , userDetail} : any) => {
   useEffect(() => {
     const fetchCountries = async () => {
       try {
-        const response = await fetch('https://restcountries.com/v3.1/all'); // Fetch country data
+        const response = await fetch(
+          "https://restcountries.com/v3.1/all?fields=name,flags"
+        ); // Fetch country data
+        console.log("Contries Returned", response);
         const data: Country[] = await response.json();
+        console.log("Contries Data", data);
         setCountries(data); // Save the countries in state
       } catch (error) {
-        console.error('Error fetching country data:', error);
+        console.error("Error fetching country data:", error);
       }
     };
 
@@ -50,10 +54,10 @@ const CountrySelect = ({setUserDetail , userDetail} : any) => {
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
-  
+
   // Handle country selection
   const handleCountrySelect = (countryName: string) => {
-    setUserDetail({ ...userDetail, country: countryName })
+    setUserDetail({ ...userDetail, country: countryName });
     setSearchTerm(countryName); // Set the input to the selected country
     setShowDropdown(false); // Close the dropdown after selection
   };

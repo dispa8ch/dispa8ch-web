@@ -1,6 +1,7 @@
 // import { CheckedInput } from "@/components/inputs";
 // import { Switch } from "@/components/ui/switch";
 // import { PlusCircle } from "lucide-react";
+import Image from "next/image";
 import CurrentOrder from "./Current";
 import {
   Table,
@@ -348,13 +349,21 @@ const CurrentTab = ({ data }: any) => {
           </TableCell>
         </TableRow>
       </TableHeader>
-      <TableBody>
+      <TableBody className="w-full border">
         {data.length > 0 ? (
           data.map((order: any) => (
             <CurrentOrder key={order._id} data={order} />
           ))
         ) : (
-          <p>No current Data</p>
+          <div className="w-full border-2 flex flex-col items-center justify-center my-10">
+            <Image
+              src="/images/pending2.png"
+              alt="Pending logo"
+              width={100}
+              height={100}
+            />
+            <p className="text-lg font-light"> You Currently Have No Orders</p>
+          </div>
         )}
       </TableBody>
     </Table>

@@ -41,6 +41,7 @@ const page = () => {
   const [riders, setRiders] = useState<Rider[]>([]); // Explicitly type the state as an array of Rider
   const [ridersLoading, setRidersLoading] = useState<boolean>(false); // Type as boolean
   const [ridersError, setRidersError] = useState<string | null>(null); // Error state
+  const [openDriverModal, setOpenDriverModal] = useState(false);
   const {
     companyData,
     isLoading: companyLoading,
@@ -122,16 +123,16 @@ const page = () => {
           </button>
 
           <BaseButton
-            onClick={() => ""}
+            onClick={() => setOpenDriverModal(true)}
             className="w-fit h-fit flex mt-0 items-center gap-2 px-2 py-1 rounded-md text-base  "
           >
             <PlusCircle size={20} className="stroke-white " />
-            <span>New Order</span>
+            <span>New Driver</span>
           </BaseButton>
         </div>
       </div>
       <Tabs defaultValue="riderList" className="w-full">
-        <TabsList>
+        <TabsList className="flex items-start  w-fit my-2">
           <TabsTrigger value="riderList">Rider List</TabsTrigger>
           <TabsTrigger value="DailyPayment">Daily Payment</TabsTrigger>
         </TabsList>
@@ -203,7 +204,7 @@ const page = () => {
           </Table>
         </TabsContent>
       </Tabs>
-      <DriverModal />
+      <DriverModal open={openDriverModal} setOpen={setOpenDriverModal} />
     </section>
   );
 };

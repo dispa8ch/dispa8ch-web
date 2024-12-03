@@ -23,7 +23,6 @@ const ordersPageTabs = [
 
 const OrdersPage: React.FC = () => {
   const [open, setOpen] = useState(false);
-  const [openAssignOrder, setOpenAssignOrder] = useState(false);
   const [orders, setOrders] = useState([]);
   const [ordersLoading, setOrdersLoading] = useState(false);
   const [ordersError, setOrdersError] = useState<string | null>(null);
@@ -131,7 +130,6 @@ const OrdersPage: React.FC = () => {
             setOpen={setOpen}
             companyId={companyId}
           />
-          <AssignOrder open={openAssignOrder} />
         </section>
       </section>
       {/* Orders page tabs */}

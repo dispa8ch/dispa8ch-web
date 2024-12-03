@@ -29,11 +29,12 @@ const PendingOrders = ({ orders }: { orders: any[] }) => {
   return (
     <>
       <section className="w-full grid place-items-center mt-8">
-        <div className="w-full max-w-6xl flex pb-4 justify-between items-center border-b border-gray-400">
+        <div className="w-full max-w-6xl flex  justify-between items-center border-gray-400">
           <h1 className="text-sm font-bold">
-            Pending Deliveries <span className="text-red-500">50</span>
+            Pending Deliveries{" "}
+            <span className="text-red-500">{orders?.length}</span>
           </h1>
-          <div className="flex gap-4 items-center px-1.5 py-0.5 border border-gray-500 rounded">
+          <div className="flex gap-4 items-center px-1.5 py-0.5 rounded">
             <div>
               <p className="text-sm">Unassigned</p>
             </div>
@@ -55,7 +56,7 @@ const PendingOrders = ({ orders }: { orders: any[] }) => {
         </div>
       </section>
 
-      <section className="w-full mt-6 overflow-hidden grid place-items-center">
+      <section className="w-full mt-2 overflow-hidden grid place-items-center">
         <div className="w-full overflow-x-scroll">
           <div className="grid grid-cols-5 gap-5 w-max items-center border-b border-gray-400 font-bold py-2">
             <div className="w-40">Order Number</div>
