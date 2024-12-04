@@ -5,7 +5,7 @@ import CancelledOrders from "./CancelledOrders";
 import PendingOrders from "./PendingOrders";
 import RecentOrders from "./RecentOrders";
 
-export default function Notifications({ overViewData }: any) {
+export default function Notifications({ overViewData }) {
   console.log("notview", overViewData.orders);
   const [latestOrder, setLatestOrder] = useState(null);
 

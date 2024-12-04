@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { LocateFixedIcon } from "lucide-react";
 import Modal from "./Modal"; // Adjust the path as necessary
 import NamedInput from "./Inputs"; // Assuming this is your custom input component
-import { z } from "zod";
 import { orderSchema } from "@/lib/validations/order";
 import { useRouter } from "next/navigation";
 

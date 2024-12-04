@@ -47,7 +47,7 @@ const themes = [
  */
 const AccountPopOver: React.FC<{
   emailAddress: string;
-  companyData: object;
+  companyData: any;
 }> = ({ emailAddress, companyData }) => {
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [isOpen, setIsOpen] = useState(false);

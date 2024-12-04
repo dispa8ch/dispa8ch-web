@@ -38,7 +38,7 @@ const lineChartData = {
   ],
   datasets: [
     {
-      label: "Steps By Joan",
+      label: "Monthly Orders",
       data: [
         // 6000, 5300, 8000, 5000, 6700, 8000, 1000, 7500, 8200, 9100, 6100, 4000,
       ],

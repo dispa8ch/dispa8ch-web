@@ -5,19 +5,19 @@ import DashboardRevenue from "./_components/DashboardRevenue";
 import Notifications from "./_components/Notifications";
 import { useEffect, useState } from "react";
 
-type OverviewData = {
-  totalOrders?: number;
-  totalRiders?: number;
-  todaysDeliveries?: number;
-  completedDeliveries?: number;
-  assignedRiders?: number;
-};
+// type OverviewData = {
+//   totalOrders?: number;
+//   totalRiders?: number;
+//   todaysDeliveries?: number;
+//   completedDeliveries?: number;
+//   assignedRiders?: number;
+// };
 
 const Dashboard = () => {
   const { companyData, isLoading, error } = useCompany();
-  const [overViewData, setOverViewData] = useState<OverviewData>({});
-  const [dataLoading, setDataLoading] = useState<boolean>(false); // Type as boolean
-  const [dataError, setDataError] = useState<string | null>(null); // Error state
+  const [overViewData, setOverViewData] = useState({});
+  const [dataLoading, setDataLoading] = useState(false); // Type as boolean
+  const [dataError, setDataError] = useState(null); // Error state
   const companyId = companyData?._id;
 
   useEffect(() => {

@@ -355,15 +355,22 @@ const CurrentTab = ({ data }: any) => {
             <CurrentOrder key={order._id} data={order} />
           ))
         ) : (
-          <div className="w-full border-2 flex flex-col items-center justify-center my-10">
-            <Image
-              src="/images/pending2.png"
-              alt="Pending logo"
-              width={100}
-              height={100}
-            />
-            <p className="text-lg font-light"> You Currently Have No Orders</p>
-          </div>
+          <TableRow>
+            <TableCell colSpan={8} className="text-center py-4">
+              <div className="w-full border-2 flex flex-col items-center justify-center my-10">
+                <Image
+                  src="/images/pending2.png"
+                  alt="Pending logo"
+                  width={100}
+                  height={100}
+                />
+                <p className="text-lg font-light">
+                  {" "}
+                  You Currently Have No Orders
+                </p>
+              </div>
+            </TableCell>
+          </TableRow>
         )}
       </TableBody>
     </Table>
