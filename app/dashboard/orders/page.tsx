@@ -1,4 +1,5 @@
 "use client";
+
 import { BaseButton } from "@/components/buttons";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { FileUp, PlusCircle, SearchIcon } from "lucide-react";
@@ -9,7 +10,8 @@ import Cancelled from "../_components/Cancelled";
 import History from "../_components/History";
 import { useEffect, useState } from "react";
 import CreateOrderModal from "../_components/CreateOrderModal";
-
+import { useCompany } from "@/components/providers/CompanyDataProvider";
+import AssignOrder from "./_component/AssignOrder";
 
 const ordersPageTabs = [
   "Current",
@@ -21,28 +23,76 @@ const ordersPageTabs = [
 
 const OrdersPage: React.FC = () => {
   const [open, setOpen] = useState(false);
-  // const [loading, setLoading] = useState(false);
+  const [orders, setOrders] = useState([]);
+  const [ordersLoading, setOrdersLoading] = useState(false);
+  const [ordersError, setOrdersError] = useState<string | null>(null);
+
+  const {
+    companyData,
+    isLoading: companyLoading,
+    error: companyError,
+  } = useCompany();
+
+  const companyId = companyData?._id;
 
   useEffect(() => {
-    const companyId = "67004241edc409aa4dec0992";
-    console.log('we are at orders page')
-
     const fetchAllOrders = async () => {
-      const orders = await fetch(
-        `https://dispa8ch-backend.onrender.com/api/order/${companyId}/all`
-      );
-  
-      console.log('Order Request =' , orders)
-      const response = await orders.json()
-      console.log('Order Response =' ,response)
+      try {
+        setOrdersLoading(true);
+        setOrdersError(null);
 
+        if (companyId) {
+          const response = await fetch(
+            `https://dispa8ch-backend.onrender.com/api/order/${companyId}/all`
+          );
+
+          const result = await response.json();
+
+          if (response.ok && result.success) {
+            setOrders(result.data);
+          } else {
+            setOrdersError(result.message || "Failed to fetch orders.");
+          }
+        }
+      } catch (error) {
+        setOrdersError("An error occurred while fetching orders.");
+      } finally {
+        setOrdersLoading(false);
+      }
+    };
+
+    if (companyId) {
+      fetchAllOrders();
     }
-    fetchAllOrders()
+  }, [companyId]);
 
+  if (companyLoading || ordersLoading) {
+    return (
+      <section className="flex justify-center items-center h-screen">
+        <p className="text-lg font-semibold">Loading...</p>
+      </section>
+    );
+  }
 
-  }, []);
+  if (companyError || ordersError) {
+    return (
+      <section className="flex justify-center items-center h-screen">
+        <p className="text-lg font-semibold text-red-500">
+          {companyError || ordersError}
+        </p>
+      </section>
+    );
+  }
 
-
+  if (!companyId) {
+    return (
+      <section className="flex justify-center items-center h-screen">
+        <p className="text-lg font-semibold text-gray-500">
+          No company data available.
+        </p>
+      </section>
+    );
+  }
 
   return (
     <section className="flex flex-col mt-2 mx-5 gap-6 ">
@@ -75,42 +125,43 @@ const OrdersPage: React.FC = () => {
             <PlusCircle size={20} className="stroke-white " />
             <span>New Order</span>
           </BaseButton>
-          <CreateOrderModal open={open} setOpen={setOpen} />
-
-
+          <CreateOrderModal
+            open={open}
+            setOpen={setOpen}
+            companyId={companyId}
+          />
         </section>
       </section>
       {/* Orders page tabs */}
       <Tabs
-        defaultValue="current"
+        defaultValue="Current"
         className="w-full h-fit min-h-[inherit] flex-grow flex flex-col "
       >
         <TabsList className="w-full justify-start rounded-lg ">
-          {/* data-[state=active] is the attribute selector that changes the background color or of the tab trigger */}
           {ordersPageTabs.map((tab, index) => (
             <TabsTrigger
               key={index}
               className="px-12 data-[state=active]:rounded-md  "
-              value={tab.toLowerCase()}
+              value={tab}
             >
               {tab}
             </TabsTrigger>
           ))}
         </TabsList>
         <section className="w-full flex-grow overflow-scroll no-scroll mt-4 mb-6">
-          <TabsContent value="current">
-            <CurrentTab />
+          <TabsContent value="Current">
+            <CurrentTab data={orders} />
           </TabsContent>
-          <TabsContent value="pending">
-            <Pending />
+          <TabsContent value="Pending">
+            <Pending data={orders} />
           </TabsContent>
-          <TabsContent value="completed">
+          <TabsContent value="Completed">
             <Completed />
           </TabsContent>
-          <TabsContent value="cancelled">
+          <TabsContent value="Cancelled">
             <Cancelled />
           </TabsContent>
-          <TabsContent value="history">
+          <TabsContent value="History">
             <History />
           </TabsContent>
         </section>

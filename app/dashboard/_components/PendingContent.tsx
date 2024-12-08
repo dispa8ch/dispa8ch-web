@@ -1,7 +1,7 @@
 import React from "react";
 import { TableCell, TableRow } from "@/components/ui/table";
 
-const PendingContent = () => {
+const PendingContent = ({ data }: any) => {
   return (
     <TableRow>
       <TableCell className="w-10">
@@ -13,22 +13,24 @@ const PendingContent = () => {
         />
       </TableCell>
       <TableCell>
-        <p className="text-sm font-semibold">1681323</p>
+        <p className="text-sm font-semibold">{data.orderNumber}</p>
       </TableCell>
       <TableCell>
-        <p className="text-sm font-semibold">Okeke Emmanuel</p>
+        <p className="text-sm font-semibold">{data.deliveryTo?.receiverName}</p>
       </TableCell>
       <TableCell>
-        <p className="text-sm font-semibold">Obinze</p>
+        <p className="text-sm font-semibold">{data.deliveryTo?.address}</p>
       </TableCell>
       <TableCell>
-        <p className="text-sm font-semibold">$253</p>
+        <p className="text-sm font-semibold">
+          ${data.orderDetails?.deliveryFees}
+        </p>
       </TableCell>
       <TableCell>
-        <p className="text-sm font-semibold">20 miles</p>
+        <p className="text-sm font-semibold">Not Implemented</p>
       </TableCell>
       <TableCell>
-        <p className="text-sm font-semibold">5:54pm</p>
+        <p className="text-sm font-semibold">{data.deliveryTo?.deliveryTime}</p>
       </TableCell>
       <TableCell>
         <p className="text-sm font-semibold">11:00pm</p>

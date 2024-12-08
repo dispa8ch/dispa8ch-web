@@ -21,15 +21,26 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { useState } from "react";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { useEffect, useState } from "react";
 import { FormSchema } from "@/lib/validations/rider";
+import { useCompany } from "@/components/providers/CompanyDataProvider";
+import { useRouter } from "next/navigation";
 
-
-
-const DriverModal = () => {
+const DriverModal = ({ open, setOpen }: any) => {
   const [loading, setLoading] = useState(false);
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
+
+  const { companyData } = useCompany();
+
+  const companyId = companyData?._id;
 
   // Using react-hook-form with Zod validation
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -44,28 +55,36 @@ const DriverModal = () => {
       residentialAddress: "",
       vehicle: "",
       note: "",
+      companyId: companyId,
     },
   });
 
   // Form submission handler
+  const router = useRouter();
   const onSubmit = async (data: z.infer<typeof FormSchema>) => {
     console.log("Form submitted: ", data);
     try {
       setLoading(true);
-      const companyId = "67004241edc409aa4dec0992";
+      // const companyId = "67004241edc409aa4dec0992";
 
-      const response = await fetch(`https://dispa8ch-backend-1.onrender.com/api/${companyId}/rider`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-        mode: "cors",
-      });
-      console.log("Success:", await response.json());
-      if (response.ok) {
-        form.reset(); // Reset the form to default values
-        setOpen(false); // Close the modal
+      if (companyId) {
+        const response = await fetch(
+          `https://dispa8ch-backend.onrender.com/api/rider`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+            mode: "cors",
+          }
+        );
+        console.log("Success:", await response.json());
+        if (response.ok) {
+          form.reset(); // Reset the form to default values
+          setOpen(false); // Close the modal
+          router.push("/dashboard");
+        }
       }
     } catch (error) {
       console.error("error", error);
@@ -76,13 +95,18 @@ const DriverModal = () => {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger>Add New Driver</DialogTrigger>
+      {/* <DialogTrigger>Add New Driver</DialogTrigger> */}
       <DialogContent className="overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-3xl font-semibold">Add a new driver</DialogTitle>
+          <DialogTitle className="text-3xl font-semibold">
+            Add a new driver
+          </DialogTitle>
         </DialogHeader>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col w-fit gap-3">
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="flex flex-col w-fit gap-3"
+          >
             <div className="flex gap-4">
               <FormField
                 control={form.control}
@@ -160,7 +184,10 @@ const DriverModal = () => {
                   <FormItem>
                     <FormLabel>Sex</FormLabel>
                     <FormControl>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <Select
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      >
                         <SelectTrigger className="w-[100px]">
                           <SelectValue placeholder="Select" />
                         </SelectTrigger>
@@ -220,7 +247,11 @@ const DriverModal = () => {
             />
 
             <div className="flex justify-end gap-2">
-              <Button type="button" variant="secondary" onClick={() => setOpen(false)}>
+              <Button
+                type="button"
+                variant="secondary"
+                onClick={() => setOpen(false)}
+              >
                 Cancel
               </Button>
               <Button type="submit" className="bg-[#A91432] text-white">

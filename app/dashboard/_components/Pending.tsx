@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/table";
 import PendingContent from "./PendingContent";
 
-const Pending = () => {
+const Pending = ({ data }: any) => {
   return (
     <>
       <Table className=" overflow-x-auto">
@@ -278,7 +278,15 @@ const Pending = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          <PendingContent />
+          {data.length > 0 ? (
+            data.map((order: any) => (
+              <PendingContent key={order._id} data={order} />
+            ))
+          ) : (
+            <div className="">
+              <p className="">No Pending Orders</p>
+            </div>
+          )}
         </TableBody>
       </Table>
     </>

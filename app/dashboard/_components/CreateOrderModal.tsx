@@ -3,9 +3,11 @@ import { LocateFixedIcon } from "lucide-react";
 import Modal from "./Modal"; // Adjust the path as necessary
 import NamedInput from "./Inputs"; // Assuming this is your custom input component
 import { orderSchema } from "@/lib/validations/order";
+import { useRouter } from "next/navigation";
 
-const CreateOrderModal = ({ open, setOpen }: any) => {
+const CreateOrderModal = ({ open, setOpen, companyId }: any) => {
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const [orderDetails, setOrderDetails] = useState({
     orderNumber: "",
@@ -27,7 +29,7 @@ const CreateOrderModal = ({ open, setOpen }: any) => {
     discount: 0,
     deliveryInstruction: "",
     paymentType: "",
-    companyId: "",
+    companyId: companyId,
   });
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
@@ -64,11 +66,34 @@ const CreateOrderModal = ({ open, setOpen }: any) => {
     }));
   };
 
-  const handleSubmit = () => {
-    console.log("Submit Order", orderDetails);
-    if (validate()) {
-      setLoading(true);
-      // Add your form submission logic here (API call)
+  const handleSubmit = async () => {
+    console.log("submit details", orderDetails);
+
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `https://dispa8ch-backend.onrender.com/api/order`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(orderDetails),
+        }
+      );
+
+      const data = await response.json();
+      if (data.success) {
+        router.push("/dashboard");
+        setOpen(false);
+      } else {
+        // alert(data.message || "Something went wrong. Please try again.");
+        console.log("error creeating order");
+      }
+    } catch (error) {
+      console.error("Error submitting order:", error);
+      alert("Failed to submit the order. Please try again.");
+    } finally {
       setLoading(false);
     }
   };
@@ -279,7 +304,6 @@ const CreateOrderModal = ({ open, setOpen }: any) => {
                   placeholder="Payment type"
                   value={orderDetails.paymentType}
                   onChange={handleChange}
-                  validationError={errors.paymentType} // Display validation error
                 />
               </div>
             </div>
@@ -287,7 +311,7 @@ const CreateOrderModal = ({ open, setOpen }: any) => {
         </div>
         <div className="flex justify-end mt-4">
           <button
-            className="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition"
+            className="px-6 py-3  bg-dispa8chRed-10 hover:bg-dispa8chRed-10 text-white rounded-lg transition"
             onClick={handleSubmit}
             disabled={loading}
           >

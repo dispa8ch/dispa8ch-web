@@ -1,3 +1,5 @@
+"use client";
+import { useCompany } from "@/components/providers/CompanyDataProvider";
 import React from "react";
 
 const userDetails = {
@@ -10,6 +12,8 @@ const userDetails = {
   password: "ABCDefgh12345#@",
 };
 const Account = () => {
+  const { companyData, isLoading, error } = useCompany();
+
   return (
     <div className="font- flex flex-col gap-10 px-20">
       <div className="">
@@ -24,7 +28,7 @@ const Account = () => {
                 type="text"
                 name="name"
                 id=""
-                value={userDetails.contactPerson}
+                value={companyData?.contactPerson}
               />
             </div>
 
@@ -39,7 +43,7 @@ const Account = () => {
                 type="text"
                 name="phone"
                 id=""
-                value={userDetails.phone}
+                value={companyData?.phone}
               />
             </div>
 
@@ -54,7 +58,7 @@ const Account = () => {
                 type="text"
                 name="email"
                 id=""
-                value={userDetails.email}
+                value={companyData?.email}
               />
             </div>
 
@@ -69,7 +73,7 @@ const Account = () => {
                 type="password"
                 name="email"
                 id=""
-                value={userDetails.password}
+                value={companyData?.companyPassword}
               />
             </div>
 
@@ -90,7 +94,7 @@ const Account = () => {
                 type="text"
                 name=""
                 id=""
-                value={userDetails.companyName}
+                value={companyData?.companyName}
               />
             </div>
 
@@ -105,7 +109,7 @@ const Account = () => {
                 type="text"
                 name="email"
                 id=""
-                value={userDetails.email}
+                value={companyData?.email}
               />
             </div>
 
@@ -120,7 +124,7 @@ const Account = () => {
                 type="text"
                 name="email"
                 id=""
-                value={userDetails.city}
+                value={companyData?.city}
               />
             </div>
 
