@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Modal from "../../_components/Modal";
+import { useRouter } from "next/navigation";
 
 const ConfirmAssignOrder = ({ open, setOpen, orderId, riderId }: any) => {
   const [loading, setloading] = useState(false);
+  const router = useRouter();
   const handleSubmit = async () => {
     try {
       console.log("About to assign order");
@@ -10,11 +12,11 @@ const ConfirmAssignOrder = ({ open, setOpen, orderId, riderId }: any) => {
       const response = await fetch(
         `https://dispa8ch-backend.onrender.com/api/order/${orderId}/rider`,
         {
-          method: "POST",
+          method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ riderId: "riderId" }),
+          body: JSON.stringify({ riderId: riderId }),
         }
       );
       console.log("response =", response);
@@ -24,6 +26,7 @@ const ConfirmAssignOrder = ({ open, setOpen, orderId, riderId }: any) => {
       console.log("Error aSSIGNING order", error);
     } finally {
       setloading(false);
+      router.push("/dashboard");
     }
   };
 

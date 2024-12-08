@@ -32,6 +32,7 @@ import {
 import { useEffect, useState } from "react";
 import { FormSchema } from "@/lib/validations/rider";
 import { useCompany } from "@/components/providers/CompanyDataProvider";
+import { useRouter } from "next/navigation";
 
 const DriverModal = ({ open, setOpen }: any) => {
   const [loading, setLoading] = useState(false);
@@ -59,7 +60,7 @@ const DriverModal = ({ open, setOpen }: any) => {
   });
 
   // Form submission handler
-
+  const router = useRouter();
   const onSubmit = async (data: z.infer<typeof FormSchema>) => {
     console.log("Form submitted: ", data);
     try {
@@ -82,6 +83,7 @@ const DriverModal = ({ open, setOpen }: any) => {
         if (response.ok) {
           form.reset(); // Reset the form to default values
           setOpen(false); // Close the modal
+          router.push("/dashboard");
         }
       }
     } catch (error) {

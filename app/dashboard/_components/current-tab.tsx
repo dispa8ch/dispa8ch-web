@@ -357,7 +357,7 @@ const CurrentTab = ({ data }: any) => {
         ) : (
           <TableRow>
             <TableCell colSpan={8} className="text-center py-4">
-              <div className="w-full border-2 flex flex-col items-center justify-center my-10">
+              <div className="w-full flex flex-col items-center justify-center my-10">
                 <Image
                   src="/images/pending2.png"
                   alt="Pending logo"
