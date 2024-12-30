@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+
 import { CompanyProvider } from "@/components/providers/CompanyDataProvider";
 import Header from "../dashboard/_components/header";
 import SettingsSidebar from "./_components/settings-sidebar";
@@ -15,7 +16,7 @@ export default function SettingsLayout({ children }: SettingsLayoutProps) {
         {/* settings sidebar */}
         <div className="flex w-full h-full">
           <SettingsSidebar />
-          {children}
+          <div className="pl-10">{children}</div>
         </div>
       </div>
     </CompanyProvider>
