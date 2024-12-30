@@ -5,12 +5,13 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: ['selector', '[data-theme="dark"]'],
+  darkMode: ["selector", '[data-theme="dark"]'],
   theme: {
     transparent: "transparent",
     current: "currentColor",
     extend: {
       fontFamily: {
+        Poppins: ["var(--font-poppins)"],
         Inter: ["Inter"],
         Inter_Light: ["Inter_Light"],
         Inter_Medium: ["Inter_Medium"],
@@ -107,8 +108,7 @@ module.exports = {
         125: "462px",
         13: "51px",
         120: "700px",
-        180 : "800px"
-        
+        180: "800px",
       },
       height: {
         35: "141px",
@@ -122,7 +122,7 @@ module.exports = {
         120: "500px",
         110: "450px",
         100: "400px",
-        72: "288px"
+        72: "288px",
       },
       container: {
         center: true,
@@ -146,5 +146,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')]
+  plugins: [require("tailwindcss-animate")],
 };
