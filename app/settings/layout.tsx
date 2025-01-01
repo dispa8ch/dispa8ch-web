@@ -14,9 +14,9 @@ export default function SettingsLayout({ children }: SettingsLayoutProps) {
       <div className="w-full h-full">
         <Header />
         {/* settings sidebar */}
-        <div className="flex w-full h-full">
+        <div className="flex w-full min-h-full">
           <SettingsSidebar />
-          <div className="pl-10">{children}</div>
+          <div className="w-full min-h-full pt-12 pb-10 pl-10">{children}</div>
         </div>
       </div>
     </CompanyProvider>

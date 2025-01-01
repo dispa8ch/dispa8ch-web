@@ -197,7 +197,7 @@ const settingsSidebarLinks = [
 const SettingsSidebar = () => {
   const pathname = usePathname();
   return (
-    <div className="h-full px-5 pt-10 shadow-xl font- w-105">
+    <div className="px-5 pt-10 shadow-xl w-105 ">
       <h2 className="text-[30px] leading-[45px] mb-5 font-semibold font-Poppins text-black">
         Settings
       </h2>
