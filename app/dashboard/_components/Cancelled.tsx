@@ -7,9 +7,20 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import Image from "next/image";
 import React from "react";
 
-const Cancelled = () => {
+const Cancelled = ({ data }: any) => {
+  const { deliveryTo, orderDetails, orderNumber, orderStatus, pickupForm } =
+    data;
+  function formatTime(dateString: any) {
+    const date = new Date(dateString);
+    return date.toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    });
+  }
   return (
     <>
       <Table className="min-w-full">
@@ -50,34 +61,36 @@ const Cancelled = () => {
             </TableCell>
           </TableRow>
         </TableHeader>
+      </Table>
+      {data.length > 0 ? (
         <TableBody>
           <TableRow>
             <TableCell>
-              <p className="text-sm font-semibold">17/06/23</p>
+              <p className="text-sm">{data?.date}</p>
             </TableCell>
             <TableCell>
-              <p className="text-sm font-semibold">1677437</p>
+              <p className="text-sm">{data.orderNumber}</p>
             </TableCell>
             <TableCell>
-              <p className="text-sm font-semibold">Okeke Emmanuel</p>
+              <p className="text-sm">{data.deliveryTo?.receiverName}</p>
             </TableCell>
             <TableCell>
-              <p className="text-sm font-semibold">Douglas</p>
+              <p className="text-sm">{data.deliveryTo?.address}</p>
             </TableCell>
             <TableCell>
-              <p className="text-sm font-semibold">$250.34</p>
+              <p className="text-sm"> ${data.orderDetails?.deliveryFees}</p>
             </TableCell>
             <TableCell>
-              <p className="text-sm font-semibold">20.43 miles</p>
+              <p className="text-sm font-semibold">Wait for Map</p>
             </TableCell>
             <TableCell>
-              <p className="text-sm font-semibold">5:48 pm</p>
+              <p className="text-sm font-semibold">CreatedAt</p>
             </TableCell>
             <TableCell>
-              <p className="text-sm font-semibold">6:04 pm</p>
+              <p className="text-sm"> {formatTime(pickupForm?.pickupTime)}</p>
             </TableCell>
             <TableCell>
-              <p className="text-sm font-semibold">7:02 pm</p>
+              <p className="text-sm">{deliveryTo?.deliveryTime}</p>
             </TableCell>
             <TableCell>
               <p className="text-sm font-semibold">Driver</p>
@@ -87,7 +100,17 @@ const Cancelled = () => {
             </TableCell>
           </TableRow>
         </TableBody>
-      </Table>
+      ) : (
+        <div className="w-full flex flex-col items-center justify-center my-10  border-red-800">
+          <Image
+            src="/images/pending2.png"
+            alt="Pending logo"
+            width={200}
+            height={200}
+          />
+          <p className="text-lg font-light"> No Cancelled Order</p>
+        </div>
+      )}
     </>
   );
 };

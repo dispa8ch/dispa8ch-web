@@ -32,9 +32,10 @@ const ScrollableFormSection = () => {
     phone: "",
   });
 
+  const [globalError, setGlobalError] = useState("");
+
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    console.log("Handle Submit was clicked");
     console.log("submitting with values:", userDetail);
 
     const result = signupSchema.safeParse(userDetail);
@@ -97,13 +98,16 @@ const ScrollableFormSection = () => {
         }
       );
       console.log("response", response);
-      const responded = await response.json();
-      console.log("responded =", responded);
-      if (responded.success) {
+      const data = await response.json();
+      console.log("responded =", data);
+      if (data.success) {
         // Sign in and redirect to dashboard
+        localStorage.setItem("companyData", JSON.stringify(data.data));
+
         router.push("/dashboard");
       }
-      console.log("Response message ==>", responded.message);
+      console.log("Response message ==>", data.message);
+      setGlobalError(data.message);
     } catch (error) {
       console.error("error", error);
     } finally {
@@ -113,29 +117,34 @@ const ScrollableFormSection = () => {
 
   return (
     <>
-      <section className="min-w-full h-full flex flex-col py-4 px-[2px] gap-6">
+      <section className="min-w-full h-fit   flex flex-col py-4 px-[2px] gap-6">
         <NamedInput
           name="Email address"
           type="email"
+          placeholder="dispatchinc20@gmail.com"
           value={userDetail.email}
-          onChange={(e) =>
-            setUserDetail({ ...userDetail, email: e.target.value })
-          }
+          onChange={(e) => (
+            setUserDetail({ ...userDetail, email: e.target.value }),
+            setGlobalError("")
+          )}
           validationError={errors.email}
         />
         <CountrySelect setUserDetail={setUserDetail} userDetail={userDetail} />
         <PasswordInput
           type="password"
           name="Password"
+          placeholder="Enter a strong Password"
           value={userDetail.password}
           onChange={(e) =>
             setUserDetail({ ...userDetail, password: e.target.value })
           }
           validationError={errors.password}
+          className={`w-full h-12 rounded-lg font-Inter_Bold shadow-input border border-[#ccc] pl-5 text-feintBlack focus:outline-none} `}
         />
         <PasswordInput
           type="password"
           name="Confirm Password"
+          placeholder="Confirm your Password"
           value={userDetail.confirmPassword}
           onChange={(e) =>
             setUserDetail({
@@ -149,6 +158,7 @@ const ScrollableFormSection = () => {
       <section className="min-w-full h-full flex flex-col py-4 px-[2px] gap-6">
         <NamedInput
           name="Business name"
+          placeholder="Medah Logistics"
           value={userDetail.companyName}
           onChange={(e) =>
             setUserDetail({ ...userDetail, companyName: e.target.value })
@@ -157,6 +167,7 @@ const ScrollableFormSection = () => {
         />
         <NamedInput
           name="City"
+          placeholder="Lagos"
           value={userDetail.city}
           onChange={(e) =>
             setUserDetail({ ...userDetail, city: e.target.value })
@@ -165,6 +176,7 @@ const ScrollableFormSection = () => {
         />
         <NamedInput
           name="Contact Person Name"
+          placeholder="John Doe"
           value={userDetail.contactPerson}
           onChange={(e) =>
             setUserDetail({ ...userDetail, contactPerson: e.target.value })
@@ -173,12 +185,14 @@ const ScrollableFormSection = () => {
         />
         <NamedInput
           name="Phone Number"
+          placeholder="+234 000 000 000"
           value={userDetail.phone}
           onChange={(e) =>
             setUserDetail({ ...userDetail, phone: e.target.value })
           }
           validationError={errors.phone}
         />
+        {globalError && <p className="text-red-500">{globalError}</p>}
         <LoginButton
           text={!loading ? "Create your account" : "Creating account..."}
           handleSubmit={handleSubmit}

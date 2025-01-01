@@ -9,6 +9,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import PendingContent from "./PendingContent";
+import Image from "next/image";
 
 const Pending = ({ data }: any) => {
   return (
@@ -277,18 +278,24 @@ const Pending = ({ data }: any) => {
             {/* Add more table headers as needed */}
           </TableRow>
         </TableHeader>
-        <TableBody>
-          {data.length > 0 ? (
-            data.map((order: any) => (
-              <PendingContent key={order._id} data={order} />
-            ))
-          ) : (
-            <div className="">
-              <p className="">No Pending Orders</p>
-            </div>
-          )}
-        </TableBody>
       </Table>
+      {data.length > 0 ? (
+        <TableBody>
+          {data.map((order: any) => (
+            <PendingContent key={order._id} data={order} />
+          ))}
+        </TableBody>
+      ) : (
+        <div className="w-full flex flex-col items-center justify-center my-10  border-red-800">
+          <Image
+            src="/images/pending2.png"
+            alt="Pending logo"
+            width={200}
+            height={200}
+          />
+          <p className="text-lg font-light">No Pending Orders</p>
+        </div>
+      )}
     </>
   );
 };

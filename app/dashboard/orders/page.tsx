@@ -156,7 +156,7 @@ const OrdersPage: React.FC = () => {
             <Pending data={orders} />
           </TabsContent>
           <TabsContent value="Completed">
-            <Completed />
+            <Completed data={orders} />
           </TabsContent>
           <TabsContent value="Cancelled">
             <Cancelled />
