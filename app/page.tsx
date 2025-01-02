@@ -24,7 +24,7 @@ export default function Home() {
         <Waitlist />
       </main>
       <ContactUsButton />
-      <OurBlogs showHeader />
+      {/* <OurBlogs showHeader /> */}
       <Footer />
     </section>
   );
