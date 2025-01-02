@@ -1,5 +1,5 @@
 import { ContactUsButton } from "@/components/buttons";
-import { Header } from '@/components/dispa8ch-ui';
+import { Header } from "@/components/dispa8ch-ui";
 import FaqSection from "./_components/FaqSection";
 import FeaturesSection from "./_components/FeaturesSection";
 import Footer from "./_components/Footer";
@@ -18,7 +18,7 @@ export default function Home() {
       <main>
         <FeaturesSection />
         <OffersSection />
-        <TeamSection />
+        {/* <TeamSection /> */}
         <FaqSection />
         <GetStartedSection />
         <Waitlist />
