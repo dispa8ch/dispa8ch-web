@@ -4,10 +4,13 @@ import { useEffect, useState } from "react";
 import CancelledOrders from "./CancelledOrders";
 import PendingOrders from "./PendingOrders";
 import RecentOrders from "./RecentOrders";
+import AssignOrder from "../orders/_component/AssignOrder";
 
 export default function Notifications({ overViewData }) {
   console.log("notview", overViewData.orders);
   const [latestOrder, setLatestOrder] = useState(null);
+  const [openAssignOrder, setOpenAssignOrder] = useState(false);
+  const [assignOrderId, setassignOrderId] = useState("");
 
   useEffect(() => {
     if (overViewData?.orders?.length > 0) {
@@ -34,7 +37,13 @@ export default function Notifications({ overViewData }) {
                 <p>$ {latestOrder?.orderDetails?.deliveryFees}</p>
               </div>
 
-              <div className="flex border gap-2 items-center px-3 py-1 rounded border-gray-400">
+              <div
+                className="flex border gap-2 items-center px-3 py-1 rounded border-gray-400 "
+                onClick={() => {
+                  setOpenAssignOrder(true),
+                    setassignOrderId(latestOrder.orderNumber);
+                }}
+              >
                 <div>
                   <svg
                     width="20"
@@ -154,6 +163,12 @@ export default function Notifications({ overViewData }) {
           {/* <CancelledOrders /> */}
         </>
       )}
+
+      <AssignOrder
+        open={openAssignOrder}
+        setOpen={setOpenAssignOrder}
+        assignOrderId={assignOrderId}
+      />
     </div>
   );
 }

@@ -7,6 +7,7 @@ import {
   MenuSquare,
   PlusCircle,
   SearchIcon,
+  TruckIcon,
 } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -162,6 +163,7 @@ const page = () => {
                   <TableCell>
                     {rider.vehicle === "Bike" ? <BikeIcon /> : null}
                     {rider.vehicle === "Car" ? <CarIcon /> : null}
+                    {rider.vehicle === "Truck" ? <TruckIcon /> : null}
                   </TableCell>
                   <TableCell>{rider.riderStatus}</TableCell>
                   <TableCell>

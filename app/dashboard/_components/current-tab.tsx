@@ -350,14 +350,15 @@ const CurrentTab = ({ data }: any) => {
             </TableCell>
           </TableRow>
         </TableHeader>
+        {data.length > 0 && (
+          <TableBody className="w-full border">
+            {data.map((order: any) => (
+              <CurrentOrder key={order._id} data={order} />
+            ))}
+          </TableBody>
+        )}
       </Table>
-      {data.length > 0 ? (
-        <TableBody className="w-full border">
-          {data.map((order: any) => (
-            <CurrentOrder key={order._id} data={order} />
-          ))}
-        </TableBody>
-      ) : (
+      {data.length == 0 && (
         <div className="w-full flex flex-col items-center justify-center my-10  border-red-800">
           <Image
             src="/images/pending2.png"

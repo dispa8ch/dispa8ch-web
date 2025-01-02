@@ -278,14 +278,15 @@ const Pending = ({ data }: any) => {
             {/* Add more table headers as needed */}
           </TableRow>
         </TableHeader>
+        {data.length > 0 && (
+          <TableBody>
+            {data.map((order: any) => (
+              <PendingContent key={order._id} data={order} />
+            ))}
+          </TableBody>
+        )}
       </Table>
-      {data.length > 0 ? (
-        <TableBody>
-          {data.map((order: any) => (
-            <PendingContent key={order._id} data={order} />
-          ))}
-        </TableBody>
-      ) : (
+      {data.length == 0 && (
         <div className="w-full flex flex-col items-center justify-center my-10  border-red-800">
           <Image
             src="/images/pending2.png"
@@ -293,7 +294,10 @@ const Pending = ({ data }: any) => {
             width={200}
             height={200}
           />
-          <p className="text-lg font-light">No Pending Orders</p>
+          <p className="text-lg font-light">
+            {" "}
+            You Currently Have No Pending Orders
+          </p>
         </div>
       )}
     </>
