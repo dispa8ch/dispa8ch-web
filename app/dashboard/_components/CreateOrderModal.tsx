@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { LocateFixedIcon } from "lucide-react";
 import Modal from "./Modal"; // Adjust the path as necessary
 import NamedInput from "./Inputs"; // Assuming this is your custom input component
@@ -7,6 +7,9 @@ import { useRouter } from "next/navigation";
 
 const CreateOrderModal = ({ open, setOpen, companyId }: any) => {
   const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [generalError, setGeneralError] = useState<string>("");
+
   const router = useRouter();
 
   const [orderDetails, setOrderDetails] = useState({
@@ -32,10 +35,20 @@ const CreateOrderModal = ({ open, setOpen, companyId }: any) => {
     companyId: companyId,
   });
 
-  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  // Auto-generate order ID when the modal opens
+  useEffect(() => {
+    if (open) {
+      const generatedId = `ORD-${Date.now()}-${Math.floor(
+        Math.random() * 1000
+      )}`;
+      setOrderDetails((prevDetails) => ({
+        ...prevDetails,
+        orderNumber: generatedId,
+      }));
+    }
+  }, [open]);
 
-  // Define a Zod schema for validation
-
+  // Validation function
   const validate = () => {
     const validation = orderSchema.safeParse(orderDetails);
     if (!validation.success) {
@@ -44,9 +57,14 @@ const CreateOrderModal = ({ open, setOpen, companyId }: any) => {
         newErrors[error.path[0]] = error.message;
       });
       setErrors(newErrors);
+      console.log("newErrors", newErrors);
+      setGeneralError(
+        `Please correct the errors highlighted below. ${newErrors}`
+      );
       return false;
     }
     setErrors({});
+    setGeneralError("");
     return true;
   };
 
@@ -64,10 +82,12 @@ const CreateOrderModal = ({ open, setOpen, companyId }: any) => {
       ...prevErrors,
       [name]: "",
     }));
+    setGeneralError(""); // Clear general error on input change
   };
 
   const handleSubmit = async () => {
-    console.log("submit details", orderDetails);
+    console.log("Submitting with values", orderDetails);
+    if (!validate()) return; // Stop submission if validation fails
 
     setLoading(true);
     try {
@@ -87,12 +107,13 @@ const CreateOrderModal = ({ open, setOpen, companyId }: any) => {
         router.push("/dashboard");
         setOpen(false);
       } else {
-        // alert(data.message || "Something went wrong. Please try again.");
-        console.log("error creeating order");
+        setGeneralError(
+          data.message || "Something went wrong. Please try again."
+        );
       }
     } catch (error) {
       console.error("Error submitting order:", error);
-      alert("Failed to submit the order. Please try again.");
+      setGeneralError("Failed to submit the order. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -107,6 +128,11 @@ const CreateOrderModal = ({ open, setOpen, companyId }: any) => {
         height="600px"
       >
         <h2 className="text-center font-bold text-3xl mb-4">New Order</h2>
+        {generalError && (
+          <div className="bg-red-100 text-red-700 p-3 rounded mb-4">
+            {generalError}
+          </div>
+        )}
         <div className="flex gap-4">
           <div className="border-r pr-4 w-1/2">
             <NamedInput
@@ -116,9 +142,10 @@ const CreateOrderModal = ({ open, setOpen, companyId }: any) => {
               onChange={handleChange}
               placeholder="Enter your order number"
               className="mb-3"
-              validationError={errors.orderNumber} // Display validationvalidationError
+              validationError={errors.orderNumber} // Display validation error
+              disabled // Disable editing the auto-generated ID
             />
-
+            {/* Rest of the inputs */}
             <h6 className="font-semibold text-xl my-4">Pick-up Form</h6>
             <div className="flex flex-col gap-4">
               <NamedInput
@@ -222,7 +249,7 @@ const CreateOrderModal = ({ open, setOpen, companyId }: any) => {
               </div>
             </div>
           </div>
-
+          {/* Continue rendering inputs as before */}
           <div className="w-1/2">
             <h6 className="font-semibold text-xl mb-4">
               Order Details (Optional)
@@ -311,7 +338,7 @@ const CreateOrderModal = ({ open, setOpen, companyId }: any) => {
         </div>
         <div className="flex justify-end mt-4">
           <button
-            className="px-6 py-3  bg-dispa8chRed-10 hover:bg-dispa8chRed-10 text-white rounded-lg transition"
+            className="px-6 py-3 bg-dispa8chRed-10 hover:bg-dispa8chRed-10 text-white rounded-lg transition"
             onClick={handleSubmit}
             disabled={loading}
           >

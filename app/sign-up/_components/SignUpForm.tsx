@@ -11,7 +11,7 @@ import ScrollableFormSection from "./ScrollableFormSection";
  */
 const SignUpForm = () => {
   const formRef = useRef<HTMLFormElement>();
-  
+
   let left = 0;
   const [display, setDisplay] = useState(true);
   const scrollForm = (pos: "left" | "right") => {
@@ -29,38 +29,38 @@ const SignUpForm = () => {
   };
 
   return (
-    <section className='w-fit flex-grow max-w-xl max-h-[560px] bg-white flex flex-col shadow-base rounded-xl py-10 px-10 sm:max-h-none lg:px-16 '>
-      <h1 className='font-Inter_Black text-[25px] '>Create your Account</h1>
+    <section className="w-fit flex-grow max-w-xl max-h-[560px] bg-white flex flex-col shadow-base rounded-xl py-10 px-10 sm:max-h-none lg:px-16 ">
+      <h1 className="font-Inter_Black text-[25px] ">Create your Account</h1>
       <form
         ref={formRef as any}
-        className='w-full mt-6 flex-grow flex overflow-x-hidden '
+        className="w-full mt-6 flex-grow flex overflow-x-hidden h-fit"
       >
         <ScrollableFormSection />
       </form>
-      <section className='w-full h-fit mt-auto text-dispa8chRed-500 font-Inter_Bold flex items-center justify-between'>
+      <section className="w-full h-fit mt-auto text-dispa8chRed-500 font-Inter_Bold flex items-center justify-between">
         {/* Back */}
         <div
-          className={`w-fit-h-fit flex fade ${
+          className={`w-fit h-fit flex fade ${
             !display ? "opacity-100" : "opacity-0"
           } item-center gap-3`}
         >
           <button
-            className='border-none focus:outline-none'
+            className="border-none focus:outline-none"
             onClick={scrollForm("left")}
           >
             Back
           </button>
-          <ArrowLongLeftIcon color='#7E7E7E' width={32} height={31} />
+          <ArrowLongLeftIcon color="#7E7E7E" width={32} height={31} />
         </div>
         {/* Next */}
         <div
-          className={`w-fit-h-fit flex fade ${
+          className={`w-fit h-fit flex fade ${
             display ? "opacity-100" : "opacity-0"
           } flex ml-auto item-center gap-3`}
         >
-          <ArrowLongRightIcon color='#7E7E7E' width={32} height={31} />
+          <ArrowLongRightIcon color="#7E7E7E" width={32} height={31} />
           <button
-            className='border-none focus:outline-none'
+            className="border-none focus:outline-none"
             onClick={scrollForm("right")}
           >
             Next

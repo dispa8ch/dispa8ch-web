@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, ChangeEvent } from "react";
+import React, { useState, useEffect } from "react";
 
 interface Country {
   name: {
@@ -13,89 +13,81 @@ interface Country {
 }
 
 const CountrySelect = ({ setUserDetail, userDetail }: any) => {
-  const [searchTerm, setSearchTerm] = useState<string>(""); // To store user input
-  const [countries, setCountries] = useState<Country[]>([]); // To store all fetched countries
-  const [filteredCountries, setFilteredCountries] = useState<Country[]>([]); // To store filtered results
-  const [showDropdown, setShowDropdown] = useState<boolean>(false); // Toggle for dropdown visibility
+  const [searchTerm, setSearchTerm] = useState<string>(""); // Search input
+  const [countries, setCountries] = useState<Country[]>([]); // List of all countries
+  const [showDropdown, setShowDropdown] = useState<boolean>(false); // Dropdown visibility
 
-  // Fetch the country data from the API when the component mounts
+  // Fetch countries on component mount
   useEffect(() => {
     const fetchCountries = async () => {
       try {
         const response = await fetch(
-          "https://restcountries.com/v3.1/all?fields=name,flags"
-        ); // Fetch country data
-        console.log("Contries Returned", response);
+          "https://restcountries.com/v3.1/all?fields=name,flags,cca2"
+        );
         const data: Country[] = await response.json();
-        console.log("Contries Data", data);
-        setCountries(data); // Save the countries in state
+        setCountries(data);
       } catch (error) {
-        console.error("Error fetching country data:", error);
+        console.error("Error fetching countries:", error);
       }
     };
 
     fetchCountries();
   }, []);
 
-  // Filter countries based on the search term
-  useEffect(() => {
-    if (searchTerm) {
-      const filtered = countries.filter((country) =>
+  // Filter countries based on search term
+  const filteredCountries = searchTerm
+    ? countries.filter((country) =>
         country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      setFilteredCountries(filtered);
-      setShowDropdown(true); // Show dropdown when there's a search term
-    } else {
-      setShowDropdown(false); // Hide dropdown when the input is empty
-    }
-  }, [searchTerm, countries]);
+      )
+    : [];
 
-  // Handle input change and update search term
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+  // Handle input change
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
+    setShowDropdown(true); // Show dropdown when typing
   };
 
   // Handle country selection
   const handleCountrySelect = (countryName: string) => {
-    setUserDetail({ ...userDetail, country: countryName });
-    setSearchTerm(countryName); // Set the input to the selected country
-    setShowDropdown(false); // Close the dropdown after selection
+    setSearchTerm(countryName); // Update input with selected country
+    setUserDetail({ ...userDetail, country: countryName }); // Update user detail
+    setShowDropdown(false); // Close dropdown
   };
 
   return (
-    <div className="w-full flex items-center justify-between h-fit relative font-Inter text-[#ccc]">
+    <div className="w-full relative">
       <input
-        name="country"
-        placeholder="Select your country"
         type="text"
-        value={searchTerm} // Bind input value to searchTerm
-        onChange={handleInputChange} // Update search term on input change
-        className={`w-full h-12 rounded-lg font-Inter_Bold shadow-input border border-[#ccc] pl-5 text-feintBlack focus:outline-none`}
+        value={searchTerm}
+        placeholder="Select your country"
+        onChange={handleInputChange}
+        onFocus={() => setShowDropdown(true)} // Show dropdown on input focus
+        className="w-full h-12 border border-gray-300 rounded-lg px-4 focus:outline-none"
       />
-      <p className="w-fit h-fit bg-white text-black font-semibold py-1 px-2 text-sm absolute top-[-30%] left-5">
+      <p className="absolute top-[-30%] left-4 bg-white px-2 text-sm text-gray-600">
         Country
       </p>
 
-      {/* Dropdown with filtered country results */}
+      {/* Dropdown */}
       {showDropdown && (
-        <ul className="absolute z-10 top-full left-0 w-full bg-white border border-[#ccc] max-h-32 overflow-y-scroll  rounded-lg shadow-lg">
+        <ul className="absolute top-full left-0 w-full bg-white border border-gray-300 max-h-40 overflow-y-auto overflow-y-scroll scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-gray-300 rounded-lg shadow-md z-10">
           {filteredCountries.length > 0 ? (
-            filteredCountries.map((country, index) => (
+            filteredCountries.map((country) => (
               <li
-                key={index}
+                key={country.cca2}
                 onClick={() => handleCountrySelect(country.name.common)}
                 className="cursor-pointer p-2 flex items-center hover:bg-gray-100"
               >
                 <img
-                  src={country.flags.svg} // Display flag image
-                  alt={`${country.name.common} flag`}
+                  src={country.flags.svg}
+                  alt={country.name.common}
                   className="w-6 h-4 mr-2"
                 />
                 {country.name.common} ({country.cca2})
               </li>
             ))
           ) : (
-            <li className="p-2">No countries found</li>
+            <li className="p-2 text-gray-500">No countries found</li>
           )}
         </ul>
       )}

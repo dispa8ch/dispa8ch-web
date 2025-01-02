@@ -7,7 +7,8 @@ import AssignOrder from "../orders/_component/AssignOrder";
 
 const CurrentOrder = ({ data }: any) => {
   const [openAssignOrder, setOpenAssignOrder] = useState(false);
-  const [assignOrderId, setassignOrderId] = useState("");
+  // const [orderNumber, setorderNumber] = useState("");
+  const [orderId, setOrderId] = useState("");
 
   const { deliveryTo, orderDetails, orderNumber, orderStatus, pickupForm } =
     data;
@@ -66,7 +67,8 @@ const CurrentOrder = ({ data }: any) => {
           className="flex items-center gap-2 px-2 py-1 border rounded border-gray-400"
           onClick={() => {
             setOpenAssignOrder(true);
-            setassignOrderId(orderNumber);
+            // setassignOrderId(orderNumber);
+            setOrderId(data._id);
           }}
         >
           <svg
@@ -90,7 +92,8 @@ const CurrentOrder = ({ data }: any) => {
       <AssignOrder
         open={openAssignOrder}
         setOpen={setOpenAssignOrder}
-        assignOrderId={assignOrderId}
+        orderNumber={orderNumber}
+        orderId={orderId}
       />
     </TableRow>
   );

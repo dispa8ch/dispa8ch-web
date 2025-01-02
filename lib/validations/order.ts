@@ -16,9 +16,9 @@ export const orderSchema = z.object({
     pickupTime: z.string().optional(),
     deliveryDate: z.string().optional(),
     deliveryTime: z.string().optional(),
-    itemQuantity: z.number().optional(),
-    taxRate: z.number().optional(),
-    deliveryFees: z.number().optional(),
-    discount: z.number().optional(),
+    itemQuantity: z.string().optional(),
+    taxRate: z.string().optional(),
+    deliveryFees: z.string().optional(),
+    discount: z.string().optional(),
     deliveryInstruction: z.string().optional(),
 });
