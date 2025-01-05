@@ -19,7 +19,7 @@ const NotificationsSettingsSwitch = React.forwardRef<
   >
     <SwitchPrimitives.Thumb
       className={cn(
-        "pointer-events-none block h-[45px] w-[45px] rounded-full bg-dispa8chRed-500 shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-[50px] data-[state=unchecked]:translate-x-0 dark:bg-stone-950"
+        "pointer-events-none block h-[45px] w-[45px] rounded-full data-[state=checked]:bg-dispa8chRed-500 data-[state=unchecked]:bg-dispa8chGray-100 shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-[50px] data-[state=unchecked]:translate-x-0 dark:bg-stone-950"
       )}
     />
   </SwitchPrimitives.Root>
