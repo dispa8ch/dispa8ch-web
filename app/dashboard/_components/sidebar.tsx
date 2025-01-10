@@ -29,8 +29,8 @@ const sidebarLinks: Array<{
     icon: RiderIcon,
   },
   {
-    link: "/dashboard/maps",
-    name: "Maps",
+    link: "/dashboard/map",
+    name: "Map",
     icon: RiderRouteIcon,
   },
   {
