@@ -18,23 +18,23 @@ export default function RootLayout({
 }) {
   const twitter_img = `https://dispa8ch.vercel.app${TwitterImage.src}`;
   return (
-    <Theme dataTheme="light" lang='en'>
-
+    <Theme dataTheme="light" lang="en">
       <head>
-        <meta name='twitter:card' content='summary' />
-        <meta name='twitter:image' content={twitter_img} />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:image" content={twitter_img} />
         <meta
-          name='twitter:description'
+          name="twitter:description"
           content=' "Dispa8ch.io is a SaaS platform that helps facilitates the process of logistics businesses by providing services like package tracking and route optimization'
         />
-        <meta name='twitter:title' content='Dispa8ch.io' />
-        <link rel='shortcut icon' href={Favicon.src} type='image/png' />
+        <meta name="twitter:title" content="Dispa8ch.io" />
+        <link rel="shortcut icon" href={Favicon.src} type="image/png" />
       </head>
-      <body className={"bg-white dark:bg-[#171717] transition-colors duration-500 no-scroll  "}>
-      <CompanyProvider>
-
-        {children}
-      </CompanyProvider>
+      <body
+        className={
+          "bg-white dark:bg-[#171717] transition-colors duration-500 no-scroll h-full  "
+        }
+      >
+        <CompanyProvider>{children}</CompanyProvider>
       </body>
     </Theme>
   );

@@ -39,7 +39,7 @@ type HeaderProps = {
   emailAddress: string;
 };
 
-const Header: React.FC<HeaderProps> = () => {
+const Header = () => {
   const { companyData, isLoading, error } = useCompany();
 
   if (isLoading) return <p></p>;
@@ -51,14 +51,14 @@ const Header: React.FC<HeaderProps> = () => {
   }
 
   return (
-    <header className="w-full h-fit p-3 font-Inter z-10 bg-white border-b border-b-gray-300 flex items-center gap-4">
-      <section className="fit column gap-1">
+    <header className="z-10 flex items-center w-full gap-4 p-3 bg-white border-b h-fit font-Inter border-b-gray-300">
+      <section className="gap-1 fit column">
         <h2 className="text-[#171717] text-lg font-Inter_Bold">
           {companyData.companyName}
         </h2>
-        <p className="text-gray-400 text-xs">Powered by Dispa8ch</p>
+        <p className="text-xs text-gray-400">Powered by Dispa8ch</p>
       </section>
-      <section className="fit ml-auto text-sm flex items-center gap-4">
+      <section className="flex items-center gap-4 ml-auto text-sm fit">
         {menubuttons.map(({ icon: Icon, name, link }, i) => (
           <Link
             href={link}
@@ -69,9 +69,9 @@ const Header: React.FC<HeaderProps> = () => {
               width={24}
               height={24}
               strokeWidth={2.4}
-              className="stroke-inherit fill-inherit transition-all duration-500"
+              className="transition-all duration-500 stroke-inherit fill-inherit"
             />
-            <p className="text-inherit font-Inter_Medium transition-all duration-500">
+            <p className="transition-all duration-500 text-inherit font-Inter_Medium">
               {name}
             </p>
           </Link>
@@ -83,16 +83,16 @@ const Header: React.FC<HeaderProps> = () => {
                 width={24}
                 height={24}
                 strokeWidth={2.4}
-                className="stroke-inherit fill-inherit transition-all duration-500"
+                className="transition-all duration-500 stroke-inherit fill-inherit"
               />
-              <p className="text-inherit font-Inter_Medium transition-all duration-500">
+              <p className="transition-all duration-500 text-inherit font-Inter_Medium">
                 Support
               </p>
             </button>
           }
           sender={companyData.companyName}
         />
-        <section className="w-fit h-fit font-Graphik relative">
+        <section className="relative w-fit h-fit font-Graphik">
           <AccountPopOver
             companyData={companyData}
             emailAddress={companyData.email}

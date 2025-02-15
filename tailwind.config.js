@@ -11,6 +11,7 @@ module.exports = {
     current: "currentColor",
     extend: {
       fontFamily: {
+        Poppins: ["var(--font-poppins)"],
         Inter: ["Inter"],
         Inter_Light: ["Inter_Light"],
         Inter_Medium: ["Inter_Medium"],
@@ -145,5 +146,7 @@ module.exports = {
       },
     },
   },
+
   plugins: [require("tailwindcss-animate"), require("tailwind-scrollbar")],
+
 };
