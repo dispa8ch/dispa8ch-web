@@ -402,8 +402,6 @@
   }
 }
 
-/* hide the number input arrow buttons */
-
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -412,4 +410,36 @@ input::-webkit-inner-spin-button {
 
 input[type="number"] {
   -moz-appearance: textfield;
+=======
+/* styles.css or globals.css */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.chat-dm-bg {
+  /* global 94%+ browsers support */
+  background: linear-gradient(
+    125deg,
+    rgba(255, 255, 0, 1) 0%,
+    rgba(255, 162, 0, 1) 0%,
+    rgba(255, 59, 0, 1) 65%,
+    rgba(255, 59, 0, 1) 80%
+  );
+}
+
+.chat-dm-top {
+  /* global 94%+ browsers support */
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 0, 1) 0%,
+    rgba(255, 162, 0, 1) 0%,
+    rgba(255, 59, 0, 1) 65%,
+    rgba(255, 59, 0, 1) 80%
+  );
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
 }

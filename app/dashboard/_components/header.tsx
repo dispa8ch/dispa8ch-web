@@ -25,7 +25,7 @@ const menubuttons = [
   },
   {
     name: "Chatbox",
-    link: "/dashboard/chat",
+    link: "/chat",
     icon: MessageCircleMore,
   },
 ] as const;

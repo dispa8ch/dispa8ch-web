@@ -1,9 +1,11 @@
+"use client";
+
 import React from "react";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 
 const mapContainerStyle = {
   width: "100%",
-  height: "400px", // Set your desired height
+  height: "100%", // Set your desired height
 };
 
 const center = {
@@ -13,7 +15,7 @@ const center = {
 
 const GoogleMapComponent = () => {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!, // Use your API key here
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY, // Use your API key here
   });
 
   if (loadError) return <div>Error loading maps</div>;

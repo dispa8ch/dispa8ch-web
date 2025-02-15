@@ -224,7 +224,19 @@ const DriverModal = ({ open, setOpen }: any) => {
                   <FormItem>
                     <FormLabel>Vehicle</FormLabel>
                     <FormControl>
-                      <Input placeholder="Motorbike" {...field} />
+                      <Select
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      >
+                        <SelectTrigger className="w-[200px]">
+                          <SelectValue placeholder="Bike" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="Bike">Bike</SelectItem>
+                          <SelectItem value="Car">Car</SelectItem>
+                          <SelectItem value="Truck">Truck</SelectItem>
+                        </SelectContent>
+                      </Select>
                     </FormControl>
                     <FormMessage className="text-[10px]" />
                   </FormItem>

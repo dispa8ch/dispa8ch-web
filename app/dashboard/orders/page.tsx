@@ -49,6 +49,7 @@ const OrdersPage: React.FC = () => {
           const result = await response.json();
 
           if (response.ok && result.success) {
+            console.log("order", result.data);
             setOrders(result.data);
           } else {
             setOrdersError(result.message || "Failed to fetch orders.");
@@ -156,13 +157,13 @@ const OrdersPage: React.FC = () => {
             <Pending data={orders} />
           </TabsContent>
           <TabsContent value="Completed">
-            <Completed />
+            <Completed data={orders} />
           </TabsContent>
           <TabsContent value="Cancelled">
-            <Cancelled />
+            <Cancelled data={orders} />
           </TabsContent>
           <TabsContent value="History">
-            <History />
+            <History data={orders} />
           </TabsContent>
         </section>
       </Tabs>

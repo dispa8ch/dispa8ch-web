@@ -35,7 +35,7 @@ export const CompanyProvider: React.FC<{ children: React.ReactNode }> = ({
       const companyData = JSON.parse(
         localStorage.getItem("companyData") || "{}"
       );
-      const companyId = companyData?._id || null;
+      const companyId = companyData?._id || companyData?.id || null;
       if (!companyId) {
         setError("Company ID not found in local storage.");
         setIsLoading(false);

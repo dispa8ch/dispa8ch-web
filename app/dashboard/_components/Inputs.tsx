@@ -16,7 +16,7 @@ const NamedInput = (props?: NamedInputProps) => {
         placeholder={placeholder}
         type={type || "text"}
         onChange={props?.onChange}
-        className={`w-full p-2 text-sm rounded-lg font-Inter_Bold shadow-input border border-[#ccc] pl-5 text-feintBlack focus:outline-none ${
+        className={`w-full p-2 text-sm text-black rounded-lg shadow-input border border-[#ccc] pl-5 text-feintBlack focus:outline-none ${
           cName || ""
         } `}
       />

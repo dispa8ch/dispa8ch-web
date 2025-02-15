@@ -42,7 +42,7 @@ const PendingContent = ({ data }: any) => {
         <p className="text-sm font-semibold">C</p>
       </TableCell>
       <TableCell>
-        <p className="text-sm font-semibold">Pending</p>
+        <p className="text-sm font-semibold">{data.orderStatus}</p>
       </TableCell>
     </TableRow>
   );

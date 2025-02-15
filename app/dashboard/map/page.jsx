@@ -3,7 +3,7 @@ import GoogleMapComponent from "../../../components/GoogleMaps";
 
 const pag = () => {
   return (
-    <div>
+    <div className="w-full h-screen">
       <GoogleMapComponent />
     </div>
   );

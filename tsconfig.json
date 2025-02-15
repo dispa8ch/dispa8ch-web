@@ -25,6 +25,6 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/dashboard/_components/Notifications.jsx", "app/dashboard/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/dashboard/_components/Notifications.jsx", "app/dashboard/page.jsx", "app/chat/layout.jsx"],
   "exclude": ["node_modules", "node_modules/typescript",]
 }

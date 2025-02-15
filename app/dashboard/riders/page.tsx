@@ -7,6 +7,7 @@ import {
   MenuSquare,
   PlusCircle,
   SearchIcon,
+  TruckIcon,
 } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -162,6 +163,7 @@ const page = () => {
                   <TableCell>
                     {rider.vehicle === "Bike" ? <BikeIcon /> : null}
                     {rider.vehicle === "Car" ? <CarIcon /> : null}
+                    {rider.vehicle === "Truck" ? <TruckIcon /> : null}
                   </TableCell>
                   <TableCell>{rider.riderStatus}</TableCell>
                   <TableCell>
@@ -185,22 +187,24 @@ const page = () => {
                 <TableHead className="">Payment Due</TableHead>
               </TableRow>
             </TableHeader>
-            <TableBody>
-              {/* Sample daily payment row, you can adapt as needed */}
-              <TableRow>
-                <TableCell className="font-medium flex items-center gap-2 ">
-                  <div className="rounded-full w-10 h-10 bg-slate-700 text-white flex items-center justify-center">
-                    EM
-                  </div>{" "}
-                  <p>Emmanuel</p>
-                </TableCell>
-                <TableCell>+2348163810804</TableCell>
-                <TableCell>16</TableCell>
-                <TableCell className="">N/A</TableCell>
-                <TableCell className="">0</TableCell>
-                <TableCell className="">N/A</TableCell>
-              </TableRow>
-            </TableBody>
+            {riders.map((rider) => (
+              <TableBody key={rider._id}>
+                {/* Sample daily payment row, you can adapt as needed */}
+                <TableRow>
+                  <TableCell className="font-medium flex items-center gap-2 ">
+                    <div className="rounded-full w-10 h-10 bg-slate-700 text-white flex items-center justify-center">
+                      {getInitials(rider.fullName)}
+                    </div>{" "}
+                    <p>{rider.fullName}</p>
+                  </TableCell>
+                  <TableCell>{rider.phone}</TableCell>
+                  <TableCell>0</TableCell>
+                  <TableCell className="">N/A</TableCell>
+                  <TableCell className="">0</TableCell>
+                  <TableCell className="">N/A</TableCell>
+                </TableRow>
+              </TableBody>
+            ))}
           </Table>
         </TabsContent>
       </Tabs>

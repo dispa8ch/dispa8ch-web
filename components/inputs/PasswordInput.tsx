@@ -6,7 +6,13 @@ import { useState } from "react";
 type PasswordInputProps = NamedInputProps;
 
 const PasswordInput = (props?: PasswordInputProps) => {
-  const { name, value, className: cName, validationError } = props || {};
+  const {
+    name,
+    value,
+    className: cName,
+    validationError,
+    placeholder,
+  } = props || {};
   const [visible, setVisible] = useState(false);
   function changeVisibility() {
     setVisible(!visible);
@@ -18,12 +24,13 @@ const PasswordInput = (props?: PasswordInputProps) => {
         name={lowercase(name!)}
         type={visible ? "text" : "password"}
         value={value}
+        placeholder={placeholder}
         onChange={props?.onChange}
         className={`w-full h-12 rounded-lg font-Inter_Bold shadow-input border border-[#ccc] pl-5 text-feintBlack focus:outline-none ${
           cName || ""
         } `}
       />
-      <p className="w-fit h-fit bg-white py-1 px-2 text-sm absolute top-[-30%] left-5 ">
+      <p className="w-fit h-fit bg-white text-black font-semibold py-1 px-2 text-sm absolute top-[-30%] left-5 ">
         {name}
       </p>
       {validationError && (
