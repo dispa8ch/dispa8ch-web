@@ -45,7 +45,7 @@ const Sidebar = () => {
     <aside className="w-[50px] box-content h-screen relative z-[5] bg-transparent column gap-8 ptt-3 items-center font-Inter_Medium px-3 border-r border-r-gray-300 transition-[width] duration-700 group hover:w-[170px] ">
       <section>
         <Link
-          href={"/"}
+          href={"/dashboard"}
           className="fit block py-1 px-3 border-2 border-dispa8chRed-300 rounded-md"
         >
           <Dispa8chLogoMobile size={0.68} />

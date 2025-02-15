@@ -4,6 +4,13 @@ import Modal from "./Modal"; // Adjust the path as necessary
 import NamedInput from "./Inputs"; // Assuming this is your custom input component
 import { orderSchema } from "@/lib/validations/order";
 import { useRouter } from "next/navigation";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const CreateOrderModal = ({ open, setOpen, companyId }: any) => {
   const [loading, setLoading] = useState(false);
@@ -26,19 +33,21 @@ const CreateOrderModal = ({ open, setOpen, companyId }: any) => {
     deliveryTime: "",
     itemPrice: "",
     itemName: "",
-    itemQuantity: 0,
-    taxRate: 0,
-    deliveryFees: 0,
-    discount: 0,
+    itemQuantity: '0',
+    taxRate: '0',
+    deliveryFees: '0',
+    discount: '0',
     deliveryInstruction: "",
     paymentType: "",
     companyId: companyId,
   });
 
+  const companyName = "TechCorp";
   // Auto-generate order ID when the modal opens
   useEffect(() => {
     if (open) {
-      const generatedId = `ORD-${Date.now()}-${Math.floor(
+      const prefix = companyName.substring(0, 3).toUpperCase();
+      const generatedId = `${prefix}-${Date.now()}-${Math.floor(
         Math.random() * 1000
       )}`;
       setOrderDetails((prevDetails) => ({
@@ -58,9 +67,7 @@ const CreateOrderModal = ({ open, setOpen, companyId }: any) => {
       });
       setErrors(newErrors);
       console.log("newErrors", newErrors);
-      setGeneralError(
-        `Please correct the errors highlighted below. ${newErrors}`
-      );
+      setGeneralError(`Please correct the errors highlighted below.`);
       return false;
     }
     setErrors({});
@@ -70,19 +77,27 @@ const CreateOrderModal = ({ open, setOpen, companyId }: any) => {
 
   const handleChange = (
     e: React.ChangeEvent<
-      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
     >
   ) => {
     const { name, value } = e.target;
-    setOrderDetails((prevDetails) => ({
-      ...prevDetails,
-      [name]: value,
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
+
+    // Ensure numbers are properly formatted if needed
+    if (["itemPrice", "taxRate", "deliveryFees", "discount"].includes(name)) {
+      const rawValue = value.replace(/,/g, "");
+      if (!/^\d*\.?\d*$/.test(rawValue)) return; // Allow only numbers & decimal
+      setOrderDetails((prev) => ({ ...prev, [name]: rawValue }));
+    } else {
+      setOrderDetails((prev) => ({ ...prev, [name]: value }));
+    }
+  };
+
+  const handleSelectChange = (value: string) => {
+    setOrderDetails((prev) => ({
+      ...prev,
+      paymentType: value, // Ensure 'paymentType' matches your state key
     }));
-    setErrors((prevErrors) => ({
-      ...prevErrors,
-      [name]: "",
-    }));
-    setGeneralError(""); // Clear general error on input change
   };
 
   const handleSubmit = async () => {
@@ -101,6 +116,8 @@ const CreateOrderModal = ({ open, setOpen, companyId }: any) => {
           body: JSON.stringify(orderDetails),
         }
       );
+
+      if (!response.ok) throw new Error("Failed to submit order");
 
       const data = await response.json();
       if (data.success) {
@@ -127,7 +144,8 @@ const CreateOrderModal = ({ open, setOpen, companyId }: any) => {
         width="800px"
         height="600px"
       >
-        <h2 className="text-center font-bold text-3xl mb-4">New Order</h2>
+        <h2 className="text-center font-bold text-3xl mb-4">New Order </h2>
+        <h6 className="text-xs">{orderDetails.orderNumber}</h6>
         {generalError && (
           <div className="bg-red-100 text-red-700 p-3 rounded mb-4">
             {generalError}
@@ -135,16 +153,6 @@ const CreateOrderModal = ({ open, setOpen, companyId }: any) => {
         )}
         <div className="flex gap-4">
           <div className="border-r pr-4 w-1/2">
-            <NamedInput
-              name="orderNumber"
-              type="text"
-              value={orderDetails.orderNumber}
-              onChange={handleChange}
-              placeholder="Enter your order number"
-              className="mb-3"
-              validationError={errors.orderNumber} // Display validation error
-              disabled // Disable editing the auto-generated ID
-            />
             {/* Rest of the inputs */}
             <h6 className="font-semibold text-xl my-4">Pick-up Form</h6>
             <div className="flex flex-col gap-4">
@@ -159,7 +167,7 @@ const CreateOrderModal = ({ open, setOpen, companyId }: any) => {
               <NamedInput
                 name="phone"
                 type="phone"
-                placeholder="000 000 0000"
+                placeholder="000 0000 0000"
                 value={orderDetails.phone}
                 onChange={handleChange}
                 validationError={errors.phone} // Display validationvalidationError
@@ -256,18 +264,18 @@ const CreateOrderModal = ({ open, setOpen, companyId }: any) => {
             </h6>
             <div>
               <h5 className="font-semibold mb-2">Items:</h5>
-              <div className="flex gap-2 mb-4">
+              <div className="flex gap-1 flex-col w-full gap- mb-4">
                 <input
                   type="text"
                   name="itemName"
                   placeholder="Name"
-                  className="w-2/5 outline-none border p-2 rounded"
+                  className="w-2/5 outline-none border p-2 rounded w-full"
                   value={orderDetails.itemName}
                   onChange={handleChange}
                   style={{ borderColor: errors.itemName ? "red" : "" }} // Inline error style
                 />
                 {errors.itemName && (
-                  <span className="text-red-500 text-sm">
+                  <span className="text-red-500 text-xs mb-4">
                     {errors.itemName}
                   </span>
                 )}
@@ -275,13 +283,12 @@ const CreateOrderModal = ({ open, setOpen, companyId }: any) => {
                   type="text"
                   name="itemPrice"
                   placeholder="Price"
-                  className="w-2/5 outline-none border p-2 rounded"
-                  value={orderDetails.itemPrice}
+                  className=" outline-none border p-2 rounded w-full"
+                  value={Number(orderDetails.itemPrice).toLocaleString()} // Ensure display is formatted
                   onChange={handleChange}
-                  style={{ borderColor: errors.itemPrice ? "red" : "" }} // Inline error style
                 />
                 {errors.itemPrice && (
-                  <span className="text-red-500 text-sm">
+                  <span className="text-red-500 text-xs mb-2">
                     {errors.itemPrice}
                   </span>
                 )}
@@ -296,7 +303,7 @@ const CreateOrderModal = ({ open, setOpen, companyId }: any) => {
               </div>
 
               <h5 className="font-semibold mb-2">Order Summary:</h5>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-5">
                 <NamedInput
                   name="taxRate"
                   type="number"
@@ -325,13 +332,25 @@ const CreateOrderModal = ({ open, setOpen, companyId }: any) => {
                   value={orderDetails.deliveryInstruction}
                   onChange={handleChange}
                 />
-                <NamedInput
+                <select
                   name="paymentType"
-                  type="text"
-                  placeholder="Payment type"
                   value={orderDetails.paymentType}
                   onChange={handleChange}
-                />
+                  className="border p-2 rounded w-[200px] outline-none appearance-none bg-white hover:bg-gray-200"
+                >
+                  <option value="" disabled className="text-slate-500">
+                    Select Payment Type
+                  </option>
+                  <option className="hover:bg-gray-300" value="Credit Card">
+                    Credit Card
+                  </option>
+                  <option className="hover:bg-gray-300" value="Bank transfer">
+                    Bank transfer
+                  </option>
+                  <option className="hover:bg-gray-300" value="Pay on Delivery">
+                    Pay on Delivery
+                  </option>
+                </select>
               </div>
             </div>
           </div>
